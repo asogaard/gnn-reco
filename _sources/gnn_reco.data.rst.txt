@@ -28,14 +28,6 @@ gnn\_reco.data.sqlite\_dataconverter module
    :undoc-members:
    :show-inheritance:
 
-gnn\_reco.data.utils module
----------------------------
-
-.. automodule:: gnn_reco.data.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 
