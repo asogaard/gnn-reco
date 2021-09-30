@@ -42,6 +42,7 @@
 <li><a class="reference internal" href="#module-gnn_reco.data.dataconverter">gnn_reco.data.dataconverter module</a></li>
 <li><a class="reference internal" href="#module-gnn_reco.data.i3extractor">gnn_reco.data.i3extractor module</a></li>
 <li><a class="reference internal" href="#module-gnn_reco.data.sqlite_dataconverter">gnn_reco.data.sqlite_dataconverter module</a></li>
+<li><a class="reference internal" href="#module-gnn_reco.data.utils">gnn_reco.data.utils module</a></li>
 <li><a class="reference internal" href="#module-gnn_reco.data">Module contents</a></li>
 </ul>
 </li>
@@ -80,13 +81,9 @@
 <span id="gnn-reco-data-dataconverter-module"></span><h2>gnn_reco.data.dataconverter module<a class="headerlink" href="#module-gnn_reco.data.dataconverter" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="gnn_reco.data.dataconverter.DataConverter">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gnn_reco.data.dataconverter.</span></span><span class="sig-name descname"><span class="pre">DataConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bases</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespace</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/dataconverter.html#DataConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.dataconverter.DataConverter" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABCMeta</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="gnn_reco.data.dataconverter.DataConverter.process_file">
-<span class="sig-name descname"><span class="pre">process_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i3_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/dataconverter.html#DataConverter.process_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.dataconverter.DataConverter.process_file" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gnn_reco.data.dataconverter.</span></span><span class="sig-name descname"><span class="pre">DataConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_rescue</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/dataconverter.html#DataConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.dataconverter.DataConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Abstract base class for specialised (SQLite, numpy, etc.) data converter classes.</p>
 </dd></dl>
 
 </section>
@@ -357,23 +354,27 @@ retros (dict): retros dictionary, empty if no RetroReco exists in the files.</p>
 <span id="gnn-reco-data-sqlite-dataconverter-module"></span><h2>gnn_reco.data.sqlite_dataconverter module<a class="headerlink" href="#module-gnn_reco.data.sqlite_dataconverter" title="Permalink to this headline"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">SQLiteDataConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_rescue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_dictionary_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">SQLiteDataConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_rescue</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_dictionary_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#gnn_reco.data.dataconverter.DataConverter" title="gnn_reco.data.dataconverter.DataConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">gnn_reco.data.dataconverter.DataConverter</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_rescue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_dictionary_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter.__init__" title="Permalink to this definition"></a></dt>
-<dd><p>Converts the i3-files in paths to several temporary sqlite databases in parallel, that are then merged to a single sqlite database</p>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_rescue</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_dictionary_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter.__init__" title="Permalink to this definition"></a></dt>
+<dd><p>Implementation of DataConverter for saving to SQLite database.</p>
+<p>Converts the i3-files in paths to several temporary SQLite databases in
+parallel, that are then merged to a single SQLite database</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>paths</strong> (<em>list</em>) – list of directories containing i3 files. IceCube directory structure assumed.</p></li>
+<li><p><strong>outdir</strong> (<em>str</em>) – the directory to which the SQLite database is written</p></li>
 <li><p><strong>mode</strong> (<em>str</em>) – the mode for extraction.</p></li>
-<li><p><strong>pulsemap</strong> (<em>str</em>) – the pulsemap chosen for extraction. e.g. SRTInIcePulses</p></li>
-<li><p><strong>gcd_rescue</strong> (<em>str</em>) – path to gcd_file that the extraction defaults to if none is found in the folders</p></li>
-<li><p><strong>outdir</strong> (<em>str</em>) – the directory to which the sqlite database is written</p></li>
+<li><p><strong>pulsemap</strong> (<em>str</em>) – the pulsemap chosen for extraction. e.g.
+SRTInIcePulses.</p></li>
+<li><p><strong>gcd_rescue</strong> (<em>str</em>) – path to gcd_file that the extraction defaults to
+if none is found in the folders</p></li>
 <li><p><strong>db_name</strong> (<em>str</em>) – database name. please omit extensions.</p></li>
 <li><p><strong>workers</strong> (<em>int</em>) – number of workers used for parallel extraction.</p></li>
-<li><p><strong>max_dictionary_size</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of events in a temporary database. Defaults to 10000.</p></li>
+<li><p><strong>max_dictionary_size</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of events in
+a temporary database. Defaults to 10000.</p></li>
 <li><p><strong>verbose</strong> (<em>int</em><em>, </em><em>optional</em>) – Silent extraction if 0. Defaults to 1.</p></li>
 </ul>
 </dd>
@@ -382,16 +383,8 @@ retros (dict): retros dictionary, empty if no RetroReco exists in the files.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._attach_index">
-<span class="sig-name descname"><span class="pre">_attach_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._attach_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._attach_index" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">_attach_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._attach_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._attach_index" title="Permalink to this definition"></a></dt>
 <dd><p>Attaches the table index. Important for query times!</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>database</strong> (<em>str</em>) – path to database</p></li>
-<li><p><strong>table_name</strong> (<em>str</em>) – name of the table being indexed</p></li>
-</ul>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -414,7 +407,7 @@ retros (dict): retros dictionary, empty if no RetroReco exists in the files.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._create_table">
 <span class="sig-name descname"><span class="pre">_create_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_pulse_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._create_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._create_table" title="Permalink to this definition"></a></dt>
-<dd><p>Creates a table</p>
+<dd><p>Creates a table.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -452,7 +445,7 @@ retro (pandas.DataFrame) : contains RetroReco and associated quantities if avail
 <dl class="py method">
 <dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._merge_databases">
 <span class="sig-name descname"><span class="pre">_merge_databases</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._merge_databases"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._merge_databases" title="Permalink to this definition"></a></dt>
-<dd><p>Merges the temporary databases into a single sqlite database, then deletes the temporary databases</p>
+<dd><p>Merges the temporary databases into a single sqlite database, then deletes the temporary databases.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -472,52 +465,33 @@ retro (pandas.DataFrame) : contains RetroReco and associated quantities if avail
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._processfiles">
-<span class="sig-name descname"><span class="pre">_processfiles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._processfiles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._processfiles" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._parallel_extraction">
+<span class="sig-name descname"><span class="pre">_parallel_extraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._parallel_extraction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._parallel_extraction" title="Permalink to this definition"></a></dt>
+<dd><p>The function that every worker runs.</p>
+<p>Extracts feature, truth and RetroReco (if available) and saves it as temporary sqlite databases.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>settings</strong> (<em>list</em>) – List of arguments.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._process_files">
+<span class="sig-name descname"><span class="pre">_process_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i3_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_files</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._process_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._process_files" title="Permalink to this definition"></a></dt>
 <dd><p>Starts the parallelized extraction using map_async.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_pulse_maps">
-<span class="sig-name descname"><span class="pre">_submit_pulse_maps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulse_map</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._submit_pulse_maps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_pulse_maps" title="Permalink to this definition"></a></dt>
-<dd><p>Submits pulsemap to the database</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>database</strong> (<em>str</em>) – path to database</p></li>
-<li><p><strong>features</strong> (<em>pandas.DataFrame</em>) – contains the feature data</p></li>
-<li><p><strong>pulse_map</strong> (<em>str</em>) – the name of the i3 key for the pulsemap. E.g. SRTInIcePulses</p></li>
-</ul>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._save_filenames">
+<span class="sig-name descname"><span class="pre">_save_filenames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i3_files</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._save_filenames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._save_filenames" title="Permalink to this definition"></a></dt>
+<dd><p>Saves I3 file names in CSV format.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_retro">
-<span class="sig-name descname"><span class="pre">_submit_retro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retro</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._submit_retro"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_retro" title="Permalink to this definition"></a></dt>
-<dd><p>Submits RetroReco</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>database</strong> (<em>str</em>) – path to database</p></li>
-<li><p><strong>retro</strong> (<em>pandas.DataFrame</em><em>(</em><em>)</em>) – contains RetroReco and associated quantities if available</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_truth">
-<span class="sig-name descname"><span class="pre">_submit_truth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._submit_truth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_truth" title="Permalink to this definition"></a></dt>
-<dd><p>Submits truth to the database</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>database</strong> (<em>str</em>) – path to database</p></li>
-<li><p><strong>truth</strong> (<em>pandas.DataFrame</em>) – contains truth data</p></li>
-</ul>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_to_database">
+<span class="sig-name descname"><span class="pre">_submit_to_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#SQLiteDataConverter._submit_to_database"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_to_database" title="Permalink to this definition"></a></dt>
+<dd><p>Submits data to the database with specified key.</p>
 </dd></dl>
 
 </dd></dl>
@@ -529,13 +503,13 @@ retro (pandas.DataFrame) : contains RetroReco and associated quantities if avail
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>extraction</strong> (<em>dict</em>) – dictionary with the extracted data</p></li>
-<li><p><strong>event_no_list</strong> (<em>list</em>) – List of allocated event_no’s</p></li>
-<li><p><strong>event_counter</strong> (<em>int</em>) – index for event_no_list</p></li>
+<li><p><strong>extraction</strong> (<em>dict</em>) – Dictionary with the extracted data.</p></li>
+<li><p><strong>event_no_list</strong> (<em>list</em>) – List of allocated event_no’s.</p></li>
+<li><p><strong>event_counter</strong> (<em>int</em>) – Index for event_no_list.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>extraction as pandas.DataFrame with event_no column</p>
+<dd class="field-even"><p>Extraction as pandas.DataFrame with event_no column.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>out (pandas.DataFrame)</p>
@@ -544,168 +518,88 @@ retro (pandas.DataFrame) : contains RetroReco and associated quantities if avail
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.create_out_directory">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">create_out_directory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#create_out_directory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.create_out_directory" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.is_empty">
+<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#is_empty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.is_empty" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.find_files">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">find_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">paths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_rescue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extensions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#find_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.find_files" title="Permalink to this definition"></a></dt>
-<dd><p>Loops over paths and returns the corresponding i3 files and gcd files</p>
+<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.save_to_sql">
+<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">save_to_sql</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_big</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_big</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retro_big</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#save_to_sql"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.save_to_sql" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-gnn_reco.data.utils">
+<span id="gnn-reco-data-utils-module"></span><h2>gnn_reco.data.utils module<a class="headerlink" href="#module-gnn_reco.data.utils" title="Permalink to this headline"></a></h2>
+<p>Utility function relevant to the gnn_reco.data package.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="gnn_reco.data.utils.create_out_directory">
+<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.utils.</span></span><span class="sig-name descname"><span class="pre">create_out_directory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/utils.html#create_out_directory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.utils.create_out_directory" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gnn_reco.data.utils.find_i3_files">
+<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.utils.</span></span><span class="sig-name descname"><span class="pre">find_i3_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directories</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_rescue</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/utils.html#find_i3_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.utils.find_i3_files" title="Permalink to this definition"></a></dt>
+<dd><p>Finds I3 files and corresponding GCD files in <cite>directories</cite>.</p>
+<p>Finds I3 files in dir and matches each file with a corresponding GCD file if
+present in the directory, matches with gcd_rescue if gcd is not present in
+the directory.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>paths</strong> (<em>list</em>) – list of paths</p></li>
-<li><p><strong>outdir</strong> (<em>str</em>) – path to out directory</p></li>
-<li><p><strong>db_name</strong> (<em>str</em>) – name of the database</p></li>
-<li><p><strong>gcd_rescue</strong> (<em>str</em>) – path to the gcd file that will be defaulted to if no gcd is present in a directory</p></li>
-<li><p><strong>extensions</strong> (<em>list</em><em>, </em><em>optional</em>) – list of accepted extensions. E.g. (i3.zst). Defaults to None.</p></li>
+<li><p><strong>directories</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Directories to search recursively for I3 files.</p></li>
+<li><p><strong>gcd_rescue</strong> (<em>str</em>) – Path to the GCD that will be default if no GCD is
+present in the directory.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a list of paths to i3 files
-gcd_files (list): a list of corresponding gcd files</p>
+<dd class="field-even"><p>Paths to I3 files in <cite>directories</cite>
+gcd_list (list[str]): Paths to GCD files for each I3 file.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>input_files (list)</p>
+<dd class="field-odd"><p>i3_list (list[str])</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.find_i3_files">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">find_i3_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extensions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_rescue</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#find_i3_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.find_i3_files" title="Permalink to this definition"></a></dt>
-<dd><p>Finds i3 files in dir and matches each file with a corresponding gcd_file if present in the directory, matches with gcd_rescue if gcd is not present in the directory</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dir</strong> (<em>str</em>) – path to scan recursively (2 layers deep by IceCube convention)</p></li>
-<li><p><strong>extensions</strong> (<em>list</em>) – list of accepted file extensions. E.g. i3.zst</p></li>
-<li><p><strong>gcd_rescue</strong> (<em>path</em>) – path to the gcd that will be default if no gcd is present in the directory</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>a list containg paths to i3 files in dir
-GCD_list   (list): a list containing paths to gcd_files for each i3-file in dir</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>files_list (list)</p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="gnn_reco.data.utils.has_extension">
+<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.utils.</span></span><span class="sig-name descname"><span class="pre">has_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extensions</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/gnn_reco/data/utils.html#has_extension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.utils.has_extension" title="Permalink to this definition"></a></dt>
+<dd><p>Checks whether <cite>filename</cite> has one of the desired extensions.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.get_temporary_database_paths">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">get_temporary_database_paths</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#get_temporary_database_paths"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.get_temporary_database_paths" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.has_extension">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">has_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extensions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#has_extension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.has_extension" title="Permalink to this definition"></a></dt>
-<dd><p>Checks if the file has the desired extension.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>file</strong> (<em>str</em>) – filename</p></li>
-<li><p><strong>extensions</strong> (<em>list</em>) – list of strings denoting accepted extensions</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>True if accepted extension is detected, False otherwise</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>boolean</p>
-</dd>
-</dl>
+<dt class="sig sig-object py" id="gnn_reco.data.utils.is_gcd_file">
+<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.utils.</span></span><span class="sig-name descname"><span class="pre">is_gcd_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/gnn_reco/data/utils.html#is_gcd_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.utils.is_gcd_file" title="Permalink to this definition"></a></dt>
+<dd><p>Checks whether <cite>filename</cite> is a GCD file.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.is_i3">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">is_i3</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#is_i3"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.is_i3" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<dt class="sig sig-object py" id="gnn_reco.data.utils.is_i3_file">
+<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.utils.</span></span><span class="sig-name descname"><span class="pre">is_i3_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/gnn_reco/data/utils.html#is_i3_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.utils.is_i3_file" title="Permalink to this definition"></a></dt>
+<dd><p>Checks whether <cite>filename</cite> is an I3 file.</p>
+</dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.isempty">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">isempty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">features</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#isempty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.isempty" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.pairwiseshuffle">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">pairwiseshuffle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#pairwiseshuffle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.pairwiseshuffle" title="Permalink to this definition"></a></dt>
-<dd><p>Shuffles the i3 file list and the correponding gcd file list.This is handy because it ensures a more even extraction load for each worker</p>
+<dt class="sig sig-object py" id="gnn_reco.data.utils.pairwise_shuffle">
+<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.utils.</span></span><span class="sig-name descname"><span class="pre">pairwise_shuffle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i3_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/utils.html#pairwise_shuffle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.utils.pairwise_shuffle" title="Permalink to this definition"></a></dt>
+<dd><p>Shuffles the I3 file list and the correponding gcd file list.</p>
+<p>This is handy because it ensures a more even extraction load for each worker.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>files_list</strong> (<em>list</em>) – list of i3 file paths</p></li>
-<li><p><strong>gcd_list</strong> (<em>list</em>) – list of corresponding gcd file paths</p></li>
+<li><p><strong>files_list</strong> (<em>list</em>) – List of I3 file paths.</p></li>
+<li><p><strong>gcd_list</strong> (<em>list</em>) – List of corresponding gcd file paths.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list of shuffled i3 file paths
-gcd_shuffled (list): a list of corresponding gcd file paths</p>
+<dd class="field-even"><p>List of shuffled I3 file paths.
+gcd_shuffled (list): List of corresponding gcd file paths.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>i3_shuffled (list)</p>
 </dd>
 </dl>
 </dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.parallel_extraction">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">parallel_extraction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#parallel_extraction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.parallel_extraction" title="Permalink to this definition"></a></dt>
-<dd><p>The function that every worker runs. Extracts feature, truth and RetroReco (if available) and saves it as temporary sqlite databases</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>settings</strong> (<em>list</em>) – list of arguments</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.process_frame">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">process_frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">calibration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i3_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#process_frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.process_frame" title="Permalink to this definition"></a></dt>
-<dd><p>Runs I3Extractor() on a single physics frame</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>frame</strong> (<em>i3 physics frame</em>) – i3 physics frame</p></li>
-<li><p><strong>mode</strong> (<em>str</em>) – extraction mode</p></li>
-<li><p><strong>pulsemap</strong> (<em>str</em>) – pulsemap key, e.g. SRTInIcePulses</p></li>
-<li><p><strong>gcd_dict</strong> (<em>dict</em>) – dictionary indexed via om_keys</p></li>
-<li><p><strong>calibration</strong> – i3 physics frame calibration</p></li>
-<li><p><strong>i3_file</strong> (<em>str</em>) – i3 file name</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dictionary with truth extraction
-pulsemap (dict): dictionary with pulsemap extraction
-retro (dict): dictionary with RetroReco extraction</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>truth (dict)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.save_filenames">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">save_filenames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#save_filenames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.save_filenames" title="Permalink to this definition"></a></dt>
-<dd><p>Saves i3 file names in csv</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_files</strong> (<em>list</em>) – list of file names</p></li>
-<li><p><strong>outdir</strong> (<em>str</em>) – out directory path</p></li>
-<li><p><strong>db_name</strong> (<em>str</em>) – name of the database</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="gnn_reco.data.sqlite_dataconverter.save_to_sql">
-<span class="sig-prename descclassname"><span class="pre">gnn_reco.data.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">save_to_sql</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feature_big</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_big</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retro_big</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_count</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gnn_reco/data/sqlite_dataconverter.html#save_to_sql"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gnn_reco.data.sqlite_dataconverter.save_to_sql" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
 
 </section>
 <section id="module-gnn_reco.data">

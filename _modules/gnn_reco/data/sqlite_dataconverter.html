@@ -61,365 +61,178 @@
            <div itemprop="articleBody">
              
   <h1>Source code for gnn_reco.data.sqlite_dataconverter</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">.dataconverter</span> <span class="k">import</span> <span class="n">DataConverter</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="k">import</span> <span class="n">create_engine</span>
-<span class="kn">import</span> <span class="nn">sqlalchemy</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<span></span><span class="kn">from</span> <span class="nn">glob</span> <span class="k">import</span> <span class="n">glob</span>
 <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="k">import</span> <span class="n">Pool</span>
-<span class="kn">from</span> <span class="nn">.i3extractor</span> <span class="k">import</span> <span class="n">I3Extractor</span>
-<span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">.i3extractor</span> <span class="k">import</span> <span class="n">load_geospatial_data</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">sqlalchemy</span>
 <span class="kn">import</span> <span class="nn">sqlite3</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="k">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">List</span>
+
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">icecube</span> <span class="k">import</span> <span class="n">icetray</span><span class="p">,</span> <span class="n">dataio</span>
+    <span class="kn">from</span> <span class="nn">icecube</span> <span class="k">import</span> <span class="n">icetray</span><span class="p">,</span> <span class="n">dataio</span>  <span class="c1"># pyright: reportMissingImports=false</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;icecube package not available.&quot;</span><span class="p">)</span>
-    <span class="k">pass</span>
+
+<span class="kn">from</span> <span class="nn">.dataconverter</span> <span class="k">import</span> <span class="n">DataConverter</span>
+<span class="kn">from</span> <span class="nn">.i3extractor</span> <span class="k">import</span> <span class="n">I3Extractor</span><span class="p">,</span> <span class="n">load_geospatial_data</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="k">import</span> <span class="n">create_out_directory</span><span class="p">,</span> <span class="n">find_i3_files</span><span class="p">,</span> <span class="n">pairwise_shuffle</span>
 
 
-<div class="viewcode-block" id="apply_event_no"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.apply_event_no">[docs]</a><span class="k">def</span> <span class="nf">apply_event_no</span><span class="p">(</span><span class="n">extraction</span><span class="p">,</span> <span class="n">event_no_list</span><span class="p">,</span> <span class="n">event_counter</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Converts extraction to pandas.DataFrame and applies the event_no index to extraction</span>
+<div class="viewcode-block" id="SQLiteDataConverter"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter">[docs]</a><span class="k">class</span> <span class="nc">SQLiteDataConverter</span><span class="p">(</span><span class="n">DataConverter</span><span class="p">):</span>
+<div class="viewcode-block" id="SQLiteDataConverter.__init__"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outdir</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">,</span> <span class="n">gcd_rescue</span><span class="p">,</span>  <span class="o">*</span><span class="p">,</span> <span class="n">db_name</span><span class="p">,</span> <span class="n">workers</span><span class="p">,</span> <span class="n">max_dictionary_size</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Implementation of DataConverter for saving to SQLite database.</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        extraction (dict): dictionary with the extracted data</span>
-<span class="sd">        event_no_list (list): List of allocated event_no&#39;s</span>
-<span class="sd">        event_counter (int): index for event_no_list</span>
+<span class="sd">        Converts the i3-files in paths to several temporary SQLite databases in </span>
+<span class="sd">        parallel, that are then merged to a single SQLite database</span>
 
-<span class="sd">    Returns:</span>
-<span class="sd">        out (pandas.DataFrame): extraction as pandas.DataFrame with event_no column</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">extraction</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">.</span><span class="n">T</span>
-    <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">extraction</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;event_no&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">event_no_list</span><span class="p">[</span><span class="n">event_counter</span><span class="p">]</span>
-    <span class="k">return</span> <span class="n">out</span></div>
-
-<div class="viewcode-block" id="is_i3"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.is_i3">[docs]</a><span class="k">def</span> <span class="nf">is_i3</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
-    <span class="k">if</span> <span class="s1">&#39;gcd&#39;</span> <span class="ow">in</span> <span class="n">file</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">elif</span> <span class="s1">&#39;geo&#39;</span> <span class="ow">in</span> <span class="n">file</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span></div>
-<div class="viewcode-block" id="has_extension"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.has_extension">[docs]</a><span class="k">def</span> <span class="nf">has_extension</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">extensions</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Checks if the file has the desired extension.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        file (str): filename</span>
-<span class="sd">        extensions (list): list of strings denoting accepted extensions</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        boolean: True if accepted extension is detected, False otherwise</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">check</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">extension</span> <span class="ow">in</span> <span class="n">extensions</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">extension</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
-            <span class="n">check</span> <span class="o">+=</span><span class="mi">1</span>
-    <span class="k">if</span> <span class="n">check</span> <span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span></div>
-
-<div class="viewcode-block" id="get_temporary_database_paths"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.get_temporary_database_paths">[docs]</a><span class="k">def</span> <span class="nf">get_temporary_database_paths</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s1">&#39;.db&#39;</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
-            <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">out</span></div>
-
-<div class="viewcode-block" id="find_i3_files"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.find_i3_files">[docs]</a><span class="k">def</span> <span class="nf">find_i3_files</span><span class="p">(</span><span class="nb">dir</span><span class="p">,</span> <span class="n">extensions</span><span class="p">,</span> <span class="n">gcd_rescue</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Finds i3 files in dir and matches each file with a corresponding gcd_file if present in the directory, matches with gcd_rescue if gcd is not present in the directory</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        dir (str): path to scan recursively (2 layers deep by IceCube convention)</span>
-<span class="sd">        extensions (list): list of accepted file extensions. E.g. i3.zst</span>
-<span class="sd">        gcd_rescue (path): path to the gcd that will be default if no gcd is present in the directory</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        files_list (list): a list containg paths to i3 files in dir</span>
-<span class="sd">        GCD_list   (list): a list containing paths to gcd_files for each i3-file in dir</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">files_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">GCD_list</span>   <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">root</span><span class="p">,</span><span class="n">folders</span><span class="p">,</span><span class="n">root_files</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="nb">dir</span><span class="p">))</span>
-    <span class="n">gcds_root</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">gcd_root</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">i3files_root</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">root_files</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">has_extension</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">extensions</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">is_i3</span><span class="p">(</span><span class="n">file</span><span class="p">):</span>
-                <span class="n">i3files_root</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="n">file</span><span class="p">))</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">gcd_root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
-                <span class="n">gcds_root</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="n">file</span><span class="p">))</span>
-    <span class="k">if</span> <span class="n">gcd_root</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">gcd_root</span> <span class="o">=</span> <span class="n">gcd_rescue</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">i3files_root</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">gcds_root</span><span class="p">)):</span>
-        <span class="n">gcds_root</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gcd_root</span><span class="p">)</span>
-    <span class="n">files_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">i3files_root</span><span class="p">)</span>
-    <span class="n">GCD_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">gcds_root</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">folders</span><span class="p">:</span>
-        <span class="n">sub_root</span><span class="p">,</span> <span class="n">sub_folders</span><span class="p">,</span> <span class="n">sub_folder_files</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="n">folder</span><span class="p">)))</span>
-        <span class="n">gcds_folder</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="n">gcd_folder</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">i3files_folder</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">sub_folder_file</span> <span class="ow">in</span> <span class="n">sub_folder_files</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">has_extension</span><span class="p">(</span><span class="n">sub_folder_file</span><span class="p">,</span> <span class="n">extensions</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">is_i3</span><span class="p">(</span><span class="n">sub_folder_file</span><span class="p">):</span>
-                    <span class="n">i3files_folder</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sub_root</span><span class="p">,</span><span class="n">sub_folder_file</span><span class="p">))</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">gcd_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sub_root</span><span class="p">,</span><span class="n">sub_folder_file</span><span class="p">)</span>
-                    <span class="n">gcds_folder</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sub_root</span><span class="p">,</span><span class="n">sub_folder_file</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">gcd_folder</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">gcd_folder</span> <span class="o">=</span> <span class="n">gcd_rescue</span>
-        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">i3files_folder</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">gcds_folder</span><span class="p">)):</span>
-            <span class="n">gcds_folder</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gcd_folder</span><span class="p">)</span>
-        <span class="n">files_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">i3files_folder</span><span class="p">)</span>
-        <span class="n">GCD_list</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">gcds_folder</span><span class="p">)</span>
+<span class="sd">        Args:</span>
+<span class="sd">            outdir (str): the directory to which the SQLite database is written</span>
+<span class="sd">            mode (str): the mode for extraction.</span>
+<span class="sd">            pulsemap (str): the pulsemap chosen for extraction. e.g. </span>
+<span class="sd">                SRTInIcePulses.</span>
+<span class="sd">            gcd_rescue (str): path to gcd_file that the extraction defaults to </span>
+<span class="sd">                if none is found in the folders</span>
+<span class="sd">            db_name (str): database name. please omit extensions.</span>
+<span class="sd">            workers (int): number of workers used for parallel extraction.</span>
+<span class="sd">            max_dictionary_size (int, optional): The maximum number of events in </span>
+<span class="sd">                a temporary database. Defaults to 10000.</span>
+<span class="sd">            verbose (int, optional): Silent extraction if 0. Defaults to 1.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Additional member variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span>        <span class="o">=</span> <span class="n">db_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span>        <span class="o">=</span> <span class="n">verbose</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_workers</span>        <span class="o">=</span> <span class="n">workers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_max_dict_size</span>  <span class="o">=</span> <span class="n">max_dictionary_size</span> 
+        
+        <span class="c1"># Base class constructor</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">outdir</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">,</span> <span class="n">gcd_rescue</span><span class="p">)</span></div>
+        
+    <span class="c1"># Abstract method implementation(s)</span>
+<div class="viewcode-block" id="SQLiteDataConverter._process_files"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._process_files">[docs]</a>    <span class="k">def</span> <span class="nf">_process_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i3_files</span><span class="p">,</span> <span class="n">gcd_files</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Starts the parallelized extraction using map_async.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+               
+        <span class="n">create_out_directory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_outdir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/data&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span><span class="p">)</span>
+        <span class="n">create_out_directory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_outdir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/tmp&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span><span class="p">)</span>
+        
+        <span class="n">i3_files</span><span class="p">,</span> <span class="n">gcd_files</span> <span class="o">=</span> <span class="n">pairwise_shuffle</span><span class="p">(</span><span class="n">i3_files</span><span class="p">,</span> <span class="n">gcd_files</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_save_filenames</span><span class="p">(</span><span class="n">i3_files</span><span class="p">)</span>
+        
+        <span class="n">workers</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_workers</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">i3_files</span><span class="p">))</span>
+        
+        <span class="c1"># SETTINGS</span>
+        <span class="n">settings</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">event_nos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">99999999</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">workers</span><span class="p">)</span>  <span class="c1"># Notice that this choice means event_no is NOT unique between different databases.</span>
+        <span class="n">file_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">i3_files</span><span class="p">),</span><span class="n">workers</span><span class="p">)</span>
+        <span class="n">gcd_file_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gcd_files</span><span class="p">),</span><span class="n">workers</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">workers</span><span class="p">):</span>
+            <span class="n">settings</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+                <span class="n">file_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+                <span class="n">gcd_file_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> 
+                <span class="n">event_nos</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">,</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">_pulsemap</span><span class="p">,</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">_max_dict_size</span><span class="p">,</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span><span class="p">,</span> 
+                <span class="bp">self</span><span class="o">.</span><span class="n">_outdir</span><span class="p">,</span>
+            <span class="p">])</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Starting pool of </span><span class="si">{workers}</span><span class="s2"> workers to process {len(i3_files)} I3 files&quot;</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span><span class="o">=</span><span class="n">workers</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">map_async</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_parallel_extraction</span><span class="p">,</span> <span class="n">settings</span><span class="p">)</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Merging databases&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_merge_databases</span><span class="p">()</span></div>
+        
     
-    <span class="n">files_list</span><span class="p">,</span> <span class="n">GCD_list</span> <span class="o">=</span> <span class="n">pairwiseshuffle</span><span class="p">(</span><span class="n">files_list</span><span class="p">,</span> <span class="n">GCD_list</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">files_list</span><span class="p">,</span> <span class="n">GCD_list</span></div>
+    <span class="k">def</span> <span class="nf">_initialise</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">icetray</span><span class="o">.</span><span class="n">I3Logger</span><span class="o">.</span><span class="n">global_logger</span> <span class="o">=</span> <span class="n">icetray</span><span class="o">.</span><span class="n">I3NullLogger</span><span class="p">()</span>
 
-<div class="viewcode-block" id="pairwiseshuffle"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.pairwiseshuffle">[docs]</a><span class="k">def</span> <span class="nf">pairwiseshuffle</span><span class="p">(</span><span class="n">files_list</span><span class="p">,</span> <span class="n">gcd_list</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Shuffles the i3 file list and the correponding gcd file list.This is handy because it ensures a more even extraction load for each worker</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        files_list (list): list of i3 file paths</span>
-<span class="sd">        gcd_list (list): list of corresponding gcd file paths</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        i3_shuffled (list): list of shuffled i3 file paths</span>
-<span class="sd">        gcd_shuffled (list): a list of corresponding gcd file paths</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;i3&#39;</span><span class="p">:</span> <span class="n">files_list</span><span class="p">,</span> <span class="s1">&#39;gcd&#39;</span><span class="p">:</span> <span class="n">gcd_list</span><span class="p">})</span>
-    <span class="n">df_shuffled</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">i3_shuffled</span> <span class="o">=</span> <span class="n">df_shuffled</span><span class="p">[</span><span class="s1">&#39;i3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-    <span class="n">gcd_shuffled</span> <span class="o">=</span> <span class="n">df_shuffled</span><span class="p">[</span><span class="s1">&#39;gcd&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">i3_shuffled</span><span class="p">,</span> <span class="n">gcd_shuffled</span></div>
+    <span class="k">def</span> <span class="nf">_save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">out_file</span><span class="p">):</span>
+        <span class="c1"># Not used</span>
+        <span class="k">pass</span>
 
 
-<div class="viewcode-block" id="find_files"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.find_files">[docs]</a><span class="k">def</span> <span class="nf">find_files</span><span class="p">(</span><span class="n">paths</span><span class="p">,</span><span class="n">outdir</span><span class="p">,</span><span class="n">db_name</span><span class="p">,</span><span class="n">gcd_rescue</span><span class="p">,</span> <span class="n">extensions</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Loops over paths and returns the corresponding i3 files and gcd files</span>
+    <span class="c1"># Non-inherited private method(s)</span>
+<div class="viewcode-block" id="SQLiteDataConverter._parallel_extraction"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._parallel_extraction">[docs]</a>    <span class="k">def</span> <span class="nf">_parallel_extraction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">settings</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;The function that every worker runs. </span>
+<span class="sd">        </span>
+<span class="sd">        Extracts feature, truth and RetroReco (if available) and saves it as temporary sqlite databases.</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        paths (list): list of paths</span>
-<span class="sd">        outdir (str): path to out directory</span>
-<span class="sd">        db_name (str): name of the database</span>
-<span class="sd">        gcd_rescue (str): path to the gcd file that will be defaulted to if no gcd is present in a directory</span>
-<span class="sd">        extensions (list, optional): list of accepted extensions. E.g. (i3.zst). Defaults to None.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        input_files (list): a list of paths to i3 files</span>
-<span class="sd">        gcd_files (list): a list of corresponding gcd files</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Counting files in: </span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s1"> This might take a few minutes...&#39;</span><span class="o">%</span><span class="n">paths</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">extensions</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">extensions</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;i3.bz2&quot;</span><span class="p">,</span><span class="s2">&quot;.zst&quot;</span><span class="p">,</span><span class="s2">&quot;.gz&quot;</span><span class="p">)</span>
-    <span class="n">input_files_mid</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">input_files</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">gcd_files_mid</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">gcd_files</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
-        <span class="n">input_files_mid</span><span class="p">,</span> <span class="n">gcd_files_mid</span> <span class="o">=</span> <span class="n">find_i3_files</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">extensions</span><span class="p">,</span> <span class="n">gcd_rescue</span><span class="p">)</span>
-        <span class="n">input_files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">input_files_mid</span><span class="p">)</span>
-        <span class="n">gcd_files</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">gcd_files_mid</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">input_files</span><span class="p">,</span> <span class="n">gcd_files</span> <span class="o">=</span> <span class="n">pairwiseshuffle</span><span class="p">(</span><span class="n">input_files</span><span class="p">,</span> <span class="n">gcd_files</span><span class="p">)</span>
-        <span class="n">save_filenames</span><span class="p">(</span><span class="n">input_files</span><span class="p">,</span> <span class="n">outdir</span><span class="p">,</span> <span class="n">db_name</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">input_files</span><span class="p">,</span> <span class="n">gcd_files</span></div>
-    
-<div class="viewcode-block" id="save_filenames"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.save_filenames">[docs]</a><span class="k">def</span> <span class="nf">save_filenames</span><span class="p">(</span><span class="n">input_files</span><span class="p">,</span><span class="n">outdir</span><span class="p">,</span> <span class="n">db_name</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Saves i3 file names in csv</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        input_files (list): list of file names</span>
-<span class="sd">        outdir (str): out directory path</span>
-<span class="sd">        db_name (str): name of the database</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">create_out_directory</span><span class="p">(</span><span class="n">outdir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/config&#39;</span><span class="o">%</span><span class="n">db_name</span><span class="p">)</span>
-    <span class="n">input_files</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">input_files</span><span class="p">)</span>
-    <span class="n">input_files</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">]</span>
-    <span class="n">input_files</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outdir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/config/i3files.csv&#39;</span><span class="o">%</span><span class="n">db_name</span><span class="p">)</span>
-    <span class="k">return</span></div>
-
-<div class="viewcode-block" id="create_out_directory"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.create_out_directory">[docs]</a><span class="k">def</span> <span class="nf">create_out_directory</span><span class="p">(</span><span class="n">outdir</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">outdir</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">except</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span></div>
-
-<div class="viewcode-block" id="isempty"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.isempty">[docs]</a><span class="k">def</span> <span class="nf">isempty</span><span class="p">(</span><span class="n">features</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="s1">&#39;dom_x&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">True</span></div>
-
-
-<div class="viewcode-block" id="process_frame"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.process_frame">[docs]</a><span class="k">def</span> <span class="nf">process_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">,</span> <span class="n">gcd_dict</span><span class="p">,</span> <span class="n">calibration</span><span class="p">,</span> <span class="n">i3_file</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Runs I3Extractor() on a single physics frame</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        frame (i3 physics frame): i3 physics frame</span>
-<span class="sd">        mode (str): extraction mode</span>
-<span class="sd">        pulsemap (str): pulsemap key, e.g. SRTInIcePulses</span>
-<span class="sd">        gcd_dict (dict): dictionary indexed via om_keys</span>
-<span class="sd">        calibration (??): i3 physics frame calibration</span>
-<span class="sd">        i3_file (str): i3 file name</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        truth (dict): dictionary with truth extraction</span>
-<span class="sd">        pulsemap (dict): dictionary with pulsemap extraction</span>
-<span class="sd">        retro (dict): dictionary with RetroReco extraction</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">extractor</span> <span class="o">=</span> <span class="n">I3Extractor</span><span class="p">()</span>
-    <span class="n">truth</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">,</span> <span class="n">retro</span> <span class="o">=</span> <span class="n">extractor</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">,</span> <span class="n">gcd_dict</span><span class="p">,</span> <span class="n">calibration</span><span class="p">,</span> <span class="n">i3_file</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">truth</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">,</span> <span class="n">retro</span></div>
-
-<div class="viewcode-block" id="parallel_extraction"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.parallel_extraction">[docs]</a><span class="k">def</span> <span class="nf">parallel_extraction</span><span class="p">(</span><span class="n">settings</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;The function that every worker runs. Extracts feature, truth and RetroReco (if available) and saves it as temporary sqlite databases</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        settings (list): list of arguments </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">input_files</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span> <span class="n">gcd_files</span><span class="p">,</span> <span class="n">event_no_list</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">,</span> <span class="n">max_dict_size</span><span class="p">,</span> <span class="n">db_name</span><span class="p">,</span> <span class="n">outdir</span> <span class="o">=</span> <span class="n">settings</span>
-    <span class="n">event_counter</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">feature_big</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-    <span class="n">truth_big</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-    <span class="n">retro_big</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-    <span class="n">file_counter</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">output_count</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">gcd_count</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_files</span><span class="p">)):</span>
-        <span class="n">gcd_dict</span><span class="p">,</span> <span class="n">calibration</span> <span class="o">=</span> <span class="n">load_geospatial_data</span><span class="p">(</span><span class="n">gcd_files</span><span class="p">[</span><span class="n">u</span><span class="p">])</span>
-        <span class="n">i3_file</span> <span class="o">=</span> <span class="n">dataio</span><span class="o">.</span><span class="n">I3File</span><span class="p">(</span><span class="n">input_files</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-
-        <span class="k">while</span> <span class="n">i3_file</span><span class="o">.</span><span class="n">more</span><span class="p">():</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="n">frame</span> <span class="o">=</span> <span class="n">i3_file</span><span class="o">.</span><span class="n">pop_physics</span><span class="p">()</span>
-            <span class="k">except</span><span class="p">:</span>
-                <span class="n">frame</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="k">if</span> <span class="n">frame</span><span class="p">:</span>
-                <span class="n">truths</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">retros</span> <span class="o">=</span> <span class="n">process_frame</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">,</span> <span class="n">gcd_dict</span><span class="p">,</span> <span class="n">calibration</span><span class="p">,</span><span class="n">input_files</span><span class="p">[</span><span class="n">u</span><span class="p">])</span>
-                <span class="n">truth</span>    <span class="o">=</span> <span class="n">apply_event_no</span><span class="p">(</span><span class="n">truths</span><span class="p">,</span> <span class="n">event_no_list</span><span class="p">,</span> <span class="n">event_counter</span><span class="p">)</span>
-                <span class="n">truth_big</span>   <span class="o">=</span> <span class="n">truth_big</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">truth</span><span class="p">,</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">retros</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-                    <span class="n">retro</span>   <span class="o">=</span> <span class="n">apply_event_no</span><span class="p">(</span><span class="n">retros</span><span class="p">,</span> <span class="n">event_no_list</span><span class="p">,</span> <span class="n">event_counter</span><span class="p">)</span>
-                    <span class="n">retro_big</span>   <span class="o">=</span> <span class="n">retro_big</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">retro</span><span class="p">,</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-                <span class="n">is_empty</span> <span class="o">=</span> <span class="n">isempty</span><span class="p">(</span><span class="n">features</span><span class="p">)</span> 
-                <span class="k">if</span> <span class="n">is_empty</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
-                    <span class="n">features</span> <span class="o">=</span> <span class="n">apply_event_no</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">event_no_list</span><span class="p">,</span> <span class="n">event_counter</span><span class="p">)</span>
-                    <span class="n">feature_big</span><span class="o">=</span> <span class="n">feature_big</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">features</span><span class="p">,</span><span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-                <span class="n">event_counter</span> <span class="o">+=</span> <span class="mi">1</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">truth_big</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_dict_size</span><span class="p">:</span>
-                    <span class="n">save_to_sql</span><span class="p">(</span><span class="n">feature_big</span><span class="p">,</span> <span class="n">truth_big</span><span class="p">,</span> <span class="n">retro_big</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">output_count</span><span class="p">,</span> <span class="n">db_name</span><span class="p">,</span><span class="n">outdir</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">)</span>
-
-                    <span class="n">feature_big</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-                    <span class="n">truth_big</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-                    <span class="n">retro_big</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-                    <span class="n">output_count</span> <span class="o">+=</span><span class="mi">1</span>
-        <span class="n">file_counter</span> <span class="o">+=</span><span class="mi">1</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">truth_big</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">save_to_sql</span><span class="p">(</span><span class="n">feature_big</span><span class="p">,</span> <span class="n">truth_big</span><span class="p">,</span> <span class="n">retro_big</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">output_count</span><span class="p">,</span> <span class="n">db_name</span><span class="p">,</span> <span class="n">outdir</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">)</span>
+<span class="sd">        Args:</span>
+<span class="sd">            settings (list): List of arguments.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">input_files</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span> <span class="n">gcd_files</span><span class="p">,</span> <span class="n">event_no_list</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">,</span> <span class="n">max_dict_size</span><span class="p">,</span> <span class="n">db_name</span><span class="p">,</span> <span class="n">outdir</span> <span class="o">=</span> <span class="n">settings</span>
+        <span class="n">event_counter</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">feature_big</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
         <span class="n">truth_big</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
         <span class="n">retro_big</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-        <span class="n">output_count</span> <span class="o">+=</span><span class="mi">1</span>
-    <span class="k">return</span></div>
+        <span class="n">file_counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">output_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">gcd_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_files</span><span class="p">)):</span>
+            <span class="n">gcd_dict</span><span class="p">,</span> <span class="n">calibration</span> <span class="o">=</span> <span class="n">load_geospatial_data</span><span class="p">(</span><span class="n">gcd_files</span><span class="p">[</span><span class="n">u</span><span class="p">])</span>
+            <span class="n">i3_file</span> <span class="o">=</span> <span class="n">dataio</span><span class="o">.</span><span class="n">I3File</span><span class="p">(</span><span class="n">input_files</span><span class="p">[</span><span class="n">u</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="save_to_sql"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.save_to_sql">[docs]</a><span class="k">def</span> <span class="nf">save_to_sql</span><span class="p">(</span><span class="n">feature_big</span><span class="p">,</span> <span class="n">truth_big</span><span class="p">,</span> <span class="n">retro_big</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">output_count</span><span class="p">,</span> <span class="n">db_name</span><span class="p">,</span><span class="n">outdir</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">):</span>
-    <span class="n">engine</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///&#39;</span><span class="o">+</span><span class="n">outdir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/tmp/worker-</span><span class="si">%s</span><span class="s1">-</span><span class="si">%s</span><span class="s1">.db&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="n">output_count</span><span class="p">))</span>
-    <span class="n">truth_big</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;truth&#39;</span><span class="p">,</span><span class="n">engine</span><span class="p">,</span><span class="n">index</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">retro_big</span><span class="p">)</span><span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">retro_big</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;RetroReco&#39;</span><span class="p">,</span><span class="n">engine</span><span class="p">,</span><span class="n">index</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span><span class="p">)</span>
-    <span class="n">feature_big</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">pulsemap</span><span class="p">,</span><span class="n">engine</span><span class="p">,</span><span class="n">index</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span><span class="p">)</span>
-    <span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
-    <span class="k">return</span></div>
+            <span class="k">while</span> <span class="n">i3_file</span><span class="o">.</span><span class="n">more</span><span class="p">():</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">frame</span> <span class="o">=</span> <span class="n">i3_file</span><span class="o">.</span><span class="n">pop_physics</span><span class="p">()</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">frame</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">if</span> <span class="n">frame</span><span class="p">:</span>
+                    <span class="n">truths</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">retros</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extractor</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">,</span> <span class="n">gcd_dict</span><span class="p">,</span> <span class="n">calibration</span><span class="p">,</span><span class="n">input_files</span><span class="p">[</span><span class="n">u</span><span class="p">])</span>
+                    <span class="n">truth</span>    <span class="o">=</span> <span class="n">apply_event_no</span><span class="p">(</span><span class="n">truths</span><span class="p">,</span> <span class="n">event_no_list</span><span class="p">,</span> <span class="n">event_counter</span><span class="p">)</span>
+                    <span class="n">truth_big</span>   <span class="o">=</span> <span class="n">truth_big</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">truth</span><span class="p">,</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">retros</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                        <span class="n">retro</span>   <span class="o">=</span> <span class="n">apply_event_no</span><span class="p">(</span><span class="n">retros</span><span class="p">,</span> <span class="n">event_no_list</span><span class="p">,</span> <span class="n">event_counter</span><span class="p">)</span>
+                        <span class="n">retro_big</span>   <span class="o">=</span> <span class="n">retro_big</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">retro</span><span class="p">,</span> <span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_empty</span><span class="p">(</span><span class="n">features</span><span class="p">):</span>
+                        <span class="n">features</span> <span class="o">=</span> <span class="n">apply_event_no</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">event_no_list</span><span class="p">,</span> <span class="n">event_counter</span><span class="p">)</span>
+                        <span class="n">feature_big</span><span class="o">=</span> <span class="n">feature_big</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">features</span><span class="p">,</span><span class="n">ignore_index</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">sort</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+                    <span class="n">event_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">truth_big</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">max_dict_size</span><span class="p">:</span>
+                        <span class="n">save_to_sql</span><span class="p">(</span><span class="n">feature_big</span><span class="p">,</span> <span class="n">truth_big</span><span class="p">,</span> <span class="n">retro_big</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">output_count</span><span class="p">,</span> <span class="n">db_name</span><span class="p">,</span> <span class="n">outdir</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">)</span>
 
-<div class="viewcode-block" id="SQLiteDataConverter"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter">[docs]</a><span class="k">class</span> <span class="nc">SQLiteDataConverter</span><span class="p">():</span>
-<div class="viewcode-block" id="SQLiteDataConverter.__init__"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">paths</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">,</span> <span class="n">gcd_rescue</span><span class="p">,</span> <span class="n">outdir</span><span class="p">,</span> <span class="n">db_name</span><span class="p">,</span> <span class="n">workers</span><span class="p">,</span><span class="n">max_dictionary_size</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">verbose</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Converts the i3-files in paths to several temporary sqlite databases in parallel, that are then merged to a single sqlite database</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            paths (list): list of directories containing i3 files. IceCube directory structure assumed. </span>
-<span class="sd">            mode (str): the mode for extraction.</span>
-<span class="sd">            pulsemap (str): the pulsemap chosen for extraction. e.g. SRTInIcePulses</span>
-<span class="sd">            gcd_rescue (str): path to gcd_file that the extraction defaults to if none is found in the folders</span>
-<span class="sd">            outdir (str): the directory to which the sqlite database is written</span>
-<span class="sd">            db_name (str): database name. please omit extensions.</span>
-<span class="sd">            workers (int): number of workers used for parallel extraction.</span>
-<span class="sd">            max_dictionary_size (int, optional): The maximum number of events in a temporary database. Defaults to 10000.</span>
-<span class="sd">            verbose (int, optional): Silent extraction if 0. Defaults to 1.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">paths</span>          <span class="o">=</span> <span class="n">paths</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">mode</span>           <span class="o">=</span> <span class="n">mode</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pulsemap</span>       <span class="o">=</span> <span class="n">pulsemap</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gcd_rescue</span>     <span class="o">=</span> <span class="n">gcd_rescue</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">outdir</span>         <span class="o">=</span> <span class="n">outdir</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">db_name</span>        <span class="o">=</span> <span class="n">db_name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span>        <span class="o">=</span> <span class="n">verbose</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">workers</span>        <span class="o">=</span> <span class="n">workers</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">max_dict_size</span>  <span class="o">=</span> <span class="n">max_dictionary_size</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_extractor</span> <span class="o">=</span> <span class="n">I3Extractor</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_processfiles</span><span class="p">()</span></div>
+                        <span class="n">feature_big</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+                        <span class="n">truth_big</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+                        <span class="n">retro_big</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+                        <span class="n">output_count</span> <span class="o">+=</span><span class="mi">1</span>
+            <span class="n">file_counter</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">truth_big</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">save_to_sql</span><span class="p">(</span><span class="n">feature_big</span><span class="p">,</span> <span class="n">truth_big</span><span class="p">,</span> <span class="n">retro_big</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">output_count</span><span class="p">,</span> <span class="n">db_name</span><span class="p">,</span> <span class="n">outdir</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">)</span>
+            <span class="n">feature_big</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+            <span class="n">truth_big</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+            <span class="n">retro_big</span>   <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+            <span class="n">output_count</span> <span class="o">+=</span><span class="mi">1</span></div>
         
-<div class="viewcode-block" id="SQLiteDataConverter._processfiles"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._processfiles">[docs]</a>    <span class="k">def</span> <span class="nf">_processfiles</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Starts the parallelized extraction using map_async.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">icetray</span><span class="o">.</span><span class="n">I3Logger</span><span class="o">.</span><span class="n">global_logger</span> <span class="o">=</span> <span class="n">icetray</span><span class="o">.</span><span class="n">I3NullLogger</span><span class="p">()</span>    
-        <span class="n">create_out_directory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outdir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/data&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">db_name</span><span class="p">)</span>
-        <span class="n">create_out_directory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outdir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/tmp&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">db_name</span><span class="p">)</span>
-        <span class="n">input_files</span><span class="p">,</span> <span class="n">gcd_files</span> <span class="o">=</span> <span class="n">find_files</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outdir</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">db_name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">gcd_rescue</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">workers</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_files</span><span class="p">):</span>
-                <span class="n">workers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">input_files</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">workers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">workers</span>
-            
-            <span class="c1"># SETTINGS</span>
-            <span class="n">settings</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="n">event_nos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">99999999</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">workers</span><span class="p">)</span> <span class="c1">#Notice that this choice means event_no is NOT unique between different databases.</span>
-            <span class="n">file_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">input_files</span><span class="p">),</span><span class="n">workers</span><span class="p">)</span>
-            <span class="n">gcd_file_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">gcd_files</span><span class="p">),</span><span class="n">workers</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">workers</span><span class="p">):</span>
-                <span class="n">settings</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">file_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">gcd_file_list</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">event_nos</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pulsemap</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_dict_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">outdir</span><span class="p">])</span>
-            
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;starting pool!&#39;</span><span class="p">)</span>
-            <span class="n">p</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">processes</span> <span class="o">=</span> <span class="n">workers</span><span class="p">)</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">map_async</span><span class="p">(</span><span class="n">parallel_extraction</span><span class="p">,</span> <span class="n">settings</span><span class="p">)</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-            <span class="n">p</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pool&#39;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_merge_databases</span><span class="p">()</span>
-            <span class="k">return</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ERROR: No files found in: </span><span class="si">%s</span><span class="s1"> </span><span class="se">\n</span><span class="s1"> Please make sure your folder structure adheres to IceCube convention&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">paths</span><span class="p">)</span>
-            <span class="k">return</span></div>
+<div class="viewcode-block" id="SQLiteDataConverter._save_filenames"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._save_filenames">[docs]</a>    <span class="k">def</span> <span class="nf">_save_filenames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i3_files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;Saves I3 file names in CSV format.&quot;&quot;&quot;</span>
+        <span class="n">create_out_directory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_outdir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/config&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span><span class="p">)</span>
+        <span class="n">i3_files</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">i3_files</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">])</span>
+        <span class="n">i3_files</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_outdir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/config/i3files.csv&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span><span class="p">)</span></div>
         
 <div class="viewcode-block" id="SQLiteDataConverter._merge_databases"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._merge_databases">[docs]</a>    <span class="k">def</span> <span class="nf">_merge_databases</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Merges the temporary databases into a single sqlite database, then deletes the temporary databases </span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">path_tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">outdir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_name</span> <span class="o">+</span> <span class="s1">&#39;/tmp&#39;</span>
-        <span class="n">database_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">outdir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_name</span> <span class="o">+</span> <span class="s1">&#39;/data/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_name</span>
-        <span class="n">directory_exists</span> <span class="o">=</span> <span class="n">create_out_directory</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">outdir</span><span class="p">)</span>
-        <span class="n">db_files</span> <span class="o">=</span> <span class="n">get_temporary_database_paths</span><span class="p">(</span><span class="n">path_tmp</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">db_files</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Merges the temporary databases into a single sqlite database, then deletes the temporary databases.&quot;&quot;&quot;</span>
+        <span class="n">path_tmp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outdir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span> <span class="o">+</span> <span class="s1">&#39;/tmp&#39;</span>
+        <span class="n">database_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_outdir</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span> <span class="o">+</span> <span class="s1">&#39;/data/&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_db_name</span>
+        <span class="n">db_files</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_tmp</span><span class="p">,</span> <span class="s1">&#39;*.db&#39;</span><span class="p">))</span>
+        <span class="n">db_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">db_file</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">db_file</span> <span class="ow">in</span> <span class="n">db_files</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">db_files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found </span><span class="si">%s</span><span class="s1"> .db-files in </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">db_files</span><span class="p">),</span><span class="n">path_tmp</span><span class="p">))</span>
-            <span class="n">truth_columns</span><span class="p">,</span> <span class="n">pulse_map_columns</span><span class="p">,</span> <span class="n">retro_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_column_names</span><span class="p">(</span><span class="n">path_tmp</span><span class="p">,</span> <span class="n">db_files</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pulsemap</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_create_empty_tables</span><span class="p">(</span><span class="n">database_path</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">pulsemap</span><span class="p">,</span> <span class="n">truth_columns</span><span class="p">,</span> <span class="n">pulse_map_columns</span><span class="p">,</span> <span class="n">retro_columns</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_merge_temporary_databases</span><span class="p">(</span><span class="n">database_path</span><span class="p">,</span> <span class="n">db_files</span><span class="p">,</span> <span class="n">path_tmp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pulsemap</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">db_files</span><span class="p">)</span>
+            <span class="n">truth_columns</span><span class="p">,</span> <span class="n">pulse_map_columns</span><span class="p">,</span> <span class="n">retro_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_column_names</span><span class="p">(</span><span class="n">path_tmp</span><span class="p">,</span> <span class="n">db_files</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pulsemap</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_create_empty_tables</span><span class="p">(</span><span class="n">database_path</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">_pulsemap</span><span class="p">,</span> <span class="n">truth_columns</span><span class="p">,</span> <span class="n">pulse_map_columns</span><span class="p">,</span> <span class="n">retro_columns</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_merge_temporary_databases</span><span class="p">(</span><span class="n">database_path</span><span class="p">,</span> <span class="n">db_files</span><span class="p">,</span> <span class="n">path_tmp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pulsemap</span><span class="p">)</span>
             <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;rm -r </span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">path_tmp</span><span class="p">)</span>
-            <span class="k">return</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No temporary database files found!&#39;</span><span class="p">)</span>
-            <span class="k">return</span></div>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No temporary database files found!&#39;</span><span class="p">)</span></div>
+
     <span class="k">def</span> <span class="nf">_extract_column_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">tmp_path</span><span class="p">,</span> <span class="n">db_files</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">):</span>
         <span class="n">db</span> <span class="o">=</span> <span class="n">tmp_path</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">db_files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">with</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db</span><span class="p">)</span> <span class="k">as</span> <span class="n">con</span><span class="p">:</span>
@@ -443,26 +256,25 @@
                 <span class="n">retro_columns</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">return</span> <span class="n">truth_columns</span><span class="p">,</span> <span class="n">pulse_map_columns</span><span class="p">,</span> <span class="n">retro_columns</span>
 
-    <span class="k">def</span> <span class="nf">_run_sql_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">database</span><span class="p">,</span> <span class="n">CODE</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_run_sql_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">database</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span> <span class="o">+</span> <span class="s1">&#39;.db&#39;</span><span class="p">)</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-        <span class="n">c</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">CODE</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
         <span class="n">c</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  
-        <span class="k">return</span>
 
-<div class="viewcode-block" id="SQLiteDataConverter._attach_index"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._attach_index">[docs]</a>    <span class="k">def</span> <span class="nf">_attach_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">database</span><span class="p">,</span> <span class="n">table_name</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Attaches the table index. Important for query times!</span>
+<div class="viewcode-block" id="SQLiteDataConverter._attach_index"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._attach_index">[docs]</a>    <span class="k">def</span> <span class="nf">_attach_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">database</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">table_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Attaches the table index. Important for query times!&quot;&quot;&quot;</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;PRAGMA foreign_keys=off;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;BEGIN TRANSACTION;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">f</span><span class="s2">&quot;CREATE INDEX event_no_</span><span class="si">{table_name}</span><span class="s2"> ON </span><span class="si">{table_name}</span><span class="s2"> (event_no);</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;COMMIT TRANSACTION;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;PRAGMA foreign_keys=on;&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_run_sql_code</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span></div>
 
-<span class="sd">        Args:</span>
-<span class="sd">            database (str): path to database</span>
-<span class="sd">            table_name (str): name of the table being indexed</span>
-<span class="sd">        &quot;&quot;&quot;</span>     
-        <span class="n">CODE</span> <span class="o">=</span> <span class="s2">&quot;PRAGMA foreign_keys=off;</span><span class="se">\n</span><span class="s2">BEGIN TRANSACTION;</span><span class="se">\n</span><span class="s2">CREATE INDEX event_no_</span><span class="si">{}</span><span class="s2"> ON </span><span class="si">{}</span><span class="s2"> (event_no);</span><span class="se">\n</span><span class="s2">COMMIT TRANSACTION;</span><span class="se">\n</span><span class="s2">PRAGMA foreign_keys=on;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span><span class="n">table_name</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_run_sql_code</span><span class="p">(</span><span class="n">database</span><span class="p">,</span><span class="n">CODE</span><span class="p">)</span>
-        <span class="k">return</span></div>
-
-<div class="viewcode-block" id="SQLiteDataConverter._create_table"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._create_table">[docs]</a>    <span class="k">def</span> <span class="nf">_create_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">database</span><span class="p">,</span><span class="n">table_name</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">is_pulse_map</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Creates a table</span>
+<div class="viewcode-block" id="SQLiteDataConverter._create_table"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._create_table">[docs]</a>    <span class="k">def</span> <span class="nf">_create_table</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">database</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">is_pulse_map</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates a table.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            database (str): path to the database</span>
@@ -490,8 +302,12 @@
                     <span class="n">query_columns</span> <span class="o">=</span> <span class="n">query_columns</span> <span class="o">+</span> <span class="s1">&#39;, &#39;</span> <span class="o">+</span> <span class="n">column</span> <span class="o">+</span> <span class="s1">&#39; FLOAT&#39;</span>
 
             <span class="n">count</span> <span class="o">+=</span><span class="mi">1</span>
-        <span class="n">CODE</span> <span class="o">=</span> <span class="s2">&quot;PRAGMA foreign_keys=off;</span><span class="se">\n</span><span class="s2">CREATE TABLE </span><span class="si">{}</span><span class="s2"> (</span><span class="si">{}</span><span class="s2">);</span><span class="se">\n</span><span class="s2">PRAGMA foreign_keys=on;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span><span class="n">query_columns</span><span class="p">)</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_run_sql_code</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">CODE</span><span class="p">)</span>
+        <span class="n">code</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;PRAGMA foreign_keys=off;</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="n">f</span><span class="s2">&quot;CREATE TABLE </span><span class="si">{table_name}</span><span class="s2"> (</span><span class="si">{query_columns}</span><span class="s2">);</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;PRAGMA foreign_keys=on;&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_run_sql_code</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">is_pulse_map</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">table_name</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;attaching indexs&#39;</span><span class="p">)</span>
@@ -509,53 +325,26 @@
 <span class="sd">            retro_columns ([type]): [description]</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Creating Empty Truth Table&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_create_table</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="s1">&#39;truth&#39;</span><span class="p">,</span> <span class="n">truth_columns</span><span class="p">,</span> <span class="n">is_pulse_map</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># Creates the truth table containing primary particle attributes and RetroReco reconstructions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_table</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="s1">&#39;truth&#39;</span><span class="p">,</span> <span class="n">truth_columns</span><span class="p">,</span> <span class="n">is_pulse_map</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Creates the truth table containing primary particle attributes and RetroReco reconstructions</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Creating Empty RetroReco Table&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">retro_columns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_create_table</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="s1">&#39;RetroReco&#39;</span><span class="p">,</span><span class="n">retro_columns</span><span class="p">,</span> <span class="n">is_pulse_map</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="c1"># Creates the RetroReco Table with reconstuctions and associated values.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_create_table</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="s1">&#39;RetroReco&#39;</span><span class="p">,</span><span class="n">retro_columns</span><span class="p">,</span> <span class="n">is_pulse_map</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># Creates the RetroReco Table with reconstuctions and associated values.</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_create_table</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">pulse_map</span><span class="p">,</span><span class="n">pulse_map_columns</span><span class="p">,</span> <span class="n">is_pulse_map</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_table</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">pulse_map</span><span class="p">,</span><span class="n">pulse_map_columns</span><span class="p">,</span> <span class="n">is_pulse_map</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span></div>
 
-<div class="viewcode-block" id="SQLiteDataConverter._submit_truth"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_truth">[docs]</a>    <span class="k">def</span> <span class="nf">_submit_truth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">database</span><span class="p">,</span> <span class="n">truth</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Submits truth to the database</span>
+<div class="viewcode-block" id="SQLiteDataConverter._submit_to_database"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_to_database">[docs]</a>    <span class="k">def</span> <span class="nf">_submit_to_database</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">database</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Submits data to the database with specified key.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;No data provided for </span><span class="si">{key}</span><span class="s2">.&quot;</span><span class="p">)</span>
+                <span class="k">pass</span>
+            <span class="k">return</span>
+        <span class="n">engine</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">database</span> <span class="o">+</span> <span class="s1">&#39;.db&#39;</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span>
+        <span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span></div>
 
-<span class="sd">        Args:</span>
-<span class="sd">            database (str): path to database</span>
-<span class="sd">            truth (pandas.DataFrame): contains truth data</span>
-<span class="sd">        &quot;&quot;&quot;</span> 
-        <span class="n">engine_main</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">database</span> <span class="o">+</span> <span class="s1">&#39;.db&#39;</span><span class="p">)</span>
-        <span class="n">truth</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;truth&#39;</span><span class="p">,</span><span class="n">engine_main</span><span class="p">,</span><span class="n">index</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span><span class="p">)</span>
-        <span class="n">engine_main</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
-        <span class="k">return</span>  </div>
-
-<div class="viewcode-block" id="SQLiteDataConverter._submit_pulse_maps"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_pulse_maps">[docs]</a>    <span class="k">def</span> <span class="nf">_submit_pulse_maps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">database</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span><span class="n">pulse_map</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Submits pulsemap to the database</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            database (str): path to database</span>
-<span class="sd">            features (pandas.DataFrame): contains the feature data</span>
-<span class="sd">            pulse_map (str): the name of the i3 key for the pulsemap. E.g. SRTInIcePulses</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">engine_main</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">database</span> <span class="o">+</span> <span class="s1">&#39;.db&#39;</span><span class="p">)</span>
-        <span class="n">features</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">pulse_map</span><span class="p">,</span> <span class="n">engine_main</span><span class="p">,</span><span class="n">index</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span><span class="p">)</span>
-        <span class="n">engine_main</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
-        <span class="k">return</span></div>
-
-<div class="viewcode-block" id="SQLiteDataConverter._submit_retro"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._submit_retro">[docs]</a>    <span class="k">def</span> <span class="nf">_submit_retro</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">database</span><span class="p">,</span> <span class="n">retro</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Submits RetroReco</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            database (str): path to database</span>
-<span class="sd">            retro (pandas.DataFrame()): contains RetroReco and associated quantities if available</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">retro</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
-            <span class="n">engine_main</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">database</span> <span class="o">+</span> <span class="s1">&#39;.db&#39;</span><span class="p">)</span>
-            <span class="n">retro</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;RetroReco&#39;</span><span class="p">,</span><span class="n">engine_main</span><span class="p">,</span><span class="n">index</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span><span class="p">)</span>
-            <span class="n">engine_main</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
-        <span class="k">return</span>  </div>
-
-<div class="viewcode-block" id="SQLiteDataConverter._extract_everything"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._extract_everything">[docs]</a>    <span class="k">def</span> <span class="nf">_extract_everything</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">db</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">):</span>
+<div class="viewcode-block" id="SQLiteDataConverter._extract_everything"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._extract_everything">[docs]</a>    <span class="k">def</span> <span class="nf">_extract_everything</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Extracts everything from the temporary database db</span>
 
 <span class="sd">        Args:</span>
@@ -582,7 +371,7 @@
             <span class="n">retro</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">return</span> <span class="n">truth</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">retro</span></div>
 
-<div class="viewcode-block" id="SQLiteDataConverter._merge_temporary_databases"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._merge_temporary_databases">[docs]</a>    <span class="k">def</span> <span class="nf">_merge_temporary_databases</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">database</span><span class="p">,</span> <span class="n">db_files</span><span class="p">,</span> <span class="n">path_to_tmp</span><span class="p">,</span><span class="n">pulse_map</span><span class="p">):</span>
+<div class="viewcode-block" id="SQLiteDataConverter._merge_temporary_databases"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.SQLiteDataConverter._merge_temporary_databases">[docs]</a>    <span class="k">def</span> <span class="nf">_merge_temporary_databases</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">database</span><span class="p">,</span> <span class="n">db_files</span><span class="p">,</span> <span class="n">path_to_tmp</span><span class="p">,</span> <span class="n">pulse_map</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Merges the temporary databases</span>
 
 <span class="sd">        Args:</span>
@@ -591,17 +380,46 @@
 <span class="sd">            path_to_tmp (str): path to temporary database directory</span>
 <span class="sd">            pulse_map (str): name of the pulsemap. E.g. SRTInIcePulses</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">file_counter</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">db_files</span><span class="p">)),</span> <span class="n">colour</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">db_files</span><span class="p">)),</span> <span class="n">colour</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">):</span>
             <span class="n">file</span> <span class="o">=</span> <span class="n">db_files</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
             <span class="n">truth</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">retro</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_everything</span><span class="p">(</span><span class="n">path_to_tmp</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span>  <span class="o">+</span> <span class="n">file</span><span class="p">,</span><span class="n">pulse_map</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_submit_truth</span><span class="p">(</span><span class="n">database</span><span class="p">,</span><span class="n">truth</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_submit_pulse_maps</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">features</span><span class="p">,</span> <span class="n">pulse_map</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_submit_retro</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">retro</span><span class="p">)</span>
-            <span class="n">file_counter</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">return</span></div>
-    <span class="k">def</span> <span class="nf">_initialise</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">pass</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_submit_to_database</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="s2">&quot;truth&quot;</span><span class="p">,</span> <span class="n">truth</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_submit_to_database</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="n">pulse_map</span><span class="p">,</span> <span class="n">features</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_submit_to_database</span><span class="p">(</span><span class="n">database</span><span class="p">,</span> <span class="s2">&quot;RetroReco&quot;</span><span class="p">,</span> <span class="n">retro</span><span class="p">)</span></div></div>
+            
+
+
+<span class="c1"># Implementation-specific utility function(s)</span>
+<div class="viewcode-block" id="apply_event_no"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.apply_event_no">[docs]</a><span class="k">def</span> <span class="nf">apply_event_no</span><span class="p">(</span><span class="n">extraction</span><span class="p">,</span> <span class="n">event_no_list</span><span class="p">,</span> <span class="n">event_counter</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Converts extraction to pandas.DataFrame and applies the event_no index to extraction</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        extraction (dict): Dictionary with the extracted data.</span>
+<span class="sd">        event_no_list (list): List of allocated event_no&#39;s.</span>
+<span class="sd">        event_counter (int): Index for event_no_list.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        out (pandas.DataFrame): Extraction as pandas.DataFrame with event_no column.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">extraction</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">extraction</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;event_no&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">event_no_list</span><span class="p">[</span><span class="n">event_counter</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="is_empty"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.is_empty">[docs]</a><span class="k">def</span> <span class="nf">is_empty</span><span class="p">(</span><span class="n">features</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">features</span><span class="p">[</span><span class="s1">&#39;dom_x&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="save_to_sql"><a class="viewcode-back" href="../../../gnn_reco.data.html#gnn_reco.data.sqlite_dataconverter.save_to_sql">[docs]</a><span class="k">def</span> <span class="nf">save_to_sql</span><span class="p">(</span><span class="n">feature_big</span><span class="p">,</span> <span class="n">truth_big</span><span class="p">,</span> <span class="n">retro_big</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">output_count</span><span class="p">,</span> <span class="n">db_name</span><span class="p">,</span><span class="n">outdir</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">):</span>
+    <span class="n">engine</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///&#39;</span><span class="o">+</span><span class="n">outdir</span> <span class="o">+</span> <span class="s1">&#39;/</span><span class="si">%s</span><span class="s1">/tmp/worker-</span><span class="si">%s</span><span class="s1">-</span><span class="si">%s</span><span class="s1">.db&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="n">output_count</span><span class="p">))</span>
+    <span class="n">truth_big</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;truth&#39;</span><span class="p">,</span><span class="n">engine</span><span class="p">,</span><span class="n">index</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">retro_big</span><span class="p">)</span><span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">retro_big</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;RetroReco&#39;</span><span class="p">,</span><span class="n">engine</span><span class="p">,</span><span class="n">index</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span><span class="p">)</span>
+    <span class="n">feature_big</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">pulsemap</span><span class="p">,</span><span class="n">engine</span><span class="p">,</span><span class="n">index</span><span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">if_exists</span> <span class="o">=</span> <span class="s1">&#39;append&#39;</span><span class="p">)</span>
+    <span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
+    <span class="k">return</span></div>
 </pre></div>
 
            </div>
