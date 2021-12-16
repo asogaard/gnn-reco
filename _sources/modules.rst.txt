@@ -4,4 +4,4 @@ src
 .. toctree::
    :maxdepth: 4
 
-   graphnet
+   gnn_reco
