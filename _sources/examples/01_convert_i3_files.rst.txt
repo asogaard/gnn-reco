@@ -1,0 +1,7 @@
+01\_convert\_i3\_files module
+=============================
+
+.. automodule:: 01_convert_i3_files
+   :members:
+   :undoc-members:
+   :show-inheritance:
