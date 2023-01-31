@@ -1,0 +1,7 @@
+01\_fit\_pisa\_weights module
+=============================
+
+.. automodule:: 01_fit_pisa_weights
+   :members:
+   :undoc-members:
+   :show-inheritance:

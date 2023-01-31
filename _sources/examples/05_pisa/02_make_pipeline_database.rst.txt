@@ -1,0 +1,7 @@
+02\_make\_pipeline\_database module
+===================================
+
+.. automodule:: 02_make_pipeline_database
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+02\_fit\_bjoern\_low\_weights module
+====================================
+
+.. automodule:: 02_fit_bjoern_low_weights
+   :members:
+   :undoc-members:
+   :show-inheritance:

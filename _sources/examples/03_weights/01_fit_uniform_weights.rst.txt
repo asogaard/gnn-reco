@@ -1,0 +1,7 @@
+01\_fit\_uniform\_weights module
+================================
+
+.. automodule:: 01_fit_uniform_weights
+   :members:
+   :undoc-members:
+   :show-inheritance:

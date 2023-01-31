@@ -1,0 +1,7 @@
+03\_convert\_parquet\_to\_sqlite module
+=======================================
+
+.. automodule:: 03_convert_parquet_to_sqlite
+   :members:
+   :undoc-members:
+   :show-inheritance:

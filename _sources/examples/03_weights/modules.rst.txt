@@ -1,0 +1,8 @@
+03_weights
+==========
+
+.. toctree::
+   :maxdepth: 4
+
+   01_fit_uniform_weights
+   02_fit_bjoern_low_weights

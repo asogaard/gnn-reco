@@ -1,0 +1,7 @@
+02\_train\_model\_without\_configs module
+=========================================
+
+.. automodule:: 02_train_model_without_configs
+   :members:
+   :undoc-members:
+   :show-inheritance:

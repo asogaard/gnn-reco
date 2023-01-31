@@ -1,0 +1,7 @@
+02\_plot\_feature\_distributions module
+=======================================
+
+.. automodule:: 02_plot_feature_distributions
+   :members:
+   :undoc-members:
+   :show-inheritance:
