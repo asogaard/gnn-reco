@@ -64,28 +64,38 @@
     <title>graphnet.models.gnn.dynedge &#8212; graphnet  documentation</title>
 
 <style>
+  dt:target {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .sig-prename {
     display: none;
   }
 
-  .sig-name {
+  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class {
-    border-top: 1px solid gray;
-    padding-top: 1ex;
+  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+    padding: 1ex;
   }
-  .py.function {
+
+  .py.class .sig-object, .py.function .sig-object {
     border-top: 1px solid gray;
-    padding-top: 1ex;
   }
-  .py.method {
+  .py.method .sig-object {
     border-top: 1px solid lightgray;
-    padding-top: 1ex;
+  }
+
+  .py.class .sig-object {
+    background: rgba(0,0,0,0.06);
+  }
+  .py.function .sig-object, .py.method .sig-object {
+    background: rgba(0,0,0,0.03);
   }
 </style>
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
@@ -460,7 +470,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_construct_layers</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="DynEdge._construct_layers"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.html#graphnet.models.gnn.dynedge.DynEdge._construct_layers">[docs]</a>    <span class="k">def</span> <span class="nf">_construct_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_construct_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Construct layers (torch.nn.Modules)."""</span>
         <span class="c1"># Convolutional operations</span>
         <span class="n">nb_input_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nb_inputs</span>
@@ -522,9 +532,9 @@
             <span class="n">readout_layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">nb_in</span><span class="p">,</span> <span class="n">nb_out</span><span class="p">))</span>
             <span class="n">readout_layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_activation</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_readout</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">readout_layers</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_readout</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">readout_layers</span><span class="p">)</span>
 
-<div class="viewcode-block" id="DynEdge._global_pooling"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.html#graphnet.models.gnn.dynedge.DynEdge._global_pooling">[docs]</a>    <span class="k">def</span> <span class="nf">_global_pooling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_global_pooling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Perform global pooling."""</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_global_pooling_schemes</span>
         <span class="n">pooled</span> <span class="o">=</span> <span class="p">[]</span>
@@ -537,9 +547,9 @@
                 <span class="n">pooled_x</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">pooled_x</span>
             <span class="n">pooled</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pooled_x</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<div class="viewcode-block" id="DynEdge._calculate_global_variables"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.html#graphnet.models.gnn.dynedge.DynEdge._calculate_global_variables">[docs]</a>    <span class="k">def</span> <span class="nf">_calculate_global_variables</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">_calculate_global_variables</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
         <span class="n">edge_index</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span>
@@ -566,7 +576,7 @@
             <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">global_variables</span></div>
+        <span class="k">return</span> <span class="n">global_variables</span>
 
 <div class="viewcode-block" id="DynEdge.forward"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.html#graphnet.models.gnn.dynedge.DynEdge.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Apply learnable forward pass."""</span>

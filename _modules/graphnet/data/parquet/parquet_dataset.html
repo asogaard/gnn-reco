@@ -64,28 +64,38 @@
     <title>graphnet.data.parquet.parquet_dataset &#8212; graphnet  documentation</title>
 
 <style>
+  dt:target {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .sig-prename {
     display: none;
   }
 
-  .sig-name {
+  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class {
-    border-top: 1px solid gray;
-    padding-top: 1ex;
+  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+    padding: 1ex;
   }
-  .py.function {
+
+  .py.class .sig-object, .py.function .sig-object {
     border-top: 1px solid gray;
-    padding-top: 1ex;
   }
-  .py.method {
+  .py.method .sig-object {
     border-top: 1px solid lightgray;
-    padding-top: 1ex;
+  }
+
+  .py.class .sig-object {
+    background: rgba(0,0,0,0.06);
+  }
+  .py.function .sig-object, .py.method .sig-object {
+    background: rgba(0,0,0,0.03);
   }
 </style>
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
@@ -352,7 +362,7 @@
 
         <span class="k">return</span> <span class="n">index</span>
 
-<div class="viewcode-block" id="ParquetDataset._format_dictionary_result"><a class="viewcode-back" href="../../../../api/graphnet.data.parquet.html#graphnet.data.parquet.parquet_dataset.ParquetDataset._format_dictionary_result">[docs]</a>    <span class="k">def</span> <span class="nf">_format_dictionary_result</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">_format_dictionary_result</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">:</span> <span class="n">Dict</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
 <span class="w">        </span><span class="sd">"""Convert the output of `ak.to_list()` into a list of tuples."""</span>
@@ -380,7 +390,7 @@
                     <span class="n">value</span><span class="p">,</span> <span class="n">repeats</span><span class="o">=</span><span class="n">nb_elements</span>
                 <span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">dictionary</span><span class="o">.</span><span class="n">values</span><span class="p">()))))</span></div>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">dictionary</span><span class="o">.</span><span class="n">values</span><span class="p">()))))</span>
 
 <div class="viewcode-block" id="ParquetDataset.query_table"><a class="viewcode-back" href="../../../../api/graphnet.data.parquet.html#graphnet.data.parquet.parquet_dataset.ParquetDataset.query_table">[docs]</a>    <span class="k">def</span> <span class="nf">query_table</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>

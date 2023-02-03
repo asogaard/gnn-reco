@@ -64,28 +64,38 @@
     <title>graphnet.models.task.task &#8212; graphnet  documentation</title>
 
 <style>
+  dt:target {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .sig-prename {
     display: none;
   }
 
-  .sig-name {
+  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class {
-    border-top: 1px solid gray;
-    padding-top: 1ex;
+  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+    padding: 1ex;
   }
-  .py.function {
+
+  .py.class .sig-object, .py.function .sig-object {
     border-top: 1px solid gray;
-    padding-top: 1ex;
   }
-  .py.method {
+  .py.method .sig-object {
     border-top: 1px solid lightgray;
-    padding-top: 1ex;
+  }
+
+  .py.class .sig-object {
+    background: rgba(0,0,0,0.06);
+  }
+  .py.function .sig-object, .py.method .sig-object {
+    background: rgba(0,0,0,0.03);
   }
 </style>
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
@@ -419,9 +429,9 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transform_prediction_training</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Task._forward"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.Task._forward">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Data</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Data</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">"""Syntax like `.forward`, for implentation in inheriting classes."""</span></div>
+<span class="w">        </span><span class="sd">"""Syntax like `.forward`, for implentation in inheriting classes."""</span>
 
 <div class="viewcode-block" id="Task.compute_loss"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.Task.compute_loss">[docs]</a>    <span class="nd">@final</span>
     <span class="k">def</span> <span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Data</span><span class="p">],</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
@@ -453,7 +463,7 @@
 <span class="w">        </span><span class="sd">"""Deactivate inference mode."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_inference</span> <span class="o">=</span> <span class="kc">False</span></div>
 
-<div class="viewcode-block" id="Task._validate_and_set_transforms"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.Task._validate_and_set_transforms">[docs]</a>    <span class="nd">@final</span>
+    <span class="nd">@final</span>
     <span class="k">def</span> <span class="nf">_validate_and_set_transforms</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">transform_prediction_and_target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span>
@@ -530,7 +540,7 @@
             <span class="k">if</span> <span class="n">transform_target</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_transform_target</span> <span class="o">=</span> <span class="n">transform_target</span>
             <span class="k">if</span> <span class="n">transform_inference</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_transform_prediction_inference</span> <span class="o">=</span> <span class="n">transform_inference</span></div></div>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_transform_prediction_inference</span> <span class="o">=</span> <span class="n">transform_inference</span></div>
 
 
 <div class="viewcode-block" id="IdentityTask"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.IdentityTask">[docs]</a><span class="k">class</span> <span class="nc">IdentityTask</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>

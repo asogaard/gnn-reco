@@ -1,10 +1,13 @@
-graphnet.models.components 
-===========================
+
+components
+==========
+
 
 .. automodule:: graphnet.models.components
    :members:
    :undoc-members:
    :show-inheritance:
+
 
 |start-h2| Submodules |end-h2|
 

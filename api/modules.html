@@ -65,28 +65,38 @@
     <title>src &#8212; graphnet  documentation</title>
 
 <style>
+  dt:target {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .sig-prename {
     display: none;
   }
 
-  .sig-name {
+  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class {
-    border-top: 1px solid gray;
-    padding-top: 1ex;
+  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+    padding: 1ex;
   }
-  .py.function {
+
+  .py.class .sig-object, .py.function .sig-object {
     border-top: 1px solid gray;
-    padding-top: 1ex;
   }
-  .py.method {
+  .py.method .sig-object {
     border-top: 1px solid lightgray;
-    padding-top: 1ex;
+  }
+
+  .py.class .sig-object {
+    background: rgba(0,0,0,0.06);
+  }
+  .py.function .sig-object, .py.method .sig-object {
+    background: rgba(0,0,0,0.03);
   }
 </style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -299,12 +309,13 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="graphnet.html">API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="graphnet.data.html">graphnet.data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="graphnet.deployment.html">graphnet.deployment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="graphnet.models.html">graphnet.models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="graphnet.pisa.html">graphnet.pisa</a></li>
-<li class="toctree-l2"><a class="reference internal" href="graphnet.training.html">graphnet.training</a></li>
-<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.html">graphnet.utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.data.html">data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.deployment.html">deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.models.html">models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.pisa.html">pisa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.training.html">training</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.html">utilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.html#module-graphnet.constants">graphnet.constants</a></li>
 </ul>
 </li>
 </ul>

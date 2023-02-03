@@ -64,28 +64,38 @@
     <title>Overview: module code &#8212; graphnet  documentation</title>
 
 <style>
+  dt:target {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .sig-prename {
     display: none;
   }
 
-  .sig-name {
+  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class {
-    border-top: 1px solid gray;
-    padding-top: 1ex;
+  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+    padding: 1ex;
   }
-  .py.function {
+
+  .py.class .sig-object, .py.function .sig-object {
     border-top: 1px solid gray;
-    padding-top: 1ex;
   }
-  .py.method {
+  .py.method .sig-object {
     border-top: 1px solid lightgray;
-    padding-top: 1ex;
+  }
+
+  .py.class .sig-object {
+    background: rgba(0,0,0,0.06);
+  }
+  .py.function .sig-object, .py.method .sig-object {
+    background: rgba(0,0,0,0.03);
   }
 </style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -294,11 +304,25 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <h1 id="modules-index--page-root">All modules for which code is available</h1>
-<ul><li><a href="graphnet/data/extractors/utilities/collections.html">graphnet.data.extractors.utilities.collections</a></li>
+<ul><li><a href="graphnet/data/constants.html">graphnet.data.constants</a></li>
+<li><a href="graphnet/data/dataconverter.html">graphnet.data.dataconverter</a></li>
+<li><a href="graphnet/data/dataloader.html">graphnet.data.dataloader</a></li>
+<li><a href="graphnet/data/dataset.html">graphnet.data.dataset</a></li>
+<li><a href="graphnet/data/extractors/i3extractor.html">graphnet.data.extractors.i3extractor</a></li>
+<li><a href="graphnet/data/extractors/i3featureextractor.html">graphnet.data.extractors.i3featureextractor</a></li>
+<li><a href="graphnet/data/extractors/i3genericextractor.html">graphnet.data.extractors.i3genericextractor</a></li>
+<li><a href="graphnet/data/extractors/i3hybridrecoextractor.html">graphnet.data.extractors.i3hybridrecoextractor</a></li>
+<li><a href="graphnet/data/extractors/i3pisaextractor.html">graphnet.data.extractors.i3pisaextractor</a></li>
+<li><a href="graphnet/data/extractors/i3retroextractor.html">graphnet.data.extractors.i3retroextractor</a></li>
+<li><a href="graphnet/data/extractors/i3splinempeextractor.html">graphnet.data.extractors.i3splinempeextractor</a></li>
+<li><a href="graphnet/data/extractors/i3truthextractor.html">graphnet.data.extractors.i3truthextractor</a></li>
+<li><a href="graphnet/data/extractors/i3tumextractor.html">graphnet.data.extractors.i3tumextractor</a></li>
+<li><a href="graphnet/data/extractors/utilities/collections.html">graphnet.data.extractors.utilities.collections</a></li>
 <li><a href="graphnet/data/extractors/utilities/frames.html">graphnet.data.extractors.utilities.frames</a></li>
 <li><a href="graphnet/data/extractors/utilities/types.html">graphnet.data.extractors.utilities.types</a></li>
 <li><a href="graphnet/data/parquet/parquet_dataconverter.html">graphnet.data.parquet.parquet_dataconverter</a></li>
 <li><a href="graphnet/data/parquet/parquet_dataset.html">graphnet.data.parquet.parquet_dataset</a></li>
+<li><a href="graphnet/data/pipeline.html">graphnet.data.pipeline</a></li>
 <li><a href="graphnet/data/sqlite/sqlite_dataconverter.html">graphnet.data.sqlite.sqlite_dataconverter</a></li>
 <li><a href="graphnet/data/sqlite/sqlite_dataset.html">graphnet.data.sqlite.sqlite_dataset</a></li>
 <li><a href="graphnet/data/sqlite/sqlite_dataset_perturbed.html">graphnet.data.sqlite.sqlite_dataset_perturbed</a></li>
@@ -308,6 +332,7 @@
 <li><a href="graphnet/data/utilities/random.html">graphnet.data.utilities.random</a></li>
 <li><a href="graphnet/data/utilities/string_selection_resolver.html">graphnet.data.utilities.string_selection_resolver</a></li>
 <li><a href="graphnet/deployment/i3modules/graphnet_module.html">graphnet.deployment.i3modules.graphnet_module</a></li>
+<li><a href="graphnet/models/coarsening.html">graphnet.models.coarsening</a></li>
 <li><a href="graphnet/models/components/layers.html">graphnet.models.components.layers</a></li>
 <li><a href="graphnet/models/components/pool.html">graphnet.models.components.pool</a></li>
 <li><a href="graphnet/models/detector/detector.html">graphnet.models.detector.detector</a></li>
@@ -317,9 +342,13 @@
 <li><a href="graphnet/models/gnn/dynedge.html">graphnet.models.gnn.dynedge</a></li>
 <li><a href="graphnet/models/gnn/dynedge_jinst.html">graphnet.models.gnn.dynedge_jinst</a></li>
 <li><a href="graphnet/models/gnn/gnn.html">graphnet.models.gnn.gnn</a></li>
+<li><a href="graphnet/models/graph_builders.html">graphnet.models.graph_builders</a></li>
+<li><a href="graphnet/models/model.html">graphnet.models.model</a></li>
+<li><a href="graphnet/models/standard_model.html">graphnet.models.standard_model</a></li>
 <li><a href="graphnet/models/task/classification.html">graphnet.models.task.classification</a></li>
 <li><a href="graphnet/models/task/reconstruction.html">graphnet.models.task.reconstruction</a></li>
 <li><a href="graphnet/models/task/task.html">graphnet.models.task.task</a></li>
+<li><a href="graphnet/models/utils.html">graphnet.models.utils</a></li>
 <li><a href="graphnet/pisa/fitting.html">graphnet.pisa.fitting</a></li>
 <li><a href="graphnet/pisa/plotting.html">graphnet.pisa.plotting</a></li>
 <li><a href="graphnet/training/callbacks.html">graphnet.training.callbacks</a></li>
@@ -327,12 +356,17 @@
 <li><a href="graphnet/training/loss_functions.html">graphnet.training.loss_functions</a></li>
 <li><a href="graphnet/training/utils.html">graphnet.training.utils</a></li>
 <li><a href="graphnet/training/weight_fitting.html">graphnet.training.weight_fitting</a></li>
+<li><a href="graphnet/utilities/argparse.html">graphnet.utilities.argparse</a></li>
 <li><a href="graphnet/utilities/config/base_config.html">graphnet.utilities.config.base_config</a></li>
 <li><a href="graphnet/utilities/config/configurable.html">graphnet.utilities.config.configurable</a></li>
 <li><a href="graphnet/utilities/config/dataset_config.html">graphnet.utilities.config.dataset_config</a></li>
 <li><a href="graphnet/utilities/config/model_config.html">graphnet.utilities.config.model_config</a></li>
 <li><a href="graphnet/utilities/config/parsing.html">graphnet.utilities.config.parsing</a></li>
 <li><a href="graphnet/utilities/config/training_config.html">graphnet.utilities.config.training_config</a></li>
+<li><a href="graphnet/utilities/filesys.html">graphnet.utilities.filesys</a></li>
+<li><a href="graphnet/utilities/imports.html">graphnet.utilities.imports</a></li>
+<li><a href="graphnet/utilities/logging.html">graphnet.utilities.logging</a></li>
+<li><a href="graphnet/utilities/maths.html">graphnet.utilities.maths</a></li>
 </ul>
 
           </article>

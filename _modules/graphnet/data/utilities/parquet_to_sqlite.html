@@ -64,28 +64,38 @@
     <title>graphnet.data.utilities.parquet_to_sqlite &#8212; graphnet  documentation</title>
 
 <style>
+  dt:target {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .sig-prename {
     display: none;
   }
 
-  .sig-name {
+  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class {
-    border-top: 1px solid gray;
-    padding-top: 1ex;
+  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+    padding: 1ex;
   }
-  .py.function {
+
+  .py.class .sig-object, .py.function .sig-object {
     border-top: 1px solid gray;
-    padding-top: 1ex;
   }
-  .py.method {
+  .py.method .sig-object {
     border-top: 1px solid lightgray;
-    padding-top: 1ex;
+  }
+
+  .py.class .sig-object {
+    background: rgba(0,0,0,0.06);
+  }
+  .py.function .sig-object, .py.method .sig-object {
+    background: rgba(0,0,0,0.03);
   }
 </style>
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
@@ -469,10 +479,10 @@
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">outdir</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">database_name</span> <span class="o">+</span> <span class="s2">"/data"</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">outdir</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">database_name</span> <span class="o">+</span> <span class="s2">"/config"</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<div class="viewcode-block" id="ParquetToSQLiteConverter._save_config"><a class="viewcode-back" href="../../../../api/graphnet.data.utilities.html#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter._save_config">[docs]</a>    <span class="k">def</span> <span class="nf">_save_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outdir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">database_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_save_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outdir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">database_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Save the list of converted Parquet files to a CSV file."""</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_parquet_files</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"files"</span><span class="p">])</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outdir</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">database_name</span> <span class="o">+</span> <span class="s2">"/config/files.csv"</span><span class="p">)</span></div></div>
+        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outdir</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">database_name</span> <span class="o">+</span> <span class="s2">"/config/files.csv"</span><span class="p">)</span></div>
 </pre></div>
 
           </article>

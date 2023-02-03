@@ -1,10 +1,13 @@
-graphnet.utilities 
-===================
+
+utilities
+=========
+
 
 .. automodule:: graphnet.utilities
    :members:
    :undoc-members:
    :show-inheritance:
+
 
 |start-h2| Subpackages |end-h2|
 
@@ -12,6 +15,58 @@ graphnet.utilities
    :maxdepth: 2
 
    graphnet.utilities.config
+
+|start-h2| Submodules |end-h2|
+
+
+graphnet.utilities.argparse 
+----------------------------
+
+.. automodule:: graphnet.utilities.argparse
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+graphnet.utilities.decorators 
+------------------------------
+
+.. automodule:: graphnet.utilities.decorators
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+graphnet.utilities.filesys 
+---------------------------
+
+.. automodule:: graphnet.utilities.filesys
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+graphnet.utilities.imports 
+---------------------------
+
+.. automodule:: graphnet.utilities.imports
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+graphnet.utilities.logging 
+---------------------------
+
+.. automodule:: graphnet.utilities.logging
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+graphnet.utilities.maths 
+-------------------------
+
+.. automodule:: graphnet.utilities.maths
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 
 .. |start-h2| raw:: html

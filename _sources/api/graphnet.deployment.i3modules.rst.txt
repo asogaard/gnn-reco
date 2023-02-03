@@ -1,10 +1,13 @@
-graphnet.deployment.i3modules 
-==============================
+
+i3modules
+=========
+
 
 .. automodule:: graphnet.deployment.i3modules
    :members:
    :undoc-members:
    :show-inheritance:
+
 
 |start-h2| Submodules |end-h2|
 

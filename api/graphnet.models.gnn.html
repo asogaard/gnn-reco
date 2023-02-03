@@ -62,31 +62,41 @@
 </script>
   
   
-    <title>graphnet.models.gnn &#8212; graphnet  documentation</title>
+    <title>gnn &#8212; graphnet  documentation</title>
 
 <style>
+  dt:target {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .sig-prename {
     display: none;
   }
 
-  .sig-name {
+  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class {
-    border-top: 1px solid gray;
-    padding-top: 1ex;
+  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+    padding: 1ex;
   }
-  .py.function {
+
+  .py.class .sig-object, .py.function .sig-object {
     border-top: 1px solid gray;
-    padding-top: 1ex;
   }
-  .py.method {
+  .py.method .sig-object {
     border-top: 1px solid lightgray;
-    padding-top: 1ex;
+  }
+
+  .py.class .sig-object {
+    background: rgba(0,0,0,0.06);
+  }
+  .py.function .sig-object, .py.method .sig-object {
+    background: rgba(0,0,0,0.03);
   }
 </style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -101,8 +111,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="graphnet.models.task" href="graphnet.models.task.html" />
-    <link rel="prev" title="graphnet.models.detector" href="graphnet.models.detector.html" />
+    <link rel="next" title="task" href="graphnet.models.task.html" />
+    <link rel="prev" title="detector" href="graphnet.models.detector.html" />
   
    
 
@@ -140,7 +150,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">GraphNeT</span>
-          <span class="md-header-nav__topic"> graphnet.models.gnn </span>
+          <span class="md-header-nav__topic"> gnn </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -216,7 +226,7 @@
             
             <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Documentation</a></li>
           <li class="md-tabs__item"><a href="graphnet.html" class="md-tabs__link">API</a></li>
-          <li class="md-tabs__item"><a href="graphnet.models.html" class="md-tabs__link">graphnet.models</a></li>
+          <li class="md-tabs__item"><a href="graphnet.models.html" class="md-tabs__link">models</a></li>
       </ul>
     </div>
   </nav>
@@ -277,62 +287,49 @@
     <li class="md-nav__item">
     
     
-      <a href="graphnet.data.html" class="md-nav__link">graphnet.data</a>
+      <a href="graphnet.data.html" class="md-nav__link">data</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.deployment.html" class="md-nav__link">graphnet.deployment</a>
+      <a href="graphnet.deployment.html" class="md-nav__link">deployment</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.models.html" class="md-nav__link">graphnet.models</a>
+      <a href="graphnet.models.html" class="md-nav__link">models</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.components.html" class="md-nav__link">components</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.pisa.html" class="md-nav__link">graphnet.pisa</a>
+      <a href="graphnet.models.detector.html" class="md-nav__link">detector</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.training.html" class="md-nav__link">graphnet.training</a>
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> gnn </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">gnn</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.utilities.html" class="md-nav__link">graphnet.utilities</a>
-      
-    
-    </li></ul>
-    
-    </li>
-  </ul>
-  
-
-</nav>
-              </div>
-            </div>
-          </div>
-          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                
+        
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-models-gnn--page-root" class="md-nav__link">graphnet.models.gnn</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#api-graphnet-models-gnn--page-root" class="md-nav__link">gnn</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#module-graphnet.models.gnn.convnet" class="md-nav__link">graphnet.models.gnn.convnet</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -352,11 +349,280 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge._construct_layers" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge._construct_layers()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.forward()</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge._global_pooling" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge._global_pooling()</span></code></a>
+        <li class="md-nav__item"><a href="#module-graphnet.models.gnn.dynedge_jinst" class="md-nav__link">graphnet.models.gnn.dynedge_jinst</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge._calculate_global_variables" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge._calculate_global_variables()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.forward()</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#module-graphnet.models.gnn.gnn" class="md-nav__link">graphnet.models.gnn.gnn</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.__init__()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_inputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_inputs</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_outputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_outputs</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.forward()</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.models.gnn.convnet" class="md-nav__link">graphnet.models.gnn.convnet</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.convnet.ConvNet" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.convnet.ConvNet.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.__init__()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.convnet.ConvNet.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.forward()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.models.gnn.dynedge" class="md-nav__link">graphnet.models.gnn.dynedge</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.dynedge.DynEdge" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.dynedge.DynEdge.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.__init__()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.dynedge.DynEdge.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.forward()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.models.gnn.dynedge_jinst" class="md-nav__link">graphnet.models.gnn.dynedge_jinst</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.__init__()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.forward()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.models.gnn.gnn" class="md-nav__link">graphnet.models.gnn.gnn</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.gnn.GNN" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.gnn.GNN.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.__init__()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.gnn.GNN.nb_inputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_inputs</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.gnn.GNN.nb_outputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_outputs</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.gnn.gnn.GNN.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.forward()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.task.html" class="md-nav__link">task</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.html#module-graphnet.models.coarsening" class="md-nav__link">graphnet.models.coarsening</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.html#module-graphnet.models.graph_builders" class="md-nav__link">graphnet.models.graph_builders</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.html#module-graphnet.models.model" class="md-nav__link">graphnet.models.model</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.html#module-graphnet.models.standard_model" class="md-nav__link">graphnet.models.standard_model</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.html#module-graphnet.models.utils" class="md-nav__link">graphnet.models.utils</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.pisa.html" class="md-nav__link">pisa</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.training.html" class="md-nav__link">training</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.utilities.html" class="md-nav__link">utilities</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.html#module-graphnet.constants" class="md-nav__link">graphnet.constants</a>
+      
+    
+    </li></ul>
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-graphnet-models-gnn--page-root" class="md-nav__link">gnn</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#module-graphnet.models.gnn.convnet" class="md-nav__link">graphnet.models.gnn.convnet</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.__init__()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.forward()</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#module-graphnet.models.gnn.dynedge" class="md-nav__link">graphnet.models.gnn.dynedge</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.__init__()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.forward()</span></code></a>
         </li></ul>
@@ -404,7 +670,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="module-graphnet.models.gnn">
-<span id="graphnet-models-gnn"></span><h1 id="api-graphnet-models-gnn--page-root">graphnet.models.gnn<a class="headerlink" href="#api-graphnet-models-gnn--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="gnn"></span><h1 id="api-graphnet-models-gnn--page-root">gnn<a class="headerlink" href="#api-graphnet-models-gnn--page-root" title="Permalink to this heading">¶</a></h1>
 <p>GNN-specific modules, for performing the main learnable operations.</p>
 <p><h2> Submodules </h2></p>
 <section id="module-graphnet.models.gnn.convnet">
@@ -413,7 +679,7 @@
 <p>Author: Martin Ha Minh</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.models.gnn.convnet.ConvNet">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.gnn.convnet.</span></span><span class="sig-name descname"><span class="pre">ConvNet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_outputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_intermediate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/convnet.html#ConvNet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.convnet.ConvNet" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.gnn.convnet.</span></span><span class="sig-name descname"><span class="pre">ConvNet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_outputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_intermediate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout_ratio.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/convnet.html#ConvNet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.convnet.ConvNet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.models.gnn.gnn.GNN" title="graphnet.models.gnn.gnn.GNN"><code class="xref py py-class docutils literal notranslate"><span class="pre">GNN</span></code></a></p>
 <p>ConvNet (convolutional network) model.</p>
 <dl class="field-list simple">
@@ -428,7 +694,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.models.gnn.convnet.ConvNet.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_outputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_intermediate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/convnet.html#ConvNet.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.convnet.ConvNet.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_outputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_intermediate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dropout_ratio.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/convnet.html#ConvNet.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.convnet.ConvNet.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct <cite>ConvNet</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -463,7 +729,7 @@ output layer.</p></li>
 <p>Implementation of the DynEdge GNN model architecture.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.models.gnn.dynedge.DynEdge">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.gnn.dynedge.</span></span><span class="sig-name descname"><span class="pre">DynEdge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_neighbours</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynedge_layer_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_processing_layer_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readout_layer_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_pooling_schemes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_global_variables_after_pooling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge.html#DynEdge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge.DynEdge" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.gnn.dynedge.</span></span><span class="sig-name descname"><span class="pre">DynEdge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_neighbours</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features_subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynedge_layer_sizes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_processing_layer_sizes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readout_layer_sizes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_pooling_schemes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_global_variables_after_pooling</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge.html#DynEdge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge.DynEdge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.models.gnn.gnn.GNN" title="graphnet.models.gnn.gnn.GNN"><code class="xref py py-class docutils literal notranslate"><span class="pre">GNN</span></code></a></p>
 <p>DynEdge (dynamical edge convolutional) model.</p>
 <dl class="field-list simple">
@@ -482,7 +748,7 @@ output layer.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.models.gnn.dynedge.DynEdge.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_neighbours</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features_subset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynedge_layer_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_processing_layer_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readout_layer_sizes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_pooling_schemes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_global_variables_after_pooling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge.html#DynEdge.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge.DynEdge.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_neighbours</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features_subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynedge_layer_sizes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_processing_layer_sizes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">readout_layer_sizes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_pooling_schemes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_global_variables_after_pooling</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge.html#DynEdge.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge.DynEdge.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct <cite>DynEdge</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -521,50 +787,6 @@ operations.</p></li>
 </dl>
 </dd></dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="graphnet.models.gnn.dynedge.DynEdge._construct_layers">
-<span class="sig-name descname"><span class="pre">_construct_layers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge.html#DynEdge._construct_layers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge.DynEdge._construct_layers" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct layers (torch.nn.Modules).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.models.gnn.dynedge.DynEdge._global_pooling">
-<span class="sig-name descname"><span class="pre">_global_pooling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge.html#DynEdge._global_pooling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge.DynEdge._global_pooling" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform global pooling.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-<li><p><strong>batch</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.models.gnn.dynedge.DynEdge._calculate_global_variables">
-<span class="sig-name descname"><span class="pre">_calculate_global_variables</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">additional_attributes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge.html#DynEdge._calculate_global_variables"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge.DynEdge._calculate_global_variables" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate global variables.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-<li><p><strong>edge_index</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – </p></li>
-<li><p><strong>batch</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – </p></li>
-<li><p><strong>additional_attributes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
 <dt class="sig sig-object py" id="graphnet.models.gnn.dynedge.DynEdge.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge.html#DynEdge.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge.DynEdge.forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply learnable forward pass.</p>
@@ -585,7 +807,7 @@ operations.</p></li>
 <p>Author: Rasmus Oersoe</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.models.gnn.dynedge_jinst.DynEdgeJINST">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.gnn.dynedge_jinst.</span></span><span class="sig-name descname"><span class="pre">DynEdgeJINST</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_size_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge_jinst.html#DynEdgeJINST"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.gnn.dynedge_jinst.</span></span><span class="sig-name descname"><span class="pre">DynEdgeJINST</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_size_scale</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge_jinst.html#DynEdgeJINST"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.models.gnn.gnn.GNN" title="graphnet.models.gnn.gnn.GNN"><code class="xref py py-class docutils literal notranslate"><span class="pre">GNN</span></code></a></p>
 <p>DynEdge (dynamical edge convolutional) model used in [2209.03042].</p>
 <dl class="field-list simple">
@@ -598,7 +820,7 @@ operations.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_size_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge_jinst.html#DynEdgeJINST.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_size_scale</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/dynedge_jinst.html#DynEdgeJINST.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct <cite>DynEdgeJINST</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -631,7 +853,7 @@ operations.</p></li>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.models.gnn.gnn.GNN">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.gnn.gnn.</span></span><span class="sig-name descname"><span class="pre">GNN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_inputs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_outputs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/gnn/gnn.html#GNN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.gnn.gnn.GNN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="graphnet.models.html#graphnet.models.model.Model" title="graphnet.models.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a></p>
 <p>Base class for all core GNN models in graphnet.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -694,7 +916,7 @@ operations.</p></li>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="graphnet.models.detector.html" title="graphnet.models.detector"
+            <a href="graphnet.models.detector.html" title="detector"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -703,17 +925,17 @@ operations.</p></li>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> graphnet.models.detector </span>
+                      class="md-footer-nav__direction"> Previous </span> detector </span>
               </div>
             </a>
           
           
-            <a href="graphnet.models.task.html" title="graphnet.models.task"
+            <a href="graphnet.models.task.html" title="task"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> graphnet.models.task </span>
+                class="md-footer-nav__direction"> Next </span> task </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

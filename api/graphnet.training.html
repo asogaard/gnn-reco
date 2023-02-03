@@ -62,31 +62,41 @@
 </script>
   
   
-    <title>graphnet.training &#8212; graphnet  documentation</title>
+    <title>training &#8212; graphnet  documentation</title>
 
 <style>
+  dt:target {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .sig-prename {
     display: none;
   }
 
-  .sig-name {
+  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class {
-    border-top: 1px solid gray;
-    padding-top: 1ex;
+  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+    padding: 1ex;
   }
-  .py.function {
+
+  .py.class .sig-object, .py.function .sig-object {
     border-top: 1px solid gray;
-    padding-top: 1ex;
   }
-  .py.method {
+  .py.method .sig-object {
     border-top: 1px solid lightgray;
-    padding-top: 1ex;
+  }
+
+  .py.class .sig-object {
+    background: rgba(0,0,0,0.06);
+  }
+  .py.function .sig-object, .py.method .sig-object {
+    background: rgba(0,0,0,0.03);
   }
 </style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -101,8 +111,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="graphnet.utilities" href="graphnet.utilities.html" />
-    <link rel="prev" title="graphnet.pisa" href="graphnet.pisa.html" />
+    <link rel="next" title="utilities" href="graphnet.utilities.html" />
+    <link rel="prev" title="pisa" href="graphnet.pisa.html" />
   
    
 
@@ -140,7 +150,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">GraphNeT</span>
-          <span class="md-header-nav__topic"> graphnet.training </span>
+          <span class="md-header-nav__topic"> training </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -276,28 +286,28 @@
     <li class="md-nav__item">
     
     
-      <a href="graphnet.data.html" class="md-nav__link">graphnet.data</a>
+      <a href="graphnet.data.html" class="md-nav__link">data</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.deployment.html" class="md-nav__link">graphnet.deployment</a>
+      <a href="graphnet.deployment.html" class="md-nav__link">deployment</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.models.html" class="md-nav__link">graphnet.models</a>
+      <a href="graphnet.models.html" class="md-nav__link">models</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.pisa.html" class="md-nav__link">graphnet.pisa</a>
+      <a href="graphnet.pisa.html" class="md-nav__link">pisa</a>
       
     
     </li>
@@ -305,15 +315,15 @@
     
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> graphnet.training </label>
+    <label class="md-nav__link md-nav__link--active" for="__toc"> training </label>
     
-      <a href="#" class="md-nav__link md-nav__link--active">graphnet.training</a>
+      <a href="#" class="md-nav__link md-nav__link--active">training</a>
       
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-training--page-root" class="md-nav__link">graphnet.training</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#api-graphnet-training--page-root" class="md-nav__link">training</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#module-graphnet.training.callbacks" class="md-nav__link">graphnet.training.callbacks</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -350,16 +360,12 @@
         <li class="md-nav__item"><a href="#graphnet.training.labels.Label" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Label</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.training.labels.Label.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Label.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.labels.Label.__call__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Label.__call__()</span></code></a>
         </li></ul>
             </nav>
         </li>
         <li class="md-nav__item"><a href="#graphnet.training.labels.Direction" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Direction</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.training.labels.Direction.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Direction.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.labels.Direction.__call__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Direction.__call__()</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -372,36 +378,18 @@
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LossFunction.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LossFunction.__init__()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LossFunction.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LossFunction.forward()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LossFunction._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LossFunction._forward()</span></code></a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.MSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">MSELoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.MSELoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">MSELoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.MSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">MSELoss</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.RMSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">RMSELoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.RMSELoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">RMSELoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.RMSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">RMSELoss</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LogCoshLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCoshLoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LogCoshLoss._log_cosh" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCoshLoss._log_cosh()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LogCoshLoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCoshLoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LogCoshLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCoshLoss</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.CrossEntropyLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">CrossEntropyLoss</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.CrossEntropyLoss.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">CrossEntropyLoss.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.CrossEntropyLoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">CrossEntropyLoss._forward()</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -422,28 +410,14 @@
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisherLoss.log_cmk_approx" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisherLoss.log_cmk_approx()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisherLoss.log_cmk" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisherLoss.log_cmk()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisherLoss._evaluate" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisherLoss._evaluate()</span></code></a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher2DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher2DLoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher2DLoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher2DLoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher2DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher2DLoss</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.EuclideanDistanceLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">EuclideanDistanceLoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.EuclideanDistanceLoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">EuclideanDistanceLoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.EuclideanDistanceLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">EuclideanDistanceLoss</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher3DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher3DLoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher3DLoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher3DLoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher3DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher3DLoss</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -467,23 +441,13 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.WeightFitter.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">WeightFitter.__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.WeightFitter._get_truth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">WeightFitter._get_truth()</span></code></a>
-        </li>
         <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.WeightFitter.fit" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">WeightFitter.fit()</span></code></a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.Uniform" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Uniform</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.Uniform._fit_weights" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Uniform._fit_weights()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.Uniform" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Uniform</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.BjoernLow" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BjoernLow</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.BjoernLow._fit_weights" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BjoernLow._fit_weights()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.BjoernLow" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BjoernLow</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -491,13 +455,363 @@
         </li>
   </ul>
 </nav>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.training.callbacks" class="md-nav__link">graphnet.training.callbacks</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.callbacks.PiecewiseLinearLR" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">PiecewiseLinearLR</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.callbacks.PiecewiseLinearLR.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">PiecewiseLinearLR.__init__()</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.utilities.html" class="md-nav__link">graphnet.utilities</a>
+      <a href="#graphnet.training.callbacks.PiecewiseLinearLR.get_lr" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">PiecewiseLinearLR.get_lr()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.callbacks.ProgressBar" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.callbacks.ProgressBar.init_validation_tqdm" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ProgressBar.init_validation_tqdm()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.callbacks.ProgressBar.init_predict_tqdm" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ProgressBar.init_predict_tqdm()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.callbacks.ProgressBar.init_test_tqdm" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ProgressBar.init_test_tqdm()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.callbacks.ProgressBar.init_train_tqdm" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ProgressBar.init_train_tqdm()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.callbacks.ProgressBar.get_metrics" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ProgressBar.get_metrics()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.callbacks.ProgressBar.on_train_epoch_start" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ProgressBar.on_train_epoch_start()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.callbacks.ProgressBar.on_train_epoch_end" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ProgressBar.on_train_epoch_end()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.training.labels" class="md-nav__link">graphnet.training.labels</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.labels.Label" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Label</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.labels.Label.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Label.__init__()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.labels.Direction" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Direction</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.labels.Direction.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Direction.__init__()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.training.loss_functions" class="md-nav__link">graphnet.training.loss_functions</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.LossFunction" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LossFunction</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.LossFunction.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LossFunction.__init__()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.LossFunction.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LossFunction.forward()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.MSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">MSELoss</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.RMSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">RMSELoss</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.LogCoshLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCoshLoss</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.CrossEntropyLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">CrossEntropyLoss</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.CrossEntropyLoss.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">CrossEntropyLoss.__init__()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.BinaryCrossEntropyLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BinaryCrossEntropyLoss</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.LogCMK" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCMK</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.LogCMK.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCMK.forward()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.LogCMK.backward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCMK.backward()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.VonMisesFisherLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisherLoss</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.VonMisesFisherLoss.log_cmk_exact" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisherLoss.log_cmk_exact()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.VonMisesFisherLoss.log_cmk_approx" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisherLoss.log_cmk_approx()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.VonMisesFisherLoss.log_cmk" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisherLoss.log_cmk()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.VonMisesFisher2DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher2DLoss</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.EuclideanDistanceLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">EuclideanDistanceLoss</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.loss_functions.VonMisesFisher3DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher3DLoss</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.training.utils" class="md-nav__link">graphnet.training.utils</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.utils.collate_fn" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">collate_fn()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.utils.make_dataloader" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">make_dataloader()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.utils.make_train_validation_dataloader" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">make_train_validation_dataloader()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.utils.get_predictions" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_predictions()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.utils.save_results" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_results()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.training.weight_fitting" class="md-nav__link">graphnet.training.weight_fitting</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.weight_fitting.WeightFitter" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">WeightFitter</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.weight_fitting.WeightFitter.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">WeightFitter.__init__()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.weight_fitting.WeightFitter.fit" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">WeightFitter.fit()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.weight_fitting.Uniform" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Uniform</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.training.weight_fitting.BjoernLow" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BjoernLow</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.utilities.html" class="md-nav__link">utilities</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.html#module-graphnet.constants" class="md-nav__link">graphnet.constants</a>
       
     
     </li></ul>
@@ -517,7 +831,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-training--page-root" class="md-nav__link">graphnet.training</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#api-graphnet-training--page-root" class="md-nav__link">training</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#module-graphnet.training.callbacks" class="md-nav__link">graphnet.training.callbacks</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -554,16 +868,12 @@
         <li class="md-nav__item"><a href="#graphnet.training.labels.Label" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Label</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.training.labels.Label.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Label.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.labels.Label.__call__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Label.__call__()</span></code></a>
         </li></ul>
             </nav>
         </li>
         <li class="md-nav__item"><a href="#graphnet.training.labels.Direction" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Direction</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.training.labels.Direction.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Direction.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.labels.Direction.__call__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Direction.__call__()</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -576,36 +886,18 @@
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LossFunction.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LossFunction.__init__()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LossFunction.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LossFunction.forward()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LossFunction._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LossFunction._forward()</span></code></a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.MSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">MSELoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.MSELoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">MSELoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.MSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">MSELoss</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.RMSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">RMSELoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.RMSELoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">RMSELoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.RMSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">RMSELoss</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LogCoshLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCoshLoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LogCoshLoss._log_cosh" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCoshLoss._log_cosh()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LogCoshLoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCoshLoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.LogCoshLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCoshLoss</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.CrossEntropyLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">CrossEntropyLoss</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.CrossEntropyLoss.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">CrossEntropyLoss.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.CrossEntropyLoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">CrossEntropyLoss._forward()</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -626,28 +918,14 @@
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisherLoss.log_cmk_approx" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisherLoss.log_cmk_approx()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisherLoss.log_cmk" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisherLoss.log_cmk()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisherLoss._evaluate" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisherLoss._evaluate()</span></code></a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher2DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher2DLoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher2DLoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher2DLoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher2DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher2DLoss</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.EuclideanDistanceLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">EuclideanDistanceLoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.EuclideanDistanceLoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">EuclideanDistanceLoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.EuclideanDistanceLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">EuclideanDistanceLoss</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher3DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher3DLoss</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher3DLoss._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher3DLoss._forward()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.loss_functions.VonMisesFisher3DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher3DLoss</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -671,23 +949,13 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.WeightFitter.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">WeightFitter.__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.WeightFitter._get_truth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">WeightFitter._get_truth()</span></code></a>
-        </li>
         <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.WeightFitter.fit" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">WeightFitter.fit()</span></code></a>
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.Uniform" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Uniform</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.Uniform._fit_weights" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Uniform._fit_weights()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.Uniform" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Uniform</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.BjoernLow" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BjoernLow</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.BjoernLow._fit_weights" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BjoernLow._fit_weights()</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.training.weight_fitting.BjoernLow" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BjoernLow</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -703,7 +971,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="module-graphnet.training">
-<span id="graphnet-training"></span><h1 id="api-graphnet-training--page-root">graphnet.training<a class="headerlink" href="#api-graphnet-training--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="training"></span><h1 id="api-graphnet-training--page-root">training<a class="headerlink" href="#api-graphnet-training--page-root" title="Permalink to this heading">¶</a></h1>
 <p>Modules for training models.</p>
 <p><cite>graphnet.training</cite> manages model training and experiment logging.</p>
 <p><h2> Submodules </h2></p>
@@ -712,7 +980,7 @@
 <p>Callback class(es) for using during model training.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.callbacks.PiecewiseLinearLR">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.callbacks.</span></span><span class="sig-name descname"><span class="pre">PiecewiseLinearLR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">milestones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_epoch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/callbacks.html#PiecewiseLinearLR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.callbacks.PiecewiseLinearLR" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.callbacks.</span></span><span class="sig-name descname"><span class="pre">PiecewiseLinearLR</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">milestones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_epoch=-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/callbacks.html#PiecewiseLinearLR"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.callbacks.PiecewiseLinearLR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_LRScheduler</span></code></p>
 <p>Interpolate learning rate linearly between milestones.</p>
 <dl class="field-list simple">
@@ -728,7 +996,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.training.callbacks.PiecewiseLinearLR.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">milestones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_epoch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/callbacks.html#PiecewiseLinearLR.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.callbacks.PiecewiseLinearLR.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">milestones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_epoch=-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/callbacks.html#PiecewiseLinearLR.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.callbacks.PiecewiseLinearLR.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct <cite>PiecewiseLinearLR</cite>.</p>
 <p>For each milestone, denoting a specified number of steps, a factor
 multiplying the base learning rate is specified. For steps between two
@@ -762,7 +1030,7 @@ milestone.</p>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.callbacks.ProgressBar">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.callbacks.</span></span><span class="sig-name descname"><span class="pre">ProgressBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">refresh_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/callbacks.html#ProgressBar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.callbacks.ProgressBar" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.callbacks.</span></span><span class="sig-name descname"><span class="pre">ProgressBar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">refresh_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">process_position</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/callbacks.html#ProgressBar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.callbacks.ProgressBar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TQDMProgressBar</span></code></p>
 <p>Custom progress bar for graphnet.</p>
 <p>Customises the default progress in pytorch-lightning.</p>
@@ -874,7 +1142,7 @@ lightning is to overwrite the progress bar from previous epochs.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.labels.Label">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.labels.</span></span><span class="sig-name descname"><span class="pre">Label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/labels.html#Label"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.labels.Label" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <a class="reference internal" href="graphnet.utilities.html#graphnet.utilities.logging.LoggerMixin" title="graphnet.utilities.logging.LoggerMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></a></p>
 <p>Base <cite>Label</cite> class for producing labels from single <cite>Data</cite> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -892,23 +1160,10 @@ stored. That is, <cite>graph[key] = label</cite>.</p>
 </dd>
 </dl>
 </dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.labels.Label.__call__">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/labels.html#Label.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.labels.Label.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Label-specific implementation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>graph</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tensor</span></code></p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.labels.Direction">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.labels.</span></span><span class="sig-name descname"><span class="pre">Direction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">azimuth_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'azimuth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zenith_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zenith'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/labels.html#Direction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.labels.Direction" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.labels.</span></span><span class="sig-name descname"><span class="pre">Direction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">azimuth_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zenith_key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/labels.html#Direction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.labels.Direction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.training.labels.Label" title="graphnet.training.labels.Label"><code class="xref py py-class docutils literal notranslate"><span class="pre">Label</span></code></a></p>
 <p>Class for producing particle direction/pointing label.</p>
 <dl class="field-list simple">
@@ -921,7 +1176,7 @@ stored. That is, <cite>graph[key] = label</cite>.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.training.labels.Direction.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">azimuth_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'azimuth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zenith_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'zenith'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/labels.html#Direction.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.labels.Direction.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">azimuth_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zenith_key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/labels.html#Direction.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.labels.Direction.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct <cite>Direction</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -929,19 +1184,6 @@ stored. That is, <cite>graph[key] = label</cite>.</p>
 <li><p><strong>azimuth_key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'azimuth'</span></code>) – </p></li>
 <li><p><strong>zenith_key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'zenith'</span></code>) – </p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.labels.Direction.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/labels.html#Direction.__call__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.labels.Direction.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute label for <cite>graph</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>graph</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">tensor</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -955,7 +1197,7 @@ handles per-event weights, etc.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.loss_functions.LossFunction">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.loss_functions.</span></span><span class="sig-name descname"><span class="pre">LossFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#LossFunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.LossFunction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="graphnet.models.html#graphnet.models.model.Model" title="graphnet.models.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a></p>
 <p>Base class for loss functions in <cite>graphnet</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -977,7 +1219,7 @@ handles per-event weights, etc.</p>
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.training.loss_functions.LossFunction.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#LossFunction.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.LossFunction.forward" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_elements</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#LossFunction.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.LossFunction.forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Forward pass for all loss functions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -998,22 +1240,6 @@ elementwise terms with shape [N,] (if <cite>return_elements = True</cite>).</p>
 </dd>
 </dl>
 </dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.loss_functions.LossFunction._forward">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#LossFunction._forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.LossFunction._forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Syntax like <cite>.forward</cite>, for implentation in inheriting classes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prediction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.loss_functions.MSELoss">
@@ -1025,22 +1251,6 @@ elementwise terms with shape [N,] (if <cite>return_elements = True</cite>).</p>
 <dd class="field-odd"><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.loss_functions.MSELoss._forward">
-<span class="sig-name descname"><span class="pre">_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#MSELoss._forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.MSELoss._forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implement loss calculation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prediction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.loss_functions.RMSELoss">
@@ -1052,22 +1262,6 @@ elementwise terms with shape [N,] (if <cite>return_elements = True</cite>).</p>
 <dd class="field-odd"><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.loss_functions.RMSELoss._forward">
-<span class="sig-name descname"><span class="pre">_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#RMSELoss._forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.RMSELoss._forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implement loss calculation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prediction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.loss_functions.LogCoshLoss">
@@ -1080,37 +1274,6 @@ elementwise terms with shape [N,] (if <cite>return_elements = True</cite>).</p>
 <dd class="field-odd"><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.loss_functions.LogCoshLoss._log_cosh">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_log_cosh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#LogCoshLoss._log_cosh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.LogCoshLoss._log_cosh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Numerically stable version on log(cosh(x)).</p>
-<p>Used to avoid <cite>inf</cite> for even moderately large differences.
-See [<a class="reference external" href="https://github.com/keras-team/keras/blob/v2.6.0/keras/losses.py#L1580-L1617">https://github.com/keras-team/keras/blob/v2.6.0/keras/losses.py#L1580-L1617</a>]</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.loss_functions.LogCoshLoss._forward">
-<span class="sig-name descname"><span class="pre">_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#LogCoshLoss._forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.LogCoshLoss._forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implement loss calculation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prediction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.loss_functions.CrossEntropyLoss">
@@ -1140,22 +1303,6 @@ probabilities), and targets are an [N,1]-matrix with integer values in
 <li><p><strong>args</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
 <li><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.loss_functions.CrossEntropyLoss._forward">
-<span class="sig-name descname"><span class="pre">_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#CrossEntropyLoss._forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.CrossEntropyLoss._forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Transform outputs to angle and prepare prediction.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prediction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1281,7 +1428,7 @@ prediction vectors need to be prepared.</p>
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.training.loss_functions.VonMisesFisherLoss.log_cmk">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log_cmk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa_switch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#VonMisesFisherLoss.log_cmk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.VonMisesFisherLoss.log_cmk" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log_cmk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kappa_switch.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#VonMisesFisherLoss.log_cmk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.VonMisesFisherLoss.log_cmk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate $log C_{m}(k)$ term in von Mises-Fisher loss.</p>
 <p>Since <cite>log_cmk_exact</cite> is diverges for <cite>kappa</cite> &gt;~ 700 (using float64
 precision), and since <cite>log_cmk_approx</cite> is unaccurate for small <cite>kappa</cite>,
@@ -1300,27 +1447,6 @@ ensuring continuity at this point.</p>
 </dd>
 </dl>
 </dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.loss_functions.VonMisesFisherLoss._evaluate">
-<span class="sig-name descname"><span class="pre">_evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#VonMisesFisherLoss._evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.VonMisesFisherLoss._evaluate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate von Mises-Fisher loss for a vector in D dimensons.</p>
-<p>This loss utilises the von Mises-Fisher distribution, which is a
-probability distribution on the (D - 1) sphere in D-dimensional space.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prediction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – Predicted vector, of shape [batch_size, D].</p></li>
-<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – Target unit vector, of shape [batch_size, D].</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Elementwise von Mises-Fisher loss terms.</p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.loss_functions.VonMisesFisher2DLoss">
@@ -1332,27 +1458,6 @@ probability distribution on the (D - 1) sphere in D-dimensional space.</p>
 <dd class="field-odd"><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.loss_functions.VonMisesFisher2DLoss._forward">
-<span class="sig-name descname"><span class="pre">_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#VonMisesFisher2DLoss._forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.VonMisesFisher2DLoss._forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate von Mises-Fisher loss for an angle in the 2D plane.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prediction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – Output of the model. Must have shape [N, 2] where 0th
-column is a prediction of <cite>angle</cite> and 1st column is an estimate
-of <cite>kappa</cite>.</p></li>
-<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – Target tensor, extracted from graph object.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Elementwise von Mises-Fisher loss terms. Shape [N,]</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>loss</p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.loss_functions.EuclideanDistanceLoss">
@@ -1364,25 +1469,6 @@ of <cite>kappa</cite>.</p></li>
 <dd class="field-odd"><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.loss_functions.EuclideanDistanceLoss._forward">
-<span class="sig-name descname"><span class="pre">_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#EuclideanDistanceLoss._forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.EuclideanDistanceLoss._forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate 3D Euclidean distance between predicted and target.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prediction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – Output of the model. Must have shape [N, 3]</p></li>
-<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – Target tensor, extracted from graph object.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Elementwise von Mises-Fisher loss terms. Shape [N,]</p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.loss_functions.VonMisesFisher3DLoss">
@@ -1394,27 +1480,6 @@ of <cite>kappa</cite>.</p></li>
 <dd class="field-odd"><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.loss_functions.VonMisesFisher3DLoss._forward">
-<span class="sig-name descname"><span class="pre">_forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prediction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/loss_functions.html#VonMisesFisher3DLoss._forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.loss_functions.VonMisesFisher3DLoss._forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate von Mises-Fisher loss for a direction in the 3D.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>prediction</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – Output of the model. Must have shape [N, 4] where
-columns 0, 1, 2 are predictions of <cite>direction</cite> and last column
-is an estimate of <cite>kappa</cite>.</p></li>
-<li><p><strong>target</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – Target tensor, extracted from graph object.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Elementwise von Mises-Fisher loss terms. Shape [N,]</p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 </section>
 <section id="module-graphnet.training.utils">
@@ -1436,7 +1501,7 @@ is an estimate of <cite>kappa</cite>.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="graphnet.training.utils.make_dataloader">
-<span class="sig-prename descclassname"><span class="pre">graphnet.training.utils.</span></span><span class="sig-name descname"><span class="pre">make_dataloader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'truth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'event_no'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/utils.html#make_dataloader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.utils.make_dataloader" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">graphnet.training.utils.</span></span><span class="sig-name descname"><span class="pre">make_dataloader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shuffle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent_workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/utils.html#make_dataloader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.utils.make_dataloader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct <cite>DataLoader</cite> instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1467,7 +1532,7 @@ is an estimate of <cite>kappa</cite>.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="graphnet.training.utils.make_train_validation_dataloader">
-<span class="sig-prename descclassname"><span class="pre">graphnet.training.utils.</span></span><span class="sig-name descname"><span class="pre">make_train_validation_dataloader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.33</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent_workers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'truth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'event_no'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/utils.html#make_train_validation_dataloader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.utils.make_train_validation_dataloader" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">graphnet.training.utils.</span></span><span class="sig-name descname"><span class="pre">make_train_validation_dataloader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database_indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test_size.33</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">persistent_workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/utils.html#make_train_validation_dataloader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.utils.make_train_validation_dataloader" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct train and test <cite>DataLoader</cite> instances.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1500,13 +1565,13 @@ is an estimate of <cite>kappa</cite>.</p></li>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="graphnet.training.utils.get_predictions">
-<span class="sig-prename descclassname"><span class="pre">graphnet.training.utils.</span></span><span class="sig-name descname"><span class="pre">get_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_columns</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/utils.html#get_predictions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.utils.get_predictions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">graphnet.training.utils.</span></span><span class="sig-name descname"><span class="pre">get_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trainer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_columns</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">additional_attributes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/utils.html#get_predictions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.utils.get_predictions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get <cite>model</cite> predictions on <cite>dataloader</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>trainer</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Trainer</span></code>) – </p></li>
-<li><p><strong>model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code>) – </p></li>
+<li><p><strong>model</strong> (<a class="reference internal" href="graphnet.models.html#graphnet.models.model.Model" title="graphnet.models.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>) – </p></li>
 <li><p><strong>dataloader</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataLoader</span></code>) – </p></li>
 <li><p><strong>prediction_columns</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
 <li><p><strong>node_level</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – </p></li>
@@ -1529,7 +1594,7 @@ is an estimate of <cite>kappa</cite>.</p></li>
 <li><p><strong>tag</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
 <li><p><strong>results</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – </p></li>
 <li><p><strong>archive</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-<li><p><strong>model</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code>) – </p></li>
+<li><p><strong>model</strong> (<a class="reference internal" href="graphnet.models.html#graphnet.models.model.Model" title="graphnet.models.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -1543,8 +1608,8 @@ is an estimate of <cite>kappa</cite>.</p></li>
 <p>Classes for fitting per-event weights for training.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.weight_fitting.WeightFitter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">WeightFitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'truth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'event_no'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#WeightFitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.WeightFitter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">WeightFitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#WeightFitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.WeightFitter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <a class="reference internal" href="graphnet.utilities.html#graphnet.utilities.logging.LoggerMixin" title="graphnet.utilities.logging.LoggerMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></a></p>
 <p>Produces per-event weights.</p>
 <p>Weights are returned by the public method <cite>fit_weights()</cite>, and the weights
 can be saved as a table in the database.</p>
@@ -1559,7 +1624,7 @@ can be saved as a table in the database.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.training.weight_fitting.WeightFitter.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'truth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'event_no'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#WeightFitter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.WeightFitter.__init__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#WeightFitter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.WeightFitter.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Construct <cite>UniformWeightFitter</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1572,24 +1637,8 @@ can be saved as a table in the database.</p>
 </dl>
 </dd></dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.weight_fitting.WeightFitter._get_truth">
-<span class="sig-name descname"><span class="pre">_get_truth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#WeightFitter._get_truth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.WeightFitter._get_truth" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return truth <cite>variable</cite>, optionally only for <cite>selection</cite> events.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>variable</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-<li><p><strong>selection</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
 <dt class="sig sig-object py" id="graphnet.training.weight_fitting.WeightFitter.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_to_database</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#WeightFitter.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.WeightFitter.fit" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_to_database</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#WeightFitter.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.WeightFitter.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit weights.</p>
 <p>Calls private <cite>_fit_weights</cite> method. Output is returned as a
 pandas.DataFrame and optionally saved to sql.</p>
@@ -1621,7 +1670,7 @@ happen in this space.</p></li>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.weight_fitting.Uniform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">Uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'truth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'event_no'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#Uniform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.Uniform" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">Uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#Uniform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.Uniform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.training.weight_fitting.WeightFitter" title="graphnet.training.weight_fitting.WeightFitter"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeightFitter</span></code></a></p>
 <p>Produces per-event weights making variable distribution uniform.</p>
 <dl class="field-list simple">
@@ -1633,26 +1682,10 @@ happen in this space.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.weight_fitting.Uniform._fit_weights">
-<span class="sig-name descname"><span class="pre">_fit_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">truth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#Uniform._fit_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.Uniform._fit_weights" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit per-event weights.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>truth</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – DataFrame containing the truth information.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The fitted weights.</p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.weight_fitting.BjoernLow">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">BjoernLow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'truth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'event_no'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#BjoernLow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.BjoernLow" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">BjoernLow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#BjoernLow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.BjoernLow" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.training.weight_fitting.WeightFitter" title="graphnet.training.weight_fitting.WeightFitter"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeightFitter</span></code></a></p>
 <p>Produces per-event weights.</p>
 <p>Events below x_low are weighted to be uniform, whereas events above x_low
@@ -1666,29 +1699,6 @@ are weighted to follow a 1/(1+a*(x_low -x)) curve.</p>
 </ul>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.weight_fitting.BjoernLow._fit_weights">
-<span class="sig-name descname"><span class="pre">_fit_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_low</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#BjoernLow._fit_weights"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.BjoernLow._fit_weights" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit per-event weights.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>truth</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – DataFrame containing the truth information.</p></li>
-<li><p><strong>x_low</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The cut-off for the truth variable. Values at or below x_low
-will be weighted to be uniform. Values above will follow a
-1/(1+a*(x_low -x)) curve.</p></li>
-<li><p><strong>alpha</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, default: <code class="docutils literal notranslate"><span class="pre">0.05</span></code>) – A scalar factor that controls how fast the weights above
-x_low approaches zero. Larger means faster.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The fitted weights.</p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 </section>
 </section>
@@ -1703,7 +1713,7 @@ x_low approaches zero. Larger means faster.</p></li>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="graphnet.pisa.html" title="graphnet.pisa"
+            <a href="graphnet.pisa.html" title="pisa"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -1712,17 +1722,17 @@ x_low approaches zero. Larger means faster.</p></li>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> graphnet.pisa </span>
+                      class="md-footer-nav__direction"> Previous </span> pisa </span>
               </div>
             </a>
           
           
-            <a href="graphnet.utilities.html" title="graphnet.utilities"
+            <a href="graphnet.utilities.html" title="utilities"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> graphnet.utilities </span>
+                class="md-footer-nav__direction"> Next </span> utilities </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

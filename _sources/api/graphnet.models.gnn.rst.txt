@@ -1,10 +1,13 @@
-graphnet.models.gnn 
-====================
+
+gnn
+===
+
 
 .. automodule:: graphnet.models.gnn
    :members:
    :undoc-members:
    :show-inheritance:
+
 
 |start-h2| Submodules |end-h2|
 

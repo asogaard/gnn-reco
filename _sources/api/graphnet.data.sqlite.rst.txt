@@ -1,10 +1,13 @@
-graphnet.data.sqlite 
-=====================
+
+sqlite
+======
+
 
 .. automodule:: graphnet.data.sqlite
    :members:
    :undoc-members:
    :show-inheritance:
+
 
 |start-h2| Submodules |end-h2|
 

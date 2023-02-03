@@ -1,10 +1,13 @@
+
 API
-=========
+========
+
 
 .. automodule:: graphnet
    :members:
    :undoc-members:
    :show-inheritance:
+
 
 |start-h2| Subpackages |end-h2|
 
@@ -17,6 +20,18 @@ API
    graphnet.pisa
    graphnet.training
    graphnet.utilities
+
+|start-h2| Submodules |end-h2|
+
+
+graphnet.constants 
+-------------------
+
+.. automodule:: graphnet.constants
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 
 .. |start-h2| raw:: html

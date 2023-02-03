@@ -64,28 +64,38 @@
     <title>graphnet.data.sqlite.sqlite_dataconverter &#8212; graphnet  documentation</title>
 
 <style>
+  dt:target {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .sig-prename {
     display: none;
   }
 
-  .sig-name {
+  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class {
-    border-top: 1px solid gray;
-    padding-top: 1ex;
+  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+    padding: 1ex;
   }
-  .py.function {
+
+  .py.class .sig-object, .py.function .sig-object {
     border-top: 1px solid gray;
-    padding-top: 1ex;
   }
-  .py.method {
+  .py.method .sig-object {
     border-top: 1px solid lightgray;
-    padding-top: 1ex;
+  }
+
+  .py.class .sig-object {
+    background: rgba(0,0,0,0.06);
+  }
+  .py.function .sig-object, .py.method .sig-object {
+    background: rgba(0,0,0,0.03);
   }
 </style>
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
@@ -430,7 +440,7 @@
             <span class="p">)</span>
         <span class="k">return</span> <span class="n">table_names</span>
 
-<div class="viewcode-block" id="SQLiteDataConverter._extract_table_names"><a class="viewcode-back" href="../../../../api/graphnet.data.sqlite.html#graphnet.data.sqlite.sqlite_dataconverter.SQLiteDataConverter._extract_table_names">[docs]</a>    <span class="k">def</span> <span class="nf">_extract_table_names</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">_extract_table_names</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">"""Get the names of all tables in database `db`."""</span>
@@ -446,7 +456,7 @@
                 <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">table</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">unique_tables</span><span class="p">:</span>
                         <span class="n">unique_tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
-            <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">unique_tables</span><span class="p">)</span></div>
+            <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">unique_tables</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_extract_column_names</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">db_paths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">table_name</span><span class="p">:</span> <span class="nb">str</span>
@@ -477,7 +487,7 @@
         <span class="n">pulsemap_dicts</span> <span class="o">=</span> <span class="p">[</span><span class="n">data_dict</span><span class="p">[</span><span class="n">pulsemap</span><span class="p">]</span> <span class="k">for</span> <span class="n">pulsemap</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pulsemaps</span><span class="p">]</span>
         <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">"dom_x"</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">pulsemap_dicts</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SQLiteDataConverter._submit_to_database"><a class="viewcode-back" href="../../../../api/graphnet.data.sqlite.html#graphnet.data.sqlite.sqlite_dataconverter.SQLiteDataConverter._submit_to_database">[docs]</a>    <span class="k">def</span> <span class="nf">_submit_to_database</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">_submit_to_database</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">database</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Submit data to the database with specified key."""</span>
@@ -486,9 +496,9 @@
             <span class="k">return</span>
         <span class="n">engine</span> <span class="o">=</span> <span class="n">sqlalchemy</span><span class="o">.</span><span class="n">create_engine</span><span class="p">(</span><span class="s2">"sqlite:///"</span> <span class="o">+</span> <span class="n">database</span><span class="p">)</span>
         <span class="n">data</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">"append"</span><span class="p">)</span>
-        <span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span></div>
+        <span class="n">engine</span><span class="o">.</span><span class="n">dispose</span><span class="p">()</span>
 
-<div class="viewcode-block" id="SQLiteDataConverter._extract_everything"><a class="viewcode-back" href="../../../../api/graphnet.data.sqlite.html#graphnet.data.sqlite.sqlite_dataconverter.SQLiteDataConverter._extract_everything">[docs]</a>    <span class="k">def</span> <span class="nf">_extract_everything</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"OrderedDict[str, pd.DataFrame]"</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_extract_everything</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"OrderedDict[str, pd.DataFrame]"</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Extract everything from the temporary database `db`.</span>
 
 <span class="sd">        Args:</span>
@@ -507,9 +517,9 @@
                 <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: E722</span>
                     <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
                 <span class="n">results</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
-        <span class="k">return</span> <span class="n">results</span></div>
+        <span class="k">return</span> <span class="n">results</span>
 
-<div class="viewcode-block" id="SQLiteDataConverter._merge_temporary_databases"><a class="viewcode-back" href="../../../../api/graphnet.data.sqlite.html#graphnet.data.sqlite.sqlite_dataconverter.SQLiteDataConverter._merge_temporary_databases">[docs]</a>    <span class="k">def</span> <span class="nf">_merge_temporary_databases</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">_merge_temporary_databases</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">output_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">input_files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
@@ -523,7 +533,7 @@
         <span class="k">for</span> <span class="n">input_file</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">input_files</span><span class="p">,</span> <span class="n">colour</span><span class="o">=</span><span class="s2">"green"</span><span class="p">):</span>
             <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_extract_everything</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_submit_to_database</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div></div>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_submit_to_database</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span></div>
 
 
 <span class="c1"># Implementation-specific utility function(s)</span>

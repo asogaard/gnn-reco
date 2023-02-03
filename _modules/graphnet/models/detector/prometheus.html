@@ -64,28 +64,38 @@
     <title>graphnet.models.detector.prometheus &#8212; graphnet  documentation</title>
 
 <style>
+  dt:target {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .sig-prename {
     display: none;
   }
 
-  .sig-name {
+  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class {
-    border-top: 1px solid gray;
-    padding-top: 1ex;
+  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+    padding: 1ex;
   }
-  .py.function {
+
+  .py.class .sig-object, .py.function .sig-object {
     border-top: 1px solid gray;
-    padding-top: 1ex;
   }
-  .py.method {
+  .py.method .sig-object {
     border-top: 1px solid lightgray;
-    padding-top: 1ex;
+  }
+
+  .py.class .sig-object {
+    background: rgba(0,0,0,0.06);
+  }
+  .py.function .sig-object, .py.method .sig-object {
+    background: rgba(0,0,0,0.03);
   }
 </style>
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
@@ -307,7 +317,7 @@
 
     <span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"sensor_pos_x"</span><span class="p">,</span> <span class="s2">"sensor_pos_y"</span><span class="p">,</span> <span class="s2">"sensor_pos_z"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Prometheus._forward"><a class="viewcode-back" href="../../../../api/graphnet.models.detector.html#graphnet.models.detector.prometheus.Prometheus._forward">[docs]</a>    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Ingest data, build graph, and preprocess features.</span>
 
 <span class="sd">        Args:</span>
@@ -328,7 +338,7 @@
         <span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-=</span> <span class="mf">1.0</span>
         <span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">20.0</span>
 
-        <span class="k">return</span> <span class="n">data</span></div></div>
+        <span class="k">return</span> <span class="n">data</span></div>
 </pre></div>
 
           </article>

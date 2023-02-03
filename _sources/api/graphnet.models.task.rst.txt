@@ -1,10 +1,13 @@
-graphnet.models.task 
-=====================
+
+task
+====
+
 
 .. automodule:: graphnet.models.task
    :members:
    :undoc-members:
    :show-inheritance:
+
 
 |start-h2| Submodules |end-h2|
 

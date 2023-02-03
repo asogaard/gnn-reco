@@ -62,31 +62,41 @@
 </script>
   
   
-    <title>graphnet.deployment.i3modules &#8212; graphnet  documentation</title>
+    <title>i3modules &#8212; graphnet  documentation</title>
 
 <style>
+  dt:target {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
   .sig-prename {
     display: none;
   }
 
-  .sig-name {
+  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class {
-    border-top: 1px solid gray;
-    padding-top: 1ex;
+  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+    padding: 1ex;
   }
-  .py.function {
+
+  .py.class .sig-object, .py.function .sig-object {
     border-top: 1px solid gray;
-    padding-top: 1ex;
   }
-  .py.method {
+  .py.method .sig-object {
     border-top: 1px solid lightgray;
-    padding-top: 1ex;
+  }
+
+  .py.class .sig-object {
+    background: rgba(0,0,0,0.06);
+  }
+  .py.function .sig-object, .py.method .sig-object {
+    background: rgba(0,0,0,0.03);
   }
 </style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -101,8 +111,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="graphnet.models" href="graphnet.models.html" />
-    <link rel="prev" title="graphnet.deployment" href="graphnet.deployment.html" />
+    <link rel="next" title="models" href="graphnet.models.html" />
+    <link rel="prev" title="deployment" href="graphnet.deployment.html" />
   
    
 
@@ -140,7 +150,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">GraphNeT</span>
-          <span class="md-header-nav__topic"> graphnet.deployment.i3modules </span>
+          <span class="md-header-nav__topic"> i3modules </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -216,7 +226,7 @@
             
             <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Documentation</a></li>
           <li class="md-tabs__item"><a href="graphnet.html" class="md-tabs__link">API</a></li>
-          <li class="md-tabs__item"><a href="graphnet.deployment.html" class="md-tabs__link">graphnet.deployment</a></li>
+          <li class="md-tabs__item"><a href="graphnet.deployment.html" class="md-tabs__link">deployment</a></li>
       </ul>
     </div>
   </nav>
@@ -277,42 +287,233 @@
     <li class="md-nav__item">
     
     
-      <a href="graphnet.data.html" class="md-nav__link">graphnet.data</a>
+      <a href="graphnet.data.html" class="md-nav__link">data</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.deployment.html" class="md-nav__link">graphnet.deployment</a>
+      <a href="graphnet.deployment.html" class="md-nav__link">deployment</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> i3modules </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">i3modules</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-graphnet-deployment-i3modules--page-root" class="md-nav__link">i3modules</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#module-graphnet.deployment.i3modules.graphnet_module" class="md-nav__link">graphnet.deployment.i3modules.graphnet_module</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.FEATURES</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.I3FEATUREEXTRACTOR_CLASS</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.DTYPES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.DTYPES</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.__init__()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Configure" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.Configure()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Physics" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.Physics()</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86.FEATURES</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore.FEATURES</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade.FEATURES</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.deployment.i3modules.graphnet_module" class="md-nav__link">graphnet.deployment.i3modules.graphnet_module</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.FEATURES</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.models.html" class="md-nav__link">graphnet.models</a>
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.I3FEATUREEXTRACTOR_CLASS</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.pisa.html" class="md-nav__link">graphnet.pisa</a>
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.DTYPES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.DTYPES</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.training.html" class="md-nav__link">graphnet.training</a>
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.__init__()</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.utilities.html" class="md-nav__link">graphnet.utilities</a>
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Configure" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.Configure()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Physics" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.Physics()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86.FEATURES</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore.FEATURES</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade</span></code></a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade.FEATURES</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.html" class="md-nav__link">models</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.pisa.html" class="md-nav__link">pisa</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.training.html" class="md-nav__link">training</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.utilities.html" class="md-nav__link">utilities</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.html#module-graphnet.constants" class="md-nav__link">graphnet.constants</a>
       
     
     </li></ul>
@@ -332,7 +533,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-deployment-i3modules--page-root" class="md-nav__link">graphnet.deployment.i3modules</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#api-graphnet-deployment-i3modules--page-root" class="md-nav__link">i3modules</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#module-graphnet.deployment.i3modules.graphnet_module" class="md-nav__link">graphnet.deployment.i3modules.graphnet_module</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -390,7 +591,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="module-graphnet.deployment.i3modules">
-<span id="graphnet-deployment-i3modules"></span><h1 id="api-graphnet-deployment-i3modules--page-root">graphnet.deployment.i3modules<a class="headerlink" href="#api-graphnet-deployment-i3modules--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="i3modules"></span><h1 id="api-graphnet-deployment-i3modules--page-root">i3modules<a class="headerlink" href="#api-graphnet-deployment-i3modules--page-root" title="Permalink to this heading">¶</a></h1>
 <p>Collection of I3Modules.</p>
 <p>This module contains various I3Modules which allow for running GNN model
 inference as part of an icetray reconstruction chain, for different IceCube
@@ -401,7 +602,7 @@ detector configurations.</p>
 <p>Class(es) for deploying GraphNeT models in icetray as I3Modules.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">I3Module</span></code></p>
 <p>Base I3Module for running graphnet models in I3Tray chains.</p>
 <dl class="field-list simple">
@@ -460,7 +661,7 @@ detector configurations.</p>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleIceCube86</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleIceCube86"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleIceCube86</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleIceCube86"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" title="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a></p>
 <p>Module for running GraphNeT models on standard IceCube-86 data.</p>
 <dl class="field-list simple">
@@ -482,12 +683,12 @@ detector configurations.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS">
 <span class="sig-name descname"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></span><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCube86</span></code></p>
+<dd><p>alias of <a class="reference internal" href="graphnet.data.extractors.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCube86</span></code></a></p>
 </dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleIceCubeDeepCore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleIceCubeDeepCore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleIceCubeDeepCore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleIceCubeDeepCore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" title="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a></p>
 <p>Module for running GraphNeT models on standard IceCube-DeepCore data.</p>
 <dl class="field-list simple">
@@ -509,12 +710,12 @@ detector configurations.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS">
 <span class="sig-name descname"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></span><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCubeDeepCore</span></code></p>
+<dd><p>alias of <a class="reference internal" href="graphnet.data.extractors.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeDeepCore" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeDeepCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCubeDeepCore</span></code></a></p>
 </dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleIceCubeUpgrade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">context</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleIceCubeUpgrade"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleIceCubeUpgrade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleIceCubeUpgrade"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" title="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a></p>
 <p>Module for running GraphNeT models on standard IceCube-Upgrade data.</p>
 <dl class="field-list simple">
@@ -536,7 +737,7 @@ detector configurations.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS">
 <span class="sig-name descname"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></span><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCubeUpgrade</span></code></p>
+<dd><p>alias of <a class="reference internal" href="graphnet.data.extractors.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeUpgrade" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeUpgrade"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCubeUpgrade</span></code></a></p>
 </dd></dl>
 </dd></dl>
 </section>
@@ -552,7 +753,7 @@ detector configurations.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="graphnet.deployment.html" title="graphnet.deployment"
+            <a href="graphnet.deployment.html" title="deployment"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -561,17 +762,17 @@ detector configurations.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> graphnet.deployment </span>
+                      class="md-footer-nav__direction"> Previous </span> deployment </span>
               </div>
             </a>
           
           
-            <a href="graphnet.models.html" title="graphnet.models"
+            <a href="graphnet.models.html" title="models"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> graphnet.models </span>
+                class="md-footer-nav__direction"> Next </span> models </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

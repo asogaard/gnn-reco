@@ -1,10 +1,13 @@
-graphnet.data.utilities 
-========================
+
+utilities
+=========
+
 
 .. automodule:: graphnet.data.utilities
    :members:
    :undoc-members:
    :show-inheritance:
+
 
 |start-h2| Submodules |end-h2|
 
