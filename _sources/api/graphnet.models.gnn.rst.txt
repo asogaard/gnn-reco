@@ -1,42 +1,60 @@
-graphnet.models.gnn package
-===========================
+graphnet.models.gnn 
+====================
 
 .. automodule:: graphnet.models.gnn
    :members:
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
+|start-h2| Submodules |end-h2|
 
-graphnet.models.gnn.convnet module
-----------------------------------
+
+graphnet.models.gnn.convnet 
+----------------------------
 
 .. automodule:: graphnet.models.gnn.convnet
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.models.gnn.dynedge module
-----------------------------------
+graphnet.models.gnn.dynedge 
+----------------------------
 
 .. automodule:: graphnet.models.gnn.dynedge
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.models.gnn.dynedge\_jinst module
------------------------------------------
+graphnet.models.gnn.dynedge\_jinst 
+-----------------------------------
 
 .. automodule:: graphnet.models.gnn.dynedge_jinst
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.models.gnn.gnn module
-------------------------------
+graphnet.models.gnn.gnn 
+------------------------
 
 .. automodule:: graphnet.models.gnn.gnn
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+
+.. |start-h2| raw:: html
+
+     <h2>
+
+.. |end-h2| raw:: html
+
+     </h2>
+
+.. |start-h3| raw:: html
+
+     <h3>
+
+.. |end-h3| raw:: html
+
+     </h3>

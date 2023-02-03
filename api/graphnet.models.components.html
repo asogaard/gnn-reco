@@ -59,7 +59,7 @@
 </script>
   
   
-    <title>graphnet.models.components package &#8212; graphnet  documentation</title>
+    <title>graphnet.models.components &#8212; graphnet  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -73,8 +73,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="graphnet.models.detector package" href="graphnet.models.detector.html" />
-    <link rel="prev" title="graphnet.models package" href="graphnet.models.html" />
+    <link rel="next" title="graphnet.models.detector" href="graphnet.models.detector.html" />
+    <link rel="prev" title="graphnet.models" href="graphnet.models.html" />
   
    
 
@@ -112,7 +112,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">GraphNeT</span>
-          <span class="md-header-nav__topic"> graphnet.models.components package </span>
+          <span class="md-header-nav__topic"> graphnet.models.components </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -187,9 +187,8 @@
       <ul class="md-tabs__list">
             
             <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Documentation</a></li>
-          <li class="md-tabs__item"><a href="../api.html" class="md-tabs__link">API</a></li>
-          <li class="md-tabs__item"><a href="graphnet.html" class="md-tabs__link">graphnet package</a></li>
-          <li class="md-tabs__item"><a href="graphnet.models.html" class="md-tabs__link">graphnet.models package</a></li>
+          <li class="md-tabs__item"><a href="graphnet.html" class="md-tabs__link">API</a></li>
+          <li class="md-tabs__item"><a href="graphnet.models.html" class="md-tabs__link">graphnet.models</a></li>
       </ul>
     </div>
   </nav>
@@ -245,8 +244,144 @@
     <li class="md-nav__item">
     
     
-      <a href="../api.html" class="md-nav__link">API</a>
+      <a href="graphnet.html" class="md-nav__link">API</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.data.html" class="md-nav__link">graphnet.data</a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.deployment.html" class="md-nav__link">graphnet.deployment</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.html" class="md-nav__link">graphnet.models</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> graphnet.models.components </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">graphnet.models.components</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-graphnet-models-components--page-root" class="md-nav__link">graphnet.models.components</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#module-graphnet.models.components.layers" class="md-nav__link">graphnet.models.components.layers</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.components.layers.DynEdgeConv" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeConv</span></code></a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.components.layers.DynEdgeConv.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeConv.__init__()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.layers.DynEdgeConv.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeConv.forward()</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#module-graphnet.models.components.pool" class="md-nav__link">graphnet.models.components.pool</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.min_pool" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">min_pool()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.min_pool_x" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">min_pool_x()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.sum_pool_and_distribute" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">sum_pool_and_distribute()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool._group_identical" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">_group_identical()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.group_by" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">group_by()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.group_pulses_to_dom" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">group_pulses_to_dom()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.group_pulses_to_pmt" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">group_pulses_to_pmt()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.sum_pool_x" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">sum_pool_x()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.std_pool_x" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">std_pool_x()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.sum_pool" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">sum_pool()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.std_pool" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">std_pool()</span></code></a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.models.components.layers" class="md-nav__link">graphnet.models.components.layers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#module-graphnet.models.components.pool" class="md-nav__link">graphnet.models.components.pool</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.detector.html" class="md-nav__link">graphnet.models.detector</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.gnn.html" class="md-nav__link">graphnet.models.gnn</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.task.html" class="md-nav__link">graphnet.models.task</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.pisa.html" class="md-nav__link">graphnet.pisa</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.training.html" class="md-nav__link">graphnet.training</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.utilities.html" class="md-nav__link">graphnet.utilities</a>
+      
+    
+    </li></ul>
     
     </li>
   </ul>
@@ -263,11 +398,9 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-models-components--page-root" class="md-nav__link">graphnet.models.components package</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#api-graphnet-models-components--page-root" class="md-nav__link">graphnet.models.components</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#submodules" class="md-nav__link">Submodules</a>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.models.components.layers" class="md-nav__link">graphnet.models.components.layers module</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#module-graphnet.models.components.layers" class="md-nav__link">graphnet.models.components.layers</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.models.components.layers.DynEdgeConv" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeConv</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -279,8 +412,14 @@
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#module-graphnet.models.components.pool" class="md-nav__link">graphnet.models.components.pool module</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#module-graphnet.models.components.pool" class="md-nav__link">graphnet.models.components.pool</a><nav class="md-nav">
               <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.min_pool" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">min_pool()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.min_pool_x" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">min_pool_x()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.sum_pool_and_distribute" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">sum_pool_and_distribute()</span></code></a>
+        </li>
         <li class="md-nav__item"><a href="#graphnet.models.components.pool._group_identical" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">_group_identical()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.models.components.pool.group_by" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">group_by()</span></code></a>
@@ -289,19 +428,13 @@
         </li>
         <li class="md-nav__item"><a href="#graphnet.models.components.pool.group_pulses_to_pmt" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">group_pulses_to_pmt()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.components.pool.min_pool" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">min_pool()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.components.pool.min_pool_x" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">min_pool_x()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.components.pool.std_pool" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">std_pool()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.sum_pool_x" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">sum_pool_x()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.models.components.pool.std_pool_x" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">std_pool_x()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.models.components.pool.sum_pool" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">sum_pool()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.components.pool.sum_pool_and_distribute" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">sum_pool_and_distribute()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.components.pool.sum_pool_x" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">sum_pool_x()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.components.pool.std_pool" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">std_pool()</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -317,13 +450,11 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="module-graphnet.models.components">
-<span id="graphnet-models-components-package"></span><h1 id="api-graphnet-models-components--page-root">graphnet.models.components package<a class="headerlink" href="#api-graphnet-models-components--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="graphnet-models-components"></span><h1 id="api-graphnet-models-components--page-root">graphnet.models.components<a class="headerlink" href="#api-graphnet-models-components--page-root" title="Permalink to this heading">¶</a></h1>
 <p>Components for constructing models.</p>
-<section id="submodules">
-<h2 id="submodules">Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
-</section>
+<p><h2> Submodules </h2></p>
 <section id="module-graphnet.models.components.layers">
-<span id="graphnet-models-components-layers-module"></span><h2 id="module-graphnet.models.components.layers">graphnet.models.components.layers module<a class="headerlink" href="#module-graphnet.models.components.layers" title="Permalink to this heading">¶</a></h2>
+<span id="graphnet-models-components-layers"></span><h2 id="module-graphnet.models.components.layers">graphnet.models.components.layers<a class="headerlink" href="#module-graphnet.models.components.layers" title="Permalink to this heading">¶</a></h2>
 <p>Class(es) implementing layers to be used in <cite>graphnet</cite> models.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.models.components.layers.DynEdgeConv">
@@ -380,8 +511,62 @@ when dynamically performing the new graph clustering after the
 </dd></dl>
 </section>
 <section id="module-graphnet.models.components.pool">
-<span id="graphnet-models-components-pool-module"></span><h2 id="module-graphnet.models.components.pool">graphnet.models.components.pool module<a class="headerlink" href="#module-graphnet.models.components.pool" title="Permalink to this heading">¶</a></h2>
+<span id="graphnet-models-components-pool"></span><h2 id="module-graphnet.models.components.pool">graphnet.models.components.pool<a class="headerlink" href="#module-graphnet.models.components.pool" title="Permalink to this heading">¶</a></h2>
 <p>Functions for performing pooling/clustering/coarsening.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="graphnet.models.components.pool.min_pool">
+<span class="sig-prename descclassname"><span class="pre">graphnet.models.components.pool.</span></span><span class="sig-name descname"><span class="pre">min_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/pool.html#min_pool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.pool.min_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform min-pooling of <cite>Data</cite>.</p>
+<p>Like <cite>max_pool, just negating `data.x</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – </p></li>
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code>) – </p></li>
+<li><p><strong>transform</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="graphnet.models.components.pool.min_pool_x">
+<span class="sig-prename descclassname"><span class="pre">graphnet.models.components.pool.</span></span><span class="sig-name descname"><span class="pre">min_pool_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/pool.html#min_pool_x"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.pool.min_pool_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform min-pooling of <cite>Tensor</cite>.</p>
+<p>Like <cite>max_pool_x, just negating `x</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cluster</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – </p></li>
+<li><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
+<li><p><strong>batch</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – </p></li>
+<li><p><strong>size</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="graphnet.models.components.pool.sum_pool_and_distribute">
+<span class="sig-prename descclassname"><span class="pre">graphnet.models.components.pool.</span></span><span class="sig-name descname"><span class="pre">sum_pool_and_distribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/pool.html#sum_pool_and_distribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.pool.sum_pool_and_distribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum-pool values and distribute result to the individual nodes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
+<li><p><strong>cluster_index</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – </p></li>
+<li><p><strong>batch</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd>
+</dl>
+</dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="graphnet.models.components.pool._group_identical">
 <span class="sig-prename descclassname"><span class="pre">graphnet.models.components.pool.</span></span><span class="sig-name descname"><span class="pre">_group_identical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/pool.html#_group_identical"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.pool._group_identical" title="Permalink to this definition">¶</a></dt>
@@ -463,64 +648,27 @@ groupby(data, [‘f1’, ‘f2’]) -&gt; [0, 1, 2, 2, 3]</p>
 </dl>
 </dd></dl>
 <dl class="py function">
-<dt class="sig sig-object py" id="graphnet.models.components.pool.min_pool">
-<span class="sig-prename descclassname"><span class="pre">graphnet.models.components.pool.</span></span><span class="sig-name descname"><span class="pre">min_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/pool.html#min_pool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.pool.min_pool" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform min-pooling of <cite>Data</cite>.</p>
-<p>Like <cite>max_pool, just negating `data.x</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cluster</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – </p></li>
-<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code>) – </p></li>
-<li><p><strong>transform</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.models.components.pool.min_pool_x">
-<span class="sig-prename descclassname"><span class="pre">graphnet.models.components.pool.</span></span><span class="sig-name descname"><span class="pre">min_pool_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/pool.html#min_pool_x"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.pool.min_pool_x" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform min-pooling of <cite>Tensor</cite>.</p>
-<p>Like <cite>max_pool_x, just negating `x</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>cluster</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – </p></li>
-<li><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-<li><p><strong>batch</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – </p></li>
-<li><p><strong>size</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.models.components.pool.std_pool">
-<span class="sig-prename descclassname"><span class="pre">graphnet.models.components.pool.</span></span><span class="sig-name descname"><span class="pre">std_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/pool.html#std_pool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.pool.std_pool" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pool and coarsen graph according to the clustering defined in <cite>cluster</cite>.</p>
-<p>All nodes within the same cluster will be represented as one node.
-Final node features are defined by the <em>std</em> of features of all nodes
-within the same cluster, node positions are averaged and edge indices are
-defined to be the union of the edge indices of all nodes within the same
-cluster.</p>
+<dt class="sig sig-object py" id="graphnet.models.components.pool.sum_pool_x">
+<span class="sig-prename descclassname"><span class="pre">graphnet.models.components.pool.</span></span><span class="sig-name descname"><span class="pre">sum_pool_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/pool.html#sum_pool_x"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.pool.sum_pool_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sum-pool node features according to the clustering defined in <cite>cluster</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cluster</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – Cluster vector <span class="math notranslate nohighlight">\(\mathbf{c} \in \{ 0,
 \ldots, N - 1 \}^N\)</span>, which assigns each node to a specific cluster.</p></li>
-<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code>) – Graph data object.</p></li>
-<li><p><strong>transform</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – A function/transform that takes in the
-coarsened and pooled <code class="xref py py-obj docutils literal notranslate"><span class="pre">torch_geometric.data.Data</span></code> object and
-returns a transformed version.</p></li>
+<li><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – Node feature matrix
+<span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{(N_1 + \ldots + N_B) \times F}\)</span>.</p></li>
+<li><p><strong>batch</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – Batch vector <span class="math notranslate nohighlight">\(\mathbf{b} \in {\{ 0, \ldots,
+B-1\}}^N\)</span>, which assigns each node to a specific example.</p></li>
+<li><p><strong>size</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The maximum number of clusters in a single
+example. This property is useful to obtain a batch-wise dense
+representation, <em>e.g.</em> for applying FC layers, but should only be
+used if the size of the maximum number of clusters per example is
+known in advance.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></p>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -575,44 +723,27 @@ returns a transformed version.</p></li>
 </dl>
 </dd></dl>
 <dl class="py function">
-<dt class="sig sig-object py" id="graphnet.models.components.pool.sum_pool_and_distribute">
-<span class="sig-prename descclassname"><span class="pre">graphnet.models.components.pool.</span></span><span class="sig-name descname"><span class="pre">sum_pool_and_distribute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/pool.html#sum_pool_and_distribute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.pool.sum_pool_and_distribute" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sum-pool values and distribute result to the individual nodes.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tensor</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – </p></li>
-<li><p><strong>cluster_index</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – </p></li>
-<li><p><strong>batch</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.models.components.pool.sum_pool_x">
-<span class="sig-prename descclassname"><span class="pre">graphnet.models.components.pool.</span></span><span class="sig-name descname"><span class="pre">sum_pool_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/pool.html#sum_pool_x"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.pool.sum_pool_x" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sum-pool node features according to the clustering defined in <cite>cluster</cite>.</p>
+<dt class="sig sig-object py" id="graphnet.models.components.pool.std_pool">
+<span class="sig-prename descclassname"><span class="pre">graphnet.models.components.pool.</span></span><span class="sig-name descname"><span class="pre">std_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/pool.html#std_pool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.pool.std_pool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pool and coarsen graph according to the clustering defined in <cite>cluster</cite>.</p>
+<p>All nodes within the same cluster will be represented as one node.
+Final node features are defined by the <em>std</em> of features of all nodes
+within the same cluster, node positions are averaged and edge indices are
+defined to be the union of the edge indices of all nodes within the same
+cluster.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cluster</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – Cluster vector <span class="math notranslate nohighlight">\(\mathbf{c} \in \{ 0,
 \ldots, N - 1 \}^N\)</span>, which assigns each node to a specific cluster.</p></li>
-<li><p><strong>x</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – Node feature matrix
-<span class="math notranslate nohighlight">\(\mathbf{X} \in \mathbb{R}^{(N_1 + \ldots + N_B) \times F}\)</span>.</p></li>
-<li><p><strong>batch</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code>) – Batch vector <span class="math notranslate nohighlight">\(\mathbf{b} \in {\{ 0, \ldots,
-B-1\}}^N\)</span>, which assigns each node to a specific example.</p></li>
-<li><p><strong>size</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – The maximum number of clusters in a single
-example. This property is useful to obtain a batch-wise dense
-representation, <em>e.g.</em> for applying FC layers, but should only be
-used if the size of the maximum number of clusters per example is
-known in advance.</p></li>
+<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code>) – Graph data object.</p></li>
+<li><p><strong>transform</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – A function/transform that takes in the
+coarsened and pooled <code class="xref py py-obj docutils literal notranslate"><span class="pre">torch_geometric.data.Data</span></code> object and
+returns a transformed version.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></p>
 </dd>
 </dl>
 </dd></dl>
@@ -629,7 +760,7 @@ known in advance.</p></li>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="graphnet.models.html" title="graphnet.models package"
+            <a href="graphnet.models.html" title="graphnet.models"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -638,17 +769,17 @@ known in advance.</p></li>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> graphnet.models package </span>
+                      class="md-footer-nav__direction"> Previous </span> graphnet.models </span>
               </div>
             </a>
           
           
-            <a href="graphnet.models.detector.html" title="graphnet.models.detector package"
+            <a href="graphnet.models.detector.html" title="graphnet.models.detector"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> graphnet.models.detector package </span>
+                class="md-footer-nav__direction"> Next </span> graphnet.models.detector </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

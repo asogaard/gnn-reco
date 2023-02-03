@@ -1,26 +1,44 @@
-graphnet.pisa package
-=====================
+graphnet.pisa 
+==============
 
 .. automodule:: graphnet.pisa
    :members:
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
+|start-h2| Submodules |end-h2|
 
-graphnet.pisa.fitting module
-----------------------------
+
+graphnet.pisa.fitting 
+----------------------
 
 .. automodule:: graphnet.pisa.fitting
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.pisa.plotting module
------------------------------
+graphnet.pisa.plotting 
+-----------------------
 
 .. automodule:: graphnet.pisa.plotting
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+
+.. |start-h2| raw:: html
+
+     <h2>
+
+.. |end-h2| raw:: html
+
+     </h2>
+
+.. |start-h3| raw:: html
+
+     <h3>
+
+.. |end-h3| raw:: html
+
+     </h3>

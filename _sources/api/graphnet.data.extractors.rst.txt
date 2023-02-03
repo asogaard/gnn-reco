@@ -1,90 +1,31 @@
-graphnet.data.extractors package
-================================
+graphnet.data.extractors 
+=========================
 
 .. automodule:: graphnet.data.extractors
    :members:
    :undoc-members:
    :show-inheritance:
 
-Subpackages
------------
+|start-h2| Subpackages |end-h2|
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
    graphnet.data.extractors.utilities
 
-Submodules
-----------
 
-graphnet.data.extractors.i3extractor module
--------------------------------------------
+.. |start-h2| raw:: html
 
-.. automodule:: graphnet.data.extractors.i3extractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
+     <h2>
 
-graphnet.data.extractors.i3featureextractor module
---------------------------------------------------
+.. |end-h2| raw:: html
 
-.. automodule:: graphnet.data.extractors.i3featureextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
+     </h2>
 
-graphnet.data.extractors.i3genericextractor module
---------------------------------------------------
+.. |start-h3| raw:: html
 
-.. automodule:: graphnet.data.extractors.i3genericextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
+     <h3>
 
-graphnet.data.extractors.i3hybridrecoextractor module
------------------------------------------------------
+.. |end-h3| raw:: html
 
-.. automodule:: graphnet.data.extractors.i3hybridrecoextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3pisaextractor module
------------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3pisaextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3retroextractor module
-------------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3retroextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3splinempeextractor module
-----------------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3splinempeextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3truthextractor module
-------------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3truthextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3tumextractor module
-----------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3tumextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
+     </h3>

@@ -1,34 +1,52 @@
-graphnet.data.extractors.utilities package
-==========================================
+graphnet.data.extractors.utilities 
+===================================
 
 .. automodule:: graphnet.data.extractors.utilities
    :members:
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
+|start-h2| Submodules |end-h2|
 
-graphnet.data.extractors.utilities.collections module
------------------------------------------------------
+
+graphnet.data.extractors.utilities.collections 
+-----------------------------------------------
 
 .. automodule:: graphnet.data.extractors.utilities.collections
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.data.extractors.utilities.frames module
-------------------------------------------------
+graphnet.data.extractors.utilities.frames 
+------------------------------------------
 
 .. automodule:: graphnet.data.extractors.utilities.frames
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.data.extractors.utilities.types module
------------------------------------------------
+graphnet.data.extractors.utilities.types 
+-----------------------------------------
 
 .. automodule:: graphnet.data.extractors.utilities.types
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+
+.. |start-h2| raw:: html
+
+     <h2>
+
+.. |end-h2| raw:: html
+
+     </h2>
+
+.. |start-h3| raw:: html
+
+     <h3>
+
+.. |end-h3| raw:: html
+
+     </h3>

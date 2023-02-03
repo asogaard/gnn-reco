@@ -1,34 +1,52 @@
-graphnet.models.detector package
-================================
+graphnet.models.detector 
+=========================
 
 .. automodule:: graphnet.models.detector
    :members:
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
+|start-h2| Submodules |end-h2|
 
-graphnet.models.detector.detector module
-----------------------------------------
+
+graphnet.models.detector.detector 
+----------------------------------
 
 .. automodule:: graphnet.models.detector.detector
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.models.detector.icecube module
----------------------------------------
+graphnet.models.detector.icecube 
+---------------------------------
 
 .. automodule:: graphnet.models.detector.icecube
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.models.detector.prometheus module
-------------------------------------------
+graphnet.models.detector.prometheus 
+------------------------------------
 
 .. automodule:: graphnet.models.detector.prometheus
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+
+.. |start-h2| raw:: html
+
+     <h2>
+
+.. |end-h2| raw:: html
+
+     </h2>
+
+.. |start-h3| raw:: html
+
+     <h3>
+
+.. |end-h3| raw:: html
+
+     </h3>

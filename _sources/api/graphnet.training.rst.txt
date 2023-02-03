@@ -1,50 +1,68 @@
-graphnet.training package
-=========================
+graphnet.training 
+==================
 
 .. automodule:: graphnet.training
    :members:
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
+|start-h2| Submodules |end-h2|
 
-graphnet.training.callbacks module
-----------------------------------
+
+graphnet.training.callbacks 
+----------------------------
 
 .. automodule:: graphnet.training.callbacks
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.training.labels module
--------------------------------
+graphnet.training.labels 
+-------------------------
 
 .. automodule:: graphnet.training.labels
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.training.loss\_functions module
-----------------------------------------
+graphnet.training.loss\_functions 
+----------------------------------
 
 .. automodule:: graphnet.training.loss_functions
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.training.utils module
-------------------------------
+graphnet.training.utils 
+------------------------
 
 .. automodule:: graphnet.training.utils
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.training.weight\_fitting module
-----------------------------------------
+graphnet.training.weight\_fitting 
+----------------------------------
 
 .. automodule:: graphnet.training.weight_fitting
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+
+.. |start-h2| raw:: html
+
+     <h2>
+
+.. |end-h2| raw:: html
+
+     </h2>
+
+.. |start-h3| raw:: html
+
+     <h3>
+
+.. |end-h3| raw:: html
+
+     </h3>

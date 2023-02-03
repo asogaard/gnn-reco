@@ -1,34 +1,52 @@
-graphnet.data.utilities package
-===============================
+graphnet.data.utilities 
+========================
 
 .. automodule:: graphnet.data.utilities
    :members:
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
+|start-h2| Submodules |end-h2|
 
-graphnet.data.utilities.parquet\_to\_sqlite module
---------------------------------------------------
+
+graphnet.data.utilities.parquet\_to\_sqlite 
+--------------------------------------------
 
 .. automodule:: graphnet.data.utilities.parquet_to_sqlite
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.data.utilities.random module
--------------------------------------
+graphnet.data.utilities.random 
+-------------------------------
 
 .. automodule:: graphnet.data.utilities.random
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.data.utilities.string\_selection\_resolver module
-----------------------------------------------------------
+graphnet.data.utilities.string\_selection\_resolver 
+----------------------------------------------------
 
 .. automodule:: graphnet.data.utilities.string_selection_resolver
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+
+.. |start-h2| raw:: html
+
+     <h2>
+
+.. |end-h2| raw:: html
+
+     </h2>
+
+.. |start-h3| raw:: html
+
+     <h3>
+
+.. |end-h3| raw:: html
+
+     </h3>

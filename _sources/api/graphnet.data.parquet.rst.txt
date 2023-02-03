@@ -1,26 +1,44 @@
-graphnet.data.parquet package
-=============================
+graphnet.data.parquet 
+======================
 
 .. automodule:: graphnet.data.parquet
    :members:
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
+|start-h2| Submodules |end-h2|
 
-graphnet.data.parquet.parquet\_dataconverter module
----------------------------------------------------
+
+graphnet.data.parquet.parquet\_dataconverter 
+---------------------------------------------
 
 .. automodule:: graphnet.data.parquet.parquet_dataconverter
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.data.parquet.parquet\_dataset module
----------------------------------------------
+graphnet.data.parquet.parquet\_dataset 
+---------------------------------------
 
 .. automodule:: graphnet.data.parquet.parquet_dataset
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+
+.. |start-h2| raw:: html
+
+     <h2>
+
+.. |end-h2| raw:: html
+
+     </h2>
+
+.. |start-h3| raw:: html
+
+     <h3>
+
+.. |end-h3| raw:: html
+
+     </h3>

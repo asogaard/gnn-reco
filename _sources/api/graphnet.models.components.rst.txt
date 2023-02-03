@@ -1,26 +1,44 @@
-graphnet.models.components package
-==================================
+graphnet.models.components 
+===========================
 
 .. automodule:: graphnet.models.components
    :members:
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
+|start-h2| Submodules |end-h2|
 
-graphnet.models.components.layers module
-----------------------------------------
+
+graphnet.models.components.layers 
+----------------------------------
 
 .. automodule:: graphnet.models.components.layers
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.models.components.pool module
---------------------------------------
+graphnet.models.components.pool 
+--------------------------------
 
 .. automodule:: graphnet.models.components.pool
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+
+.. |start-h2| raw:: html
+
+     <h2>
+
+.. |end-h2| raw:: html
+
+     </h2>
+
+.. |start-h3| raw:: html
+
+     <h3>
+
+.. |end-h3| raw:: html
+
+     </h3>

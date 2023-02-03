@@ -1,58 +1,76 @@
-graphnet.utilities.config package
-=================================
+graphnet.utilities.config 
+==========================
 
 .. automodule:: graphnet.utilities.config
    :members:
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
+|start-h2| Submodules |end-h2|
 
-graphnet.utilities.config.base\_config module
----------------------------------------------
+
+graphnet.utilities.config.base\_config 
+---------------------------------------
 
 .. automodule:: graphnet.utilities.config.base_config
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.utilities.config.configurable module
----------------------------------------------
+graphnet.utilities.config.configurable 
+---------------------------------------
 
 .. automodule:: graphnet.utilities.config.configurable
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.utilities.config.dataset\_config module
-------------------------------------------------
+graphnet.utilities.config.dataset\_config 
+------------------------------------------
 
 .. automodule:: graphnet.utilities.config.dataset_config
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.utilities.config.model\_config module
-----------------------------------------------
+graphnet.utilities.config.model\_config 
+----------------------------------------
 
 .. automodule:: graphnet.utilities.config.model_config
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.utilities.config.parsing module
-----------------------------------------
+graphnet.utilities.config.parsing 
+----------------------------------
 
 .. automodule:: graphnet.utilities.config.parsing
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.utilities.config.training\_config module
--------------------------------------------------
+graphnet.utilities.config.training\_config 
+-------------------------------------------
 
 .. automodule:: graphnet.utilities.config.training_config
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+
+.. |start-h2| raw:: html
+
+     <h2>
+
+.. |end-h2| raw:: html
+
+     </h2>
+
+.. |start-h3| raw:: html
+
+     <h3>
+
+.. |end-h3| raw:: html
+
+     </h3>

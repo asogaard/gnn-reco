@@ -72,8 +72,6 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="graphnet package" href="api/graphnet.html" />
-    <link rel="prev" title="Contribute" href="contribute.html" />
   
    
 
@@ -241,66 +239,8 @@
     <li class="md-nav__item">
     
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> API </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">API</a>
+      <a href="api/graphnet.html" class="md-nav__link">API</a>
       
-        
-<nav class="md-nav md-nav--secondary">
-  <ul class="md-nav__list" data-md-scrollfix="">
-  </ul>
-</nav>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="api/graphnet.html" class="md-nav__link">graphnet package</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="api/graphnet.data.html" class="md-nav__link">graphnet.data package</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="api/graphnet.models.html" class="md-nav__link">graphnet.models package</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="api/graphnet.training.html" class="md-nav__link">graphnet.training package</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="api/graphnet.deployment.html" class="md-nav__link">graphnet.deployment package</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="api/graphnet.pisa.html" class="md-nav__link">graphnet.pisa package</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="api/graphnet.utilities.html" class="md-nav__link">graphnet.utilities package</a>
-      
-    
-    </li></ul>
     
     </li>
   </ul>
@@ -315,7 +255,12 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api--page-root" class="md-nav__link">API</a>
+        </li>
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">API</a>
+        </li>
   </ul>
 </nav>
               </div>
@@ -327,16 +272,40 @@
             
   <section id="api">
 <h1 id="api--page-root">API<a class="headerlink" href="#api--page-root" title="Permalink to this heading">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="api/graphnet.html">graphnet package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/graphnet.data.html">graphnet.data package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/graphnet.models.html">graphnet.models package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/graphnet.training.html">graphnet.training package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/graphnet.deployment.html">graphnet.deployment package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/graphnet.pisa.html">graphnet.pisa package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/graphnet.utilities.html">graphnet.utilities package</a></li>
+<p>This section contains a documentation of all public packages, modules, classes, and functions in <cite>GraphNeT</cite>.</p>
+</section>
+<section id="id1">
+<h1 id="id1">API<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h1>
+<span class="target" id="module-graphnet"></span><p>graphnet: Graph neural networks for neutrino telescope event reconstruction.</p>
+<p><strong>graphnet</strong> is a python package that provides convenient, common, and
+collaboratively developed tools for building graph neural networks (GNNs) to
+solve physics tasks at neutrino telescope experiments. It aims to provide
+physicists with the tools to leverage advanced machine learning (ML) without
+having to be machine learning experts themselves, and thereby accelerate the
+scientific advances in the area of neutrino phyics.</p>
+<p>Design principles:</p>
+<ul class="simple">
+<li><p>End-to-end: graphnet aims to provide all of the tools for streamlining the
+process of ingesting and transforming physics data; building, training, and
+optimising GNN models; and deploying them into a reconstruction chain.</p></li>
+<li><p>Extensibility: graphnet aims to provide the basic building blocks to improve
+reconstruction and classification across the various IceCube configurations,
+but all model components can be easily extended to new experiments, with new
+GNN architectures and for new physics tasks.</p></li>
 </ul>
+<p>Main features:</p>
+<ul class="simple">
+<li><p>Converters from domain-specific data formats (I3) to more common, indexable
+formats (e.g., SQLite) suitable as intermediate file formats for training ML
+models</p></li>
+<li><p>Plug-and-play GNN model components that abstract away ML implementation
+details and only expose the “building blocks” that are most relevant to
+physicsts (e.g., what detector is used and what are the physicst tasks).</p></li>
+<li><p>I3Modules for easily including GNN models in IceCube reconstruction chains.</p></li>
+<li><p>Docker images for running model inference in a containerised fashion.</p></li>
+</ul>
+<p><h2> Subpackages </h2></p>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -350,30 +319,6 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="contribute.html" title="Contribute"
-               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
-               rel="prev">
-              <div class="md-flex__cell md-flex__cell--shrink">
-                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-              </div>
-              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-                <span class="md-flex__ellipsis">
-                  <span
-                      class="md-footer-nav__direction"> Previous </span> Contribute </span>
-              </div>
-            </a>
-          
-          
-            <a href="api/graphnet.html" title="graphnet package"
-               class="md-flex md-footer-nav__link md-footer-nav__link--next"
-               rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
-                class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> graphnet package </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink"><i
-                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
           
         </a>
         

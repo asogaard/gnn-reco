@@ -1,50 +1,68 @@
-graphnet.data.sqlite package
-============================
+graphnet.data.sqlite 
+=====================
 
 .. automodule:: graphnet.data.sqlite
    :members:
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
+|start-h2| Submodules |end-h2|
 
-graphnet.data.sqlite.sqlite\_dataconverter module
--------------------------------------------------
+
+graphnet.data.sqlite.sqlite\_dataconverter 
+-------------------------------------------
 
 .. automodule:: graphnet.data.sqlite.sqlite_dataconverter
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.data.sqlite.sqlite\_dataset module
--------------------------------------------
+graphnet.data.sqlite.sqlite\_dataset 
+-------------------------------------
 
 .. automodule:: graphnet.data.sqlite.sqlite_dataset
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.data.sqlite.sqlite\_dataset\_perturbed module
-------------------------------------------------------
+graphnet.data.sqlite.sqlite\_dataset\_perturbed 
+------------------------------------------------
 
 .. automodule:: graphnet.data.sqlite.sqlite_dataset_perturbed
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.data.sqlite.sqlite\_selection module
----------------------------------------------
+graphnet.data.sqlite.sqlite\_selection 
+---------------------------------------
 
 .. automodule:: graphnet.data.sqlite.sqlite_selection
    :members:
    :undoc-members:
    :show-inheritance:
 
-graphnet.data.sqlite.sqlite\_utilities module
----------------------------------------------
+graphnet.data.sqlite.sqlite\_utilities 
+---------------------------------------
 
 .. automodule:: graphnet.data.sqlite.sqlite_utilities
    :members:
    :undoc-members:
    :show-inheritance:
+
+
+
+.. |start-h2| raw:: html
+
+     <h2>
+
+.. |end-h2| raw:: html
+
+     </h2>
+
+.. |start-h3| raw:: html
+
+     <h3>
+
+.. |end-h3| raw:: html
+
+     </h3>
