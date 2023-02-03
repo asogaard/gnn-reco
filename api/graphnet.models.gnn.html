@@ -6,6 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+
+
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -60,6 +63,32 @@
   
   
     <title>graphnet.models.gnn &#8212; graphnet  documentation</title>
+
+<style>
+  .sig-prename {
+    display: none;
+  }
+
+  .sig-name {
+    color: #37474f;
+    font-feature-settings: "kern";
+    font-family: "Roboto Mono", "Courier New", Courier, monospace;
+    font-weight: 700;
+  }
+
+  .py.class {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.function {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.method {
+    border-top: 1px solid lightgray;
+    padding-top: 1ex;
+  }
+</style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -263,135 +292,7 @@
     
     
       <a href="graphnet.models.html" class="md-nav__link">graphnet.models</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.models.components.html" class="md-nav__link">graphnet.models.components</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.models.detector.html" class="md-nav__link">graphnet.models.detector</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> graphnet.models.gnn </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">graphnet.models.gnn</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-models-gnn--page-root" class="md-nav__link">graphnet.models.gnn</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#module-graphnet.models.gnn.convnet" class="md-nav__link">graphnet.models.gnn.convnet</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.forward()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.models.gnn.dynedge" class="md-nav__link">graphnet.models.gnn.dynedge</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge._construct_layers" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge._construct_layers()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge._global_pooling" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge._global_pooling()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge._calculate_global_variables" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge._calculate_global_variables()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.forward()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.models.gnn.dynedge_jinst" class="md-nav__link">graphnet.models.gnn.dynedge_jinst</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.forward()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.models.gnn.gnn" class="md-nav__link">graphnet.models.gnn.gnn</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_inputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_inputs</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_outputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_outputs</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.forward()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-  </ul>
-</nav>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.models.gnn.convnet" class="md-nav__link">graphnet.models.gnn.convnet</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.models.gnn.dynedge" class="md-nav__link">graphnet.models.gnn.dynedge</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.models.gnn.dynedge_jinst" class="md-nav__link">graphnet.models.gnn.dynedge_jinst</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.models.gnn.gnn" class="md-nav__link">graphnet.models.gnn.gnn</a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.models.task.html" class="md-nav__link">graphnet.models.task</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">

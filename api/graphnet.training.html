@@ -6,6 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+
+
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -60,6 +63,32 @@
   
   
     <title>graphnet.training &#8212; graphnet  documentation</title>
+
+<style>
+  .sig-prename {
+    display: none;
+  }
+
+  .sig-name {
+    color: #37474f;
+    font-feature-settings: "kern";
+    font-family: "Roboto Mono", "Courier New", Courier, monospace;
+    font-weight: 700;
+  }
+
+  .py.class {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.function {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.method {
+    border-top: 1px solid lightgray;
+    padding-top: 1ex;
+  }
+</style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -462,203 +491,7 @@
         </li>
   </ul>
 </nav>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.training.callbacks" class="md-nav__link">graphnet.training.callbacks</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.callbacks.PiecewiseLinearLR" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">PiecewiseLinearLR</span></code></a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.callbacks.ProgressBar" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.training.labels" class="md-nav__link">graphnet.training.labels</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.labels.Label" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Label</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.labels.Direction" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Direction</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.training.loss_functions" class="md-nav__link">graphnet.training.loss_functions</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.loss_functions.LossFunction" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LossFunction</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.loss_functions.MSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">MSELoss</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.loss_functions.RMSELoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">RMSELoss</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.loss_functions.LogCoshLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCoshLoss</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.loss_functions.CrossEntropyLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">CrossEntropyLoss</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.loss_functions.BinaryCrossEntropyLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BinaryCrossEntropyLoss</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.loss_functions.LogCMK" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LogCMK</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.loss_functions.VonMisesFisherLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisherLoss</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.loss_functions.VonMisesFisher2DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher2DLoss</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.loss_functions.EuclideanDistanceLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">EuclideanDistanceLoss</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.loss_functions.VonMisesFisher3DLoss" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">VonMisesFisher3DLoss</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.training.utils" class="md-nav__link">graphnet.training.utils</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.utils.collate_fn" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">collate_fn()</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.utils.make_dataloader" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">make_dataloader()</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.utils.make_train_validation_dataloader" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">make_train_validation_dataloader()</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.utils.get_predictions" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_predictions()</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.utils.save_results" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_results()</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.training.weight_fitting" class="md-nav__link">graphnet.training.weight_fitting</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.weight_fitting.WeightFitter" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">WeightFitter</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.weight_fitting.Uniform" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Uniform</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.weight_fitting.BjoernLow" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BjoernLow</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">

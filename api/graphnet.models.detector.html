@@ -6,6 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+
+
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -60,6 +63,32 @@
   
   
     <title>graphnet.models.detector &#8212; graphnet  documentation</title>
+
+<style>
+  .sig-prename {
+    display: none;
+  }
+
+  .sig-name {
+    color: #37474f;
+    font-feature-settings: "kern";
+    font-family: "Roboto Mono", "Courier New", Courier, monospace;
+    font-weight: 700;
+  }
+
+  .py.class {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.function {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.method {
+    border-top: 1px solid lightgray;
+    padding-top: 1ex;
+  }
+</style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -263,148 +292,7 @@
     
     
       <a href="graphnet.models.html" class="md-nav__link">graphnet.models</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.models.components.html" class="md-nav__link">graphnet.models.components</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> graphnet.models.detector </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">graphnet.models.detector</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-models-detector--page-root" class="md-nav__link">graphnet.models.detector</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#module-graphnet.models.detector.detector" class="md-nav__link">graphnet.models.detector.detector</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.detector.detector.Detector" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Detector</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.detector.detector.Detector.features" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Detector.features</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.detector.Detector.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Detector.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.detector.Detector.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Detector.forward()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.detector.Detector._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Detector._forward()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.detector.Detector.nb_inputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Detector.nb_inputs</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.detector.Detector.nb_outputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Detector.nb_outputs</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.models.detector.icecube" class="md-nav__link">graphnet.models.detector.icecube</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCube86" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCube86</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCube86.features" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCube86.features</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCube86._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCube86._forward()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeKaggle" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeKaggle</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeKaggle.features" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeKaggle.features</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeKaggle._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeKaggle._forward()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeDeepCore" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeDeepCore</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeDeepCore.features" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeDeepCore.features</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeDeepCore._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeDeepCore._forward()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeUpgrade" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeUpgrade</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeUpgrade.features" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeUpgrade.features</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeUpgrade._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeUpgrade._forward()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeUpgrade_V2" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeUpgrade_V2</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeUpgrade_V2.features" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeUpgrade_V2.features</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeUpgrade_V2.nb_outputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeUpgrade_V2.nb_outputs</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.icecube.IceCubeUpgrade_V2._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">IceCubeUpgrade_V2._forward()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.models.detector.prometheus" class="md-nav__link">graphnet.models.detector.prometheus</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.detector.prometheus.Prometheus" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Prometheus</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.detector.prometheus.Prometheus.features" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Prometheus.features</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.models.detector.prometheus.Prometheus._forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Prometheus._forward()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-  </ul>
-</nav>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.models.detector.detector" class="md-nav__link">graphnet.models.detector.detector</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.models.detector.icecube" class="md-nav__link">graphnet.models.detector.icecube</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.models.detector.prometheus" class="md-nav__link">graphnet.models.detector.prometheus</a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.models.gnn.html" class="md-nav__link">graphnet.models.gnn</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.models.task.html" class="md-nav__link">graphnet.models.task</a>
-      
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">

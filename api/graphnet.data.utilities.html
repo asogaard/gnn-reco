@@ -6,6 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+
+
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -60,6 +63,32 @@
   
   
     <title>graphnet.data.utilities &#8212; graphnet  documentation</title>
+
+<style>
+  .sig-prename {
+    display: none;
+  }
+
+  .sig-name {
+    color: #37474f;
+    font-feature-settings: "kern";
+    font-family: "Roboto Mono", "Courier New", Courier, monospace;
+    font-weight: 700;
+  }
+
+  .py.class {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.function {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.method {
+    border-top: 1px solid lightgray;
+    padding-top: 1ex;
+  }
+</style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -249,110 +278,7 @@
     
     
       <a href="graphnet.data.html" class="md-nav__link">graphnet.data</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.data.extractors.html" class="md-nav__link">graphnet.data.extractors</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.data.parquet.html" class="md-nav__link">graphnet.data.parquet</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.data.sqlite.html" class="md-nav__link">graphnet.data.sqlite</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> graphnet.data.utilities </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">graphnet.data.utilities</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-data-utilities--page-root" class="md-nav__link">graphnet.data.utilities</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#module-graphnet.data.utilities.parquet_to_sqlite" class="md-nav__link">graphnet.data.utilities.parquet_to_sqlite</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ParquetToSQLiteConverter</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ParquetToSQLiteConverter.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.run" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ParquetToSQLiteConverter.run()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter._save_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ParquetToSQLiteConverter._save_config()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.data.utilities.random" class="md-nav__link">graphnet.data.utilities.random</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.random.pairwise_shuffle" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">pairwise_shuffle()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.data.utilities.string_selection_resolver" class="md-nav__link">graphnet.data.utilities.string_selection_resolver</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">StringSelectionResolver</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">StringSelectionResolver.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.resolve" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">StringSelectionResolver.resolve()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver._parse_variable_names" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">StringSelectionResolver._parse_variable_names()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver._get_index_cache_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">StringSelectionResolver._get_index_cache_path()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver._get_values_cache_path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">StringSelectionResolver._get_values_cache_path()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver._get_random_events_from_selection" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">StringSelectionResolver._get_random_events_from_selection()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-  </ul>
-</nav>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.data.utilities.parquet_to_sqlite" class="md-nav__link">graphnet.data.utilities.parquet_to_sqlite</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.data.utilities.random" class="md-nav__link">graphnet.data.utilities.random</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.data.utilities.string_selection_resolver" class="md-nav__link">graphnet.data.utilities.string_selection_resolver</a>
-      
-    
-    </li></ul>
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">

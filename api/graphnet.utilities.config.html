@@ -6,6 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+
+
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -60,6 +63,32 @@
   
   
     <title>graphnet.utilities.config &#8212; graphnet  documentation</title>
+
+<style>
+  .sig-prename {
+    display: none;
+  }
+
+  .sig-name {
+    color: #37474f;
+    font-feature-settings: "kern";
+    font-family: "Roboto Mono", "Courier New", Courier, monospace;
+    font-weight: 700;
+  }
+
+  .py.class {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.function {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.method {
+    border-top: 1px solid lightgray;
+    padding-top: 1ex;
+  }
+</style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -283,200 +312,7 @@
     
     
       <a href="graphnet.utilities.html" class="md-nav__link">graphnet.utilities</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> graphnet.utilities.config </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">graphnet.utilities.config</a>
       
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-utilities-config--page-root" class="md-nav__link">graphnet.utilities.config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.base_config" class="md-nav__link">graphnet.utilities.config.base_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BaseConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig.load" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BaseConfig.load()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig.dump" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BaseConfig.dump()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig.as_dict" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BaseConfig.as_dict()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.get_all_argument_values" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_all_argument_values()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.configurable" class="md-nav__link">graphnet.utilities.config.configurable</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Configurable</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Configurable.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Configurable.config</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.save_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Configurable.save_config()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.from_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Configurable.from_config()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.dataset_config" class="md-nav__link">graphnet.utilities.config.dataset_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.path</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.pulsemaps" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.pulsemaps</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.features" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.features</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.truth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.truth</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.node_truth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.node_truth</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.index_column" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.index_column</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.truth_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.truth_table</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.node_truth_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.node_truth_table</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.string_selection" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.string_selection</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.selection" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.selection</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.loss_weight_table</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_column" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.loss_weight_column</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_default_value" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.loss_weight_default_value</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.seed" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.seed</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig.__init__()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.save_dataset_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_dataset_config()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.model_config" class="md-nav__link">graphnet.utilities.config.model_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.class_name" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig.class_name</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.arguments" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig.arguments</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig._is_model_config_entry" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig._is_model_config_entry()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig._parse_if_model_config_entry" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig._parse_if_model_config_entry()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig._construct_model" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig._construct_model()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig._serialise" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig._serialise()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.as_dict" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig.as_dict()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.save_model_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_model_config()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.parsing" class="md-nav__link">graphnet.utilities.config.parsing</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.traverse_and_apply" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">traverse_and_apply()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.list_all_submodules" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">list_all_submodules()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.get_all_grapnet_classes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_all_grapnet_classes()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.is_graphnet_module" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">is_graphnet_module()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.is_graphnet_class" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">is_graphnet_class()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.get_graphnet_classes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_graphnet_classes()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.training_config" class="md-nav__link">graphnet.utilities.config.training_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">TrainingConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.target" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">TrainingConfig.target</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.early_stopping_patience" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">TrainingConfig.early_stopping_patience</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.fit" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">TrainingConfig.fit</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.dataloader" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">TrainingConfig.dataloader</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-  </ul>
-</nav>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.utilities.config.base_config" class="md-nav__link">graphnet.utilities.config.base_config</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.utilities.config.configurable" class="md-nav__link">graphnet.utilities.config.configurable</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.utilities.config.dataset_config" class="md-nav__link">graphnet.utilities.config.dataset_config</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.utilities.config.model_config" class="md-nav__link">graphnet.utilities.config.model_config</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.utilities.config.parsing" class="md-nav__link">graphnet.utilities.config.parsing</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.utilities.config.training_config" class="md-nav__link">graphnet.utilities.config.training_config</a>
-      
-    
-    </li></ul>
-    
-    </li></ul>
     
     </li></ul>
     

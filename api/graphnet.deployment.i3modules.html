@@ -6,6 +6,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
+
+
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="lang:clipboard.copy" content="Copy to clipboard">
@@ -60,6 +63,32 @@
   
   
     <title>graphnet.deployment.i3modules &#8212; graphnet  documentation</title>
+
+<style>
+  .sig-prename {
+    display: none;
+  }
+
+  .sig-name {
+    color: #37474f;
+    font-feature-settings: "kern";
+    font-family: "Roboto Mono", "Courier New", Courier, monospace;
+    font-weight: 700;
+  }
+
+  .py.class {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.function {
+    border-top: 1px solid gray;
+    padding-top: 1ex;
+  }
+  .py.method {
+    border-top: 1px solid lightgray;
+    padding-top: 1ex;
+  }
+</style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -256,79 +285,7 @@
     
     
       <a href="graphnet.deployment.html" class="md-nav__link">graphnet.deployment</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> graphnet.deployment.i3modules </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">graphnet.deployment.i3modules</a>
       
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-deployment-i3modules--page-root" class="md-nav__link">graphnet.deployment.i3modules</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#module-graphnet.deployment.i3modules.graphnet_module" class="md-nav__link">graphnet.deployment.i3modules.graphnet_module</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.FEATURES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.I3FEATUREEXTRACTOR_CLASS</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.DTYPES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.DTYPES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Configure" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.Configure()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Physics" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase.Physics()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86.FEATURES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore.FEATURES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade.FEATURES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-  </ul>
-</nav>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.deployment.i3modules.graphnet_module" class="md-nav__link">graphnet.deployment.i3modules.graphnet_module</a>
-      
-    
-    </li></ul>
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
