@@ -74,18 +74,23 @@
     display: none;
   }
 
-  .py.class .sig-name, .py.function .sig-name, .py.method .sig-name {
+  .py.class .sig-name,
+  .py.function .sig-name,
+  .py.method .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
     font-weight: 700;
   }
 
-  .py.class .sig-object, .py.function .sig-object, .py.method .sig-object {
+  .py.class .sig-object,
+  .py.function .sig-object,
+  .py.method .sig-object {
     padding: 1ex;
   }
 
-  .py.class .sig-object, .py.function .sig-object {
+  .py.class .sig-object,
+  .py.function .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
@@ -95,9 +100,11 @@
   .py.class .sig-object {
     background: rgba(0,0,0,0.06);
   }
-  .py.function .sig-object, .py.method .sig-object {
+  .py.function .sig-object,
+  .py.method .sig-object {
     background: rgba(0,0,0,0.03);
   }
+
 </style>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
@@ -335,9 +342,9 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.__init__()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.forward()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -347,9 +354,9 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.__init__()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.forward()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -359,9 +366,9 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.__init__()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.forward()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -371,13 +378,13 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.__init__()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_inputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_inputs</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_inputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">nb_inputs</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_outputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_outputs</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_outputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">nb_outputs</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.forward()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -401,14 +408,14 @@
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.models.gnn.convnet.ConvNet.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.__init__()</span></code></a>
+      <a href="#graphnet.models.gnn.convnet.ConvNet.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.models.gnn.convnet.ConvNet.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.forward()</span></code></a>
+      <a href="#graphnet.models.gnn.convnet.ConvNet.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
       
     
     </li></ul>
@@ -429,14 +436,14 @@
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.models.gnn.dynedge.DynEdge.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.__init__()</span></code></a>
+      <a href="#graphnet.models.gnn.dynedge.DynEdge.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.models.gnn.dynedge.DynEdge.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.forward()</span></code></a>
+      <a href="#graphnet.models.gnn.dynedge.DynEdge.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
       
     
     </li></ul>
@@ -457,14 +464,14 @@
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.__init__()</span></code></a>
+      <a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.forward()</span></code></a>
+      <a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
       
     
     </li></ul>
@@ -485,28 +492,28 @@
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.models.gnn.gnn.GNN.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.__init__()</span></code></a>
+      <a href="#graphnet.models.gnn.gnn.GNN.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.models.gnn.gnn.GNN.nb_inputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_inputs</span></code></a>
+      <a href="#graphnet.models.gnn.gnn.GNN.nb_inputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">nb_inputs</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.models.gnn.gnn.GNN.nb_outputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_outputs</span></code></a>
+      <a href="#graphnet.models.gnn.gnn.GNN.nb_outputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">nb_outputs</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.models.gnn.gnn.GNN.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.forward()</span></code></a>
+      <a href="#graphnet.models.gnn.gnn.GNN.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
       
     
     </li></ul>
@@ -610,9 +617,9 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.__init__()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ConvNet.forward()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.convnet.ConvNet.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -622,9 +629,9 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.__init__()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdge.forward()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge.DynEdge.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -634,9 +641,9 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.__init__()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DynEdgeJINST.forward()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.dynedge_jinst.DynEdgeJINST.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -646,13 +653,13 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.__init__()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_inputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_inputs</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_inputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">nb_inputs</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_outputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.nb_outputs</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.nb_outputs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">nb_outputs</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GNN.forward()</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.models.gnn.gnn.GNN.forward" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">forward()</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
