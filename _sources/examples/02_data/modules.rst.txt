@@ -1,9 +1,0 @@
-02_data
-=======
-
-.. toctree::
-   :maxdepth: 4
-
-   01_read_dataset
-   02_plot_feature_distributions
-   03_convert_parquet_to_sqlite

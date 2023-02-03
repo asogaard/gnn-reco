@@ -1,7 +1,0 @@
-03\_contour\_fitting module
-===========================
-
-.. automodule:: 03_contour_fitting
-   :members:
-   :undoc-members:
-   :show-inheritance:

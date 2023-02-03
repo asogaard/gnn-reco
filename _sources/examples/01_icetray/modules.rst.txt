@@ -1,8 +1,0 @@
-01_icetray
-==========
-
-.. toctree::
-   :maxdepth: 4
-
-   01_convert_i3_files
-   02_compare_sqlite_and_parquet

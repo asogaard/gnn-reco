@@ -1,7 +1,0 @@
-01\_read\_dataset module
-========================
-
-.. automodule:: 01_read_dataset
-   :members:
-   :undoc-members:
-   :show-inheritance:

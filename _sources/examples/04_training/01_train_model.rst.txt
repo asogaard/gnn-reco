@@ -1,7 +1,0 @@
-01\_train\_model module
-=======================
-
-.. automodule:: 01_train_model
-   :members:
-   :undoc-members:
-   :show-inheritance:

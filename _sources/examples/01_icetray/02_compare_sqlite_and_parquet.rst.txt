@@ -1,7 +1,0 @@
-02\_compare\_sqlite\_and\_parquet module
-========================================
-
-.. automodule:: 02_compare_sqlite_and_parquet
-   :members:
-   :undoc-members:
-   :show-inheritance:

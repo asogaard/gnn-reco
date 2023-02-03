@@ -1,7 +1,0 @@
-04\_contour\_plotting module
-============================
-
-.. automodule:: 04_contour_plotting
-   :members:
-   :undoc-members:
-   :show-inheritance:

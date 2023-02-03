@@ -1,8 +1,0 @@
-04_training
-===========
-
-.. toctree::
-   :maxdepth: 4
-
-   01_train_model
-   02_train_model_without_configs
