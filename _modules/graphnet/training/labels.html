@@ -323,14 +323,14 @@
 <div class="viewcode-block" id="Label"><a class="viewcode-back" href="../../../api/graphnet.training.labels.html#graphnet.training.labels.Label">[docs]</a><span class="k">class</span> <span class="nc">Label</span><span class="p">(</span><span class="n">ABC</span><span class="p">,</span> <span class="n">LoggerMixin</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Base `Label` class for producing labels from single `Data` instance."""</span>
 
-<div class="viewcode-block" id="Label.__init__"><a class="viewcode-back" href="../../../api/graphnet.training.labels.html#graphnet.training.labels.Label.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Construct `Label`.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            key: The name of the field in `Data` where the label will be</span>
 <span class="sd">                stored. That is, `graph[key] = label`.</span>
 <span class="sd">        """</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_key</span> <span class="o">=</span> <span class="n">key</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_key</span> <span class="o">=</span> <span class="n">key</span>
 
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">:</span>
@@ -340,12 +340,12 @@
 <div class="viewcode-block" id="Direction"><a class="viewcode-back" href="../../../api/graphnet.training.labels.html#graphnet.training.labels.Direction">[docs]</a><span class="k">class</span> <span class="nc">Direction</span><span class="p">(</span><span class="n">Label</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Class for producing particle direction/pointing label."""</span>
 
-<div class="viewcode-block" id="Direction.__init__"><a class="viewcode-back" href="../../../api/graphnet.training.labels.html#graphnet.training.labels.Direction.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">azimuth_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"azimuth"</span><span class="p">,</span> <span class="n">zenith_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"zenith"</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Construct `Direction`."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_azimuth_key</span> <span class="o">=</span> <span class="n">azimuth_key</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_zenith_key</span> <span class="o">=</span> <span class="n">zenith_key</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_zenith_key</span> <span class="o">=</span> <span class="n">zenith_key</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Compute label for `graph`."""</span>

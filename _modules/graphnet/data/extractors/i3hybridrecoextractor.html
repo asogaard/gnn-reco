@@ -325,10 +325,10 @@
 <div class="viewcode-block" id="I3GalacticPlaneHybridRecoExtractor"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.i3hybridrecoextractor.html#graphnet.data.extractors.i3hybridrecoextractor.I3GalacticPlaneHybridRecoExtractor">[docs]</a><span class="k">class</span> <span class="nc">I3GalacticPlaneHybridRecoExtractor</span><span class="p">(</span><span class="n">I3Extractor</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Class for extracting galatictic plane hybrid reconstruction."""</span>
 
-<div class="viewcode-block" id="I3GalacticPlaneHybridRecoExtractor.__init__"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.i3hybridrecoextractor.html#graphnet.data.extractors.i3hybridrecoextractor.I3GalacticPlaneHybridRecoExtractor.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"dnn_hybrid"</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"dnn_hybrid"</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Construct I3GalacticPlaneHybridRecoExtractor."""</span>
         <span class="c1"># Base class constructor</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span></div>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="s2">"icetray.I3Frame"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">"""Extract TUMs DNN reconcstructions and associated variables."""</span>

@@ -336,7 +336,7 @@
 <div class="viewcode-block" id="I3TruthExtractor"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.i3truthextractor.html#graphnet.data.extractors.i3truthextractor.I3TruthExtractor">[docs]</a><span class="k">class</span> <span class="nc">I3TruthExtractor</span><span class="p">(</span><span class="n">I3Extractor</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Class for extracting truth-level information."""</span>
 
-<div class="viewcode-block" id="I3TruthExtractor.__init__"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.i3truthextractor.html#graphnet.data.extractors.i3truthextractor.I3TruthExtractor.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"truth"</span><span class="p">,</span> <span class="n">borders</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Construct I3TruthExtractor.</span>
@@ -387,7 +387,7 @@
             <span class="n">border_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">512.82</span><span class="p">,</span> <span class="mf">524.56</span><span class="p">])</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_borders</span> <span class="o">=</span> <span class="p">[</span><span class="n">border_xy</span><span class="p">,</span> <span class="n">border_z</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_borders</span> <span class="o">=</span> <span class="n">borders</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_borders</span> <span class="o">=</span> <span class="n">borders</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="s2">"icetray.I3Frame"</span><span class="p">,</span> <span class="n">padding_value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>

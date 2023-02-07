@@ -394,8 +394,6 @@
         <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_default_value" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">loss_weight_default_value</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.seed" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">seed</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -506,13 +504,6 @@
     
     
       <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.seed" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">seed</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
       
     
     </li></ul>
@@ -648,8 +639,6 @@
         <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_default_value" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">loss_weight_default_value</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.seed" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">seed</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -751,90 +740,6 @@
 <dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.seed">
 <span class="sig-name descname"><span class="pre">seed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.seed" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/dataset_config.html#DatasetConfig.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct <cite>DataConfig</cite>.</p>
-<p>Can be used for dataset configuration as code, thereby making dataset
-construction more transparent and reproducible.</p>
-<p class="rubric">Examples</p>
-<p>In one session, do:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span>
-<span class="go">path: (...)</span>
-<span class="go">pulsemaps:</span>
-<span class="go">    - (...)</span>
-<span class="go">(...)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">"dataset.yml"</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>In another session, you can then do:
-&gt;&gt;&gt; dataset = Dataset.from_config(“dataset.yml”)</p>
-<p># Uniquely for <cite>DatasetConfig</cite>, you can also define and load
-# multiple datasets
-&gt;&gt;&gt; dataset.config.selection = {</p>
-<blockquote>
-<div><p>“train”: “event_no % 2 == 0”,
-“test”: “event_no % 2 == 1”,</p>
-</div></blockquote>
-<p>}
-&gt;&gt;&gt; dataset.config.dump(“dataset.yml”)
-&gt;&gt;&gt; datasets: Dict[str, Dataset] = Dataset.from_config(</p>
-<blockquote>
-<div><p>“dataset.yml”</p>
-</div></blockquote>
-<p>)
-&gt;&gt;&gt; datasets
-{</p>
-<blockquote>
-<div><p>“train”: Dataset(…),
-“test”: Dataset(…),</p>
-</div></blockquote>
-<p>}</p>
-<p># You can also combine multiple selections into a single, named
-# dataset
-&gt;&gt;&gt; dataset.config.selection = {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“train”: [</dt><dd><p>“event_no % 2 == 0 &amp; abs(pid) == 12”,
-“event_no % 2 == 0 &amp; abs(pid) == 14”,
-“event_no % 2 == 0 &amp; abs(pid) == 16”,</p>
-</dd>
-</dl>
-<p>],
-(…)</p>
-</div></blockquote>
-<p>}
-&gt;&gt;&gt; dataset.config.dump(“dataset.yml”)
-&gt;&gt;&gt; datasets: Dict[str, ConcatDataset] = Dataset.from_config(</p>
-<blockquote>
-<div><p>“dataset.yml”</p>
-</div></blockquote>
-<p>)
-&gt;&gt;&gt; datasets
-{</p>
-<blockquote>
-<div><p>“train”: ConcatDataset(…),
-(…)</p>
-</div></blockquote>
-<p>}</p>
-<p># Finally, you can still reference existing selection files in CSV
-# or JSON formats:
-&gt;&gt;&gt; dataset.config.selection = {</p>
-<blockquote>
-<div><p>“train”: “50000 random events ~ train_selection.csv”,
-“test”: “test_selection.csv”,</p>
-</div></blockquote>
-<p>}</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
 </dd></dl>
 <dl class="py function">
 <dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.save_dataset_config">

@@ -336,7 +336,7 @@
 <div class="viewcode-block" id="DynEdge"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.dynedge.html#graphnet.models.gnn.dynedge.DynEdge">[docs]</a><span class="k">class</span> <span class="nc">DynEdge</span><span class="p">(</span><span class="n">GNN</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""DynEdge (dynamical edge convolutional) model."""</span>
 
-<div class="viewcode-block" id="DynEdge.__init__"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.dynedge.html#graphnet.models.gnn.dynedge.DynEdge.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
+    <span class="nd">@save_model_config</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">nb_inputs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -475,7 +475,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_nb_neighbours</span> <span class="o">=</span> <span class="n">nb_neighbours</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_features_subset</span> <span class="o">=</span> <span class="n">features_subset</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_construct_layers</span><span class="p">()</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_construct_layers</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_construct_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Construct layers (torch.nn.Modules)."""</span>

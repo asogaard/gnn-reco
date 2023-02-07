@@ -399,7 +399,7 @@
 <div class="viewcode-block" id="WeightFitter"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.WeightFitter">[docs]</a><span class="k">class</span> <span class="nc">WeightFitter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Class for fitting weights using PISA."""</span>
 
-<div class="viewcode-block" id="WeightFitter.__init__"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.WeightFitter.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">database_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">truth_table</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"truth"</span><span class="p">,</span>
@@ -410,7 +410,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_database_path</span> <span class="o">=</span> <span class="n">database_path</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_truth_table</span> <span class="o">=</span> <span class="n">truth_table</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_index_column</span> <span class="o">=</span> <span class="n">index_column</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_statistical_fit</span> <span class="o">=</span> <span class="n">statistical_fit</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_statistical_fit</span> <span class="o">=</span> <span class="n">statistical_fit</span>
 
 <div class="viewcode-block" id="WeightFitter.fit_weights"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.WeightFitter.fit_weights">[docs]</a>    <span class="k">def</span> <span class="nf">fit_weights</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -572,7 +572,7 @@
 <div class="viewcode-block" id="ContourFitter"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.ContourFitter">[docs]</a><span class="k">class</span> <span class="nc">ContourFitter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Class for fitting contours using PISA."""</span>
 
-<div class="viewcode-block" id="ContourFitter.__init__"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.ContourFitter.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">outdir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">pipeline_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -588,7 +588,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_model_name</span> <span class="o">=</span> <span class="n">model_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_include_retro</span> <span class="o">=</span> <span class="n">include_retro</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_statistical_fit</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">statistical_fit</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_allowed_contour_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"1d"</span><span class="p">,</span> <span class="s2">"2d"</span><span class="p">]</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_allowed_contour_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"1d"</span><span class="p">,</span> <span class="s2">"2d"</span><span class="p">]</span>
 
 <div class="viewcode-block" id="ContourFitter.fit_1d_contour"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.ContourFitter.fit_1d_contour">[docs]</a>    <span class="k">def</span> <span class="nf">fit_1d_contour</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>

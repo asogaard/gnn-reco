@@ -340,8 +340,6 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.training.callbacks.PiecewiseLinearLR" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">PiecewiseLinearLR</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.callbacks.PiecewiseLinearLR.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
         <li class="md-nav__item"><a href="#graphnet.training.callbacks.PiecewiseLinearLR.get_lr" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_lr()</span></code></a>
         </li></ul>
             </nav>
@@ -374,13 +372,6 @@
     
       <a href="#graphnet.training.callbacks.PiecewiseLinearLR" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">PiecewiseLinearLR</span></code></a>
       <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.training.callbacks.PiecewiseLinearLR.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-      
-    
-    </li>
     <li class="md-nav__item">
     
     
@@ -512,8 +503,6 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#graphnet.training.callbacks.PiecewiseLinearLR" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">PiecewiseLinearLR</span></code></a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.training.callbacks.PiecewiseLinearLR.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
         <li class="md-nav__item"><a href="#graphnet.training.callbacks.PiecewiseLinearLR.get_lr" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_lr()</span></code></a>
         </li></ul>
             </nav>
@@ -566,29 +555,6 @@
 </ul>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.training.callbacks.PiecewiseLinearLR.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">optimizer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">milestones</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">factors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_epoch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/callbacks.html#PiecewiseLinearLR.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.callbacks.PiecewiseLinearLR.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct <cite>PiecewiseLinearLR</cite>.</p>
-<p>For each milestone, denoting a specified number of steps, a factor
-multiplying the base learning rate is specified. For steps between two
-milestones, the learning rate is interpolated linearly between the two
-closest milestones. For steps before the first milestone, the factor
-for the first milestone is used; vice versa for steps after the last
-milestone.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>optimizer</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Optimizer</span></code>) – Wrapped optimizer.</p></li>
-<li><p><strong>milestones</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – List of step indices. Must be increasing.</p></li>
-<li><p><strong>factors</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – List of multiplicative factors. Must be same length as
-<cite>milestones</cite>.</p></li>
-<li><p><strong>last_epoch</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, default: <code class="docutils literal notranslate"><span class="pre">-1</span></code>) – The index of the last epoch.</p></li>
-<li><p><strong>verbose</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, prints a message to stdout for each update.</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.training.callbacks.PiecewiseLinearLR.get_lr">
 <span class="sig-name descname"><span class="pre">get_lr</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/callbacks.html#PiecewiseLinearLR.get_lr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.callbacks.PiecewiseLinearLR.get_lr" title="Permalink to this definition">¶</a></dt>

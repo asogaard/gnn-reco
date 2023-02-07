@@ -378,8 +378,6 @@
         </li>
         <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.arguments" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">arguments</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
         <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.as_dict" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">as_dict()</span></code></a>
         </li></ul>
             </nav>
@@ -407,13 +405,6 @@
     
     
       <a href="#graphnet.utilities.config.model_config.ModelConfig.arguments" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">arguments</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.model_config.ModelConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
       
     
     </li>
@@ -526,8 +517,6 @@
         </li>
         <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.arguments" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">arguments</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
         <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.as_dict" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">as_dict()</span></code></a>
         </li></ul>
             </nav>
@@ -570,37 +559,6 @@
 <dt class="sig sig-object py" id="graphnet.utilities.config.model_config.ModelConfig.arguments">
 <span class="sig-name descname"><span class="pre">arguments</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.model_config.ModelConfig.arguments" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.utilities.config.model_config.ModelConfig.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/model_config.html#ModelConfig.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.model_config.ModelConfig.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct <cite>ModelConfig</cite>.</p>
-<p>Can be used for model configuration as code, thereby making model
-construction more transparent and reproducible. Note that this does
-<em>not</em> save any trainable weights, meaning this is only a configuration
-for the model’s hyperparameters. Any model instantiated from a
-ModelConfig or file will be randomly initialised, and thus should be
-trained.</p>
-<p class="rubric">Examples</p>
-<p>In one session, do:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span>
-<span class="go">arguments:</span>
-<span class="go">    - (...): (...)</span>
-<span class="go">class_name: Model</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">"model.yml"</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>In another session, you can then do:
-&gt;&gt;&gt; model = Model.from_config(“model.yml”)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.utilities.config.model_config.ModelConfig.as_dict">
 <span class="sig-name descname"><span class="pre">as_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/model_config.html#ModelConfig.as_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.model_config.ModelConfig.as_dict" title="Permalink to this definition">¶</a></dt>
