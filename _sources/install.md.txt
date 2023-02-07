@@ -2,7 +2,6 @@
 
 We recommend installing `graphnet` in a separate environment, e.g. using a Python virtual environment or Anaconda (see details on installation [here](https://www.anaconda.com/products/individual)). Below we prove installation instructions for different setups.
 
-
 ## Installing with IceTray
 
 You may want `graphnet` to be able to interface with IceTray, e.g., when converting I3 files to an intermediate file format for training GNN models (e.g., SQLite or parquet),[^1] or when running GNN inference as part of an IceTray chain. In these cases, you need to install `graphnet` in a Python runtime that has IceTray installed.
@@ -35,8 +34,7 @@ $ pip install --user -r requirements/torch_gpu.txt -e .[develop,torch]  # GPU su
 
 </details>
 
-This should allow you to run the I3 conversion scripts in [examples/](https://github.com/graphnet-team/graphnet/tree/main/examples) with your preferred I3 files.
-
+This should allow you to run the I3 conversion scripts in [examples/](https://github.com/graphnet-team/graphnet/tree/main/examples/) with your preferred I3 files.
 
 ## Installing stand-alone
 
@@ -50,7 +48,7 @@ $ conda activate graphnet  # Optional
 (graphnet) $ pip install -r requirements/torch_gpu.txt -e .[develop,torch]  # GPU support
 (graphnet) $ pip install -r requirements/torch_macos.txt -e .[develop,torch]  # On macOS
 ```
-This should allow you to e.g. run the scripts in [examples/](https://github.com/graphnet-team/graphnet/tree/main/examples) out of the box.
+This should allow you to e.g. run the scripts in [examples/](https://github.com/graphnet-team/graphnet/tree/main/examples/) out of the box.
 
 A stand-alone installation requires specifying a supported Python version (see above), ensuring that the C++ compilers (gcc) are up to date, and possibly installing the CUDA Toolkit. Here, we have installed recent C++ compilers using conda (`gcc_linux-64 gxx_linux-64 libgcc`), but if your system already has a recent version (`$gcc --version` should be > 5, at least) you should be able to omit these from the setup.
 If you install the CUDA Toolkit and/or newer compilers using the above command, you should add **one of**:
@@ -61,7 +59,6 @@ $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/anaconda3/envs/graphnet/lib/
 $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/miniconda3/envs/graphnet/lib/
 ```
 depending on your setup to your `.bashrc` script or similar to make sure that the corresponding library files are accessible. Check which one of the above paths contains the `.so`-files you're looking to use, and add that path.
-
 
 ## Running in Docker
 
