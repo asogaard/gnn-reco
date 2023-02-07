@@ -323,7 +323,7 @@
 <span class="kn">from</span> <span class="nn">graphnet.utilities.config</span> <span class="kn">import</span> <span class="n">DatasetConfig</span>
 
 
-<div class="viewcode-block" id="collate_fn"><a class="viewcode-back" href="../../../api/graphnet.data.html#graphnet.data.dataloader.collate_fn">[docs]</a><span class="k">def</span> <span class="nf">collate_fn</span><span class="p">(</span><span class="n">graphs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Data</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="p">:</span>
+<div class="viewcode-block" id="collate_fn"><a class="viewcode-back" href="../../../api/graphnet.data.dataloader.html#graphnet.data.dataloader.collate_fn">[docs]</a><span class="k">def</span> <span class="nf">collate_fn</span><span class="p">(</span><span class="n">graphs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Data</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Remove graphs with less than two DOM hits.</span>
 
 <span class="sd">    Should not occur in "production.</span>
@@ -332,15 +332,15 @@
     <span class="k">return</span> <span class="n">Batch</span><span class="o">.</span><span class="n">from_data_list</span><span class="p">(</span><span class="n">graphs</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="do_shuffle"><a class="viewcode-back" href="../../../api/graphnet.data.html#graphnet.data.dataloader.do_shuffle">[docs]</a><span class="k">def</span> <span class="nf">do_shuffle</span><span class="p">(</span><span class="n">selection_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<div class="viewcode-block" id="do_shuffle"><a class="viewcode-back" href="../../../api/graphnet.data.dataloader.html#graphnet.data.dataloader.do_shuffle">[docs]</a><span class="k">def</span> <span class="nf">do_shuffle</span><span class="p">(</span><span class="n">selection_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Check whether to shuffle selection with name `selection_name`."""</span>
     <span class="k">return</span> <span class="s2">"train"</span> <span class="ow">in</span> <span class="n">selection_name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="DataLoader"><a class="viewcode-back" href="../../../api/graphnet.data.html#graphnet.data.dataloader.DataLoader">[docs]</a><span class="k">class</span> <span class="nc">DataLoader</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">):</span>
+<div class="viewcode-block" id="DataLoader"><a class="viewcode-back" href="../../../api/graphnet.data.dataloader.html#graphnet.data.dataloader.DataLoader">[docs]</a><span class="k">class</span> <span class="nc">DataLoader</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Class for loading data from a `Dataset`."""</span>
 
-<div class="viewcode-block" id="DataLoader.__init__"><a class="viewcode-back" href="../../../api/graphnet.data.html#graphnet.data.dataloader.DataLoader.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="DataLoader.__init__"><a class="viewcode-back" href="../../../api/graphnet.data.dataloader.html#graphnet.data.dataloader.DataLoader.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">dataset</span><span class="p">:</span> <span class="n">Dataset</span><span class="p">,</span>
         <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -363,7 +363,7 @@
             <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="DataLoader.from_dataset_config"><a class="viewcode-back" href="../../../api/graphnet.data.html#graphnet.data.dataloader.DataLoader.from_dataset_config">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="DataLoader.from_dataset_config"><a class="viewcode-back" href="../../../api/graphnet.data.dataloader.html#graphnet.data.dataloader.DataLoader.from_dataset_config">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_dataset_config</span><span class="p">(</span>
         <span class="bp">cls</span><span class="p">,</span>
         <span class="n">config</span><span class="p">:</span> <span class="n">DatasetConfig</span><span class="p">,</span>

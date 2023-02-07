@@ -12,45 +12,14 @@ training
 |start-h2| Submodules |end-h2|
 
 
-graphnet.training.callbacks 
-----------------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.training.callbacks
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.training.labels 
--------------------------
-
-.. automodule:: graphnet.training.labels
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.training.loss\_functions 
-----------------------------------
-
-.. automodule:: graphnet.training.loss_functions
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.training.utils 
-------------------------
-
-.. automodule:: graphnet.training.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.training.weight\_fitting 
-----------------------------------
-
-.. automodule:: graphnet.training.weight_fitting
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.training.callbacks
+   graphnet.training.labels
+   graphnet.training.loss_functions
+   graphnet.training.utils
+   graphnet.training.weight_fitting
 
 
 

@@ -322,7 +322,7 @@
 <span class="kn">from</span> <span class="nn">graphnet.models.task</span> <span class="kn">import</span> <span class="n">Task</span><span class="p">,</span> <span class="n">IdentityTask</span>
 
 
-<div class="viewcode-block" id="MulticlassClassificationTask"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.classification.MulticlassClassificationTask">[docs]</a><span class="k">class</span> <span class="nc">MulticlassClassificationTask</span><span class="p">(</span><span class="n">IdentityTask</span><span class="p">):</span>
+<div class="viewcode-block" id="MulticlassClassificationTask"><a class="viewcode-back" href="../../../../api/graphnet.models.task.classification.html#graphnet.models.task.classification.MulticlassClassificationTask">[docs]</a><span class="k">class</span> <span class="nc">MulticlassClassificationTask</span><span class="p">(</span><span class="n">IdentityTask</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""General task for classifying any number of classes.</span>
 
 <span class="sd">    Requires the same number of input features as the number of classes being</span>
@@ -331,7 +331,7 @@
 <span class="sd">    """</span></div>
 
 
-<div class="viewcode-block" id="BinaryClassificationTask"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.classification.BinaryClassificationTask">[docs]</a><span class="k">class</span> <span class="nc">BinaryClassificationTask</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<div class="viewcode-block" id="BinaryClassificationTask"><a class="viewcode-back" href="../../../../api/graphnet.models.task.classification.html#graphnet.models.task.classification.BinaryClassificationTask">[docs]</a><span class="k">class</span> <span class="nc">BinaryClassificationTask</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Performs binary classification."""</span>
 
     <span class="c1"># Requires one feature, logit for being signal class.</span>
@@ -342,7 +342,7 @@
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="BinaryClassificationTaskLogits"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.classification.BinaryClassificationTaskLogits">[docs]</a><span class="k">class</span> <span class="nc">BinaryClassificationTaskLogits</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<div class="viewcode-block" id="BinaryClassificationTaskLogits"><a class="viewcode-back" href="../../../../api/graphnet.models.task.classification.html#graphnet.models.task.classification.BinaryClassificationTaskLogits">[docs]</a><span class="k">class</span> <span class="nc">BinaryClassificationTaskLogits</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Performs binary classification form logits."""</span>
 
     <span class="c1"># Requires one feature, logit for being signal class.</span>

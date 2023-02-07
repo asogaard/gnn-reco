@@ -118,8 +118,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="deployment" href="graphnet.deployment.html" />
-    <link rel="prev" title="sqlite" href="graphnet.data.sqlite.html" />
+    <link rel="next" title="parquet_to_sqlite" href="graphnet.data.utilities.parquet_to_sqlite.html" />
+    <link rel="prev" title="sqlite_utilities" href="graphnet.data.sqlite.sqlite_utilities.html" />
   
    
 
@@ -327,82 +327,28 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-data-utilities--page-root" class="md-nav__link">utilities</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#module-graphnet.data.utilities.parquet_to_sqlite" class="md-nav__link">graphnet.data.utilities.parquet_to_sqlite</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ParquetToSQLiteConverter</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.run" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.data.utilities.random" class="md-nav__link">graphnet.data.utilities.random</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.random.pairwise_shuffle" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">pairwise_shuffle()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.data.utilities.string_selection_resolver" class="md-nav__link">graphnet.data.utilities.string_selection_resolver</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">StringSelectionResolver</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.resolve" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">resolve()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
   </ul>
 </nav>
       <ul class="md-nav__list"> 
     <li class="md-nav__item">
     
     
-      <a href="#module-graphnet.data.utilities.parquet_to_sqlite" class="md-nav__link">graphnet.data.utilities.parquet_to_sqlite</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ParquetToSQLiteConverter</span></code></a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
+      <a href="graphnet.data.utilities.parquet_to_sqlite.html" class="md-nav__link">parquet_to_sqlite</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.run" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a>
+      <a href="graphnet.data.utilities.random.html" class="md-nav__link">random</a>
       
-    
-    </li></ul>
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#module-graphnet.data.utilities.random" class="md-nav__link">graphnet.data.utilities.random</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.data.utilities.random.pairwise_shuffle" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">pairwise_shuffle()</span></code></a>
+      <a href="graphnet.data.utilities.string_selection_resolver.html" class="md-nav__link">string_selection_resolver</a>
       
     
     </li></ul>
@@ -411,65 +357,35 @@
     <li class="md-nav__item">
     
     
-      <a href="#module-graphnet.data.utilities.string_selection_resolver" class="md-nav__link">graphnet.data.utilities.string_selection_resolver</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">StringSelectionResolver</span></code></a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
+      <a href="graphnet.data.constants.html" class="md-nav__link">constants</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.resolve" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">resolve()</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li></ul>
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.data.html#module-graphnet.data.constants" class="md-nav__link">graphnet.data.constants</a>
+      <a href="graphnet.data.dataconverter.html" class="md-nav__link">dataconverter</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.data.html#module-graphnet.data.dataconverter" class="md-nav__link">graphnet.data.dataconverter</a>
+      <a href="graphnet.data.dataloader.html" class="md-nav__link">dataloader</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.data.html#module-graphnet.data.dataloader" class="md-nav__link">graphnet.data.dataloader</a>
+      <a href="graphnet.data.dataset.html" class="md-nav__link">dataset</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.data.html#module-graphnet.data.dataset" class="md-nav__link">graphnet.data.dataset</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.data.html#module-graphnet.data.pipeline" class="md-nav__link">graphnet.data.pipeline</a>
+      <a href="graphnet.data.pipeline.html" class="md-nav__link">pipeline</a>
       
     
     </li></ul>
@@ -513,7 +429,7 @@
     <li class="md-nav__item">
     
     
-      <a href="graphnet.html#module-graphnet.constants" class="md-nav__link">graphnet.constants</a>
+      <a href="graphnet.constants.html" class="md-nav__link">constants</a>
       
     
     </li></ul>
@@ -531,42 +447,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-data-utilities--page-root" class="md-nav__link">utilities</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#module-graphnet.data.utilities.parquet_to_sqlite" class="md-nav__link">graphnet.data.utilities.parquet_to_sqlite</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ParquetToSQLiteConverter</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.run" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.data.utilities.random" class="md-nav__link">graphnet.data.utilities.random</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.random.pairwise_shuffle" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">pairwise_shuffle()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.data.utilities.string_selection_resolver" class="md-nav__link">graphnet.data.utilities.string_selection_resolver</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">StringSelectionResolver</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.resolve" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">resolve()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
   </ul>
 </nav>
               </div>
@@ -580,172 +461,22 @@
 <span id="utilities"></span><h1 id="api-graphnet-data-utilities--page-root">utilities<a class="headerlink" href="#api-graphnet-data-utilities--page-root" title="Permalink to this heading">¶</a></h1>
 <p>Utilities for use across <cite>graphnet.data</cite>.</p>
 <p><h2> Submodules </h2></p>
-<section id="module-graphnet.data.utilities.parquet_to_sqlite">
-<span id="graphnet-data-utilities-parquet-to-sqlite"></span><h2 id="module-graphnet.data.utilities.parquet_to_sqlite">graphnet.data.utilities.parquet_to_sqlite<a class="headerlink" href="#module-graphnet.data.utilities.parquet_to_sqlite" title="Permalink to this heading">¶</a></h2>
-<p>Utilities for converting files from Parquet to SQLite.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.utilities.parquet_to_sqlite.</span></span><span class="sig-name descname"><span class="pre">ParquetToSQLiteConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parquet_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mc_truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded_fields</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/utilities/parquet_to_sqlite.html#ParquetToSQLiteConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="graphnet.utilities.html#graphnet.utilities.logging.LoggerMixin" title="graphnet.utilities.logging.LoggerMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></a></p>
-<p>Convert Parquet files to a SQLite database.</p>
-<p>Each event in the parquet file(s) are assigned a unique event id. By
-default, every field in the parquet file(s) are extracted. One can choose
-to exclude certain fields by using the argument exclude_fields.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>parquet_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>mc_truth_table</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'mc_truth'</span></code>) – </p></li>
-<li><p><strong>excluded_fields</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="graphnet.data.utilities.parquet_to_sqlite.html">parquet_to_sqlite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.data.utilities.parquet_to_sqlite.html#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter"><code class="docutils literal notranslate"><span class="pre">ParquetToSQLiteConverter</span></code></a></li>
 </ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parquet_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mc_truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluded_fields</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/utilities/parquet_to_sqlite.html#ParquetToSQLiteConverter.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct <cite>ParquetToSQLiteConverter</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>parquet_path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>mc_truth_table</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'mc_truth'</span></code>) – </p></li>
-<li><p><strong>excluded_fields</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphnet.data.utilities.random.html">random</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.data.utilities.random.html#graphnet.data.utilities.random.pairwise_shuffle"><code class="docutils literal notranslate"><span class="pre">pairwise_shuffle()</span></code></a></li>
 </ul>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/utilities/parquet_to_sqlite.html#ParquetToSQLiteConverter.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.utilities.parquet_to_sqlite.ParquetToSQLiteConverter.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run Parquet to SQLite conversion.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>outdir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Output directory for SQLite database.</p></li>
-<li><p><strong>database_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of output SQLite database.</p></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphnet.data.utilities.string_selection_resolver.html">string_selection_resolver</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.data.utilities.string_selection_resolver.html#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver"><code class="docutils literal notranslate"><span class="pre">StringSelectionResolver</span></code></a></li>
 </ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
-</section>
-<section id="module-graphnet.data.utilities.random">
-<span id="graphnet-data-utilities-random"></span><h2 id="module-graphnet.data.utilities.random">graphnet.data.utilities.random<a class="headerlink" href="#module-graphnet.data.utilities.random" title="Permalink to this heading">¶</a></h2>
-<p>RNG-related utility functions relevant to the graphnet.data package.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.data.utilities.random.pairwise_shuffle">
-<span class="sig-prename descclassname"><span class="pre">graphnet.data.utilities.random.</span></span><span class="sig-name descname"><span class="pre">pairwise_shuffle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i3_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/utilities/random.html#pairwise_shuffle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.utilities.random.pairwise_shuffle" title="Permalink to this definition">¶</a></dt>
-<dd><p>Shuffle the I3 file list and the correponding gcd file list.</p>
-<p>This is handy because it ensures a more even extraction load for each worker.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>files_list</strong> – List of I3 file paths.</p></li>
-<li><p><strong>gcd_list</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – List of corresponding gcd file paths.</p></li>
-<li><p><strong>i3_list</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
+</li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>List of shuffled I3 file paths.
-gcd_shuffled: List of corresponding gcd file paths.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>i3_shuffled</p>
-</dd>
-</dl>
-</dd></dl>
-</section>
-<section id="module-graphnet.data.utilities.string_selection_resolver">
-<span id="graphnet-data-utilities-string-selection-resolver"></span><h2 id="module-graphnet.data.utilities.string_selection_resolver">graphnet.data.utilities.string_selection_resolver<a class="headerlink" href="#module-graphnet.data.utilities.string_selection_resolver" title="Permalink to this heading">¶</a></h2>
-<p>Utilities for resolving string-based selections to event indices.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="graphnet.data.utilities.string_selection_resolver.StringSelectionResolver">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.utilities.string_selection_resolver.</span></span><span class="sig-name descname"><span class="pre">StringSelectionResolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cache</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/utilities/string_selection_resolver.html#StringSelectionResolver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="graphnet.utilities.html#graphnet.utilities.logging.LoggerMixin" title="graphnet.utilities.logging.LoggerMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></a></p>
-<p>Resolve string-based selection to event indices.</p>
-<p>String-based selection, using in <cite>DatasetConfig</cite>, is a very flexible way of
-defining event selections. Below we show an example of a very involved
-event selection, which should cover most standard event selections
-currently in use with <cite>graphnet</cite>.</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>yml
-# dataset/config.yml
-selection:</p>
-<blockquote>
-<div><dl class="simple">
-<dt>test:</dt><dd><ul class="simple">
-<li><p>50000 random events ~ event_no % 5 == 0 &amp; abs(pid) == 12</p></li>
-<li><p>50000 random events ~ event_no % 5 == 0 &amp; abs(pid) == 14</p></li>
-<li><p>50000 random events ~ event_no % 5 == 0 &amp; abs(pid) == 16</p></li>
-<li><p>50000 random events ~ event_no % 5 == 0 &amp; abs(pid) == 13</p></li>
-<li><p>50000 random events ~ event_no % 5 == 0 &amp; abs(pid) == 1</p></li>
-</ul>
-</dd>
-<dt>validation:</dt><dd><ul class="simple">
-<li><p>10000 random events ~ event_no % 5 == 1 &amp; abs(pid) == 12</p></li>
-<li><p>10000 random events ~ event_no % 5 == 1 &amp; abs(pid) == 14</p></li>
-<li><p>10000 random events ~ event_no % 5 == 1 &amp; abs(pid) == 16</p></li>
-<li><p>10000 random events ~ event_no % 5 == 1 &amp; abs(pid) == 13</p></li>
-<li><p>10000 random events ~ event_no % 5 == 1 &amp; abs(pid) == 1</p></li>
-</ul>
-</dd>
-<dt>train:</dt><dd><ul class="simple">
-<li><p>10000 random events ~ event_no % 5 &gt; 1 &amp; abs(pid) == 12</p></li>
-<li><p>10000 random events ~ event_no % 5 &gt; 1 &amp; abs(pid) == 14</p></li>
-<li><p>10000 random events ~ event_no % 5 &gt; 1 &amp; abs(pid) == 16</p></li>
-<li><p>10000 random events ~ event_no % 5 &gt; 1 &amp; abs(pid) == 13</p></li>
-<li><p>10000 random events ~ event_no % 5 &gt; 1 &amp; abs(pid) == 1</p></li>
-</ul>
-</dd>
-</dl>
-</div></blockquote>
-<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset</strong> (<a class="reference internal" href="graphnet.data.html#graphnet.data.dataset.Dataset" title="graphnet.data.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a>) – </p></li>
-<li><p><strong>index_column</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-<li><p><strong>seed</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) – </p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cache</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/utilities/string_selection_resolver.html#StringSelectionResolver.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct <cite>StringSelectionResolver</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset</strong> (<a class="reference internal" href="graphnet.data.html#graphnet.data.dataset.Dataset" title="graphnet.data.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a>) – </p></li>
-<li><p><strong>index_column</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-<li><p><strong>seed</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>use_cache</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) – </p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.resolve">
-<span class="sig-name descname"><span class="pre">resolve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selection</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/utilities/string_selection_resolver.html#StringSelectionResolver.resolve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver.resolve" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resolve selection as string to list of indicies.</p>
-<p>Selections are expected to have pandas.DataFrame.query-compatible
-syntax, e.g., <code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">"event_no</span> <span class="pre">%</span> <span class="pre">5</span> <span class="pre">&gt;</span> <span class="pre">0"</span> <span class="pre">`</span></code> Selections may also specify a
-fixed number of events to randomly sample, e.g., <code class="docutils literal notranslate"><span class="pre">`</span> <span class="pre">"10000</span> <span class="pre">random</span>
-<span class="pre">events</span> <span class="pre">~</span> <span class="pre">event_no</span> <span class="pre">%</span> <span class="pre">5</span> <span class="pre">&gt;</span> <span class="pre">0"</span> <span class="pre">"20%</span> <span class="pre">random</span> <span class="pre">events</span> <span class="pre">~</span> <span class="pre">event_no</span> <span class="pre">%</span> <span class="pre">5</span> <span class="pre">&gt;</span> <span class="pre">0"</span> <span class="pre">`</span></code></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>selection</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
-</section>
+</div>
 </section>
 
 
@@ -758,7 +489,7 @@ fixed number of events to randomly sample, e.g., <code class="docutils literal n
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="graphnet.data.sqlite.html" title="sqlite"
+            <a href="graphnet.data.sqlite.sqlite_utilities.html" title="sqlite_utilities"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -767,17 +498,17 @@ fixed number of events to randomly sample, e.g., <code class="docutils literal n
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> sqlite </span>
+                      class="md-footer-nav__direction"> Previous </span> sqlite_utilities </span>
               </div>
             </a>
           
           
-            <a href="graphnet.deployment.html" title="deployment"
+            <a href="graphnet.data.utilities.parquet_to_sqlite.html" title="parquet_to_sqlite"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> deployment </span>
+                class="md-footer-nav__direction"> Next </span> parquet_to_sqlite </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

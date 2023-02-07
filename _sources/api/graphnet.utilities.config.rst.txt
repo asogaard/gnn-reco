@@ -12,53 +12,15 @@ config
 |start-h2| Submodules |end-h2|
 
 
-graphnet.utilities.config.base\_config 
----------------------------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.utilities.config.base_config
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.utilities.config.configurable 
----------------------------------------
-
-.. automodule:: graphnet.utilities.config.configurable
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.utilities.config.dataset\_config 
-------------------------------------------
-
-.. automodule:: graphnet.utilities.config.dataset_config
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.utilities.config.model\_config 
-----------------------------------------
-
-.. automodule:: graphnet.utilities.config.model_config
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.utilities.config.parsing 
-----------------------------------
-
-.. automodule:: graphnet.utilities.config.parsing
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.utilities.config.training\_config 
--------------------------------------------
-
-.. automodule:: graphnet.utilities.config.training_config
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.utilities.config.base_config
+   graphnet.utilities.config.configurable
+   graphnet.utilities.config.dataset_config
+   graphnet.utilities.config.model_config
+   graphnet.utilities.config.parsing
+   graphnet.utilities.config.training_config
 
 
 

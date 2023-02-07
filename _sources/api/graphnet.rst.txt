@@ -24,13 +24,10 @@ API
 |start-h2| Submodules |end-h2|
 
 
-graphnet.constants 
--------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.constants
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.constants
 
 
 

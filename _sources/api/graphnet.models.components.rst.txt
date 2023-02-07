@@ -12,21 +12,11 @@ components
 |start-h2| Submodules |end-h2|
 
 
-graphnet.models.components.layers 
-----------------------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.models.components.layers
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.models.components.pool 
---------------------------------
-
-.. automodule:: graphnet.models.components.pool
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.models.components.layers
+   graphnet.models.components.pool
 
 
 

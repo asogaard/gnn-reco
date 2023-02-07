@@ -321,7 +321,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
-<div class="viewcode-block" id="flatten_nested_dictionary"><a class="viewcode-back" href="../../../../../api/graphnet.data.extractors.utilities.html#graphnet.data.extractors.utilities.collections.flatten_nested_dictionary">[docs]</a><span class="k">def</span> <span class="nf">flatten_nested_dictionary</span><span class="p">(</span>
+<div class="viewcode-block" id="flatten_nested_dictionary"><a class="viewcode-back" href="../../../../../api/graphnet.data.extractors.utilities.collections.html#graphnet.data.extractors.utilities.collections.flatten_nested_dictionary">[docs]</a><span class="k">def</span> <span class="nf">flatten_nested_dictionary</span><span class="p">(</span>
     <span class="n">obj</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
     <span class="n">parent_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
     <span class="n">separator</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"__"</span><span class="p">,</span>
@@ -353,7 +353,7 @@
         <span class="k">return</span> <span class="p">{</span><span class="n">parent_key</span><span class="p">:</span> <span class="n">obj</span><span class="p">}</span></div>
 
 
-<div class="viewcode-block" id="serialise"><a class="viewcode-back" href="../../../../../api/graphnet.data.extractors.utilities.html#graphnet.data.extractors.utilities.collections.serialise">[docs]</a><span class="k">def</span> <span class="nf">serialise</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<div class="viewcode-block" id="serialise"><a class="viewcode-back" href="../../../../../api/graphnet.data.extractors.utilities.collections.html#graphnet.data.extractors.utilities.collections.serialise">[docs]</a><span class="k">def</span> <span class="nf">serialise</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""Serialise the necessary keys in `obj` to JSON for saving to file.</span>
 
 <span class="sd">    It is typically not possible to save nested collections (lists, dicts) to</span>
@@ -379,7 +379,7 @@
     <span class="k">return</span> <span class="n">obj</span></div>
 
 
-<div class="viewcode-block" id="transpose_list_of_dicts"><a class="viewcode-back" href="../../../../../api/graphnet.data.extractors.utilities.html#graphnet.data.extractors.utilities.collections.transpose_list_of_dicts">[docs]</a><span class="k">def</span> <span class="nf">transpose_list_of_dicts</span><span class="p">(</span>
+<div class="viewcode-block" id="transpose_list_of_dicts"><a class="viewcode-back" href="../../../../../api/graphnet.data.extractors.utilities.collections.html#graphnet.data.extractors.utilities.collections.transpose_list_of_dicts">[docs]</a><span class="k">def</span> <span class="nf">transpose_list_of_dicts</span><span class="p">(</span>
     <span class="n">array</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]:</span>
 <span class="w">    </span><span class="sd">"""Transpose a list of dicts to a dict of lists."""</span>

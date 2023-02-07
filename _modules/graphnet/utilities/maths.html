@@ -317,7 +317,7 @@
 <span class="kn">import</span> <span class="nn">torch</span>
 
 
-<div class="viewcode-block" id="eps_like"><a class="viewcode-back" href="../../../api/graphnet.utilities.html#graphnet.utilities.maths.eps_like">[docs]</a><span class="k">def</span> <span class="nf">eps_like</span><span class="p">(</span><span class="n">tensor</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<div class="viewcode-block" id="eps_like"><a class="viewcode-back" href="../../../api/graphnet.utilities.maths.html#graphnet.utilities.maths.eps_like">[docs]</a><span class="k">def</span> <span class="nf">eps_like</span><span class="p">(</span><span class="n">tensor</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Return `eps` matching `tensor`'s dtype."""</span>
     <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span></div>
 </pre></div>

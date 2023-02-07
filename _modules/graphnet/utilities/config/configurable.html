@@ -322,10 +322,10 @@
 <span class="kn">from</span> <span class="nn">graphnet.utilities.logging</span> <span class="kn">import</span> <span class="n">LoggerMixin</span>
 
 
-<div class="viewcode-block" id="Configurable"><a class="viewcode-back" href="../../../../api/graphnet.utilities.config.html#graphnet.utilities.config.configurable.Configurable">[docs]</a><span class="k">class</span> <span class="nc">Configurable</span><span class="p">(</span><span class="n">LoggerMixin</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+<div class="viewcode-block" id="Configurable"><a class="viewcode-back" href="../../../../api/graphnet.utilities.config.configurable.html#graphnet.utilities.config.configurable.Configurable">[docs]</a><span class="k">class</span> <span class="nc">Configurable</span><span class="p">(</span><span class="n">LoggerMixin</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Base class for all configurable classes in graphnet."""</span>
 
-<div class="viewcode-block" id="Configurable.__init__"><a class="viewcode-back" href="../../../../api/graphnet.utilities.config.html#graphnet.utilities.config.configurable.Configurable.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="Configurable.__init__"><a class="viewcode-back" href="../../../../api/graphnet.utilities.config.configurable.html#graphnet.utilities.config.configurable.Configurable.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Construct `Configurable`."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">:</span> <span class="n">BaseConfig</span>
 
@@ -345,12 +345,12 @@
             <span class="p">)</span>
             <span class="k">raise</span>
 
-<div class="viewcode-block" id="Configurable.save_config"><a class="viewcode-back" href="../../../../api/graphnet.utilities.config.html#graphnet.utilities.config.configurable.Configurable.save_config">[docs]</a>    <span class="nd">@final</span>
+<div class="viewcode-block" id="Configurable.save_config"><a class="viewcode-back" href="../../../../api/graphnet.utilities.config.configurable.html#graphnet.utilities.config.configurable.Configurable.save_config">[docs]</a>    <span class="nd">@final</span>
     <span class="k">def</span> <span class="nf">save_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Save Config to `path` as YAML file."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">path</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Configurable.from_config"><a class="viewcode-back" href="../../../../api/graphnet.utilities.config.html#graphnet.utilities.config.configurable.Configurable.from_config">[docs]</a>    <span class="nd">@abstractclassmethod</span>
+<div class="viewcode-block" id="Configurable.from_config"><a class="viewcode-back" href="../../../../api/graphnet.utilities.config.configurable.html#graphnet.utilities.config.configurable.Configurable.from_config">[docs]</a>    <span class="nd">@abstractclassmethod</span>
     <span class="k">def</span> <span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">BaseConfig</span><span class="p">,</span> <span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Construct instance from `source` configuration."""</span></div></div>
 </pre></div>

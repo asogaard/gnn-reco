@@ -343,7 +343,7 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">"font"</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s2">"serif"</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="config_updater"><a class="viewcode-back" href="../../../api/graphnet.pisa.html#graphnet.pisa.fitting.config_updater">[docs]</a><span class="nd">@contextmanager</span>
+<div class="viewcode-block" id="config_updater"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.config_updater">[docs]</a><span class="nd">@contextmanager</span>
 <span class="k">def</span> <span class="nf">config_updater</span><span class="p">(</span>
     <span class="n">config_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">new_config_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -396,10 +396,10 @@
                 <span class="n">updater</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">configfile</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="WeightFitter"><a class="viewcode-back" href="../../../api/graphnet.pisa.html#graphnet.pisa.fitting.WeightFitter">[docs]</a><span class="k">class</span> <span class="nc">WeightFitter</span><span class="p">:</span>
+<div class="viewcode-block" id="WeightFitter"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.WeightFitter">[docs]</a><span class="k">class</span> <span class="nc">WeightFitter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Class for fitting weights using PISA."""</span>
 
-<div class="viewcode-block" id="WeightFitter.__init__"><a class="viewcode-back" href="../../../api/graphnet.pisa.html#graphnet.pisa.fitting.WeightFitter.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="WeightFitter.__init__"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.WeightFitter.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">database_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">truth_table</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"truth"</span><span class="p">,</span>
@@ -412,7 +412,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_index_column</span> <span class="o">=</span> <span class="n">index_column</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_statistical_fit</span> <span class="o">=</span> <span class="n">statistical_fit</span></div>
 
-<div class="viewcode-block" id="WeightFitter.fit_weights"><a class="viewcode-back" href="../../../api/graphnet.pisa.html#graphnet.pisa.fitting.WeightFitter.fit_weights">[docs]</a>    <span class="k">def</span> <span class="nf">fit_weights</span><span class="p">(</span>
+<div class="viewcode-block" id="WeightFitter.fit_weights"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.WeightFitter.fit_weights">[docs]</a>    <span class="k">def</span> <span class="nf">fit_weights</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">config_outdir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">weight_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
@@ -569,10 +569,10 @@
         <span class="k">return</span> <span class="s2">"</span><span class="si">%s</span><span class="s2">/pipeline_</span><span class="si">%s</span><span class="s2">.cfg"</span> <span class="o">%</span> <span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">config_name</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="ContourFitter"><a class="viewcode-back" href="../../../api/graphnet.pisa.html#graphnet.pisa.fitting.ContourFitter">[docs]</a><span class="k">class</span> <span class="nc">ContourFitter</span><span class="p">:</span>
+<div class="viewcode-block" id="ContourFitter"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.ContourFitter">[docs]</a><span class="k">class</span> <span class="nc">ContourFitter</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Class for fitting contours using PISA."""</span>
 
-<div class="viewcode-block" id="ContourFitter.__init__"><a class="viewcode-back" href="../../../api/graphnet.pisa.html#graphnet.pisa.fitting.ContourFitter.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="ContourFitter.__init__"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.ContourFitter.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">outdir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">pipeline_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -590,7 +590,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_statistical_fit</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">statistical_fit</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_allowed_contour_types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"1d"</span><span class="p">,</span> <span class="s2">"2d"</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="ContourFitter.fit_1d_contour"><a class="viewcode-back" href="../../../api/graphnet.pisa.html#graphnet.pisa.fitting.ContourFitter.fit_1d_contour">[docs]</a>    <span class="k">def</span> <span class="nf">fit_1d_contour</span><span class="p">(</span>
+<div class="viewcode-block" id="ContourFitter.fit_1d_contour"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.ContourFitter.fit_1d_contour">[docs]</a>    <span class="k">def</span> <span class="nf">fit_1d_contour</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">run_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">config_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>
@@ -610,7 +610,7 @@
             <span class="n">contour_type</span><span class="o">=</span><span class="s2">"1d"</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="ContourFitter.fit_2d_contour"><a class="viewcode-back" href="../../../api/graphnet.pisa.html#graphnet.pisa.fitting.ContourFitter.fit_2d_contour">[docs]</a>    <span class="k">def</span> <span class="nf">fit_2d_contour</span><span class="p">(</span>
+<div class="viewcode-block" id="ContourFitter.fit_2d_contour"><a class="viewcode-back" href="../../../api/graphnet.pisa.fitting.html#graphnet.pisa.fitting.ContourFitter.fit_2d_contour">[docs]</a>    <span class="k">def</span> <span class="nf">fit_2d_contour</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">run_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">config_dict</span><span class="p">:</span> <span class="n">Dict</span><span class="p">,</span>

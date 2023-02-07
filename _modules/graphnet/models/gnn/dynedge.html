@@ -333,10 +333,10 @@
 <span class="p">}</span>
 
 
-<div class="viewcode-block" id="DynEdge"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.html#graphnet.models.gnn.dynedge.DynEdge">[docs]</a><span class="k">class</span> <span class="nc">DynEdge</span><span class="p">(</span><span class="n">GNN</span><span class="p">):</span>
+<div class="viewcode-block" id="DynEdge"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.dynedge.html#graphnet.models.gnn.dynedge.DynEdge">[docs]</a><span class="k">class</span> <span class="nc">DynEdge</span><span class="p">(</span><span class="n">GNN</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""DynEdge (dynamical edge convolutional) model."""</span>
 
-<div class="viewcode-block" id="DynEdge.__init__"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.html#graphnet.models.gnn.dynedge.DynEdge.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
+<div class="viewcode-block" id="DynEdge.__init__"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.dynedge.html#graphnet.models.gnn.dynedge.DynEdge.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">nb_inputs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -585,7 +585,7 @@
 
         <span class="k">return</span> <span class="n">global_variables</span>
 
-<div class="viewcode-block" id="DynEdge.forward"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.html#graphnet.models.gnn.dynedge.DynEdge.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<div class="viewcode-block" id="DynEdge.forward"><a class="viewcode-back" href="../../../../api/graphnet.models.gnn.dynedge.html#graphnet.models.gnn.dynedge.DynEdge.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Apply learnable forward pass."""</span>
         <span class="c1"># Convenience variables</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">,</span> <span class="n">batch</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">edge_index</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">batch</span>

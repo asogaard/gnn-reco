@@ -322,7 +322,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
-<div class="viewcode-block" id="read_entry"><a class="viewcode-back" href="../../../api/graphnet.pisa.html#graphnet.pisa.plotting.read_entry">[docs]</a><span class="k">def</span> <span class="nf">read_entry</span><span class="p">(</span><span class="n">entry</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
+<div class="viewcode-block" id="read_entry"><a class="viewcode-back" href="../../../api/graphnet.pisa.plotting.html#graphnet.pisa.plotting.read_entry">[docs]</a><span class="k">def</span> <span class="nf">read_entry</span><span class="p">(</span><span class="n">entry</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""Parse the contents of `entry`."""</span>
     <span class="n">path</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span>
     <span class="n">model_name</span> <span class="o">=</span> <span class="n">entry</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span>
@@ -343,7 +343,7 @@
     <span class="k">return</span> <span class="n">entry_data</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">ls</span><span class="p">,</span> <span class="n">color</span></div>
 
 
-<div class="viewcode-block" id="plot_2D_contour"><a class="viewcode-back" href="../../../api/graphnet.pisa.html#graphnet.pisa.plotting.plot_2D_contour">[docs]</a><span class="k">def</span> <span class="nf">plot_2D_contour</span><span class="p">(</span>
+<div class="viewcode-block" id="plot_2D_contour"><a class="viewcode-back" href="../../../api/graphnet.pisa.plotting.html#graphnet.pisa.plotting.plot_2D_contour">[docs]</a><span class="k">def</span> <span class="nf">plot_2D_contour</span><span class="p">(</span>
     <span class="n">contour_data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">],</span>
     <span class="n">xlim</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">),</span>
     <span class="n">ylim</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.38</span> <span class="o">*</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">2.55</span> <span class="o">*</span> <span class="mf">1e-3</span><span class="p">),</span>
@@ -423,7 +423,7 @@
     <span class="k">return</span> <span class="n">fig</span></div>
 
 
-<div class="viewcode-block" id="plot_1D_contour"><a class="viewcode-back" href="../../../api/graphnet.pisa.html#graphnet.pisa.plotting.plot_1D_contour">[docs]</a><span class="k">def</span> <span class="nf">plot_1D_contour</span><span class="p">(</span>
+<div class="viewcode-block" id="plot_1D_contour"><a class="viewcode-back" href="../../../api/graphnet.pisa.plotting.html#graphnet.pisa.plotting.plot_1D_contour">[docs]</a><span class="k">def</span> <span class="nf">plot_1D_contour</span><span class="p">(</span>
     <span class="n">contour_data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">],</span>
     <span class="n">chi2_critical_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.706</span><span class="p">,</span>
     <span class="n">width</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">3.176</span><span class="p">,</span>

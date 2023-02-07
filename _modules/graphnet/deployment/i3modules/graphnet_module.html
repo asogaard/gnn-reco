@@ -341,7 +341,7 @@
     <span class="p">)</span>  <span class="c1"># pyright: reportMissingImports=false</span>
 
 
-<div class="viewcode-block" id="GraphNeTModuleBase"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase">[docs]</a><span class="k">class</span> <span class="nc">GraphNeTModuleBase</span><span class="p">(</span><span class="n">I3Module</span><span class="p">):</span>
+<div class="viewcode-block" id="GraphNeTModuleBase"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.graphnet_module.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase">[docs]</a><span class="k">class</span> <span class="nc">GraphNeTModuleBase</span><span class="p">(</span><span class="n">I3Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Base I3Module for running graphnet models in I3Tray chains."""</span>
 
     <span class="c1"># Class variables</span>
@@ -353,7 +353,7 @@
         <span class="s2">"float64"</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
     <span class="p">}</span>
 
-<div class="viewcode-block" id="GraphNeTModuleBase.__init__"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="GraphNeTModuleBase.__init__"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.graphnet_module.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Construct `GraphNeTModuleBase`."""</span>
         <span class="c1"># Check</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">FEATURES</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -374,7 +374,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">:</span> <span class="n">Model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span></div>
 
-<div class="viewcode-block" id="GraphNeTModuleBase.Configure"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Configure">[docs]</a>    <span class="k">def</span> <span class="nf">Configure</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pylint: disable=invalid-name</span>
+<div class="viewcode-block" id="GraphNeTModuleBase.Configure"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.graphnet_module.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Configure">[docs]</a>    <span class="k">def</span> <span class="nf">Configure</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pylint: disable=invalid-name</span>
 <span class="w">        </span><span class="sd">"""Configure I3Module based on keyword parameters."""</span>
         <span class="c1"># Extract parameters</span>
         <span class="n">keys</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetParameter</span><span class="p">(</span><span class="s2">"keys"</span><span class="p">)</span>
@@ -415,7 +415,7 @@
         <span class="c1"># predictions are applied.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">inference</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="GraphNeTModuleBase.Physics"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Physics">[docs]</a>    <span class="k">def</span> <span class="nf">Physics</span><span class="p">(</span>
+<div class="viewcode-block" id="GraphNeTModuleBase.Physics"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.graphnet_module.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Physics">[docs]</a>    <span class="k">def</span> <span class="nf">Physics</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="n">I3Frame</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># py-l-i-n-t-:- -d-i-s-able=invalid-name</span>
 <span class="w">        </span><span class="sd">"""Process Physics I3Frame and write predictions."""</span>
@@ -487,21 +487,21 @@
         <span class="k">return</span> <span class="n">frame</span></div>
 
 
-<div class="viewcode-block" id="GraphNeTModuleIceCube86"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86">[docs]</a><span class="k">class</span> <span class="nc">GraphNeTModuleIceCube86</span><span class="p">(</span><span class="n">GraphNeTModuleBase</span><span class="p">):</span>
+<div class="viewcode-block" id="GraphNeTModuleIceCube86"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.graphnet_module.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86">[docs]</a><span class="k">class</span> <span class="nc">GraphNeTModuleIceCube86</span><span class="p">(</span><span class="n">GraphNeTModuleBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Module for running GraphNeT models on standard IceCube-86 data."""</span>
 
     <span class="n">FEATURES</span> <span class="o">=</span> <span class="n">FEATURES</span><span class="o">.</span><span class="n">ICECUBE86</span>
     <span class="n">I3FEATUREEXTRACTOR_CLASS</span> <span class="o">=</span> <span class="n">I3FeatureExtractorIceCube86</span></div>
 
 
-<div class="viewcode-block" id="GraphNeTModuleIceCubeDeepCore"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore">[docs]</a><span class="k">class</span> <span class="nc">GraphNeTModuleIceCubeDeepCore</span><span class="p">(</span><span class="n">GraphNeTModuleBase</span><span class="p">):</span>
+<div class="viewcode-block" id="GraphNeTModuleIceCubeDeepCore"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.graphnet_module.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore">[docs]</a><span class="k">class</span> <span class="nc">GraphNeTModuleIceCubeDeepCore</span><span class="p">(</span><span class="n">GraphNeTModuleBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Module for running GraphNeT models on standard IceCube-DeepCore data."""</span>
 
     <span class="n">FEATURES</span> <span class="o">=</span> <span class="n">FEATURES</span><span class="o">.</span><span class="n">DEEPCORE</span>
     <span class="n">I3FEATUREEXTRACTOR_CLASS</span> <span class="o">=</span> <span class="n">I3FeatureExtractorIceCubeDeepCore</span></div>
 
 
-<div class="viewcode-block" id="GraphNeTModuleIceCubeUpgrade"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade">[docs]</a><span class="k">class</span> <span class="nc">GraphNeTModuleIceCubeUpgrade</span><span class="p">(</span><span class="n">GraphNeTModuleBase</span><span class="p">):</span>
+<div class="viewcode-block" id="GraphNeTModuleIceCubeUpgrade"><a class="viewcode-back" href="../../../../api/graphnet.deployment.i3modules.graphnet_module.html#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade">[docs]</a><span class="k">class</span> <span class="nc">GraphNeTModuleIceCubeUpgrade</span><span class="p">(</span><span class="n">GraphNeTModuleBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Module for running GraphNeT models on standard IceCube-Upgrade data."""</span>
 
     <span class="n">FEATURES</span> <span class="o">=</span> <span class="n">FEATURES</span><span class="o">.</span><span class="n">UPGRADE</span>

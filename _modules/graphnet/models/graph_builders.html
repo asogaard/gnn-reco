@@ -325,16 +325,16 @@
 <span class="kn">from</span> <span class="nn">graphnet.models</span> <span class="kn">import</span> <span class="n">Model</span>
 
 
-<div class="viewcode-block" id="GraphBuilder"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.graph_builders.GraphBuilder">[docs]</a><span class="k">class</span> <span class="nc">GraphBuilder</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>  <span class="c1"># pylint: disable=too-few-public-methods</span>
+<div class="viewcode-block" id="GraphBuilder"><a class="viewcode-back" href="../../../api/graphnet.models.graph_builders.html#graphnet.models.graph_builders.GraphBuilder">[docs]</a><span class="k">class</span> <span class="nc">GraphBuilder</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>  <span class="c1"># pylint: disable=too-few-public-methods</span>
 <span class="w">    </span><span class="sd">"""Base class for graph building."""</span>
 
     <span class="k">pass</span></div>
 
 
-<div class="viewcode-block" id="KNNGraphBuilder"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.graph_builders.KNNGraphBuilder">[docs]</a><span class="k">class</span> <span class="nc">KNNGraphBuilder</span><span class="p">(</span><span class="n">GraphBuilder</span><span class="p">):</span>  <span class="c1"># pylint: disable=too-few-public-methods</span>
+<div class="viewcode-block" id="KNNGraphBuilder"><a class="viewcode-back" href="../../../api/graphnet.models.graph_builders.html#graphnet.models.graph_builders.KNNGraphBuilder">[docs]</a><span class="k">class</span> <span class="nc">KNNGraphBuilder</span><span class="p">(</span><span class="n">GraphBuilder</span><span class="p">):</span>  <span class="c1"># pylint: disable=too-few-public-methods</span>
 <span class="w">    </span><span class="sd">"""Builds graph from the k-nearest neighbours."""</span>
 
-<div class="viewcode-block" id="KNNGraphBuilder.__init__"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.graph_builders.KNNGraphBuilder.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
+<div class="viewcode-block" id="KNNGraphBuilder.__init__"><a class="viewcode-back" href="../../../api/graphnet.models.graph_builders.html#graphnet.models.graph_builders.KNNGraphBuilder.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">nb_nearest_neighbours</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -352,7 +352,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_nb_nearest_neighbours</span> <span class="o">=</span> <span class="n">nb_nearest_neighbours</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_columns</span> <span class="o">=</span> <span class="n">columns</span></div>
 
-<div class="viewcode-block" id="KNNGraphBuilder.forward"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.graph_builders.KNNGraphBuilder.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
+<div class="viewcode-block" id="KNNGraphBuilder.forward"><a class="viewcode-back" href="../../../api/graphnet.models.graph_builders.html#graphnet.models.graph_builders.KNNGraphBuilder.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Forward pass."""</span>
         <span class="c1"># Constructs the adjacency matrix from the raw, DOM-level data and</span>
         <span class="c1"># returns this matrix</span>
@@ -371,10 +371,10 @@
         <span class="k">return</span> <span class="n">data</span></div></div>
 
 
-<div class="viewcode-block" id="RadialGraphBuilder"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.graph_builders.RadialGraphBuilder">[docs]</a><span class="k">class</span> <span class="nc">RadialGraphBuilder</span><span class="p">(</span><span class="n">GraphBuilder</span><span class="p">):</span>
+<div class="viewcode-block" id="RadialGraphBuilder"><a class="viewcode-back" href="../../../api/graphnet.models.graph_builders.html#graphnet.models.graph_builders.RadialGraphBuilder">[docs]</a><span class="k">class</span> <span class="nc">RadialGraphBuilder</span><span class="p">(</span><span class="n">GraphBuilder</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Builds graph from a sphere of chosen radius centred at each node."""</span>
 
-<div class="viewcode-block" id="RadialGraphBuilder.__init__"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.graph_builders.RadialGraphBuilder.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
+<div class="viewcode-block" id="RadialGraphBuilder.__init__"><a class="viewcode-back" href="../../../api/graphnet.models.graph_builders.html#graphnet.models.graph_builders.RadialGraphBuilder.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">radius</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -392,7 +392,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_radius</span> <span class="o">=</span> <span class="n">radius</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_columns</span> <span class="o">=</span> <span class="n">columns</span></div>
 
-<div class="viewcode-block" id="RadialGraphBuilder.forward"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.graph_builders.RadialGraphBuilder.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
+<div class="viewcode-block" id="RadialGraphBuilder.forward"><a class="viewcode-back" href="../../../api/graphnet.models.graph_builders.html#graphnet.models.graph_builders.RadialGraphBuilder.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Forward pass."""</span>
         <span class="c1"># Constructs the adjacency matrix from the raw, DOM-level data and</span>
         <span class="c1"># returns this matrix</span>
@@ -411,7 +411,7 @@
         <span class="k">return</span> <span class="n">data</span></div></div>
 
 
-<div class="viewcode-block" id="EuclideanGraphBuilder"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.graph_builders.EuclideanGraphBuilder">[docs]</a><span class="k">class</span> <span class="nc">EuclideanGraphBuilder</span><span class="p">(</span>
+<div class="viewcode-block" id="EuclideanGraphBuilder"><a class="viewcode-back" href="../../../api/graphnet.models.graph_builders.html#graphnet.models.graph_builders.EuclideanGraphBuilder">[docs]</a><span class="k">class</span> <span class="nc">EuclideanGraphBuilder</span><span class="p">(</span>
     <span class="n">GraphBuilder</span>
 <span class="p">):</span>  <span class="c1"># pylint: disable=too-few-public-methods</span>
 <span class="w">    </span><span class="sd">"""Builds graph according to Euclidean distance between nodes.</span>
@@ -419,7 +419,7 @@
 <span class="sd">    See https://arxiv.org/pdf/1809.06166.pdf.</span>
 <span class="sd">    """</span>
 
-<div class="viewcode-block" id="EuclideanGraphBuilder.__init__"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.graph_builders.EuclideanGraphBuilder.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
+<div class="viewcode-block" id="EuclideanGraphBuilder.__init__"><a class="viewcode-back" href="../../../api/graphnet.models.graph_builders.html#graphnet.models.graph_builders.EuclideanGraphBuilder.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">sigma</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -439,7 +439,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_threshold</span> <span class="o">=</span> <span class="n">threshold</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_columns</span> <span class="o">=</span> <span class="n">columns</span></div>
 
-<div class="viewcode-block" id="EuclideanGraphBuilder.forward"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.graph_builders.EuclideanGraphBuilder.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
+<div class="viewcode-block" id="EuclideanGraphBuilder.forward"><a class="viewcode-back" href="../../../api/graphnet.models.graph_builders.html#graphnet.models.graph_builders.EuclideanGraphBuilder.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Forward pass."""</span>
         <span class="c1"># Constructs the adjacency matrix from the raw, DOM-level data and</span>
         <span class="c1"># returns this matrix</span>

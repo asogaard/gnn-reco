@@ -12,29 +12,12 @@ utilities
 |start-h2| Submodules |end-h2|
 
 
-graphnet.data.utilities.parquet\_to\_sqlite 
---------------------------------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.data.utilities.parquet_to_sqlite
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.utilities.random 
--------------------------------
-
-.. automodule:: graphnet.data.utilities.random
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.utilities.string\_selection\_resolver 
-----------------------------------------------------
-
-.. automodule:: graphnet.data.utilities.string_selection_resolver
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.data.utilities.parquet_to_sqlite
+   graphnet.data.utilities.random
+   graphnet.data.utilities.string_selection_resolver
 
 
 

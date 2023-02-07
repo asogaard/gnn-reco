@@ -12,13 +12,10 @@ i3modules
 |start-h2| Submodules |end-h2|
 
 
-graphnet.deployment.i3modules.graphnet\_module 
------------------------------------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.deployment.i3modules.graphnet_module
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.deployment.i3modules.graphnet_module
 
 
 

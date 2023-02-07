@@ -329,10 +329,10 @@
     <span class="p">)</span>  <span class="c1"># pyright: reportMissingImports=false</span>
 
 
-<div class="viewcode-block" id="I3FeatureExtractor"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor">[docs]</a><span class="k">class</span> <span class="nc">I3FeatureExtractor</span><span class="p">(</span><span class="n">I3Extractor</span><span class="p">):</span>
+<div class="viewcode-block" id="I3FeatureExtractor"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor">[docs]</a><span class="k">class</span> <span class="nc">I3FeatureExtractor</span><span class="p">(</span><span class="n">I3Extractor</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Base class for extracting specific, reconstructed features."""</span>
 
-<div class="viewcode-block" id="I3FeatureExtractor.__init__"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="viewcode-block" id="I3FeatureExtractor.__init__"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pulsemap</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Construct I3FeatureExtractor.</span>
 
 <span class="sd">        Args:</span>
@@ -346,7 +346,7 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pulsemap</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="I3FeatureExtractorIceCube86"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86">[docs]</a><span class="k">class</span> <span class="nc">I3FeatureExtractorIceCube86</span><span class="p">(</span><span class="n">I3FeatureExtractor</span><span class="p">):</span>
+<div class="viewcode-block" id="I3FeatureExtractorIceCube86"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86">[docs]</a><span class="k">class</span> <span class="nc">I3FeatureExtractorIceCube86</span><span class="p">(</span><span class="n">I3FeatureExtractor</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Class for extracting reconstructed features for IceCube-86."""</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="s2">"icetray.I3Frame"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]:</span>
@@ -478,11 +478,11 @@
         <span class="k">return</span> <span class="n">rde</span></div>
 
 
-<div class="viewcode-block" id="I3FeatureExtractorIceCubeDeepCore"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeDeepCore">[docs]</a><span class="k">class</span> <span class="nc">I3FeatureExtractorIceCubeDeepCore</span><span class="p">(</span><span class="n">I3FeatureExtractorIceCube86</span><span class="p">):</span>
+<div class="viewcode-block" id="I3FeatureExtractorIceCubeDeepCore"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeDeepCore">[docs]</a><span class="k">class</span> <span class="nc">I3FeatureExtractorIceCubeDeepCore</span><span class="p">(</span><span class="n">I3FeatureExtractorIceCube86</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Class for extracting reconstructed features for IceCube-DeepCore."""</span></div>
 
 
-<div class="viewcode-block" id="I3FeatureExtractorIceCubeUpgrade"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeUpgrade">[docs]</a><span class="k">class</span> <span class="nc">I3FeatureExtractorIceCubeUpgrade</span><span class="p">(</span><span class="n">I3FeatureExtractorIceCube86</span><span class="p">):</span>
+<div class="viewcode-block" id="I3FeatureExtractorIceCubeUpgrade"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeUpgrade">[docs]</a><span class="k">class</span> <span class="nc">I3FeatureExtractorIceCubeUpgrade</span><span class="p">(</span><span class="n">I3FeatureExtractorIceCube86</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Class for extracting reconstructed features for IceCube-Upgrade."""</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="s2">"icetray.I3Frame"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]:</span>
@@ -545,7 +545,7 @@
         <span class="k">return</span> <span class="n">output</span></div>
 
 
-<div class="viewcode-block" id="I3PulseNoiseTruthFlagIceCubeUpgrade"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.html#graphnet.data.extractors.i3featureextractor.I3PulseNoiseTruthFlagIceCubeUpgrade">[docs]</a><span class="k">class</span> <span class="nc">I3PulseNoiseTruthFlagIceCubeUpgrade</span><span class="p">(</span><span class="n">I3FeatureExtractorIceCube86</span><span class="p">):</span>
+<div class="viewcode-block" id="I3PulseNoiseTruthFlagIceCubeUpgrade"><a class="viewcode-back" href="../../../../api/graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3PulseNoiseTruthFlagIceCubeUpgrade">[docs]</a><span class="k">class</span> <span class="nc">I3PulseNoiseTruthFlagIceCubeUpgrade</span><span class="p">(</span><span class="n">I3FeatureExtractorIceCube86</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Feature extractor class with pulse noise truth flag added."""</span>
 
     <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="s2">"icetray.I3Frame"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]:</span>

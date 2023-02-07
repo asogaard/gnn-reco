@@ -333,7 +333,7 @@
 <span class="kn">from</span> <span class="nn">graphnet.utilities.decorators</span> <span class="kn">import</span> <span class="n">final</span>
 
 
-<div class="viewcode-block" id="Task"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.Task">[docs]</a><span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+<div class="viewcode-block" id="Task"><a class="viewcode-back" href="../../../../api/graphnet.models.task.task.html#graphnet.models.task.task.Task">[docs]</a><span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Base class for all reconstruction and classification tasks."""</span>
 
     <span class="nd">@property</span>
@@ -341,7 +341,7 @@
     <span class="k">def</span> <span class="nf">nb_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Return number of inputs assumed by task."""</span>
 
-<div class="viewcode-block" id="Task.__init__"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.Task.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
+<div class="viewcode-block" id="Task.__init__"><a class="viewcode-back" href="../../../../api/graphnet.models.task.task.html#graphnet.models.task.task.Task.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -419,7 +419,7 @@
         <span class="c1"># Mapping from last hidden layer to required size of input</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_affine</span> <span class="o">=</span> <span class="n">Linear</span><span class="p">(</span><span class="n">hidden_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nb_inputs</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Task.forward"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.Task.forward">[docs]</a>    <span class="nd">@final</span>
+<div class="viewcode-block" id="Task.forward"><a class="viewcode-back" href="../../../../api/graphnet.models.task.task.html#graphnet.models.task.task.Task.forward">[docs]</a>    <span class="nd">@final</span>
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Data</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Data</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">"""Forward pass."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_regularisation_loss</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Reset</span>
@@ -440,7 +440,7 @@
     <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Data</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Data</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">"""Syntax like `.forward`, for implentation in inheriting classes."""</span>
 
-<div class="viewcode-block" id="Task.compute_loss"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.Task.compute_loss">[docs]</a>    <span class="nd">@final</span>
+<div class="viewcode-block" id="Task.compute_loss"><a class="viewcode-back" href="../../../../api/graphnet.models.task.task.html#graphnet.models.task.task.Task.compute_loss">[docs]</a>    <span class="nd">@final</span>
     <span class="k">def</span> <span class="nf">compute_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Data</span><span class="p">],</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Compute loss of `pred` wrt.</span>
 
@@ -460,12 +460,12 @@
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">loss</span></div>
 
-<div class="viewcode-block" id="Task.inference"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.Task.inference">[docs]</a>    <span class="nd">@final</span>
+<div class="viewcode-block" id="Task.inference"><a class="viewcode-back" href="../../../../api/graphnet.models.task.task.html#graphnet.models.task.task.Task.inference">[docs]</a>    <span class="nd">@final</span>
     <span class="k">def</span> <span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Activate inference mode."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_inference</span> <span class="o">=</span> <span class="kc">True</span></div>
 
-<div class="viewcode-block" id="Task.train_eval"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.Task.train_eval">[docs]</a>    <span class="nd">@final</span>
+<div class="viewcode-block" id="Task.train_eval"><a class="viewcode-back" href="../../../../api/graphnet.models.task.task.html#graphnet.models.task.task.Task.train_eval">[docs]</a>    <span class="nd">@final</span>
     <span class="k">def</span> <span class="nf">train_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Deactivate inference mode."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_inference</span> <span class="o">=</span> <span class="kc">False</span></div>
@@ -550,10 +550,10 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">_transform_prediction_inference</span> <span class="o">=</span> <span class="n">transform_inference</span></div>
 
 
-<div class="viewcode-block" id="IdentityTask"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.IdentityTask">[docs]</a><span class="k">class</span> <span class="nc">IdentityTask</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<div class="viewcode-block" id="IdentityTask"><a class="viewcode-back" href="../../../../api/graphnet.models.task.task.html#graphnet.models.task.task.IdentityTask">[docs]</a><span class="k">class</span> <span class="nc">IdentityTask</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Identity, or trivial, task."""</span>
 
-<div class="viewcode-block" id="IdentityTask.__init__"><a class="viewcode-back" href="../../../../api/graphnet.models.task.html#graphnet.models.task.task.IdentityTask.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
+<div class="viewcode-block" id="IdentityTask.__init__"><a class="viewcode-back" href="../../../../api/graphnet.models.task.task.html#graphnet.models.task.task.IdentityTask.__init__">[docs]</a>    <span class="nd">@save_model_config</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nb_outputs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Construct IdentityTask.</span>
 

@@ -323,7 +323,7 @@
 <span class="kn">from</span> <span class="nn">torch_geometric.utils.homophily</span> <span class="kn">import</span> <span class="n">homophily</span>
 
 
-<div class="viewcode-block" id="calculate_xyzt_homophily"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.utils.calculate_xyzt_homophily">[docs]</a><span class="k">def</span> <span class="nf">calculate_xyzt_homophily</span><span class="p">(</span>
+<div class="viewcode-block" id="calculate_xyzt_homophily"><a class="viewcode-back" href="../../../api/graphnet.models.utils.html#graphnet.models.utils.calculate_xyzt_homophily">[docs]</a><span class="k">def</span> <span class="nf">calculate_xyzt_homophily</span><span class="p">(</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Batch</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""Calculate xyzt-homophily from a batch of graphs.</span>
@@ -342,7 +342,7 @@
     <span class="k">return</span> <span class="n">hx</span><span class="p">,</span> <span class="n">hy</span><span class="p">,</span> <span class="n">hz</span><span class="p">,</span> <span class="n">ht</span></div>
 
 
-<div class="viewcode-block" id="calculate_distance_matrix"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.utils.calculate_distance_matrix">[docs]</a><span class="k">def</span> <span class="nf">calculate_distance_matrix</span><span class="p">(</span><span class="n">xyz_coords</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<div class="viewcode-block" id="calculate_distance_matrix"><a class="viewcode-back" href="../../../api/graphnet.models.utils.html#graphnet.models.utils.calculate_distance_matrix">[docs]</a><span class="k">def</span> <span class="nf">calculate_distance_matrix</span><span class="p">(</span><span class="n">xyz_coords</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Calculate the matrix of pairwise distances between pulses.</span>
 
 <span class="sd">    Args:</span>
@@ -355,7 +355,7 @@
     <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">diff</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span></div>
 
 
-<div class="viewcode-block" id="knn_graph_batch"><a class="viewcode-back" href="../../../api/graphnet.models.html#graphnet.models.utils.knn_graph_batch">[docs]</a><span class="k">def</span> <span class="nf">knn_graph_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">Batch</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="p">:</span>
+<div class="viewcode-block" id="knn_graph_batch"><a class="viewcode-back" href="../../../api/graphnet.models.utils.html#graphnet.models.utils.knn_graph_batch">[docs]</a><span class="k">def</span> <span class="nf">knn_graph_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">Batch</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">columns</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Calculate k-nearest-neighbours with individual k for each batch event.</span>
 
 <span class="sd">    Args:</span>

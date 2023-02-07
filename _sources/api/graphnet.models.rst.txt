@@ -22,45 +22,14 @@ models
 |start-h2| Submodules |end-h2|
 
 
-graphnet.models.coarsening 
----------------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.models.coarsening
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.models.graph\_builders 
---------------------------------
-
-.. automodule:: graphnet.models.graph_builders
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.models.model 
-----------------------
-
-.. automodule:: graphnet.models.model
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.models.standard\_model 
---------------------------------
-
-.. automodule:: graphnet.models.standard_model
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.models.utils 
-----------------------
-
-.. automodule:: graphnet.models.utils
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.models.coarsening
+   graphnet.models.graph_builders
+   graphnet.models.model
+   graphnet.models.standard_model
+   graphnet.models.utils
 
 
 

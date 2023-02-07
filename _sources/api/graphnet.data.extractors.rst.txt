@@ -19,77 +19,18 @@ extractors
 |start-h2| Submodules |end-h2|
 
 
-graphnet.data.extractors.i3extractor 
--------------------------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.data.extractors.i3extractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3featureextractor 
---------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3featureextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3genericextractor 
---------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3genericextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3hybridrecoextractor 
------------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3hybridrecoextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3pisaextractor 
------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3pisaextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3retroextractor 
-------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3retroextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3splinempeextractor 
-----------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3splinempeextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3truthextractor 
-------------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3truthextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.i3tumextractor 
-----------------------------------------
-
-.. automodule:: graphnet.data.extractors.i3tumextractor
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.data.extractors.i3extractor
+   graphnet.data.extractors.i3featureextractor
+   graphnet.data.extractors.i3genericextractor
+   graphnet.data.extractors.i3hybridrecoextractor
+   graphnet.data.extractors.i3pisaextractor
+   graphnet.data.extractors.i3retroextractor
+   graphnet.data.extractors.i3splinempeextractor
+   graphnet.data.extractors.i3truthextractor
+   graphnet.data.extractors.i3tumextractor
 
 
 

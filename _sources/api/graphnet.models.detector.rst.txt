@@ -12,29 +12,12 @@ detector
 |start-h2| Submodules |end-h2|
 
 
-graphnet.models.detector.detector 
-----------------------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.models.detector.detector
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.models.detector.icecube 
----------------------------------
-
-.. automodule:: graphnet.models.detector.icecube
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.models.detector.prometheus 
-------------------------------------
-
-.. automodule:: graphnet.models.detector.prometheus
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.models.detector.detector
+   graphnet.models.detector.icecube
+   graphnet.models.detector.prometheus
 
 
 

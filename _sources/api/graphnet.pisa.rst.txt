@@ -12,21 +12,11 @@ pisa
 |start-h2| Submodules |end-h2|
 
 
-graphnet.pisa.fitting 
-----------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.pisa.fitting
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.pisa.plotting 
------------------------
-
-.. automodule:: graphnet.pisa.plotting
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.pisa.fitting
+   graphnet.pisa.plotting
 
 
 

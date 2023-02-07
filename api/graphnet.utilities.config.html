@@ -118,6 +118,7 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="base_config" href="graphnet.utilities.config.base_config.html" />
     <link rel="prev" title="utilities" href="graphnet.utilities.html" />
   
    
@@ -340,333 +341,49 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-utilities-config--page-root" class="md-nav__link">config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.base_config" class="md-nav__link">graphnet.utilities.config.base_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BaseConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig.load" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig.dump" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">dump()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig.as_dict" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">as_dict()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.get_all_argument_values" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_all_argument_values()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.configurable" class="md-nav__link">graphnet.utilities.config.configurable</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Configurable</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">config</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.save_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_config()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.from_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">from_config()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.dataset_config" class="md-nav__link">graphnet.utilities.config.dataset_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">path</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.pulsemaps" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">pulsemaps</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.features" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">features</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.truth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">truth</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.node_truth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">node_truth</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.index_column" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">index_column</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.truth_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">truth_table</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.node_truth_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">node_truth_table</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.string_selection" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">string_selection</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.selection" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">selection</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">loss_weight_table</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_column" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">loss_weight_column</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_default_value" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">loss_weight_default_value</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.seed" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">seed</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.save_dataset_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_dataset_config()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.model_config" class="md-nav__link">graphnet.utilities.config.model_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.class_name" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">class_name</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.arguments" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">arguments</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.as_dict" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">as_dict()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.save_model_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_model_config()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.parsing" class="md-nav__link">graphnet.utilities.config.parsing</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.traverse_and_apply" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">traverse_and_apply()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.list_all_submodules" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">list_all_submodules()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.get_all_grapnet_classes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_all_grapnet_classes()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.is_graphnet_module" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">is_graphnet_module()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.is_graphnet_class" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">is_graphnet_class()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.get_graphnet_classes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_graphnet_classes()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.training_config" class="md-nav__link">graphnet.utilities.config.training_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">TrainingConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.target" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">target</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.early_stopping_patience" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">early_stopping_patience</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.fit" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">fit</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.dataloader" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">dataloader</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
   </ul>
 </nav>
       <ul class="md-nav__list"> 
     <li class="md-nav__item">
     
     
-      <a href="#module-graphnet.utilities.config.base_config" class="md-nav__link">graphnet.utilities.config.base_config</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.base_config.BaseConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BaseConfig</span></code></a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.base_config.BaseConfig.load" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a>
+      <a href="graphnet.utilities.config.base_config.html" class="md-nav__link">base_config</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.utilities.config.base_config.BaseConfig.dump" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">dump()</span></code></a>
+      <a href="graphnet.utilities.config.configurable.html" class="md-nav__link">configurable</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.utilities.config.base_config.BaseConfig.as_dict" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">as_dict()</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.base_config.get_all_argument_values" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_all_argument_values()</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.utilities.config.configurable" class="md-nav__link">graphnet.utilities.config.configurable</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.configurable.Configurable" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Configurable</span></code></a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.configurable.Configurable.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
+      <a href="graphnet.utilities.config.dataset_config.html" class="md-nav__link">dataset_config</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.utilities.config.configurable.Configurable.config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">config</span></code></a>
+      <a href="graphnet.utilities.config.model_config.html" class="md-nav__link">model_config</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.utilities.config.configurable.Configurable.save_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_config()</span></code></a>
+      <a href="graphnet.utilities.config.parsing.html" class="md-nav__link">parsing</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.utilities.config.configurable.Configurable.from_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">from_config()</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.utilities.config.dataset_config" class="md-nav__link">graphnet.utilities.config.dataset_config</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig</span></code></a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">path</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.pulsemaps" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">pulsemaps</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.features" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">features</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.truth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">truth</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.node_truth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">node_truth</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.index_column" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">index_column</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.truth_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">truth_table</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.node_truth_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">node_truth_table</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.string_selection" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">string_selection</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.selection" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">selection</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">loss_weight_table</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_column" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">loss_weight_column</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_default_value" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">loss_weight_default_value</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.seed" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">seed</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.dataset_config.DatasetConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
+      <a href="graphnet.utilities.config.training_config.html" class="md-nav__link">training_config</a>
       
     
     </li></ul>
@@ -675,7 +392,42 @@
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.utilities.config.dataset_config.save_dataset_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_dataset_config()</span></code></a>
+      <a href="graphnet.utilities.argparse.html" class="md-nav__link">argparse</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.utilities.decorators.html" class="md-nav__link">decorators</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.utilities.filesys.html" class="md-nav__link">filesys</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.utilities.imports.html" class="md-nav__link">imports</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.utilities.logging.html" class="md-nav__link">logging</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.utilities.maths.html" class="md-nav__link">maths</a>
       
     
     </li></ul>
@@ -684,193 +436,7 @@
     <li class="md-nav__item">
     
     
-      <a href="#module-graphnet.utilities.config.model_config" class="md-nav__link">graphnet.utilities.config.model_config</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.model_config.ModelConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig</span></code></a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.model_config.ModelConfig.class_name" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">class_name</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.model_config.ModelConfig.arguments" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">arguments</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.model_config.ModelConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.model_config.ModelConfig.as_dict" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">as_dict()</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.model_config.save_model_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_model_config()</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.utilities.config.parsing" class="md-nav__link">graphnet.utilities.config.parsing</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.parsing.traverse_and_apply" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">traverse_and_apply()</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.parsing.list_all_submodules" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">list_all_submodules()</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.parsing.get_all_grapnet_classes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_all_grapnet_classes()</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.parsing.is_graphnet_module" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">is_graphnet_module()</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.parsing.is_graphnet_class" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">is_graphnet_class()</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.parsing.get_graphnet_classes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_graphnet_classes()</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#module-graphnet.utilities.config.training_config" class="md-nav__link">graphnet.utilities.config.training_config</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.training_config.TrainingConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">TrainingConfig</span></code></a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.training_config.TrainingConfig.target" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">target</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.training_config.TrainingConfig.early_stopping_patience" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">early_stopping_patience</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.training_config.TrainingConfig.fit" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">fit</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.utilities.config.training_config.TrainingConfig.dataloader" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">dataloader</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li></ul>
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.utilities.html#module-graphnet.utilities.argparse" class="md-nav__link">graphnet.utilities.argparse</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.utilities.html#module-graphnet.utilities.decorators" class="md-nav__link">graphnet.utilities.decorators</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.utilities.html#module-graphnet.utilities.filesys" class="md-nav__link">graphnet.utilities.filesys</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.utilities.html#module-graphnet.utilities.imports" class="md-nav__link">graphnet.utilities.imports</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.utilities.html#module-graphnet.utilities.logging" class="md-nav__link">graphnet.utilities.logging</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.utilities.html#module-graphnet.utilities.maths" class="md-nav__link">graphnet.utilities.maths</a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.html#module-graphnet.constants" class="md-nav__link">graphnet.constants</a>
+      <a href="graphnet.constants.html" class="md-nav__link">constants</a>
       
     
     </li></ul>
@@ -888,134 +454,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-graphnet-utilities-config--page-root" class="md-nav__link">config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.base_config" class="md-nav__link">graphnet.utilities.config.base_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">BaseConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig.load" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">load()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig.dump" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">dump()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.BaseConfig.as_dict" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">as_dict()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.base_config.get_all_argument_values" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_all_argument_values()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.configurable" class="md-nav__link">graphnet.utilities.config.configurable</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Configurable</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">config</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.save_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_config()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.configurable.Configurable.from_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">from_config()</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.dataset_config" class="md-nav__link">graphnet.utilities.config.dataset_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DatasetConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.path" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">path</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.pulsemaps" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">pulsemaps</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.features" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">features</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.truth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">truth</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.node_truth" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">node_truth</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.index_column" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">index_column</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.truth_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">truth_table</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.node_truth_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">node_truth_table</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.string_selection" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">string_selection</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.selection" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">selection</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_table" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">loss_weight_table</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_column" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">loss_weight_column</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_default_value" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">loss_weight_default_value</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.seed" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">seed</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.DatasetConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.dataset_config.save_dataset_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_dataset_config()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.model_config" class="md-nav__link">graphnet.utilities.config.model_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">ModelConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.class_name" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">class_name</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.arguments" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">arguments</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.__init__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">__init__()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.ModelConfig.as_dict" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">as_dict()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.model_config.save_model_config" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">save_model_config()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.parsing" class="md-nav__link">graphnet.utilities.config.parsing</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.traverse_and_apply" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">traverse_and_apply()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.list_all_submodules" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">list_all_submodules()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.get_all_grapnet_classes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_all_grapnet_classes()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.is_graphnet_module" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">is_graphnet_module()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.is_graphnet_class" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">is_graphnet_class()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.parsing.get_graphnet_classes" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_graphnet_classes()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#module-graphnet.utilities.config.training_config" class="md-nav__link">graphnet.utilities.config.training_config</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">TrainingConfig</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.target" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">target</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.early_stopping_patience" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">early_stopping_patience</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.fit" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">fit</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.utilities.config.training_config.TrainingConfig.dataloader" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">dataloader</span></code></a>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li></ul>
-            </nav>
-        </li>
   </ul>
 </nav>
               </div>
@@ -1029,519 +468,42 @@
 <span id="config"></span><h1 id="api-graphnet-utilities-config--page-root">config<a class="headerlink" href="#api-graphnet-utilities-config--page-root" title="Permalink to this heading">¶</a></h1>
 <p>Modules for configuration files for use across <cite>graphnet</cite>.</p>
 <p><h2> Submodules </h2></p>
-<section id="module-graphnet.utilities.config.base_config">
-<span id="graphnet-utilities-config-base-config"></span><h2 id="module-graphnet.utilities.config.base_config">graphnet.utilities.config.base_config<a class="headerlink" href="#module-graphnet.utilities.config.base_config" title="Permalink to this heading">¶</a></h2>
-<p>Base config class(es).</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="graphnet.utilities.config.base_config.BaseConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.base_config.</span></span><span class="sig-name descname"><span class="pre">BaseConfig</span></span><a class="reference internal" href="../_modules/graphnet/utilities/config/base_config.html#BaseConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.base_config.BaseConfig" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
-<p>Base class for Configs.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.utilities.config.base_config.BaseConfig.load">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/base_config.html#BaseConfig.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.base_config.BaseConfig.load" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load BaseConfig from <cite>path</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.utilities.config.base_config.BaseConfig.dump">
-<span class="sig-name descname"><span class="pre">dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/base_config.html#BaseConfig.dump"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.base_config.BaseConfig.dump" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save BaseConfig to <cite>path</cite> as YAML file, or return as string.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.utilities.config.base_config.BaseConfig.as_dict">
-<span class="sig-name descname"><span class="pre">as_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/base_config.html#BaseConfig.as_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.base_config.BaseConfig.as_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represent BaseConfig as a dict.</p>
-<p>This builds on <cite>BaseModel.dict()</cite> but can be overwritten.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]</p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.utilities.config.base_config.get_all_argument_values">
-<span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.base_config.</span></span><span class="sig-name descname"><span class="pre">get_all_argument_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/base_config.html#get_all_argument_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.base_config.get_all_argument_values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return dict of all argument values to <cite>fn</cite>, including defaults.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – </p></li>
-<li><p><strong>args</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
-<li><p><strong>kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="graphnet.utilities.config.base_config.html">base_config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.base_config.html#graphnet.utilities.config.base_config.BaseConfig"><code class="docutils literal notranslate"><span class="pre">BaseConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.base_config.html#graphnet.utilities.config.base_config.get_all_argument_values"><code class="docutils literal notranslate"><span class="pre">get_all_argument_values()</span></code></a></li>
 </ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-</section>
-<section id="module-graphnet.utilities.config.configurable">
-<span id="graphnet-utilities-config-configurable"></span><h2 id="module-graphnet.utilities.config.configurable">graphnet.utilities.config.configurable<a class="headerlink" href="#module-graphnet.utilities.config.configurable" title="Permalink to this heading">¶</a></h2>
-<p>Bases for all configurable classes in  <cite>graphnet</cite>.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="graphnet.utilities.config.configurable.Configurable">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.configurable.</span></span><span class="sig-name descname"><span class="pre">Configurable</span></span><a class="reference internal" href="../_modules/graphnet/utilities/config/configurable.html#Configurable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.configurable.Configurable" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="graphnet.utilities.html#graphnet.utilities.logging.LoggerMixin" title="graphnet.utilities.logging.LoggerMixin"><code class="xref py py-class docutils literal notranslate"><span class="pre">LoggerMixin</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
-<p>Base class for all configurable classes in graphnet.</p>
-<dl class="field-list simple">
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.utilities.config.configurable.Configurable.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/configurable.html#Configurable.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.configurable.Configurable.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct <cite>Configurable</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="graphnet.utilities.config.configurable.Configurable.config">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><span class="pre">BaseConfig</span></a></em><a class="headerlink" href="#graphnet.utilities.config.configurable.Configurable.config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return configuration to re-create the instance.</p>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.utilities.config.configurable.Configurable.save_config">
-<span class="sig-name descname"><span class="pre">save_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/configurable.html#Configurable.save_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.configurable.Configurable.save_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save Config to <cite>path</cite> as YAML file.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.utilities.config.configurable.Configurable.from_config">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/configurable.html#Configurable.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.configurable.Configurable.from_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct instance from <cite>source</cite> configuration.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>source</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
-</section>
-<section id="module-graphnet.utilities.config.dataset_config">
-<span id="graphnet-utilities-config-dataset-config"></span><h2 id="module-graphnet.utilities.config.dataset_config">graphnet.utilities.config.dataset_config<a class="headerlink" href="#module-graphnet.utilities.config.dataset_config" title="Permalink to this heading">¶</a></h2>
-<p>Config classes for the <cite>graphnet.data.dataset</cite> module.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.dataset_config.</span></span><span class="sig-name descname"><span class="pre">DatasetConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_default_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/dataset_config.html#DatasetConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></a></p>
-<p>Configuration for all <a href="#id1"><span class="problematic" id="id2">`</span></a>Dataset`s.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
-<li><p><strong>path</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>pulsemaps</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>features</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>truth</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>node_truth</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>index_column</strong> (<em>str</em>) – </p></li>
-<li><p><strong>truth_table</strong> (<em>str</em>) – </p></li>
-<li><p><strong>node_truth_table</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>string_selection</strong> (<em>Optional</em><em>[</em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>selection</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>, </em><em>List</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>, </em><em>List</em><em>[</em><em>int</em><em>]</em><em>]</em><em>]</em><em>, </em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em><em>]</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>loss_weight_table</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>loss_weight_column</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
-<li><p><strong>loss_weight_default_value</strong> (<em>Optional</em><em>[</em><em>float</em><em>]</em>) – </p></li>
-<li><p><strong>seed</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphnet.utilities.config.configurable.html">configurable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.configurable.html#graphnet.utilities.config.configurable.Configurable"><code class="docutils literal notranslate"><span class="pre">Configurable</span></code></a></li>
 </ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.path">
-<span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.path" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.pulsemaps">
-<span class="sig-name descname"><span class="pre">pulsemaps</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.pulsemaps" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.features">
-<span class="sig-name descname"><span class="pre">features</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.features" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.truth">
-<span class="sig-name descname"><span class="pre">truth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.truth" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.node_truth">
-<span class="sig-name descname"><span class="pre">node_truth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.node_truth" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.index_column">
-<span class="sig-name descname"><span class="pre">index_column</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.index_column" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.truth_table">
-<span class="sig-name descname"><span class="pre">truth_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.truth_table" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.node_truth_table">
-<span class="sig-name descname"><span class="pre">node_truth_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.node_truth_table" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.string_selection">
-<span class="sig-name descname"><span class="pre">string_selection</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.string_selection" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.selection">
-<span class="sig-name descname"><span class="pre">selection</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">],</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]]],</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]]],</span> <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.selection" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_table">
-<span class="sig-name descname"><span class="pre">loss_weight_table</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_table" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_column">
-<span class="sig-name descname"><span class="pre">loss_weight_column</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_column" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_default_value">
-<span class="sig-name descname"><span class="pre">loss_weight_default_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.loss_weight_default_value" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.seed">
-<span class="sig-name descname"><span class="pre">seed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.seed" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.DatasetConfig.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/dataset_config.html#DatasetConfig.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct <cite>DataConfig</cite>.</p>
-<p>Can be used for dataset configuration as code, thereby making dataset
-construction more transparent and reproducible.</p>
-<p class="rubric">Examples</p>
-<p>In one session, do:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span>
-<span class="go">path: (...)</span>
-<span class="go">pulsemaps:</span>
-<span class="go">    - (...)</span>
-<span class="go">(...)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">"dataset.yml"</span><span class="p">)</span>
-</pre></div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphnet.utilities.config.dataset_config.html">dataset_config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.dataset_config.html#graphnet.utilities.config.dataset_config.DatasetConfig"><code class="docutils literal notranslate"><span class="pre">DatasetConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.dataset_config.html#graphnet.utilities.config.dataset_config.save_dataset_config"><code class="docutils literal notranslate"><span class="pre">save_dataset_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphnet.utilities.config.model_config.html">model_config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.model_config.html#graphnet.utilities.config.model_config.ModelConfig"><code class="docutils literal notranslate"><span class="pre">ModelConfig</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.model_config.html#graphnet.utilities.config.model_config.save_model_config"><code class="docutils literal notranslate"><span class="pre">save_model_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphnet.utilities.config.parsing.html">parsing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.parsing.html#graphnet.utilities.config.parsing.traverse_and_apply"><code class="docutils literal notranslate"><span class="pre">traverse_and_apply()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.parsing.html#graphnet.utilities.config.parsing.list_all_submodules"><code class="docutils literal notranslate"><span class="pre">list_all_submodules()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.parsing.html#graphnet.utilities.config.parsing.get_all_grapnet_classes"><code class="docutils literal notranslate"><span class="pre">get_all_grapnet_classes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.parsing.html#graphnet.utilities.config.parsing.is_graphnet_module"><code class="docutils literal notranslate"><span class="pre">is_graphnet_module()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.parsing.html#graphnet.utilities.config.parsing.is_graphnet_class"><code class="docutils literal notranslate"><span class="pre">is_graphnet_class()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.parsing.html#graphnet.utilities.config.parsing.get_graphnet_classes"><code class="docutils literal notranslate"><span class="pre">get_graphnet_classes()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="graphnet.utilities.config.training_config.html">training_config</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.training_config.html#graphnet.utilities.config.training_config.TrainingConfig"><code class="docutils literal notranslate"><span class="pre">TrainingConfig</span></code></a></li>
+</ul>
+</li>
+</ul>
 </div>
-<p>In another session, you can then do:
-&gt;&gt;&gt; dataset = Dataset.from_config(“dataset.yml”)</p>
-<p># Uniquely for <cite>DatasetConfig</cite>, you can also define and load
-# multiple datasets
-&gt;&gt;&gt; dataset.config.selection = {</p>
-<blockquote>
-<div><p>“train”: “event_no % 2 == 0”,
-“test”: “event_no % 2 == 1”,</p>
-</div></blockquote>
-<p>}
-&gt;&gt;&gt; dataset.config.dump(“dataset.yml”)
-&gt;&gt;&gt; datasets: Dict[str, Dataset] = Dataset.from_config(</p>
-<blockquote>
-<div><p>“dataset.yml”</p>
-</div></blockquote>
-<p>)
-&gt;&gt;&gt; datasets
-{</p>
-<blockquote>
-<div><p>“train”: Dataset(…),
-“test”: Dataset(…),</p>
-</div></blockquote>
-<p>}</p>
-<p># You can also combine multiple selections into a single, named
-# dataset
-&gt;&gt;&gt; dataset.config.selection = {</p>
-<blockquote>
-<div><dl class="simple">
-<dt>“train”: [</dt><dd><p>“event_no % 2 == 0 &amp; abs(pid) == 12”,
-“event_no % 2 == 0 &amp; abs(pid) == 14”,
-“event_no % 2 == 0 &amp; abs(pid) == 16”,</p>
-</dd>
-</dl>
-<p>],
-(…)</p>
-</div></blockquote>
-<p>}
-&gt;&gt;&gt; dataset.config.dump(“dataset.yml”)
-&gt;&gt;&gt; datasets: Dict[str, ConcatDataset] = Dataset.from_config(</p>
-<blockquote>
-<div><p>“dataset.yml”</p>
-</div></blockquote>
-<p>)
-&gt;&gt;&gt; datasets
-{</p>
-<blockquote>
-<div><p>“train”: ConcatDataset(…),
-(…)</p>
-</div></blockquote>
-<p>}</p>
-<p># Finally, you can still reference existing selection files in CSV
-# or JSON formats:
-&gt;&gt;&gt; dataset.config.selection = {</p>
-<blockquote>
-<div><p>“train”: “50000 random events ~ train_selection.csv”,
-“test”: “test_selection.csv”,</p>
-</div></blockquote>
-<p>}</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.utilities.config.dataset_config.save_dataset_config">
-<span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.dataset_config.</span></span><span class="sig-name descname"><span class="pre">save_dataset_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/dataset_config.html#save_dataset_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.dataset_config.save_dataset_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save the arguments to <cite>__init__</cite> functions as member <cite>DatasetConfig</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>init_fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-</section>
-<section id="module-graphnet.utilities.config.model_config">
-<span id="graphnet-utilities-config-model-config"></span><h2 id="module-graphnet.utilities.config.model_config">graphnet.utilities.config.model_config<a class="headerlink" href="#module-graphnet.utilities.config.model_config" title="Permalink to this heading">¶</a></h2>
-<p>Config classes for the <cite>graphnet.models</cite> module.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="graphnet.utilities.config.model_config.ModelConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.model_config.</span></span><span class="sig-name descname"><span class="pre">ModelConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/model_config.html#ModelConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.model_config.ModelConfig" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></a></p>
-<p>Configuration for all <a href="#id3"><span class="problematic" id="id4">`</span></a>Model`s.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
-<li><p><strong>class_name</strong> (<em>str</em>) – </p></li>
-<li><p><strong>arguments</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – </p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.model_config.ModelConfig.class_name">
-<span class="sig-name descname"><span class="pre">class_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></em><a class="headerlink" href="#graphnet.utilities.config.model_config.ModelConfig.class_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.model_config.ModelConfig.arguments">
-<span class="sig-name descname"><span class="pre">arguments</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.model_config.ModelConfig.arguments" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.utilities.config.model_config.ModelConfig.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/model_config.html#ModelConfig.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.model_config.ModelConfig.__init__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Construct <cite>ModelConfig</cite>.</p>
-<p>Can be used for model configuration as code, thereby making model
-construction more transparent and reproducible. Note that this does
-<em>not</em> save any trainable weights, meaning this is only a configuration
-for the model’s hyperparameters. Any model instantiated from a
-ModelConfig or file will be randomly initialised, and thus should be
-trained.</p>
-<p class="rubric">Examples</p>
-<p>In one session, do:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span>
-<span class="go">arguments:</span>
-<span class="go">    - (...): (...)</span>
-<span class="go">class_name: Model</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">"model.yml"</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>In another session, you can then do:
-&gt;&gt;&gt; model = Model.from_config(“model.yml”)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.utilities.config.model_config.ModelConfig.as_dict">
-<span class="sig-name descname"><span class="pre">as_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/model_config.html#ModelConfig.as_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.model_config.ModelConfig.as_dict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represent ModelConfig as a dict.</p>
-<p>This builds on <cite>BaseModel.dict()</cite> but wraps the output in a single-key
-dictionary to make it unambiguous to identify model arguments that are
-themselves models.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]</p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.utilities.config.model_config.save_model_config">
-<span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.model_config.</span></span><span class="sig-name descname"><span class="pre">save_model_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/model_config.html#save_model_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.model_config.save_model_config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Save the arguments to <cite>__init__</cite> functions as a member <cite>ModelConfig</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>init_fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-</section>
-<section id="module-graphnet.utilities.config.parsing">
-<span id="graphnet-utilities-config-parsing"></span><h2 id="module-graphnet.utilities.config.parsing">graphnet.utilities.config.parsing<a class="headerlink" href="#module-graphnet.utilities.config.parsing" title="Permalink to this heading">¶</a></h2>
-<p>Utility functions for parsing for using with Config-classes.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.utilities.config.parsing.traverse_and_apply">
-<span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">traverse_and_apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#traverse_and_apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.traverse_and_apply" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply <cite>fn</cite> to all elements in <cite>obj</cite>, resulting in same structure.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
-<li><p><strong>fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – </p></li>
-<li><p><strong>fn_kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.utilities.config.parsing.list_all_submodules">
-<span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">list_all_submodules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">packages</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#list_all_submodules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.list_all_submodules" title="Permalink to this definition">¶</a></dt>
-<dd><p>List all submodules in <cite>packages</cite> recursively.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>packages</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleType</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleType</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.utilities.config.parsing.get_all_grapnet_classes">
-<span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">get_all_grapnet_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">packages</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#get_all_grapnet_classes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.get_all_grapnet_classes" title="Permalink to this definition">¶</a></dt>
-<dd><p>List all grapnet classes in <cite>packages</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>packages</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleType</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.utilities.config.parsing.is_graphnet_module">
-<span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">is_graphnet_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#is_graphnet_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.is_graphnet_module" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return whether <cite>obj</cite> is a module in graphnet.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>obj</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleType</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.utilities.config.parsing.is_graphnet_class">
-<span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">is_graphnet_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#is_graphnet_class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.is_graphnet_class" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return whether <cite>obj</cite> is a class in graphnet.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>obj</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py function">
-<dt class="sig sig-object py" id="graphnet.utilities.config.parsing.get_graphnet_classes">
-<span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">get_graphnet_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#get_graphnet_classes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.get_graphnet_classes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a lookup of all graphnet class names in <cite>module</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>module</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleType</span></code>) – </p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-</section>
-<section id="module-graphnet.utilities.config.training_config">
-<span id="graphnet-utilities-config-training-config"></span><h2 id="module-graphnet.utilities.config.training_config">graphnet.utilities.config.training_config<a class="headerlink" href="#module-graphnet.utilities.config.training_config" title="Permalink to this heading">¶</a></h2>
-<p>Config classes for the <cite>graphnet.training</cite> module.</p>
-<dl class="py class">
-<dt class="sig sig-object py" id="graphnet.utilities.config.training_config.TrainingConfig">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.training_config.</span></span><span class="sig-name descname"><span class="pre">TrainingConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_patience</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/training_config.html#TrainingConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.training_config.TrainingConfig" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></a></p>
-<p>Configuration for all trainings.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
-<li><p><strong>target</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
-<li><p><strong>early_stopping_patience</strong> (<em>int</em>) – </p></li>
-<li><p><strong>fit</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – </p></li>
-<li><p><strong>dataloader</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – </p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.training_config.TrainingConfig.target">
-<span class="sig-name descname"><span class="pre">target</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]]</span></em><a class="headerlink" href="#graphnet.utilities.config.training_config.TrainingConfig.target" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.training_config.TrainingConfig.early_stopping_patience">
-<span class="sig-name descname"><span class="pre">early_stopping_patience</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></em><a class="headerlink" href="#graphnet.utilities.config.training_config.TrainingConfig.early_stopping_patience" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.training_config.TrainingConfig.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.training_config.TrainingConfig.fit" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.utilities.config.training_config.TrainingConfig.dataloader">
-<span class="sig-name descname"><span class="pre">dataloader</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">,</span> <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.utilities.config.training_config.TrainingConfig.dataloader" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-</dd></dl>
-</section>
 </section>
 
 
@@ -1567,6 +529,17 @@ themselves models.</p>
               </div>
             </a>
           
+          
+            <a href="graphnet.utilities.config.base_config.html" title="base_config"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> base_config </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
           
         </a>
         

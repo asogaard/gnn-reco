@@ -12,29 +12,12 @@ utilities
 |start-h2| Submodules |end-h2|
 
 
-graphnet.data.extractors.utilities.collections 
------------------------------------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.data.extractors.utilities.collections
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.utilities.frames 
-------------------------------------------
-
-.. automodule:: graphnet.data.extractors.utilities.frames
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.extractors.utilities.types 
------------------------------------------
-
-.. automodule:: graphnet.data.extractors.utilities.types
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.data.extractors.utilities.collections
+   graphnet.data.extractors.utilities.frames
+   graphnet.data.extractors.utilities.types
 
 
 

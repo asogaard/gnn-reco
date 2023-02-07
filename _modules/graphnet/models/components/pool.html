@@ -331,7 +331,7 @@
 <span class="p">)</span>
 
 
-<div class="viewcode-block" id="min_pool"><a class="viewcode-back" href="../../../../api/graphnet.models.components.html#graphnet.models.components.pool.min_pool">[docs]</a><span class="k">def</span> <span class="nf">min_pool</span><span class="p">(</span>
+<div class="viewcode-block" id="min_pool"><a class="viewcode-back" href="../../../../api/graphnet.models.components.pool.html#graphnet.models.components.pool.min_pool">[docs]</a><span class="k">def</span> <span class="nf">min_pool</span><span class="p">(</span>
     <span class="n">cluster</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">,</span> <span class="n">transform</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Perform min-pooling of `Data`.</span>
@@ -349,7 +349,7 @@
     <span class="k">return</span> <span class="n">data_pooled</span></div>
 
 
-<div class="viewcode-block" id="min_pool_x"><a class="viewcode-back" href="../../../../api/graphnet.models.components.html#graphnet.models.components.pool.min_pool_x">[docs]</a><span class="k">def</span> <span class="nf">min_pool_x</span><span class="p">(</span>
+<div class="viewcode-block" id="min_pool_x"><a class="viewcode-back" href="../../../../api/graphnet.models.components.pool.html#graphnet.models.components.pool.min_pool_x">[docs]</a><span class="k">def</span> <span class="nf">min_pool_x</span><span class="p">(</span>
     <span class="n">cluster</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
     <span class="n">batch</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span>
@@ -366,7 +366,7 @@
         <span class="k">return</span> <span class="o">-</span><span class="n">ret</span></div>
 
 
-<div class="viewcode-block" id="sum_pool_and_distribute"><a class="viewcode-back" href="../../../../api/graphnet.models.components.html#graphnet.models.components.pool.sum_pool_and_distribute">[docs]</a><span class="k">def</span> <span class="nf">sum_pool_and_distribute</span><span class="p">(</span>
+<div class="viewcode-block" id="sum_pool_and_distribute"><a class="viewcode-back" href="../../../../api/graphnet.models.components.pool.html#graphnet.models.components.pool.sum_pool_and_distribute">[docs]</a><span class="k">def</span> <span class="nf">sum_pool_and_distribute</span><span class="p">(</span>
     <span class="n">tensor</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
     <span class="n">cluster_index</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span>
     <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">LongTensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -398,7 +398,7 @@
     <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
 
 
-<div class="viewcode-block" id="group_by"><a class="viewcode-back" href="../../../../api/graphnet.models.components.html#graphnet.models.components.pool.group_by">[docs]</a><span class="k">def</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Data</span><span class="p">,</span> <span class="n">Batch</span><span class="p">],</span> <span class="n">keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LongTensor</span><span class="p">:</span>
+<div class="viewcode-block" id="group_by"><a class="viewcode-back" href="../../../../api/graphnet.models.components.pool.html#graphnet.models.components.pool.group_by">[docs]</a><span class="k">def</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Data</span><span class="p">,</span> <span class="n">Batch</span><span class="p">],</span> <span class="n">keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">LongTensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Group nodes in `data` that have identical values of `keys`.</span>
 
 <span class="sd">    This grouping is done with in each event in case of batching. This allows</span>
@@ -423,13 +423,13 @@
     <span class="k">return</span> <span class="n">index</span></div>
 
 
-<div class="viewcode-block" id="group_pulses_to_dom"><a class="viewcode-back" href="../../../../api/graphnet.models.components.html#graphnet.models.components.pool.group_pulses_to_dom">[docs]</a><span class="k">def</span> <span class="nf">group_pulses_to_dom</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
+<div class="viewcode-block" id="group_pulses_to_dom"><a class="viewcode-back" href="../../../../api/graphnet.models.components.pool.html#graphnet.models.components.pool.group_pulses_to_dom">[docs]</a><span class="k">def</span> <span class="nf">group_pulses_to_dom</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Group pulses on the same DOM, using DOM and string number."""</span>
     <span class="n">data</span><span class="o">.</span><span class="n">dom_index</span> <span class="o">=</span> <span class="n">group_by</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="s2">"dom_number"</span><span class="p">,</span> <span class="s2">"string"</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">data</span></div>
 
 
-<div class="viewcode-block" id="group_pulses_to_pmt"><a class="viewcode-back" href="../../../../api/graphnet.models.components.html#graphnet.models.components.pool.group_pulses_to_pmt">[docs]</a><span class="k">def</span> <span class="nf">group_pulses_to_pmt</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
+<div class="viewcode-block" id="group_pulses_to_pmt"><a class="viewcode-back" href="../../../../api/graphnet.models.components.pool.html#graphnet.models.components.pool.group_pulses_to_pmt">[docs]</a><span class="k">def</span> <span class="nf">group_pulses_to_pmt</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Group pulses on the same PMT, using PMT, DOM, and string number."""</span>
     <span class="n">data</span><span class="o">.</span><span class="n">pmt_index</span> <span class="o">=</span> <span class="n">group_by</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="s2">"pmt_number"</span><span class="p">,</span> <span class="s2">"dom_number"</span><span class="p">,</span> <span class="s2">"string"</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">data</span></div>
@@ -448,7 +448,7 @@
     <span class="k">return</span> <span class="n">scatter_std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dim_size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">unbiased</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="sum_pool_x"><a class="viewcode-back" href="../../../../api/graphnet.models.components.html#graphnet.models.components.pool.sum_pool_x">[docs]</a><span class="k">def</span> <span class="nf">sum_pool_x</span><span class="p">(</span>
+<div class="viewcode-block" id="sum_pool_x"><a class="viewcode-back" href="../../../../api/graphnet.models.components.pool.html#graphnet.models.components.pool.sum_pool_x">[docs]</a><span class="k">def</span> <span class="nf">sum_pool_x</span><span class="p">(</span>
     <span class="n">cluster</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
     <span class="n">batch</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span>
@@ -480,7 +480,7 @@
     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">batch</span></div>
 
 
-<div class="viewcode-block" id="std_pool_x"><a class="viewcode-back" href="../../../../api/graphnet.models.components.html#graphnet.models.components.pool.std_pool_x">[docs]</a><span class="k">def</span> <span class="nf">std_pool_x</span><span class="p">(</span>
+<div class="viewcode-block" id="std_pool_x"><a class="viewcode-back" href="../../../../api/graphnet.models.components.pool.html#graphnet.models.components.pool.std_pool_x">[docs]</a><span class="k">def</span> <span class="nf">std_pool_x</span><span class="p">(</span>
     <span class="n">cluster</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
     <span class="n">batch</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span>
@@ -512,7 +512,7 @@
     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">batch</span></div>
 
 
-<div class="viewcode-block" id="sum_pool"><a class="viewcode-back" href="../../../../api/graphnet.models.components.html#graphnet.models.components.pool.sum_pool">[docs]</a><span class="k">def</span> <span class="nf">sum_pool</span><span class="p">(</span>
+<div class="viewcode-block" id="sum_pool"><a class="viewcode-back" href="../../../../api/graphnet.models.components.pool.html#graphnet.models.components.pool.sum_pool">[docs]</a><span class="k">def</span> <span class="nf">sum_pool</span><span class="p">(</span>
     <span class="n">cluster</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">,</span> <span class="n">transform</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""Pool and coarsen graph according to the clustering defined in `cluster`.</span>
@@ -546,7 +546,7 @@
     <span class="k">return</span> <span class="n">data</span></div>
 
 
-<div class="viewcode-block" id="std_pool"><a class="viewcode-back" href="../../../../api/graphnet.models.components.html#graphnet.models.components.pool.std_pool">[docs]</a><span class="k">def</span> <span class="nf">std_pool</span><span class="p">(</span>
+<div class="viewcode-block" id="std_pool"><a class="viewcode-back" href="../../../../api/graphnet.models.components.pool.html#graphnet.models.components.pool.std_pool">[docs]</a><span class="k">def</span> <span class="nf">std_pool</span><span class="p">(</span>
     <span class="n">cluster</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">,</span> <span class="n">transform</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""Pool and coarsen graph according to the clustering defined in `cluster`.</span>

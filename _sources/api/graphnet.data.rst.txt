@@ -22,45 +22,14 @@ data
 |start-h2| Submodules |end-h2|
 
 
-graphnet.data.constants 
-------------------------
+.. toctree::
+   :maxdepth: 2
 
-.. automodule:: graphnet.data.constants
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.dataconverter 
-----------------------------
-
-.. automodule:: graphnet.data.dataconverter
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.dataloader 
--------------------------
-
-.. automodule:: graphnet.data.dataloader
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.dataset 
-----------------------
-
-.. automodule:: graphnet.data.dataset
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-graphnet.data.pipeline 
------------------------
-
-.. automodule:: graphnet.data.pipeline
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   graphnet.data.constants
+   graphnet.data.dataconverter
+   graphnet.data.dataloader
+   graphnet.data.dataset
+   graphnet.data.pipeline
 
 
 
