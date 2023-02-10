@@ -1,8 +1,0 @@
-
-standard\_model
-===============
-
-.. automodule:: graphnet.models.standard_model
-   :members:
-   :undoc-members:
-   :show-inheritance:

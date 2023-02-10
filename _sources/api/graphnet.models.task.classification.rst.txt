@@ -1,8 +1,0 @@
-
-classification
-==============
-
-.. automodule:: graphnet.models.task.classification
-   :members:
-   :undoc-members:
-   :show-inheritance:

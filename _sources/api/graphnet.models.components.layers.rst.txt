@@ -1,8 +1,0 @@
-
-layers
-======
-
-.. automodule:: graphnet.models.components.layers
-   :members:
-   :undoc-members:
-   :show-inheritance:

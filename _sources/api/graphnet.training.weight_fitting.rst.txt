@@ -1,8 +1,0 @@
-
-weight\_fitting
-===============
-
-.. automodule:: graphnet.training.weight_fitting
-   :members:
-   :undoc-members:
-   :show-inheritance:
