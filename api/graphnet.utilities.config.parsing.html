@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -283,7 +290,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../contributing.html" class="md-nav__link">Contribute</a>
+      <a href="../contribute.html" class="md-nav__link">Contribute</a>
       
     
     </li>
@@ -549,15 +556,15 @@
 <span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">traverse_and_apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fn_kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#traverse_and_apply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.traverse_and_apply" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply <cite>fn</cite> to all elements in <cite>obj</cite>, resulting in same structure.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>obj</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
-<li><p><strong>fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – </p></li>
-<li><p><strong>fn_kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-</ul>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>obj</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>fn</strong> (<em>Callable</em>) – </p></li>
+<li><p><strong>fn_kwargs</strong> (<em>Optional</em><em>[</em><em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -566,11 +573,11 @@
 <span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">list_all_submodules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">packages</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#list_all_submodules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.list_all_submodules" title="Permalink to this definition">¶</a></dt>
 <dd><p>List all submodules in <cite>packages</cite> recursively.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>packages</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleType</span></code>) – </p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleType</span></code>]</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleType</span></code>]</p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>packages</strong> (<em>module</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -579,11 +586,11 @@
 <span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">get_all_grapnet_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">packages</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#get_all_grapnet_classes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.get_all_grapnet_classes" title="Permalink to this definition">¶</a></dt>
 <dd><p>List all grapnet classes in <cite>packages</cite>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>packages</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleType</span></code>) – </p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>]</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>]</p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>packages</strong> (<em>module</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -592,11 +599,11 @@
 <span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">is_graphnet_module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#is_graphnet_module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.is_graphnet_module" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether <cite>obj</cite> is a module in graphnet.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>obj</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleType</span></code>) – </p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>obj</strong> (<em>module</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -605,11 +612,11 @@
 <span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">is_graphnet_class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#is_graphnet_class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.is_graphnet_class" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether <cite>obj</cite> is a class in graphnet.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>obj</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>) – </p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>obj</strong> (<em>type</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -618,11 +625,11 @@
 <span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.parsing.</span></span><span class="sig-name descname"><span class="pre">get_graphnet_classes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/parsing.html#get_graphnet_classes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.parsing.get_graphnet_classes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a lookup of all graphnet class names in <cite>module</cite>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>module</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ModuleType</span></code>) – </p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>]</p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code>]</p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>module</strong> (<em>module</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -671,7 +678,7 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using

@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -282,7 +289,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../contributing.html" class="md-nav__link">Contribute</a>
+      <a href="../contribute.html" class="md-nav__link">Contribute</a>
       
     
     </li>
@@ -467,18 +474,22 @@
 <p>Create a SQLite database for PISA analysis.</p>
 <p>The database will contain truth and GNN predictions and, if available,
 RETRO reconstructions.</p>
+<p>Initialise the pipeline.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>module_dict</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>) – </p></li>
-<li><p><strong>features</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
-<li><p><strong>truth</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – </p></li>
-<li><p><strong>device</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">device</span></code>) – </p></li>
-<li><p><strong>retro_table_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'retro'</span></code>) – </p></li>
-<li><p><strong>outdir</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) – </p></li>
-<li><p><strong>n_workers</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, default: <code class="docutils literal notranslate"><span class="pre">10</span></code>) – </p></li>
-<li><p><strong>pipeline_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'pipeline'</span></code>) – </p></li>
+<li><p><strong>module_dict</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>) – A dictionary with GNN modules from GraphNet. E.g.
+{‘energy’: gnn_module_for_energy_regression}</p></li>
+<li><p><strong>features</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – List of input features for the GNN modules.</p></li>
+<li><p><strong>truth</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – List of truth for the GNN ModuleList.</p></li>
+<li><p><strong>device</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">device</span></code>) – The device used for computation.</p></li>
+<li><p><strong>retro_table_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'retro'</span></code>) – Name of the retro table for.</p></li>
+<li><p><strong>outdir</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – the directory in which the pipeline database will be
+stored.</p></li>
+<li><p><strong>batch_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) – Batch size for inference.</p></li>
+<li><p><strong>n_workers</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, default: <code class="docutils literal notranslate"><span class="pre">10</span></code>) – Number of workers used in dataloading.</p></li>
+<li><p><strong>pipeline_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'pipeline'</span></code>) – Name of the pipeline. If such a pipeline already
+exists, an error will be prompted to avoid overwriting.</p></li>
 </ul>
 </dd>
 </dl>
@@ -528,7 +539,7 @@ RETRO reconstructions.</p>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using

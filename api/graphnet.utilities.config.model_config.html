@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -283,7 +290,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../contributing.html" class="md-nav__link">Contribute</a>
+      <a href="../contribute.html" class="md-nav__link">Contribute</a>
       
     
     </li>
@@ -542,10 +549,28 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.model_config.</span></span><span class="sig-name descname"><span class="pre">ModelConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arguments</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/model_config.html#ModelConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.model_config.ModelConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.utilities.config.base_config.html#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></a></p>
 <p>Configuration for all <a href="#id1"><span class="problematic" id="id2">`</span></a>Model`s.</p>
+<p>Construct <cite>ModelConfig</cite>.</p>
+<p>Can be used for model configuration as code, thereby making model
+construction more transparent and reproducible. Note that this does
+<em>not</em> save any trainable weights, meaning this is only a configuration
+for the model’s hyperparameters. Any model instantiated from a
+ModelConfig or file will be randomly initialised, and thus should be
+trained.</p>
+<p class="rubric">Examples</p>
+<p>In one session, do:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span>
+<span class="go">arguments:</span>
+<span class="go">    - (...): (...)</span>
+<span class="go">class_name: Model</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">"model.yml"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In another session, you can then do:
+&gt;&gt;&gt; model = Model.from_config(“model.yml”)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
 <li><p><strong>class_name</strong> (<em>str</em>) – </p></li>
 <li><p><strong>arguments</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – </p></li>
 </ul>
@@ -578,11 +603,11 @@ themselves models.</p>
 <span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.model_config.</span></span><span class="sig-name descname"><span class="pre">save_model_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/model_config.html#save_model_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.model_config.save_model_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the arguments to <cite>__init__</cite> functions as a member <cite>ModelConfig</cite>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>init_fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – </p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>init_fn</strong> (<em>Callable</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -631,7 +656,7 @@ themselves models.</p>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using

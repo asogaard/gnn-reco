@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -283,7 +290,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../contributing.html" class="md-nav__link">Contribute</a>
+      <a href="../contribute.html" class="md-nav__link">Contribute</a>
       
     
     </li>
@@ -542,10 +549,11 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.training_config.</span></span><span class="sig-name descname"><span class="pre">TrainingConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">early_stopping_patience</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataloader</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/training_config.html#TrainingConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.training_config.TrainingConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.utilities.config.base_config.html#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></a></p>
 <p>Configuration for all trainings.</p>
+<p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises ValidationError if the input data cannot be parsed to form a valid model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
 <li><p><strong>target</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
 <li><p><strong>early_stopping_patience</strong> (<em>int</em>) – </p></li>
 <li><p><strong>fit</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – </p></li>
@@ -615,7 +623,7 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using

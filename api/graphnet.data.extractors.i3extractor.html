@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -283,7 +290,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../contributing.html" class="md-nav__link">Contribute</a>
+      <a href="../contribute.html" class="md-nav__link">Contribute</a>
       
     
     </li>
@@ -591,9 +598,12 @@
 <p>All classes inheriting from <cite>I3Extractor</cite> should implement the <cite>__call__</cite>
 method, and can be applied directly on <cite>icetray.I3Frame</cite> objects to return
 extracted, pure-python data.</p>
+<p>Construct I3Extractor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p>
+<dd class="field-odd"><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the <cite>I3Extractor</cite> instance. Used to keep track of the
+provenance of different data, and to name tables to which this
+data is saved.</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -601,14 +611,14 @@ extracted, pure-python data.</p>
 <span class="sig-name descname"><span class="pre">set_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i3_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/extractors/i3extractor.html#I3Extractor.set_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.extractors.i3extractor.I3Extractor.set_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>Store references to the I3- and GCD-files being processed.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>i3_file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-<li><p><strong>gcd_file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-</ul>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>i3_file</strong> (<em>str</em>) – </p></li>
+<li><p><strong>gcd_file</strong> (<em>str</em>) – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -623,9 +633,13 @@ extracted, pure-python data.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.extractors.i3extractor.</span></span><span class="sig-name descname"><span class="pre">I3ExtractorCollection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">extractors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/extractors/i3extractor.html#I3ExtractorCollection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.extractors.i3extractor.I3ExtractorCollection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></p>
 <p>Class to manage multiple I3Extractors.</p>
+<p>Construct I3ExtractorCollection.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>extractors</strong> (<a class="reference internal" href="#graphnet.data.extractors.i3extractor.I3Extractor" title="graphnet.data.extractors.i3extractor.I3Extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3Extractor</span></code></a>) – </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*extractors</strong> (<a class="reference internal" href="#graphnet.data.extractors.i3extractor.I3Extractor" title="graphnet.data.extractors.i3extractor.I3Extractor"><em>I3Extractor</em></a>) – List of <a href="#id1"><span class="problematic" id="id2">`</span></a>I3Extractor`s to be treated as a single</p></li>
+<li><p><strong>collection.</strong> – </p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
@@ -633,14 +647,14 @@ extracted, pure-python data.</p>
 <span class="sig-name descname"><span class="pre">set_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i3_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/extractors/i3extractor.html#I3ExtractorCollection.set_files"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.extractors.i3extractor.I3ExtractorCollection.set_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>Store references to the I3- and GCD-files being processed.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>i3_file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-<li><p><strong>gcd_file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-</ul>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>i3_file</strong> (<em>str</em>) – </p></li>
+<li><p><strong>gcd_file</strong> (<em>str</em>) – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -690,7 +704,7 @@ extracted, pure-python data.</p>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using

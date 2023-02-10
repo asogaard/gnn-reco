@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -282,7 +289,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../contributing.html" class="md-nav__link">Contribute</a>
+      <a href="../contribute.html" class="md-nav__link">Contribute</a>
       
     
     </li>
@@ -476,12 +483,13 @@
 <p>Produces per-event weights.</p>
 <p>Weights are returned by the public method <cite>fit_weights()</cite>, and the weights
 can be saved as a table in the database.</p>
+<p>Construct <cite>UniformWeightFitter</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>database_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-<li><p><strong>truth_table</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'truth'</span></code>) – </p></li>
-<li><p><strong>index_column</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'event_no'</span></code>) – </p></li>
+<li><p><strong>database_path</strong> (<em>str</em>) – </p></li>
+<li><p><strong>truth_table</strong> (<em>str</em>) – </p></li>
+<li><p><strong>index_column</strong> (<em>str</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -522,12 +530,13 @@ happen in this space.</p></li>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">Uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#Uniform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.Uniform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.training.weight_fitting.WeightFitter" title="graphnet.training.weight_fitting.WeightFitter"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeightFitter</span></code></a></p>
 <p>Produces per-event weights making variable distribution uniform.</p>
+<p>Construct <cite>UniformWeightFitter</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>database_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-<li><p><strong>truth_table</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'truth'</span></code>) – </p></li>
-<li><p><strong>index_column</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'event_no'</span></code>) – </p></li>
+<li><p><strong>database_path</strong> (<em>str</em>) – </p></li>
+<li><p><strong>truth_table</strong> (<em>str</em>) – </p></li>
+<li><p><strong>index_column</strong> (<em>str</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -539,12 +548,13 @@ happen in this space.</p></li>
 <p>Produces per-event weights.</p>
 <p>Events below x_low are weighted to be uniform, whereas events above x_low
 are weighted to follow a 1/(1+a*(x_low -x)) curve.</p>
+<p>Construct <cite>UniformWeightFitter</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>database_path</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-<li><p><strong>truth_table</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'truth'</span></code>) – </p></li>
-<li><p><strong>index_column</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'event_no'</span></code>) – </p></li>
+<li><p><strong>database_path</strong> (<em>str</em>) – </p></li>
+<li><p><strong>truth_table</strong> (<em>str</em>) – </p></li>
+<li><p><strong>index_column</strong> (<em>str</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -594,7 +604,7 @@ are weighted to follow a 1/(1+a*(x_low -x)) curve.</p>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using

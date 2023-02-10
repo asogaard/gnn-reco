@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -283,7 +290,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../contributing.html" class="md-nav__link">Contribute</a>
+      <a href="../contribute.html" class="md-nav__link">Contribute</a>
       
     
     </li>
@@ -663,10 +670,81 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.dataset_config.</span></span><span class="sig-name descname"><span class="pre">DatasetConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemaps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">string_selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight_default_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/dataset_config.html#DatasetConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.dataset_config.DatasetConfig" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.utilities.config.base_config.html#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseConfig</span></code></a></p>
 <p>Configuration for all <a href="#id1"><span class="problematic" id="id2">`</span></a>Dataset`s.</p>
+<p>Construct <cite>DataConfig</cite>.</p>
+<p>Can be used for dataset configuration as code, thereby making dataset
+construction more transparent and reproducible.</p>
+<p class="rubric">Examples</p>
+<p>In one session, do:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span>
+<span class="go">path: (...)</span>
+<span class="go">pulsemaps:</span>
+<span class="go">    - (...)</span>
+<span class="go">(...)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">"dataset.yml"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In another session, you can then do:
+&gt;&gt;&gt; dataset = Dataset.from_config(“dataset.yml”)</p>
+<p># Uniquely for <cite>DatasetConfig</cite>, you can also define and load
+# multiple datasets
+&gt;&gt;&gt; dataset.config.selection = {</p>
+<blockquote>
+<div><p>“train”: “event_no % 2 == 0”,
+“test”: “event_no % 2 == 1”,</p>
+</div></blockquote>
+<p>}
+&gt;&gt;&gt; dataset.config.dump(“dataset.yml”)
+&gt;&gt;&gt; datasets: Dict[str, Dataset] = Dataset.from_config(</p>
+<blockquote>
+<div><p>“dataset.yml”</p>
+</div></blockquote>
+<p>)
+&gt;&gt;&gt; datasets
+{</p>
+<blockquote>
+<div><p>“train”: Dataset(…),
+“test”: Dataset(…),</p>
+</div></blockquote>
+<p>}</p>
+<p># You can also combine multiple selections into a single, named
+# dataset
+&gt;&gt;&gt; dataset.config.selection = {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“train”: [</dt><dd><p>“event_no % 2 == 0 &amp; abs(pid) == 12”,
+“event_no % 2 == 0 &amp; abs(pid) == 14”,
+“event_no % 2 == 0 &amp; abs(pid) == 16”,</p>
+</dd>
+</dl>
+<p>],
+(…)</p>
+</div></blockquote>
+<p>}
+&gt;&gt;&gt; dataset.config.dump(“dataset.yml”)
+&gt;&gt;&gt; datasets: Dict[str, ConcatDataset] = Dataset.from_config(</p>
+<blockquote>
+<div><p>“dataset.yml”</p>
+</div></blockquote>
+<p>)
+&gt;&gt;&gt; datasets
+{</p>
+<blockquote>
+<div><p>“train”: ConcatDataset(…),
+(…)</p>
+</div></blockquote>
+<p>}</p>
+<p># Finally, you can still reference existing selection files in CSV
+# or JSON formats:
+&gt;&gt;&gt; dataset.config.selection = {</p>
+<blockquote>
+<div><p>“train”: “50000 random events ~ train_selection.csv”,
+“test”: “test_selection.csv”,</p>
+</div></blockquote>
+<p>}</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – </p></li>
 <li><p><strong>path</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
 <li><p><strong>pulsemaps</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>List</em><em>[</em><em>str</em><em>]</em><em>]</em>) – </p></li>
 <li><p><strong>features</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – </p></li>
@@ -746,11 +824,11 @@
 <span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.dataset_config.</span></span><span class="sig-name descname"><span class="pre">save_dataset_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_fn</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/dataset_config.html#save_dataset_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.dataset_config.save_dataset_config" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save the arguments to <cite>__init__</cite> functions as member <cite>DatasetConfig</cite>.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>init_fn</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>) – </p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code></p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>init_fn</strong> (<em>Callable</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -799,7 +877,7 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using

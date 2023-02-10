@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -283,7 +290,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../contributing.html" class="md-nav__link">Contribute</a>
+      <a href="../contribute.html" class="md-nav__link">Contribute</a>
       
     
     </li>
@@ -788,17 +795,40 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.task.reconstruction.</span></span><span class="sig-name descname"><span class="pre">AzimuthReconstructionWithKappa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_prediction_and_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_inference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_support</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/task/reconstruction.html#AzimuthReconstructionWithKappa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.task.reconstruction.AzimuthReconstructionWithKappa" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.models.task.task.html#graphnet.models.task.task.Task" title="graphnet.models.task.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a></p>
 <p>Reconstructs azimuthal angle and associated kappa (1/var).</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -812,17 +842,40 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.task.reconstruction.</span></span><span class="sig-name descname"><span class="pre">AzimuthReconstruction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_prediction_and_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_inference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_support</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/task/reconstruction.html#AzimuthReconstruction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.task.reconstruction.AzimuthReconstruction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.models.task.reconstruction.AzimuthReconstructionWithKappa" title="graphnet.models.task.reconstruction.AzimuthReconstructionWithKappa"><code class="xref py py-class docutils literal notranslate"><span class="pre">AzimuthReconstructionWithKappa</span></code></a></p>
 <p>Reconstructs azimuthal angle.</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -836,17 +889,40 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.task.reconstruction.</span></span><span class="sig-name descname"><span class="pre">DirectionReconstructionWithKappa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_prediction_and_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_inference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_support</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/task/reconstruction.html#DirectionReconstructionWithKappa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.task.reconstruction.DirectionReconstructionWithKappa" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.models.task.task.html#graphnet.models.task.task.Task" title="graphnet.models.task.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a></p>
 <p>Reconstructs direction with kappa from the 3D-vMF distribution.</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -860,17 +936,40 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.task.reconstruction.</span></span><span class="sig-name descname"><span class="pre">ZenithReconstruction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_prediction_and_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_inference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_support</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/task/reconstruction.html#ZenithReconstruction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.task.reconstruction.ZenithReconstruction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.models.task.task.html#graphnet.models.task.task.Task" title="graphnet.models.task.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a></p>
 <p>Reconstructs zenith angle.</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -884,17 +983,40 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.task.reconstruction.</span></span><span class="sig-name descname"><span class="pre">ZenithReconstructionWithKappa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_prediction_and_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_inference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_support</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/task/reconstruction.html#ZenithReconstructionWithKappa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.task.reconstruction.ZenithReconstructionWithKappa" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.models.task.reconstruction.ZenithReconstruction" title="graphnet.models.task.reconstruction.ZenithReconstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZenithReconstruction</span></code></a></p>
 <p>Reconstructs zenith angle and associated kappa (1/var).</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -908,17 +1030,40 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.task.reconstruction.</span></span><span class="sig-name descname"><span class="pre">EnergyReconstruction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_prediction_and_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_inference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_support</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/task/reconstruction.html#EnergyReconstruction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.task.reconstruction.EnergyReconstruction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.models.task.task.html#graphnet.models.task.task.Task" title="graphnet.models.task.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a></p>
 <p>Reconstructs energy using stable method.</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -932,17 +1077,40 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.task.reconstruction.</span></span><span class="sig-name descname"><span class="pre">EnergyReconstructionWithPower</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_prediction_and_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_inference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_support</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/task/reconstruction.html#EnergyReconstructionWithPower"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.task.reconstruction.EnergyReconstructionWithPower" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.models.task.task.html#graphnet.models.task.task.Task" title="graphnet.models.task.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a></p>
 <p>Reconstructs energy.</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -956,17 +1124,40 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.task.reconstruction.</span></span><span class="sig-name descname"><span class="pre">EnergyReconstructionWithUncertainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_prediction_and_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_inference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_support</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/task/reconstruction.html#EnergyReconstructionWithUncertainty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.task.reconstruction.EnergyReconstructionWithUncertainty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.models.task.reconstruction.EnergyReconstruction" title="graphnet.models.task.reconstruction.EnergyReconstruction"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyReconstruction</span></code></a></p>
 <p>Reconstructs energy and associated uncertainty (log(var)).</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -980,17 +1171,40 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.task.reconstruction.</span></span><span class="sig-name descname"><span class="pre">VertexReconstruction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_prediction_and_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_inference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_support</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/task/reconstruction.html#VertexReconstruction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.task.reconstruction.VertexReconstruction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.models.task.task.html#graphnet.models.task.task.Task" title="graphnet.models.task.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a></p>
 <p>Reconstructs vertex position and time.</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1004,17 +1218,40 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.task.reconstruction.</span></span><span class="sig-name descname"><span class="pre">PositionReconstruction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_prediction_and_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_inference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_support</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/task/reconstruction.html#PositionReconstruction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.task.reconstruction.PositionReconstruction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.models.task.task.html#graphnet.models.task.task.Task" title="graphnet.models.task.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a></p>
 <p>Reconstructs vertex position.</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1028,17 +1265,40 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.task.reconstruction.</span></span><span class="sig-name descname"><span class="pre">TimeReconstruction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hidden_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_prediction_and_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_inference</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform_support</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loss_weight</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/task/reconstruction.html#TimeReconstruction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.task.reconstruction.TimeReconstruction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.models.task.task.html#graphnet.models.task.task.Task" title="graphnet.models.task.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a></p>
 <p>Reconstructs time.</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1053,17 +1313,40 @@
 <dd><p>Bases: <a class="reference internal" href="graphnet.models.task.task.html#graphnet.models.task.task.Task" title="graphnet.models.task.task.Task"><code class="xref py py-class docutils literal notranslate"><span class="pre">Task</span></code></a></p>
 <p>Reconstructs interaction inelasticity.</p>
 <p>That is, tracks vs. hadronic energy.</p>
+<p>Construct <cite>Task</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – </p></li>
-<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – </p></li>
-<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – </p></li>
-<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>hidden_size</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – The number of nodes in the layer feeding into this
+tasks, used to construct the affine transformation to the
+predicted quantity.</p></li>
+<li><p><strong>target_labels</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Name(s) of the quantity/-ies being predicted, used
+to extract the  target tensor(s) from the <cite>Data</cite> object in
+<cite>.compute_loss(…)</cite>.</p></li>
+<li><p><strong>loss_function</strong> (<a class="reference internal" href="graphnet.training.loss_functions.html#graphnet.training.loss_functions.LossFunction" title="graphnet.training.loss_functions.LossFunction"><code class="xref py py-class docutils literal notranslate"><span class="pre">LossFunction</span></code></a>) – Loss function appropriate to the task.</p></li>
+<li><p><strong>transform_prediction_and_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform
+both the predicted and target tensor before passing them to the
+loss function. Useful e.g. for having the model predict
+quantities on a physical scale, but transforming this scale to
+O(1) for a numerically stable loss computation.</p></li>
+<li><p><strong>transform_target</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to transform only the target
+tensor before passing it, and the predicted tensor, to the loss
+function. Useful e.g. for having the model predict a
+transformed version of the target quantity, e.g. the log10-
+scaled energy, rather than the physical quantity itself. Used
+in conjunction with <cite>transform_inference</cite> to perform the
+inverse transform on the predicted quantity to recover the
+physical scale.</p></li>
+<li><p><strong>transform_inference</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional function to inverse-transform the
+model prediction to recover a physical scale. Used in
+conjunction with <cite>transform_target</cite>.</p></li>
+<li><p><strong>transform_support</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional tuple to specify minimum and maximum
+of the range of validity for the inverse transforms
+<cite>transform_target</cite> and <cite>transform_inference</cite> in case this is
+restricted. By default the invertibility of <cite>transform_target</cite>
+is tested on the range [-1e6, 1e6].</p></li>
+<li><p><strong>loss_weight</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the attribute in <cite>data</cite> containing per-event
+loss weights.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1117,7 +1400,7 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using

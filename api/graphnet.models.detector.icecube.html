@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -283,7 +290,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../contributing.html" class="md-nav__link">Contribute</a>
+      <a href="../contribute.html" class="md-nav__link">Contribute</a>
       
     
     </li>
@@ -617,11 +624,12 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.detector.icecube.</span></span><span class="sig-name descname"><span class="pre">IceCube86</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph_builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/detector/icecube.html#IceCube86"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.detector.icecube.IceCube86" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.models.detector.detector.html#graphnet.models.detector.detector.Detector" title="graphnet.models.detector.detector.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
 <p><cite>Detector</cite> class for IceCube-86.</p>
+<p>Construct <cite>Detector</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph_builder</strong> (<a class="reference internal" href="graphnet.models.graph_builders.html#graphnet.models.graph_builders.GraphBuilder" title="graphnet.models.graph_builders.GraphBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphBuilder</span></code></a>) – </p></li>
-<li><p><strong>scalers</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>graph_builder</strong> (<a class="reference internal" href="graphnet.models.graph_builders.html#graphnet.models.graph_builders.GraphBuilder" title="graphnet.models.graph_builders.GraphBuilder"><em>GraphBuilder</em></a>) – </p></li>
+<li><p><strong>scalers</strong> (<em>List</em><em>[</em><em>dict</em><em>]</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -635,11 +643,12 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.detector.icecube.</span></span><span class="sig-name descname"><span class="pre">IceCubeKaggle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph_builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/detector/icecube.html#IceCubeKaggle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.detector.icecube.IceCubeKaggle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.models.detector.detector.html#graphnet.models.detector.detector.Detector" title="graphnet.models.detector.detector.Detector"><code class="xref py py-class docutils literal notranslate"><span class="pre">Detector</span></code></a></p>
 <p><cite>Detector</cite> class for Kaggle Competition.</p>
+<p>Construct <cite>Detector</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph_builder</strong> (<a class="reference internal" href="graphnet.models.graph_builders.html#graphnet.models.graph_builders.GraphBuilder" title="graphnet.models.graph_builders.GraphBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphBuilder</span></code></a>) – </p></li>
-<li><p><strong>scalers</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>graph_builder</strong> (<a class="reference internal" href="graphnet.models.graph_builders.html#graphnet.models.graph_builders.GraphBuilder" title="graphnet.models.graph_builders.GraphBuilder"><em>GraphBuilder</em></a>) – </p></li>
+<li><p><strong>scalers</strong> (<em>List</em><em>[</em><em>dict</em><em>]</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -653,11 +662,12 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.detector.icecube.</span></span><span class="sig-name descname"><span class="pre">IceCubeDeepCore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph_builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/detector/icecube.html#IceCubeDeepCore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.detector.icecube.IceCubeDeepCore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.models.detector.icecube.IceCube86" title="graphnet.models.detector.icecube.IceCube86"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceCube86</span></code></a></p>
 <p><cite>Detector</cite> class for IceCube-DeepCore.</p>
+<p>Construct <cite>Detector</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph_builder</strong> (<a class="reference internal" href="graphnet.models.graph_builders.html#graphnet.models.graph_builders.GraphBuilder" title="graphnet.models.graph_builders.GraphBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphBuilder</span></code></a>) – </p></li>
-<li><p><strong>scalers</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>graph_builder</strong> (<a class="reference internal" href="graphnet.models.graph_builders.html#graphnet.models.graph_builders.GraphBuilder" title="graphnet.models.graph_builders.GraphBuilder"><em>GraphBuilder</em></a>) – </p></li>
+<li><p><strong>scalers</strong> (<em>List</em><em>[</em><em>dict</em><em>]</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -671,11 +681,12 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.detector.icecube.</span></span><span class="sig-name descname"><span class="pre">IceCubeUpgrade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph_builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/detector/icecube.html#IceCubeUpgrade"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.detector.icecube.IceCubeUpgrade" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.models.detector.icecube.IceCubeDeepCore" title="graphnet.models.detector.icecube.IceCubeDeepCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceCubeDeepCore</span></code></a></p>
 <p><cite>Detector</cite> class for IceCube-Upgrade.</p>
+<p>Construct <cite>Detector</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph_builder</strong> (<a class="reference internal" href="graphnet.models.graph_builders.html#graphnet.models.graph_builders.GraphBuilder" title="graphnet.models.graph_builders.GraphBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphBuilder</span></code></a>) – </p></li>
-<li><p><strong>scalers</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>graph_builder</strong> (<a class="reference internal" href="graphnet.models.graph_builders.html#graphnet.models.graph_builders.GraphBuilder" title="graphnet.models.graph_builders.GraphBuilder"><em>GraphBuilder</em></a>) – </p></li>
+<li><p><strong>scalers</strong> (<em>List</em><em>[</em><em>dict</em><em>]</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -689,11 +700,12 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.detector.icecube.</span></span><span class="sig-name descname"><span class="pre">IceCubeUpgrade_V2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph_builder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalers</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/detector/icecube.html#IceCubeUpgrade_V2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.detector.icecube.IceCubeUpgrade_V2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.models.detector.icecube.IceCubeDeepCore" title="graphnet.models.detector.icecube.IceCubeDeepCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">IceCubeDeepCore</span></code></a></p>
 <p><cite>Detector</cite> class for IceCube-Upgrade.</p>
+<p>Construct <cite>Detector</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph_builder</strong> (<a class="reference internal" href="graphnet.models.graph_builders.html#graphnet.models.graph_builders.GraphBuilder" title="graphnet.models.graph_builders.GraphBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphBuilder</span></code></a>) – </p></li>
-<li><p><strong>scalers</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
+<li><p><strong>graph_builder</strong> (<a class="reference internal" href="graphnet.models.graph_builders.html#graphnet.models.graph_builders.GraphBuilder" title="graphnet.models.graph_builders.GraphBuilder"><em>GraphBuilder</em></a>) – </p></li>
+<li><p><strong>scalers</strong> (<em>List</em><em>[</em><em>dict</em><em>]</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -752,7 +764,7 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using

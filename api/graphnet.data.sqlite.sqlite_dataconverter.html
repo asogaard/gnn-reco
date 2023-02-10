@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -283,7 +290,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../contributing.html" class="md-nav__link">Contribute</a>
+      <a href="../contribute.html" class="md-nav__link">Contribute</a>
       
     
     </li>
@@ -582,18 +589,56 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.sqlite.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">SQLiteDataConverter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extractors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outdir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_rescue</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_files_to_batch</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sequential_batch_pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_file_batch_pattern</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">icetray_verbose</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/sqlite/sqlite_dataconverter.html#SQLiteDataConverter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.sqlite.sqlite_dataconverter.SQLiteDataConverter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.data.dataconverter.html#graphnet.data.dataconverter.DataConverter" title="graphnet.data.dataconverter.DataConverter"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataConverter</span></code></a></p>
 <p>Class for converting I3-files to SQLite format.</p>
+<p>Construct DataConverter.</p>
+<p>When using <cite>input_file_batch_pattern</cite>, regular expressions are used to
+group files according to their names. All files that match a certain
+pattern up to wildcards are grouped into the same output file. This
+output file has the same name as the input files that are group into it,
+with wildcards replaced with “x”. Periods (.) and wildcards (*) have a
+special meaning: Periods are interpreted as literal periods, and not as
+matching any character (as in standard regex); and wildcards are
+interpreted as “.*” in standard regex.</p>
+<p>For instance, the pattern “[A-Z]{1}_[0-9]{5}*.i3.zst” will find all I3
+files whose names contain:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>one capital letter, followed by</p></li>
+<li><p>an underscore, followed by</p></li>
+<li><p>five numbers, followed by</p></li>
+<li><p>any string of characters ending in “.i3.zst”</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>This means that, e.g., the files:</dt><dd><ul class="simple">
+<li><p>upgrade_genie_step4_141020_A_000000.i3.zst</p></li>
+<li><p>upgrade_genie_step4_141020_A_000001.i3.zst</p></li>
+<li><p>…</p></li>
+<li><p>upgrade_genie_step4_141020_A_000008.i3.zst</p></li>
+<li><p>upgrade_genie_step4_141020_A_000009.i3.zst</p></li>
+</ul>
+</dd>
+</dl>
+<p>would be grouped into the output file named
+“upgrade_genie_step4_141020_A_00000x.&lt;suffix&gt;” but the file</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>upgrade_genie_step4_141020_A_000010.i3.zst</p></li>
+</ul>
+</div></blockquote>
+<p>would end up in a separate group, named
+“upgrade_genie_step4_141020_A_00001x.&lt;suffix&gt;”.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>extractors</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="graphnet.data.extractors.i3extractor.html#graphnet.data.extractors.i3extractor.I3Extractor" title="graphnet.data.extractors.i3extractor.I3Extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3Extractor</span></code></a>]) – </p></li>
-<li><p><strong>outdir</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-<li><p><strong>gcd_rescue</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>nb_files_to_batch</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>sequential_batch_pattern</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>input_file_batch_pattern</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – </p></li>
-<li><p><strong>workers</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – </p></li>
-<li><p><strong>index_column</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, default: <code class="docutils literal notranslate"><span class="pre">'event_no'</span></code>) – </p></li>
-<li><p><strong>icetray_verbose</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, default: <code class="docutils literal notranslate"><span class="pre">0</span></code>) – </p></li>
+<li><p><strong>extractors</strong> (<em>List</em><em>[</em><a class="reference internal" href="graphnet.data.extractors.i3extractor.html#graphnet.data.extractors.i3extractor.I3Extractor" title="graphnet.data.extractors.i3extractor.I3Extractor"><em>I3Extractor</em></a><em>]</em>) – </p></li>
+<li><p><strong>outdir</strong> (<em>str</em>) – </p></li>
+<li><p><strong>gcd_rescue</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>nb_files_to_batch</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – </p></li>
+<li><p><strong>sequential_batch_pattern</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>input_file_batch_pattern</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – </p></li>
+<li><p><strong>workers</strong> (<em>int</em>) – </p></li>
+<li><p><strong>index_column</strong> (<em>str</em>) – </p></li>
+<li><p><strong>icetray_verbose</strong> (<em>int</em>) – </p></li>
 </ul>
 </dd>
 </dl>
@@ -606,14 +651,14 @@
 <span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/sqlite/sqlite_dataconverter.html#SQLiteDataConverter.save_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.sqlite.sqlite_dataconverter.SQLiteDataConverter.save_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Save data to SQLite database.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">OrderedDict</span></code>]) – </p></li>
-<li><p><strong>output_file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p></li>
-</ul>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> (<em>List</em><em>[</em><em>OrderedDict</em><em>]</em>) – </p></li>
+<li><p><strong>output_file</strong> (<em>str</em>) – </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -646,11 +691,11 @@ return true. If no pulsemaps exist, i.e., if no <cite>I3FeatureExtractor</cite> 
 called e.g. because <cite>I3GenericExtractor</cite> is used instead, always return
 True.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data_dict</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>]) – </p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data_dict</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>Dict</em><em>]</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -676,11 +721,11 @@ True.</p>
 <span class="sig-prename descclassname"><span class="pre">graphnet.data.sqlite.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">is_pulse_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/sqlite/sqlite_dataconverter.html#is_pulse_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.sqlite.sqlite_dataconverter.is_pulse_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether <cite>table_name</cite> corresponds to a pulse map.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>table_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>table_name</strong> (<em>str</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -689,11 +734,11 @@ True.</p>
 <span class="sig-prename descclassname"><span class="pre">graphnet.data.sqlite.sqlite_dataconverter.</span></span><span class="sig-name descname"><span class="pre">is_mc_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/sqlite/sqlite_dataconverter.html#is_mc_tree"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.sqlite.sqlite_dataconverter.is_mc_tree" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether <cite>table_name</cite> corresponds to an MC tree.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>table_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>table_name</strong> (<em>str</em>) – </p>
 </dd>
 </dl>
 </dd></dl>
@@ -742,7 +787,7 @@ True.</p>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using

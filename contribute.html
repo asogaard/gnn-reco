@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -138,7 +145,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#contributing" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#contribute" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -225,6 +232,13 @@
   
   <div class="md-container">
     
+
+<div class="md-hero" data-md-component="hero">
+  <div class="md-hero__inner md-grid">
+    <p>How to contribute, and the practices we follow.</p>
+  </div>
+</div>
+
     
     
   <nav class="md-tabs" data-md-component="tabs">
@@ -289,7 +303,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#contributing--page-root" class="md-nav__link">Contribute</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#contribute--page-root" class="md-nav__link">Contribute</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#github-issues" class="md-nav__link">GitHub issues</a>
         </li>
@@ -355,7 +369,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#contributing--page-root" class="md-nav__link">Contribute</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#contribute--page-root" class="md-nav__link">Contribute</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#github-issues" class="md-nav__link">GitHub issues</a>
         </li>
@@ -377,7 +391,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="contribute">
-<h1 id="contributing--page-root">Contribute<a class="headerlink" href="#contributing--page-root" title="Permalink to this heading">¶</a></h1>
+<h1 id="contribute--page-root">Contribute<a class="headerlink" href="#contribute--page-root" title="Permalink to this heading">¶</a></h1>
 <p>To make sure that the process of contributing is as smooth and effective as possible, we provide a few guidelines in this contributing guide that we encourage contributors to follow.</p>
 <section id="github-issues">
 <h2 id="github-issues">GitHub issues<a class="headerlink" href="#github-issues" title="Permalink to this heading">¶</a></h2>
@@ -463,7 +477,7 @@ Image source: https://ljvmiranda921.github.io/notebook/2018/06/21/precommits-usi
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using

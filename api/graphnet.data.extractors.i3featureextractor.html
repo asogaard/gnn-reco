@@ -70,13 +70,17 @@
     padding-top: 0;
   }
 
-  .sig-prename {
-    display: none;
+
+  /*
+    .sig-prename {
+     display: none;
   }
+  */
 
   .py.class .sig-name,
   .py.function .sig-name,
-  .py.method .sig-name {
+  .py.method .sig-name,
+  .py.exception .sig-name {
     color: #37474f;
     font-feature-settings: "kern";
     font-family: "Roboto Mono", "Courier New", Courier, monospace;
@@ -85,19 +89,22 @@
 
   .py.class .sig-object,
   .py.function .sig-object,
-  .py.method .sig-object {
+  .py.method .sig-object,
+  .py.exception .sig-object {
     padding: 1ex;
   }
 
   .py.class .sig-object,
-  .py.function .sig-object {
+  .py.function .sig-object,
+  .py.exception .sig-object {
     border-top: 1px solid gray;
   }
   .py.method .sig-object {
     border-top: 1px solid lightgray;
   }
 
-  .py.class .sig-object {
+  .py.class .sig-object,
+  .py.exception .sig-object {
     background: rgba(0,0,0,0.06);
   }
   .py.function .sig-object,
@@ -283,7 +290,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../contributing.html" class="md-nav__link">Contribute</a>
+      <a href="../contribute.html" class="md-nav__link">Contribute</a>
       
     
     </li>
@@ -580,9 +587,11 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.extractors.i3featureextractor.</span></span><span class="sig-name descname"><span class="pre">I3FeatureExtractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/extractors/i3featureextractor.html#I3FeatureExtractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.data.extractors.i3extractor.html#graphnet.data.extractors.i3extractor.I3Extractor" title="graphnet.data.extractors.i3extractor.I3Extractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3Extractor</span></code></a></p>
 <p>Base class for extracting specific, reconstructed features.</p>
+<p>Construct I3FeatureExtractor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p>
+<dd class="field-odd"><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the pulse (series) map for which to extract
+reconstructed features.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -591,9 +600,11 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.extractors.i3featureextractor.</span></span><span class="sig-name descname"><span class="pre">I3FeatureExtractorIceCube86</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/extractors/i3featureextractor.html#I3FeatureExtractorIceCube86"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractor</span></code></a></p>
 <p>Class for extracting reconstructed features for IceCube-86.</p>
+<p>Construct I3FeatureExtractor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p>
+<dd class="field-odd"><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the pulse (series) map for which to extract
+reconstructed features.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -602,9 +613,11 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.extractors.i3featureextractor.</span></span><span class="sig-name descname"><span class="pre">I3FeatureExtractorIceCubeDeepCore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/extractors/i3featureextractor.html#I3FeatureExtractorIceCubeDeepCore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeDeepCore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCube86</span></code></a></p>
 <p>Class for extracting reconstructed features for IceCube-DeepCore.</p>
+<p>Construct I3FeatureExtractor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p>
+<dd class="field-odd"><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the pulse (series) map for which to extract
+reconstructed features.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -613,9 +626,11 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.extractors.i3featureextractor.</span></span><span class="sig-name descname"><span class="pre">I3FeatureExtractorIceCubeUpgrade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/extractors/i3featureextractor.html#I3FeatureExtractorIceCubeUpgrade"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeUpgrade" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCube86</span></code></a></p>
 <p>Class for extracting reconstructed features for IceCube-Upgrade.</p>
+<p>Construct I3FeatureExtractor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p>
+<dd class="field-odd"><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the pulse (series) map for which to extract
+reconstructed features.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -624,9 +639,11 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.extractors.i3featureextractor.</span></span><span class="sig-name descname"><span class="pre">I3PulseNoiseTruthFlagIceCubeUpgrade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/extractors/i3featureextractor.html#I3PulseNoiseTruthFlagIceCubeUpgrade"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.extractors.i3featureextractor.I3PulseNoiseTruthFlagIceCubeUpgrade" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCube86</span></code></a></p>
 <p>Feature extractor class with pulse noise truth flag added.</p>
+<p>Construct I3FeatureExtractor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – </p>
+<dd class="field-odd"><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the pulse (series) map for which to extract
+reconstructed features.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -675,7 +692,7 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, GraphNeT team.
+              &#169; Copyright 2021-2023, GraphNeT team.
               
           </div>
             Created using
