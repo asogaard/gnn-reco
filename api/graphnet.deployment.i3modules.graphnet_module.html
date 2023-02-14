@@ -126,7 +126,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="models" href="graphnet.models.html" />
-    <link rel="prev" title="i3modules" href="graphnet.deployment.i3modules.html" />
+    <link rel="prev" title="deployer" href="graphnet.deployment.i3modules.deployer.html" />
   
    
 
@@ -319,6 +319,13 @@
     <li class="md-nav__item">
     
     
+      <a href="graphnet.deployment.i3modules.deployer.html" class="md-nav__link">deployer</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     <label class="md-nav__link md-nav__link--active" for="__toc"> graphnet_module </label>
     
@@ -330,43 +337,11 @@
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#api-graphnet-deployment-i3modules-graphnet-module--page-root" class="md-nav__link">graphnet_module</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTI3Module" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTI3Module</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.I3InferenceModule" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3InferenceModule</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.DTYPES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DTYPES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Configure" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Configure()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Physics" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Physics()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.I3PulseCleanerModule" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3PulseCleanerModule</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -376,106 +351,22 @@
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
+      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTI3Module" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTI3Module</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
+      <a href="#graphnet.deployment.i3modules.graphnet_module.I3InferenceModule" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3InferenceModule</span></code></a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.DTYPES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DTYPES</span></code></a>
+      <a href="#graphnet.deployment.i3modules.graphnet_module.I3PulseCleanerModule" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3PulseCleanerModule</span></code></a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Configure" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Configure()</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Physics" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Physics()</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86</span></code></a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore</span></code></a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
-      
-    
-    </li></ul>
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade</span></code></a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
-      
-    
-    </li></ul>
     
     </li></ul>
     
@@ -537,43 +428,11 @@
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#api-graphnet-deployment-i3modules-graphnet-module--page-root" class="md-nav__link">graphnet_module</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTI3Module" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTI3Module</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.I3InferenceModule" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3InferenceModule</span></code></a>
         </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.DTYPES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">DTYPES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Configure" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Configure()</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Physics" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">Physics()</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCube86</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeDeepCore</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
-        </li></ul>
-            </nav>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">GraphNeTModuleIceCubeUpgrade</span></code></a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.FEATURES" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">FEATURES</span></code></a>
-        </li>
-        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></code></a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#graphnet.deployment.i3modules.graphnet_module.I3PulseCleanerModule" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">I3PulseCleanerModule</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -590,132 +449,81 @@
 <span id="graphnet-module"></span><h1 id="api-graphnet-deployment-i3modules-graphnet-module--page-root">graphnet_module<a class="headerlink" href="#api-graphnet-deployment-i3modules-graphnet-module--page-root" title="Permalink to this heading">¶</a></h1>
 <p>Class(es) for deploying GraphNeT models in icetray as I3Modules.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleBase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleBase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">I3Module</span></code></p>
-<p>Base I3Module for running graphnet models in I3Tray chains.</p>
-<p>Construct <cite>GraphNeTModuleBase</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>context</strong> (<em>Any</em>) – </p>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.FEATURES">
-<span class="sig-name descname"><span class="pre">FEATURES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code><span class="pre">[</span><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code><span class="pre">]</span></em><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.FEATURES" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.I3FEATUREEXTRACTOR_CLASS">
-<span class="sig-name descname"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">type</span></code></em><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.I3FEATUREEXTRACTOR_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.DTYPES">
-<span class="sig-name descname"><span class="pre">DTYPES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'float16':</span> <span class="pre">torch.float16,</span> <span class="pre">'float32':</span> <span class="pre">torch.float32,</span> <span class="pre">'float64':</span> <span class="pre">torch.float64}</span></em><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.DTYPES" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Configure">
-<span class="sig-name descname"><span class="pre">Configure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleBase.Configure"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Configure" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configure I3Module based on keyword parameters.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Physics">
-<span class="sig-name descname"><span class="pre">Physics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleBase.Physics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase.Physics" title="Permalink to this definition">¶</a></dt>
-<dd><p>Process Physics I3Frame and write predictions.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
-</dd>
-<dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>frame</strong> (<em>icecube.icetray.I3Frame</em>) – </p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
-<dl class="py class">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleIceCube86</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleIceCube86"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" title="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a></p>
-<p>Module for running GraphNeT models on standard IceCube-86 data.</p>
-<p>Construct <cite>GraphNeTModuleBase</cite>.</p>
+<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTI3Module">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTI3Module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap_extractor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTI3Module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTI3Module" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base I3 Module for GraphNeT.</p>
+<p>Contains methods for extracting pulsemaps, producing graphs and writing to
+frames.</p>
+<p>I3Module Constructor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
-<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the pulse map on which the module functions</p></li>
+<li><p><strong>features</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – the features that is used from the pulse map.
+E.g. [dom_x, dom_y, dom_z, charge]</p></li>
+<li><p><strong>pulsemap_extractor</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractor</span></code></a>], <a class="reference internal" href="graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractor</span></code></a>]) – The I3FeatureExtractor used to extract the
+pulsemap from the I3Frames</p></li>
+<li><p><strong>gcd_file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Path to the associated gcd-file.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Any</em></p>
-</dd>
 </dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.FEATURES">
-<span class="sig-name descname"><span class="pre">FEATURES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['dom_x',</span> <span class="pre">'dom_y',</span> <span class="pre">'dom_z',</span> <span class="pre">'dom_time',</span> <span class="pre">'charge',</span> <span class="pre">'rde',</span> <span class="pre">'pmt_area']</span></em><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.FEATURES" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS">
-<span class="sig-name descname"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></span><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCube86.I3FEATUREEXTRACTOR_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCube86"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCube86</span></code></a></p>
-</dd></dl>
 </dd></dl>
 <dl class="py class">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleIceCubeDeepCore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleIceCubeDeepCore"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" title="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a></p>
-<p>Module for running GraphNeT models on standard IceCube-DeepCore data.</p>
-<p>Construct <cite>GraphNeTModuleBase</cite>.</p>
+<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.I3InferenceModule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">I3InferenceModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap_extractor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#I3InferenceModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.I3InferenceModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTI3Module" title="graphnet.deployment.i3modules.graphnet_module.GraphNeTI3Module"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphNeTI3Module</span></code></a></p>
+<p>General class for inference on i3 frames.</p>
+<p>General class for inference on I3Frames (physics).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
-<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the pulsmap that the model is expecting as input.</p></li>
+<li><p><strong>features</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – the features of the pulsemap that the model is expecting.</p></li>
+<li><p><strong>pulsemap_extractor</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractor</span></code></a>], <a class="reference internal" href="graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractor</span></code></a>]) – The extractor used to extract the pulsemap.</p></li>
+<li><p><strong>model</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="graphnet.models.model.html#graphnet.models.model.Model" title="graphnet.models.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>, <a class="reference internal" href="graphnet.models.standard_model.html#graphnet.models.standard_model.StandardModel" title="graphnet.models.standard_model.StandardModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardModel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The model (or path to pickled model) that will be
+used for inference.</p></li>
+<li><p><strong>model_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The name used for the model. Will help define the
+named entry in the I3Frame. E.g. “dynedge”.</p></li>
+<li><p><strong>prediction_columns</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – <p>column names for the predictions of the model.
+Will help define the named entry in the I3Frame.</p>
+<blockquote>
+<div><p>E.g. [‘energy_reco’].</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>gcd_file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – path to associated gcd file.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Any</em></p>
-</dd>
 </dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.FEATURES">
-<span class="sig-name descname"><span class="pre">FEATURES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['dom_x',</span> <span class="pre">'dom_y',</span> <span class="pre">'dom_z',</span> <span class="pre">'dom_time',</span> <span class="pre">'charge',</span> <span class="pre">'rde',</span> <span class="pre">'pmt_area']</span></em><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.FEATURES" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS">
-<span class="sig-name descname"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></span><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeDeepCore.I3FEATUREEXTRACTOR_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeDeepCore" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeDeepCore"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCubeDeepCore</span></code></a></p>
-</dd></dl>
 </dd></dl>
 <dl class="py class">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">GraphNeTModuleIceCubeUpgrade</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#GraphNeTModuleIceCubeUpgrade"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase" title="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleBase"><code class="xref py py-class docutils literal notranslate"><span class="pre">GraphNeTModuleBase</span></code></a></p>
-<p>Module for running GraphNeT models on standard IceCube-Upgrade data.</p>
-<p>Construct <cite>GraphNeTModuleBase</cite>.</p>
+<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.I3PulseCleanerModule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.deployment.i3modules.graphnet_module.</span></span><span class="sig-name descname"><span class="pre">I3PulseCleanerModule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulsemap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pulsemap_extractor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prediction_columns</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gcd_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/deployment/i3modules/graphnet_module.html#I3PulseCleanerModule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.I3PulseCleanerModule" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#graphnet.deployment.i3modules.graphnet_module.I3InferenceModule" title="graphnet.deployment.i3modules.graphnet_module.I3InferenceModule"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3InferenceModule</span></code></a></p>
+<p>A specialized module for pulse cleaning.</p>
+<p>It is assumed that the model provided has been trained for this.</p>
+<p>General class for inference on I3Frames (physics).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
-<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>pulsemap</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the pulsmap that the model is expecting as input
+(the one that is being cleaned).</p></li>
+<li><p><strong>features</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – the features of the pulsemap that the model is expecting.</p></li>
+<li><p><strong>pulsemap_extractor</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractor</span></code></a>], <a class="reference internal" href="graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractor" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractor</span></code></a>]) – The extractor used to extract the pulsemap.</p></li>
+<li><p><strong>model</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="graphnet.models.model.html#graphnet.models.model.Model" title="graphnet.models.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a>, <a class="reference internal" href="graphnet.models.standard_model.html#graphnet.models.standard_model.StandardModel" title="graphnet.models.standard_model.StandardModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardModel</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – The model (or path to pickled model) that will be
+used for inference.</p></li>
+<li><p><strong>model_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The name used for the model. Will help define the named
+entry in the I3Frame. E.g. “dynedge”.</p></li>
+<li><p><strong>prediction_columns</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">''</span></code>) – column names for the predictions of the model.
+Will help define the named entry in the I3Frame.
+E.g. [‘energy_reco’].</p></li>
+<li><p><strong>gcd_file</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – path to associated gcd file.</p></li>
+<li><p><strong>threshold</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, default: <code class="docutils literal notranslate"><span class="pre">0.7</span></code>) – the threshold for being considered a positive case.
+E.g., predictions &gt;= threshold will be considered
+to be signal, all else noise.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Any</em></p>
-</dd>
 </dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.FEATURES">
-<span class="sig-name descname"><span class="pre">FEATURES</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List[str]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['dom_x',</span> <span class="pre">'dom_y',</span> <span class="pre">'dom_z',</span> <span class="pre">'dom_time',</span> <span class="pre">'charge',</span> <span class="pre">'rde',</span> <span class="pre">'pmt_area',</span> <span class="pre">'string',</span> <span class="pre">'pmt_number',</span> <span class="pre">'dom_number',</span> <span class="pre">'pmt_dir_x',</span> <span class="pre">'pmt_dir_y',</span> <span class="pre">'pmt_dir_z',</span> <span class="pre">'dom_type']</span></em><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.FEATURES" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS">
-<span class="sig-name descname"><span class="pre">I3FEATUREEXTRACTOR_CLASS</span></span><a class="headerlink" href="#graphnet.deployment.i3modules.graphnet_module.GraphNeTModuleIceCubeUpgrade.I3FEATUREEXTRACTOR_CLASS" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="graphnet.data.extractors.i3featureextractor.html#graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeUpgrade" title="graphnet.data.extractors.i3featureextractor.I3FeatureExtractorIceCubeUpgrade"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3FeatureExtractorIceCubeUpgrade</span></code></a></p>
-</dd></dl>
 </dd></dl>
 </section>
 
@@ -729,7 +537,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="graphnet.deployment.i3modules.html" title="i3modules"
+            <a href="graphnet.deployment.i3modules.deployer.html" title="deployer"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -738,7 +546,7 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> i3modules </span>
+                      class="md-footer-nav__direction"> Previous </span> deployer </span>
               </div>
             </a>
           
