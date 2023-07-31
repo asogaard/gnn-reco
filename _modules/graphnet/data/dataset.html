@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -112,11 +111,11 @@
   }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/sphinx_highlight.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e7352e39" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <link rel="icon" href="../../../_static/favicon.svg"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -513,6 +512,9 @@
 <span class="sd">                `"10000 random events ~ event_no % 5 &gt; 0"` or `"20% random</span>
 <span class="sd">                events ~ event_no % 5 &gt; 0"`).</span>
 <span class="sd">        """</span>
+        <span class="c1"># Base class constructor</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
         <span class="c1"># Check(s)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pulsemaps</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">pulsemaps</span> <span class="o">=</span> <span class="p">[</span><span class="n">pulsemaps</span><span class="p">]</span>
@@ -581,9 +583,6 @@
             <span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">,</span>
         <span class="p">)</span>
 
-        <span class="c1"># Base class constructor</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-
         <span class="c1"># Implementation-specific initialisation.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_init</span><span class="p">()</span>
 
@@ -622,7 +621,7 @@
 <span class="w">        </span><span class="sd">"""Set internal representation needed to read data from input file."""</span>
 
     <span class="k">def</span> <span class="nf">_post_init</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Implemenation-specific code to be run after the main constructor."""</span>
+<span class="w">        </span><span class="sd">"""Implementation-specific code executed after the main constructor."""</span>
 
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">_get_all_indices</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
@@ -632,7 +631,7 @@
     <span class="k">def</span> <span class="nf">_get_event_index</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">sequential_index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">"""Return a the event index corresponding to a `sequential_index`."""</span>
+<span class="w">        </span><span class="sd">"""Return the event index corresponding to a `sequential_index`."""</span>
 
 <div class="viewcode-block" id="Dataset.query_table"><a class="viewcode-back" href="../../../api/graphnet.data.dataset.html#graphnet.data.dataset.Dataset.query_table">[docs]</a>    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">query_table</span><span class="p">(</span>
@@ -699,7 +698,7 @@
     <span class="k">def</span> <span class="nf">_resolve_string_selection_to_indices</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">selection</span><span class="p">:</span> <span class="nb">str</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">"""Resolve selection as string to list of indicies.</span>
+<span class="w">        </span><span class="sd">"""Resolve selection as string to list of indices.</span>
 
 <span class="sd">        Selections are expected to have pandas.DataFrame.query-compatible</span>
 <span class="sd">        syntax, e.g., ``` "event_no % 5 &gt; 0" ``` Selections may also specify a</span>
@@ -779,7 +778,7 @@
     <span class="p">]:</span>
 <span class="w">        </span><span class="sd">"""Query file for event features and truth information.</span>
 
-<span class="sd">        The returned lists have lengths correspondings to the number of pulses</span>
+<span class="sd">        The returned lists have lengths corresponding to the number of pulses</span>
 <span class="sd">        in the event. Their constituent tuples have lengths corresponding to</span>
 <span class="sd">        the number of features/attributes in each output</span>
 
@@ -838,7 +837,7 @@
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Create Pytorch Data (i.e. graph) object.</span>
 
-<span class="sd">        No preprocessing is performed at this stage, just as no node adjancency</span>
+<span class="sd">        No preprocessing is performed at this stage, just as no node adjacency</span>
 <span class="sd">        is imposed. This means that the `edge_attr` and `edge_weight`</span>
 <span class="sd">        attributes are not set.</span>
 
@@ -910,16 +909,19 @@
             <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">write_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">graph</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-                <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-                    <span class="c1"># Cannot convert `value` to Tensor due to its data type,</span>
-                    <span class="c1"># e.g. `str`.</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-                        <span class="p">(</span>
-                            <span class="sa">f</span><span class="s2">"Could not assign `</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">` with type "</span>
-                            <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">' as attribute to graph."</span>
+                <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">RuntimeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+                        <span class="c1"># Cannot convert `value` to Tensor due to its data type,</span>
+                        <span class="c1"># e.g. `str`.</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                            <span class="p">(</span>
+                                <span class="sa">f</span><span class="s2">"Could not assign `</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">` with type "</span>
+                                <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="ow">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="kc">None</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'NoneType'</span><span class="si">}</span><span class="s2">' as attribute to graph of "</span>
+                                <span class="sa">f</span><span class="s2">"event with </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_index_column</span><span class="si">}</span><span class="s2"> == </span><span class="si">{</span><span class="n">labels_dict</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_index_column</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+                            <span class="p">)</span>
                         <span class="p">)</span>
-                    <span class="p">)</span>
-
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">error</span>
         <span class="c1"># Additionally add original features as (static) attributes</span>
         <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">feature</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">features</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">feature</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">]:</span>
@@ -1015,7 +1017,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
