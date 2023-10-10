@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -110,12 +110,20 @@
     background: rgba(0,0,0,0.03);
   }
 
+  #eu-emblem {
+    margin: 0;
+  }
+
+  #eu-emblem figcaption {
+    display: none;
+  }
+
 </style>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e7352e39" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -166,7 +174,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -316,7 +324,9 @@
 <ul><li><a href="graphnet/data/constants.html">graphnet.data.constants</a></li>
 <li><a href="graphnet/data/dataconverter.html">graphnet.data.dataconverter</a></li>
 <li><a href="graphnet/data/dataloader.html">graphnet.data.dataloader</a></li>
-<li><a href="graphnet/data/dataset.html">graphnet.data.dataset</a></li>
+<li><a href="graphnet/data/dataset/dataset.html">graphnet.data.dataset.dataset</a></li>
+<li><a href="graphnet/data/dataset/parquet/parquet_dataset.html">graphnet.data.dataset.parquet.parquet_dataset</a></li>
+<li><a href="graphnet/data/dataset/sqlite/sqlite_dataset.html">graphnet.data.dataset.sqlite.sqlite_dataset</a></li>
 <li><a href="graphnet/data/extractors/i3extractor.html">graphnet.data.extractors.i3extractor</a></li>
 <li><a href="graphnet/data/extractors/i3featureextractor.html">graphnet.data.extractors.i3featureextractor</a></li>
 <li><a href="graphnet/data/extractors/i3genericextractor.html">graphnet.data.extractors.i3genericextractor</a></li>
@@ -333,11 +343,8 @@
 <li><a href="graphnet/data/extractors/utilities/frames.html">graphnet.data.extractors.utilities.frames</a></li>
 <li><a href="graphnet/data/extractors/utilities/types.html">graphnet.data.extractors.utilities.types</a></li>
 <li><a href="graphnet/data/parquet/parquet_dataconverter.html">graphnet.data.parquet.parquet_dataconverter</a></li>
-<li><a href="graphnet/data/parquet/parquet_dataset.html">graphnet.data.parquet.parquet_dataset</a></li>
 <li><a href="graphnet/data/pipeline.html">graphnet.data.pipeline</a></li>
 <li><a href="graphnet/data/sqlite/sqlite_dataconverter.html">graphnet.data.sqlite.sqlite_dataconverter</a></li>
-<li><a href="graphnet/data/sqlite/sqlite_dataset.html">graphnet.data.sqlite.sqlite_dataset</a></li>
-<li><a href="graphnet/data/sqlite/sqlite_dataset_perturbed.html">graphnet.data.sqlite.sqlite_dataset_perturbed</a></li>
 <li><a href="graphnet/data/sqlite/sqlite_utilities.html">graphnet.data.sqlite.sqlite_utilities</a></li>
 <li><a href="graphnet/data/utilities/parquet_to_sqlite.html">graphnet.data.utilities.parquet_to_sqlite</a></li>
 <li><a href="graphnet/data/utilities/random.html">graphnet.data.utilities.random</a></li>
@@ -354,7 +361,10 @@
 <li><a href="graphnet/models/gnn/dynedge_jinst.html">graphnet.models.gnn.dynedge_jinst</a></li>
 <li><a href="graphnet/models/gnn/dynedge_kaggle_tito.html">graphnet.models.gnn.dynedge_kaggle_tito</a></li>
 <li><a href="graphnet/models/gnn/gnn.html">graphnet.models.gnn.gnn</a></li>
-<li><a href="graphnet/models/graph_builders.html">graphnet.models.graph_builders</a></li>
+<li><a href="graphnet/models/graphs/edges/edges.html">graphnet.models.graphs.edges.edges</a></li>
+<li><a href="graphnet/models/graphs/graph_definition.html">graphnet.models.graphs.graph_definition</a></li>
+<li><a href="graphnet/models/graphs/graphs.html">graphnet.models.graphs.graphs</a></li>
+<li><a href="graphnet/models/graphs/nodes/nodes.html">graphnet.models.graphs.nodes.nodes</a></li>
 <li><a href="graphnet/models/model.html">graphnet.models.model</a></li>
 <li><a href="graphnet/models/standard_model.html">graphnet.models.standard_model</a></li>
 <li><a href="graphnet/models/task/classification.html">graphnet.models.task.classification</a></li>
@@ -403,7 +413,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

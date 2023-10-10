@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -110,12 +110,20 @@
     background: rgba(0,0,0,0.03);
   }
 
+  #eu-emblem {
+    margin: 0;
+  }
+
+  #eu-emblem figcaption {
+    display: none;
+  }
+
 </style>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e7352e39" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=83e35b93" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../../_static/favicon.svg"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -166,7 +174,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -338,7 +346,6 @@
     <span class="n">std_pool_x</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">graphnet.models</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="kn">from</span> <span class="nn">graphnet.utilities.config</span> <span class="kn">import</span> <span class="n">save_model_config</span>
 
 <span class="c1"># Utility method(s)</span>
 <span class="kn">from</span> <span class="nn">torch_geometric.utils</span> <span class="kn">import</span> <span class="n">degree</span>
@@ -348,7 +355,9 @@
 <span class="c1">#       See [https://github.com/pyg-team/pytorch_geometric/blob/master/CHANGELOG.md]</span>
 
 
-<div class="viewcode-block" id="unbatch_edge_index"><a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.unbatch_edge_index">[docs]</a><span class="k">def</span> <span class="nf">unbatch_edge_index</span><span class="p">(</span><span class="n">edge_index</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]:</span>
+<div class="viewcode-block" id="unbatch_edge_index">
+<a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.unbatch_edge_index">[docs]</a>
+<span class="k">def</span> <span class="nf">unbatch_edge_index</span><span class="p">(</span><span class="n">edge_index</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]:</span>
     <span class="c1"># noqa: D401</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""Splits the :obj:`edge_index` according to a :obj:`batch` vector.</span>
 
@@ -368,7 +377,10 @@
     <span class="k">return</span> <span class="n">edge_index</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Coarsening"><a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.Coarsening">[docs]</a><span class="k">class</span> <span class="nc">Coarsening</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Coarsening">
+<a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.Coarsening">[docs]</a>
+<span class="k">class</span> <span class="nc">Coarsening</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Base class for coarsening operations."""</span>
 
     <span class="c1"># Class variables</span>
@@ -379,7 +391,6 @@
         <span class="s2">"sum"</span><span class="p">:</span> <span class="p">(</span><span class="n">sum_pool</span><span class="p">,</span> <span class="n">sum_pool_x</span><span class="p">),</span>
     <span class="p">}</span>
 
-    <span class="nd">@save_model_config</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">reduce</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"avg"</span><span class="p">,</span>
@@ -444,7 +455,9 @@
 
         <span class="k">return</span> <span class="n">pooled_data</span>
 
-<div class="viewcode-block" id="Coarsening.forward"><a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.Coarsening.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Data</span><span class="p">,</span> <span class="n">Batch</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Data</span><span class="p">,</span> <span class="n">Batch</span><span class="p">]:</span>
+<div class="viewcode-block" id="Coarsening.forward">
+<a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.Coarsening.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Data</span><span class="p">,</span> <span class="n">Batch</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Data</span><span class="p">,</span> <span class="n">Batch</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">"""Perform coarsening operation."""</span>
         <span class="c1"># Get tensor of cluster indices for each node.</span>
         <span class="n">cluster</span><span class="p">:</span> <span class="n">LongTensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_perform_clustering</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -482,6 +495,7 @@
             <span class="n">pooled_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reconstruct_batch</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pooled_data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pooled_data</span></div>
 
+
     <span class="k">def</span> <span class="nf">_reconstruct_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">original</span><span class="p">:</span> <span class="n">Data</span><span class="p">,</span> <span class="n">pooled</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Data</span><span class="p">:</span>
         <span class="n">pooled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_slice_dict</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">pooled</span><span class="p">)</span>
         <span class="n">pooled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_inc_dict</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="n">pooled</span><span class="p">)</span>
@@ -511,10 +525,12 @@
         <span class="k">return</span> <span class="n">pooled</span></div>
 
 
-<div class="viewcode-block" id="AttributeCoarsening"><a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.AttributeCoarsening">[docs]</a><span class="k">class</span> <span class="nc">AttributeCoarsening</span><span class="p">(</span><span class="n">Coarsening</span><span class="p">):</span>
+
+<div class="viewcode-block" id="AttributeCoarsening">
+<a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.AttributeCoarsening">[docs]</a>
+<span class="k">class</span> <span class="nc">AttributeCoarsening</span><span class="p">(</span><span class="n">Coarsening</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Coarsen pulses based on specified attributes."""</span>
 
-    <span class="nd">@save_model_config</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">attributes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
@@ -533,7 +549,10 @@
         <span class="k">return</span> <span class="n">dom_index</span></div>
 
 
-<div class="viewcode-block" id="DOMCoarsening"><a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.DOMCoarsening">[docs]</a><span class="k">class</span> <span class="nc">DOMCoarsening</span><span class="p">(</span><span class="n">Coarsening</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DOMCoarsening">
+<a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.DOMCoarsening">[docs]</a>
+<span class="k">class</span> <span class="nc">DOMCoarsening</span><span class="p">(</span><span class="n">Coarsening</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Coarsen pulses to DOM-level."""</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
@@ -561,7 +580,10 @@
         <span class="k">return</span> <span class="n">dom_index</span></div>
 
 
-<div class="viewcode-block" id="CustomDOMCoarsening"><a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.CustomDOMCoarsening">[docs]</a><span class="k">class</span> <span class="nc">CustomDOMCoarsening</span><span class="p">(</span><span class="n">DOMCoarsening</span><span class="p">):</span>
+
+<div class="viewcode-block" id="CustomDOMCoarsening">
+<a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.CustomDOMCoarsening">[docs]</a>
+<span class="k">class</span> <span class="nc">CustomDOMCoarsening</span><span class="p">(</span><span class="n">DOMCoarsening</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Coarsen pulses to DOM-level with additional attributes."""</span>
 
     <span class="k">def</span> <span class="nf">_additional_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cluster</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
@@ -596,7 +618,10 @@
         <span class="k">return</span> <span class="n">x</span></div>
 
 
-<div class="viewcode-block" id="DOMAndTimeWindowCoarsening"><a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.DOMAndTimeWindowCoarsening">[docs]</a><span class="k">class</span> <span class="nc">DOMAndTimeWindowCoarsening</span><span class="p">(</span><span class="n">Coarsening</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DOMAndTimeWindowCoarsening">
+<a class="viewcode-back" href="../../../api/graphnet.models.coarsening.html#graphnet.models.coarsening.DOMAndTimeWindowCoarsening">[docs]</a>
+<span class="k">class</span> <span class="nc">DOMAndTimeWindowCoarsening</span><span class="p">(</span><span class="n">Coarsening</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Coarsen pulses to DOM-level, with additional time-window clustering."""</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
@@ -644,6 +669,7 @@
         <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">clusters</span></div>
+
 </pre></div>
 
           </article>
@@ -668,7 +694,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

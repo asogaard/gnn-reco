@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -110,12 +110,20 @@
     background: rgba(0,0,0,0.03);
   }
 
+  #eu-emblem {
+    margin: 0;
+  }
+
+  #eu-emblem figcaption {
+    display: none;
+  }
+
 </style>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=e7352e39" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=83e35b93" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/material.css?v=79c92029" />
-    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../../../_static/favicon.svg"/>
     <link rel="author" title="About these documents" href="../../../../about.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
@@ -166,7 +174,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -331,7 +339,9 @@
 <span class="kn">from</span> <span class="nn">pytorch_lightning</span> <span class="kn">import</span> <span class="n">LightningModule</span>
 
 
-<div class="viewcode-block" id="DynEdgeConv"><a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.DynEdgeConv">[docs]</a><span class="k">class</span> <span class="nc">DynEdgeConv</span><span class="p">(</span><span class="n">EdgeConv</span><span class="p">,</span> <span class="n">LightningModule</span><span class="p">):</span>
+<div class="viewcode-block" id="DynEdgeConv">
+<a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.DynEdgeConv">[docs]</a>
+<span class="k">class</span> <span class="nc">DynEdgeConv</span><span class="p">(</span><span class="n">EdgeConv</span><span class="p">,</span> <span class="n">LightningModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Dynamical edge convolution layer."""</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
@@ -366,7 +376,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">nb_neighbors</span> <span class="o">=</span> <span class="n">nb_neighbors</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">features_subset</span> <span class="o">=</span> <span class="n">features_subset</span>
 
-<div class="viewcode-block" id="DynEdgeConv.forward"><a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.DynEdgeConv.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
+<div class="viewcode-block" id="DynEdgeConv.forward">
+<a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.DynEdgeConv.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">:</span> <span class="n">Adj</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Forward pass."""</span>
@@ -380,10 +392,14 @@
             <span class="n">batch</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span>
         <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">edge_index</span></div></div>
+        <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">edge_index</span></div>
+</div>
 
 
-<div class="viewcode-block" id="EdgeConvTito"><a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.EdgeConvTito">[docs]</a><span class="k">class</span> <span class="nc">EdgeConvTito</span><span class="p">(</span><span class="n">MessagePassing</span><span class="p">,</span> <span class="n">LightningModule</span><span class="p">):</span>
+
+<div class="viewcode-block" id="EdgeConvTito">
+<a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.EdgeConvTito">[docs]</a>
+<span class="k">class</span> <span class="nc">EdgeConvTito</span><span class="p">(</span><span class="n">MessagePassing</span><span class="p">,</span> <span class="n">LightningModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Implementation of EdgeConvTito layer used in TITO solution for.</span>
 
 <span class="sd">    'IceCube - Neutrinos in Deep' kaggle competition.</span>
@@ -406,29 +422,41 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">nn</span> <span class="o">=</span> <span class="n">nn</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reset_parameters</span><span class="p">()</span>
 
-<div class="viewcode-block" id="EdgeConvTito.reset_parameters"><a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.EdgeConvTito.reset_parameters">[docs]</a>    <span class="k">def</span> <span class="nf">reset_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="EdgeConvTito.reset_parameters">
+<a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.EdgeConvTito.reset_parameters">[docs]</a>
+    <span class="k">def</span> <span class="nf">reset_parameters</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Reset all learnable parameters of the module."""</span>
         <span class="n">reset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nn</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="EdgeConvTito.forward"><a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.EdgeConvTito.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">PairTensor</span><span class="p">],</span> <span class="n">edge_index</span><span class="p">:</span> <span class="n">Adj</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+
+<div class="viewcode-block" id="EdgeConvTito.forward">
+<a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.EdgeConvTito.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">PairTensor</span><span class="p">],</span> <span class="n">edge_index</span><span class="p">:</span> <span class="n">Adj</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Forward pass."""</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
             <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
         <span class="c1"># propagate_type: (x: PairTensor)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">propagate</span><span class="p">(</span><span class="n">edge_index</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="EdgeConvTito.message"><a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.EdgeConvTito.message">[docs]</a>    <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_i</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">x_j</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+
+<div class="viewcode-block" id="EdgeConvTito.message">
+<a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.EdgeConvTito.message">[docs]</a>
+    <span class="k">def</span> <span class="nf">message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x_i</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">x_j</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Edgeconvtito message passing."""</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nn</span><span class="p">(</span>
             <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">x_i</span><span class="p">,</span> <span class="n">x_j</span> <span class="o">-</span> <span class="n">x_i</span><span class="p">,</span> <span class="n">x_j</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="p">)</span>  <span class="c1"># EdgeConvTito</span></div>
+
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Print out module name."""</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">(nn=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nn</span><span class="si">}</span><span class="s2">)"</span></div>
 
 
-<div class="viewcode-block" id="DynTrans"><a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.DynTrans">[docs]</a><span class="k">class</span> <span class="nc">DynTrans</span><span class="p">(</span><span class="n">EdgeConvTito</span><span class="p">,</span> <span class="n">LightningModule</span><span class="p">):</span>
+
+<div class="viewcode-block" id="DynTrans">
+<a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.DynTrans">[docs]</a>
+<span class="k">class</span> <span class="nc">DynTrans</span><span class="p">(</span><span class="n">EdgeConvTito</span><span class="p">,</span> <span class="n">LightningModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Implementation of dynTrans1 layer used in TITO solution for.</span>
 
 <span class="sd">    'IceCube - Neutrinos in Deep' kaggle competition.</span>
@@ -490,7 +518,9 @@
             <span class="n">encoder_layer</span><span class="p">,</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">1</span>
         <span class="p">)</span>
 
-<div class="viewcode-block" id="DynTrans.forward"><a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.DynTrans.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
+<div class="viewcode-block" id="DynTrans.forward">
+<a class="viewcode-back" href="../../../../api/graphnet.models.components.layers.html#graphnet.models.components.layers.DynTrans.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">:</span> <span class="n">Adj</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Forward pass."""</span>
@@ -508,7 +538,9 @@
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_transformer_encoder</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">src_key_padding_mask</span><span class="o">=~</span><span class="n">mask</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 
-        <span class="k">return</span> <span class="n">x</span></div></div>
+        <span class="k">return</span> <span class="n">x</span></div>
+</div>
+
 </pre></div>
 
           </article>
@@ -533,7 +565,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

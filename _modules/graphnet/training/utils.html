@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../../../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -110,12 +110,20 @@
     background: rgba(0,0,0,0.03);
   }
 
+  #eu-emblem {
+    margin: 0;
+  }
+
+  #eu-emblem figcaption {
+    display: none;
+  }
+
 </style>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=e7352e39" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=83e35b93" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../../_static/favicon.svg"/>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -166,7 +174,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../../../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -328,25 +336,32 @@
 <span class="kn">from</span> <span class="nn">torch_geometric.data</span> <span class="kn">import</span> <span class="n">Batch</span><span class="p">,</span> <span class="n">Data</span>
 
 <span class="kn">from</span> <span class="nn">graphnet.data.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
-<span class="kn">from</span> <span class="nn">graphnet.data.sqlite</span> <span class="kn">import</span> <span class="n">SQLiteDataset</span>
-<span class="kn">from</span> <span class="nn">graphnet.data.parquet</span> <span class="kn">import</span> <span class="n">ParquetDataset</span>
+<span class="kn">from</span> <span class="nn">graphnet.data.dataset</span> <span class="kn">import</span> <span class="n">SQLiteDataset</span>
+<span class="kn">from</span> <span class="nn">graphnet.data.dataset</span> <span class="kn">import</span> <span class="n">ParquetDataset</span>
 <span class="kn">from</span> <span class="nn">graphnet.models</span> <span class="kn">import</span> <span class="n">Model</span>
 <span class="kn">from</span> <span class="nn">graphnet.utilities.logging</span> <span class="kn">import</span> <span class="n">Logger</span>
+<span class="kn">from</span> <span class="nn">graphnet.models.graphs</span> <span class="kn">import</span> <span class="n">GraphDefinition</span>
 
 
-<div class="viewcode-block" id="collate_fn"><a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.collate_fn">[docs]</a><span class="k">def</span> <span class="nf">collate_fn</span><span class="p">(</span><span class="n">graphs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Data</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="p">:</span>
+<div class="viewcode-block" id="collate_fn">
+<a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.collate_fn">[docs]</a>
+<span class="k">def</span> <span class="nf">collate_fn</span><span class="p">(</span><span class="n">graphs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Data</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Remove graphs with less than two DOM hits.</span>
 
-<span class="sd">    Should not occur in "production.</span>
+<span class="sd">    Should not occur in "production".</span>
 <span class="sd">    """</span>
     <span class="n">graphs</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">graphs</span> <span class="k">if</span> <span class="n">g</span><span class="o">.</span><span class="n">n_pulses</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">Batch</span><span class="o">.</span><span class="n">from_data_list</span><span class="p">(</span><span class="n">graphs</span><span class="p">)</span></div>
 
 
+
 <span class="c1"># @TODO: Remove in favour of DataLoader{,.from_dataset_config}</span>
-<div class="viewcode-block" id="make_dataloader"><a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.make_dataloader">[docs]</a><span class="k">def</span> <span class="nf">make_dataloader</span><span class="p">(</span>
+<div class="viewcode-block" id="make_dataloader">
+<a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.make_dataloader">[docs]</a>
+<span class="k">def</span> <span class="nf">make_dataloader</span><span class="p">(</span>
     <span class="n">db</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">pulsemaps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
+    <span class="n">graph_definition</span><span class="p">:</span> <span class="n">GraphDefinition</span><span class="p">,</span>
     <span class="n">features</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">truth</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="o">*</span><span class="p">,</span>
@@ -382,6 +397,7 @@
         <span class="n">loss_weight_table</span><span class="o">=</span><span class="n">loss_weight_table</span><span class="p">,</span>
         <span class="n">loss_weight_column</span><span class="o">=</span><span class="n">loss_weight_column</span><span class="p">,</span>
         <span class="n">index_column</span><span class="o">=</span><span class="n">index_column</span><span class="p">,</span>
+        <span class="n">graph_definition</span><span class="o">=</span><span class="n">graph_definition</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="c1"># adds custom labels to dataset</span>
@@ -402,9 +418,13 @@
     <span class="k">return</span> <span class="n">dataloader</span></div>
 
 
+
 <span class="c1"># @TODO: Remove in favour of DataLoader{,.from_dataset_config}</span>
-<div class="viewcode-block" id="make_train_validation_dataloader"><a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.make_train_validation_dataloader">[docs]</a><span class="k">def</span> <span class="nf">make_train_validation_dataloader</span><span class="p">(</span>
+<div class="viewcode-block" id="make_train_validation_dataloader">
+<a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.make_train_validation_dataloader">[docs]</a>
+<span class="k">def</span> <span class="nf">make_train_validation_dataloader</span><span class="p">(</span>
     <span class="n">db</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">graph_definition</span><span class="p">:</span> <span class="n">GraphDefinition</span><span class="p">,</span>
     <span class="n">selection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
     <span class="n">pulsemaps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
     <span class="n">features</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
@@ -427,8 +447,7 @@
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">DataLoader</span><span class="p">,</span> <span class="n">DataLoader</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">"""Construct train and test `DataLoader` instances."""</span>
     <span class="c1"># Reproducibility</span>
-    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
-
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="n">seed</span><span class="p">)</span>
     <span class="c1"># Checks(s)</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">pulsemaps</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">pulsemaps</span> <span class="o">=</span> <span class="p">[</span><span class="n">pulsemaps</span><span class="p">]</span>
@@ -438,19 +457,21 @@
         <span class="n">dataset</span><span class="p">:</span> <span class="n">Dataset</span>
         <span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".db"</span><span class="p">):</span>
             <span class="n">dataset</span> <span class="o">=</span> <span class="n">SQLiteDataset</span><span class="p">(</span>
-                <span class="n">db</span><span class="p">,</span>
-                <span class="n">pulsemaps</span><span class="p">,</span>
-                <span class="n">features</span><span class="p">,</span>
-                <span class="n">truth</span><span class="p">,</span>
+                <span class="n">path</span><span class="o">=</span><span class="n">db</span><span class="p">,</span>
+                <span class="n">graph_definition</span><span class="o">=</span><span class="n">graph_definition</span><span class="p">,</span>
+                <span class="n">pulsemaps</span><span class="o">=</span><span class="n">pulsemaps</span><span class="p">,</span>
+                <span class="n">features</span><span class="o">=</span><span class="n">features</span><span class="p">,</span>
+                <span class="n">truth</span><span class="o">=</span><span class="n">truth</span><span class="p">,</span>
                 <span class="n">truth_table</span><span class="o">=</span><span class="n">truth_table</span><span class="p">,</span>
                 <span class="n">index_column</span><span class="o">=</span><span class="n">index_column</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">elif</span> <span class="n">db</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".parquet"</span><span class="p">):</span>
             <span class="n">dataset</span> <span class="o">=</span> <span class="n">ParquetDataset</span><span class="p">(</span>
-                <span class="n">db</span><span class="p">,</span>
-                <span class="n">pulsemaps</span><span class="p">,</span>
-                <span class="n">features</span><span class="p">,</span>
-                <span class="n">truth</span><span class="p">,</span>
+                <span class="n">path</span><span class="o">=</span><span class="n">db</span><span class="p">,</span>
+                <span class="n">graph_definition</span><span class="o">=</span><span class="n">graph_definition</span><span class="p">,</span>
+                <span class="n">pulsemaps</span><span class="o">=</span><span class="n">pulsemaps</span><span class="p">,</span>
+                <span class="n">features</span><span class="o">=</span><span class="n">features</span><span class="p">,</span>
+                <span class="n">truth</span><span class="o">=</span><span class="n">truth</span><span class="p">,</span>
                 <span class="n">truth_table</span><span class="o">=</span><span class="n">truth_table</span><span class="p">,</span>
                 <span class="n">index_column</span><span class="o">=</span><span class="n">index_column</span><span class="p">,</span>
             <span class="p">)</span>
@@ -469,13 +490,13 @@
             <span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">rng</span>
         <span class="p">)</span>
         <span class="n">training_df</span><span class="p">,</span> <span class="n">validation_df</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-            <span class="n">shuffled_df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">rng</span>
+            <span class="n">shuffled_df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span>
         <span class="p">)</span>
         <span class="n">training_selection</span> <span class="o">=</span> <span class="n">training_df</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
         <span class="n">validation_selection</span> <span class="o">=</span> <span class="n">validation_df</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">training_selection</span><span class="p">,</span> <span class="n">validation_selection</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-            <span class="n">selection</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">rng</span>
+            <span class="n">selection</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">seed</span>
         <span class="p">)</span>
 
     <span class="c1"># Create DataLoaders</span>
@@ -495,6 +516,7 @@
         <span class="n">loss_weight_table</span><span class="o">=</span><span class="n">loss_weight_table</span><span class="p">,</span>
         <span class="n">index_column</span><span class="o">=</span><span class="n">index_column</span><span class="p">,</span>
         <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
+        <span class="n">graph_definition</span><span class="o">=</span><span class="n">graph_definition</span><span class="p">,</span>
     <span class="p">)</span>
 
     <span class="n">training_dataloader</span> <span class="o">=</span> <span class="n">make_dataloader</span><span class="p">(</span>
@@ -515,8 +537,11 @@
     <span class="p">)</span></div>
 
 
+
 <span class="c1"># @TODO: Remove in favour of Model.predict{,_as_dataframe}</span>
-<div class="viewcode-block" id="get_predictions"><a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.get_predictions">[docs]</a><span class="k">def</span> <span class="nf">get_predictions</span><span class="p">(</span>
+<div class="viewcode-block" id="get_predictions">
+<a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.get_predictions">[docs]</a>
+<span class="k">def</span> <span class="nf">get_predictions</span><span class="p">(</span>
     <span class="n">trainer</span><span class="p">:</span> <span class="n">Trainer</span><span class="p">,</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">,</span>
     <span class="n">dataloader</span><span class="p">:</span> <span class="n">DataLoader</span><span class="p">,</span>
@@ -577,8 +602,11 @@
     <span class="k">return</span> <span class="n">results</span></div>
 
 
+
 <span class="c1"># @TODO: Remove</span>
-<div class="viewcode-block" id="save_results"><a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.save_results">[docs]</a><span class="k">def</span> <span class="nf">save_results</span><span class="p">(</span>
+<div class="viewcode-block" id="save_results">
+<a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.save_results">[docs]</a>
+<span class="k">def</span> <span class="nf">save_results</span><span class="p">(</span>
     <span class="n">db</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">archive</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">Model</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Save trained model and prediction `results` in `db`."""</span>
@@ -589,6 +617,7 @@
     <span class="n">model</span><span class="o">.</span><span class="n">save_state_dict</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">tag</span> <span class="o">+</span> <span class="s2">"_state_dict.pth"</span><span class="p">)</span>
     <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">tag</span> <span class="o">+</span> <span class="s2">"_model.pth"</span><span class="p">)</span>
     <span class="n">Logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Results saved at: </span><span class="se">\n</span><span class="s2"> </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">path</span><span class="p">)</span></div>
+
 </pre></div>
 
           </article>
@@ -613,7 +642,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

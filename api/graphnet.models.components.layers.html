@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -111,12 +111,20 @@
     background: rgba(0,0,0,0.03);
   }
 
+  #eu-emblem {
+    margin: 0;
+  }
+
+  #eu-emblem figcaption {
+    display: none;
+  }
+
 </style>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e7352e39" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -169,7 +177,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -328,7 +336,7 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#api-graphnet-models-components-layers--page-root" class="md-nav__link">layers</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -443,6 +451,13 @@
     <li class="md-nav__item">
     
     
+      <a href="graphnet.models.graphs.html" class="md-nav__link">graphs</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="graphnet.models.task.html" class="md-nav__link">task</a>
       
     
@@ -451,13 +466,6 @@
     
     
       <a href="graphnet.models.coarsening.html" class="md-nav__link">coarsening</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="graphnet.models.graph_builders.html" class="md-nav__link">graph_builders</a>
       
     
     </li>
@@ -526,7 +534,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#api-graphnet-models-components-layers--page-root" class="md-nav__link">layers</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -564,11 +572,11 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="module-graphnet.models.components.layers">
-<span id="layers"></span><h1 id="api-graphnet-models-components-layers--page-root">layers<a class="headerlink" href="#api-graphnet-models-components-layers--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="layers"></span><h1 id="api-graphnet-models-components-layers--page-root">layers<a class="headerlink" href="#api-graphnet-models-components-layers--page-root" title="Link to this heading">¶</a></h1>
 <p>Class(es) implementing layers to be used in <cite>graphnet</cite> models.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.models.components.layers.DynEdgeConv">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.components.layers.</span></span><span class="sig-name descname"><span class="pre">DynEdgeConv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_neighbors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features_subset</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#DynEdgeConv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.DynEdgeConv" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.components.layers.</span></span><span class="sig-name descname"><span class="pre">DynEdgeConv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nb_neighbors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features_subset</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#DynEdgeConv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.DynEdgeConv" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeConv</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LightningModule</span></code></p>
 <p>Dynamical edge convolution layer.</p>
 <p>Construct <cite>DynEdgeConv</cite>.</p>
@@ -588,7 +596,7 @@ when dynamically performing the new graph clustering after the
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.models.components.layers.DynEdgeConv.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#DynEdgeConv.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.DynEdgeConv.forward" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#DynEdgeConv.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.DynEdgeConv.forward" title="Link to this definition">¶</a></dt>
 <dd><p>Forward pass.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -606,7 +614,7 @@ when dynamically performing the new graph clustering after the
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.models.components.layers.EdgeConvTito">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.components.layers.</span></span><span class="sig-name descname"><span class="pre">EdgeConvTito</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#EdgeConvTito"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.EdgeConvTito" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.components.layers.</span></span><span class="sig-name descname"><span class="pre">EdgeConvTito</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#EdgeConvTito"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.EdgeConvTito" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MessagePassing</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LightningModule</span></code></p>
 <p>Implementation of EdgeConvTito layer used in TITO solution for.</p>
 <p>‘IceCube - Neutrinos in Deep’ kaggle competition.</p>
@@ -622,7 +630,7 @@ when dynamically performing the new graph clustering after the
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.models.components.layers.EdgeConvTito.reset_parameters">
-<span class="sig-name descname"><span class="pre">reset_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#EdgeConvTito.reset_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.EdgeConvTito.reset_parameters" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset_parameters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#EdgeConvTito.reset_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.EdgeConvTito.reset_parameters" title="Link to this definition">¶</a></dt>
 <dd><p>Reset all learnable parameters of the module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -632,7 +640,7 @@ when dynamically performing the new graph clustering after the
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.models.components.layers.EdgeConvTito.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#EdgeConvTito.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.EdgeConvTito.forward" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#EdgeConvTito.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.EdgeConvTito.forward" title="Link to this definition">¶</a></dt>
 <dd><p>Forward pass.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -648,7 +656,7 @@ when dynamically performing the new graph clustering after the
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.models.components.layers.EdgeConvTito.message">
-<span class="sig-name descname"><span class="pre">message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_j</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#EdgeConvTito.message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.EdgeConvTito.message" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_j</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#EdgeConvTito.message"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.EdgeConvTito.message" title="Link to this definition">¶</a></dt>
 <dd><p>Edgeconvtito message passing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -665,7 +673,7 @@ when dynamically performing the new graph clustering after the
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.models.components.layers.DynTrans">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.components.layers.</span></span><span class="sig-name descname"><span class="pre">DynTrans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer_sizes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features_subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_head</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#DynTrans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.DynTrans" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.models.components.layers.</span></span><span class="sig-name descname"><span class="pre">DynTrans</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">layer_sizes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aggr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features_subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_head</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#DynTrans"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.DynTrans" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.models.components.layers.EdgeConvTito" title="graphnet.models.components.layers.EdgeConvTito"><code class="xref py py-class docutils literal notranslate"><span class="pre">EdgeConvTito</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">LightningModule</span></code></p>
 <p>Implementation of dynTrans1 layer used in TITO solution for.</p>
 <p>‘IceCube - Neutrinos in Deep’ kaggle competition.</p>
@@ -686,7 +694,7 @@ when dynamically performing the new graph clustering after the
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.models.components.layers.DynTrans.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#DynTrans.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.DynTrans.forward" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/components/layers.html#DynTrans.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.components.layers.DynTrans.forward" title="Link to this definition">¶</a></dt>
 <dd><p>Forward pass.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -723,7 +731,7 @@ when dynamically performing the new graph clustering after the
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> components </span>
+                      class="md-footer-nav__direction"> "Previous" </span> components </span>
               </div>
             </a>
           
@@ -733,7 +741,7 @@ when dynamically performing the new graph clustering after the
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> pool </span>
+                class="md-footer-nav__direction"> "Next" </span> pool </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -751,7 +759,7 @@ when dynamically performing the new graph clustering after the
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

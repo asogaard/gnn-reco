@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -111,12 +111,20 @@
     background: rgba(0,0,0,0.03);
   }
 
+  #eu-emblem {
+    margin: 0;
+  }
+
+  #eu-emblem figcaption {
+    display: none;
+  }
+
 </style>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=e7352e39" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../_static/favicon.svg"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -169,7 +177,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" action="../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -467,7 +475,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="module-graphnet.utilities.config">
-<span id="config"></span><h1 id="api-graphnet-utilities-config--page-root">config<a class="headerlink" href="#api-graphnet-utilities-config--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="config"></span><h1 id="api-graphnet-utilities-config--page-root">config<a class="headerlink" href="#api-graphnet-utilities-config--page-root" title="Link to this heading">¶</a></h1>
 <p>Modules for configuration files for use across <cite>graphnet</cite>.</p>
 <p><h2> Submodules </h2></p>
 <div class="toctree-wrapper compound">
@@ -484,11 +492,15 @@
 <li class="toctree-l1"><a class="reference internal" href="graphnet.utilities.config.dataset_config.html">dataset_config</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.dataset_config.html#graphnet.utilities.config.dataset_config.DatasetConfig"><code class="docutils literal notranslate"><span class="pre">DatasetConfig</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.dataset_config.html#graphnet.utilities.config.dataset_config.save_dataset_config"><code class="docutils literal notranslate"><span class="pre">save_dataset_config()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.dataset_config.html#graphnet.utilities.config.dataset_config.DatasetConfigSaverMeta"><code class="docutils literal notranslate"><span class="pre">DatasetConfigSaverMeta</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.dataset_config.html#graphnet.utilities.config.dataset_config.DatasetConfigSaverABCMeta"><code class="docutils literal notranslate"><span class="pre">DatasetConfigSaverABCMeta</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="graphnet.utilities.config.model_config.html">model_config</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.model_config.html#graphnet.utilities.config.model_config.ModelConfig"><code class="docutils literal notranslate"><span class="pre">ModelConfig</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.model_config.html#graphnet.utilities.config.model_config.save_model_config"><code class="docutils literal notranslate"><span class="pre">save_model_config()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.model_config.html#graphnet.utilities.config.model_config.ModelConfigSaverMeta"><code class="docutils literal notranslate"><span class="pre">ModelConfigSaverMeta</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="graphnet.utilities.config.model_config.html#graphnet.utilities.config.model_config.ModelConfigSaverABC"><code class="docutils literal notranslate"><span class="pre">ModelConfigSaverABC</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="graphnet.utilities.config.parsing.html">parsing</a><ul>
@@ -527,7 +539,7 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> utilities </span>
+                      class="md-footer-nav__direction"> "Previous" </span> utilities </span>
               </div>
             </a>
           
@@ -537,7 +549,7 @@
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> base_config </span>
+                class="md-footer-nav__direction"> "Next" </span> base_config </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -555,7 +567,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.1.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
